@@ -14,6 +14,7 @@ import Link from "next/link";
 import { countryById } from "@/data/countries";
 import { formatDateRange } from "@/lib/utils";
 import { Badge } from "@/components/ui/Badge";
+import { asset } from "@/lib/asset-path";
 
 export default function EditionsPage() {
   const [filters, setFilters] = useState<FilterState>({});
@@ -41,7 +42,7 @@ export default function EditionsPage() {
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-6">
         <div className="flex items-center gap-5 max-w-3xl">
           <Image
-            src="/logos/ace-logo.png"
+            src={asset("/logos/ace-logo.png")}
             alt="ACE — Americas Competitiveness Exchange"
             width={140}
             height={140}

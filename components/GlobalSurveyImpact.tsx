@@ -6,6 +6,7 @@ import { allSurveys, type SurveyData } from "@/data/surveys";
 import { editions, editionById } from "@/data/editions";
 import { participants } from "@/data/participants";
 import { editionRegion, canonicalCountry } from "@/lib/utils";
+import { asset } from "@/lib/asset-path";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
@@ -328,7 +329,7 @@ export function GlobalSurveyImpact() {
                   {...ANIMATION}
                   onClick={(d: { editionId?: string }) => {
                     if (typeof window !== "undefined" && d.editionId) {
-                      window.location.href = `/editions/${d.editionId}`;
+                      window.location.href = asset(`/editions/${d.editionId}`);
                     }
                   }}
                   style={{ cursor: "pointer" }}

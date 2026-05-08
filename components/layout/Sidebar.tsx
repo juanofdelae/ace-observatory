@@ -16,6 +16,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { asset } from "@/lib/asset-path";
 import { useEffect } from "react";
 
 interface NavItem {
@@ -116,7 +117,7 @@ export function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) {
             onClick={onCloseMobile}
           >
             <Image
-              src="/logos/ace-logo.png"
+              src={asset("/logos/ace-logo.png")}
               alt="ACE logo"
               width={120}
               height={120}

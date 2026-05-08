@@ -11,6 +11,7 @@ import { states } from "@/data/states";
 import { ATLAS_COLORS } from "./mapStyles";
 import { ArrowLeft } from "lucide-react";
 import { formatDateRange } from "@/lib/utils";
+import { asset } from "@/lib/asset-path";
 
 // Maps internal country IDs (lowercase ISO-2) to the ISO-3 codes used as the
 // top-level `id` field of features in `/public/countries.geo.json`.
@@ -190,7 +191,7 @@ export function EditionsPosterMap() {
                     },
                     click: () => {
                       if (eds.length === 1) {
-                        window.location.href = `/editions/${eds[0].id}`;
+                        window.location.href = asset(`/editions/${eds[0].id}`);
                       }
                     },
                   });
@@ -231,7 +232,7 @@ export function EditionsPosterMap() {
                     },
                     click: () => {
                       if (stateEds.length === 1) {
-                        window.location.href = `/editions/${stateEds[0].id}`;
+                        window.location.href = asset(`/editions/${stateEds[0].id}`);
                       }
                     },
                   });
@@ -253,7 +254,7 @@ export function EditionsPosterMap() {
                 }}
                 eventHandlers={{
                   click: () => {
-                    window.location.href = `/editions/${e.id}`;
+                    window.location.href = asset(`/editions/${e.id}`);
                   },
                 }}
               >

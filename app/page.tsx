@@ -20,6 +20,7 @@ import { KPIGrid, KPICard } from "@/components/KPICard";
 import { Button } from "@/components/ui/Button";
 import { editions } from "@/data/editions";
 import { editionRegion } from "@/lib/utils";
+import { asset } from "@/lib/asset-path";
 import { visitedSites } from "@/data/visited-sites";
 import { sectors } from "@/data/sectors";
 import { cityById } from "@/data/cities";
@@ -349,7 +350,7 @@ export default function OverviewPage() {
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-ink flex items-center justify-center">
               <Image
-                src="/logos/ace-logo.png"
+                src={asset("/logos/ace-logo.png")}
                 alt="ACE"
                 width={28}
                 height={28}

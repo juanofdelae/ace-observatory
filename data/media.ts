@@ -1,9 +1,10 @@
 import type { MediaResource } from "@/types";
+import { asset } from "@/lib/asset-path";
 
 // Media resources linked to each edition.
 // `url` typically points to the local /public asset copied from /Branding_ACE.
 // Thumbnails use the same asset unless a lighter variant is needed.
-export const media: MediaResource[] = [
+const mediaRaw: MediaResource[] = [
   // Hero edition photos (real imagery from /Branding_ACE/imagenes/ + /editions/)
   { id: "media-ace1-photos", title: "ACE I — Southeast US — Photo album", type: "photo", editionId: "ace-1-southeast-2014", year: 2014, thumbnailUrl: "/editions/ACE1.jpg", url: "/editions/ACE1.jpg", description: "Highlights from ACE I across Georgia, North Carolina and South Carolina." },
   { id: "media-ace1-report", title: "ACE I — Final Report", type: "report", editionId: "ace-1-southeast-2014", year: 2014, thumbnailUrl: "/editions/ACE1.jpg", url: "#", description: "Final report — placeholder." },
@@ -41,6 +42,12 @@ export const media: MediaResource[] = [
   { id: "media-event-4", title: "Group photo", type: "photo", editionId: "ace-18-michigan-2024", year: 2024, thumbnailUrl: "/photos/53480799916_dcd4ac1198_c.jpg", url: "/photos/53480799916_dcd4ac1198_c.jpg", description: "Delegation group photo." },
   { id: "media-event-5", title: "Keynote", type: "photo", editionId: "ace-20-illinois-2025", year: 2025, thumbnailUrl: "/photos/54569310567_67bd39dce9_b.jpg", url: "/photos/54569310567_67bd39dce9_b.jpg", description: "Keynote session." },
 ];
+
+export const media: MediaResource[] = mediaRaw.map(m => ({
+  ...m,
+  thumbnailUrl: m.thumbnailUrl ? asset(m.thumbnailUrl) : m.thumbnailUrl,
+  url: m.url ? asset(m.url) : m.url,
+}));
 
 export const mediaById = (id: string) => media.find(m => m.id === id);
 export const mediaByEdition = (editionId: string) => media.filter(m => m.editionId === editionId);

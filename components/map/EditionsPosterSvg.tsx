@@ -8,6 +8,7 @@ import { cityById } from "@/data/cities";
 import { states as statesData } from "@/data/states";
 import { ATLAS_COLORS } from "./mapStyles";
 import { formatDateRange, editionRegion } from "@/lib/utils";
+import { asset } from "@/lib/asset-path";
 
 // --- Projection -----------------------------------------------------------
 // Web Mercator projected into a fixed viewBox. Mercator preserves country
@@ -427,7 +428,7 @@ export function EditionsPosterSvg() {
                       e => e.countryId === countryId && !SPECIAL_EDITIONS.includes(e.id),
                     );
                     if (eds.length === 1) {
-                      window.location.href = `/editions/${eds[0].id}`;
+                      window.location.href = asset(`/editions/${eds[0].id}`);
                     }
                   }}
                 >
@@ -455,7 +456,7 @@ export function EditionsPosterSvg() {
                     if (!state) return;
                     const eds = editions.filter(e => e.stateId === state.id);
                     if (eds.length === 1) {
-                      window.location.href = `/editions/${eds[0].id}`;
+                      window.location.href = asset(`/editions/${eds[0].id}`);
                     }
                   }}
                 >
@@ -537,7 +538,7 @@ export function EditionsPosterSvg() {
                   className="cursor-pointer"
                   onMouseEnter={() => setHovered(`marker-${city.id}`)}
                   onMouseLeave={() => setHovered(null)}
-                  onClick={() => { window.location.href = `/editions/${e.id}`; }}
+                  onClick={() => { window.location.href = asset(`/editions/${e.id}`); }}
                 >
                   {stacked && (
                     <circle
@@ -640,7 +641,7 @@ export function EditionsPosterSvg() {
                   {/* Card 1 — ACE 9, Germany & Israel */}
                   <g
                     className="cursor-pointer"
-                    onClick={() => { window.location.href = "/editions/ace-9-germany-israel-2018"; }}
+                    onClick={() => { window.location.href = asset("/editions/ace-9-germany-israel-2018"); }}
                   >
                     <path
                       d={projectToRect(de.geometry, card1X, INSET_Y + 70, 90, 76)}
@@ -702,7 +703,7 @@ export function EditionsPosterSvg() {
                   {/* Card 2 — ACE 19, Armenia */}
                   <g
                     className="cursor-pointer"
-                    onClick={() => { window.location.href = "/editions/ace-19-armenia-2024"; }}
+                    onClick={() => { window.location.href = asset("/editions/ace-19-armenia-2024"); }}
                   >
                     <path
                       d={projectToRect(am.geometry, card2X, INSET_Y + 70, 130, 76)}

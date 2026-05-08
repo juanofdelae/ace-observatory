@@ -18,6 +18,7 @@ import { reports } from "@/data/reports";
 import { cityById } from "@/data/cities";
 import { countryById } from "@/data/countries";
 import { cn } from "@/lib/utils";
+import { asset } from "@/lib/asset-path";
 
 /**
  * OverviewInsightRail — right contextual rail on the Overview, in the
@@ -168,7 +169,7 @@ export function OverviewInsightRail() {
           >
             <div className="relative w-20 h-16 rounded-xl overflow-hidden shrink-0 bg-white border border-surface-border flex items-center justify-center p-1.5">
               <Image
-                src={latestCompleted.heroImage || "/logos/ace-logo.png"}
+                src={latestCompleted.heroImage || asset("/logos/ace-logo.png")}
                 alt={latestCompleted.name}
                 fill
                 sizes="80px"
@@ -205,7 +206,7 @@ export function OverviewInsightRail() {
           >
             <div className="relative w-20 h-16 rounded-xl overflow-hidden shrink-0 bg-white border border-surface-border flex items-center justify-center p-1.5">
               <Image
-                src={upcoming.heroImage || "/logos/ace-logo.png"}
+                src={upcoming.heroImage || asset("/logos/ace-logo.png")}
                 alt={upcoming.name}
                 fill
                 sizes="80px"

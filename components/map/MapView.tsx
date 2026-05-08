@@ -13,15 +13,16 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import type { Coordinates } from "@/types";
+import { asset } from "@/lib/asset-path";
 
 // Fix Leaflet's default marker icon paths for Next.js bundler.
 // (react-leaflet 4 + Next.js needs explicit icon URLs.)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "/leaflet/marker-icon-2x.png",
-  iconUrl: "/leaflet/marker-icon.png",
-  shadowUrl: "/leaflet/marker-shadow.png",
+  iconRetinaUrl: asset("/leaflet/marker-icon-2x.png"),
+  iconUrl: asset("/leaflet/marker-icon.png"),
+  shadowUrl: asset("/leaflet/marker-shadow.png"),
 });
 
 export interface MapPoint {

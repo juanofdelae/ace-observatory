@@ -1,10 +1,11 @@
 import type { Edition } from "@/types";
+import { asset } from "@/lib/asset-path";
 
 // The 23 ACE editions from 2014 → 2026. Numbers, cities, countries and dates
 // are extracted from official ACE content. Counts (participants, sites, etc.)
 // are illustrative for the MVP — marked isSample where the detail rosters are
 // not wired to the real CSV alumni data yet.
-export const editions: Edition[] = [
+const editionsRaw: Edition[] = [
   {
     id: "ace-1-southeast-2014",
     number: 1,
@@ -503,6 +504,18 @@ export const editions: Edition[] = [
     isSample: false, // real edition — participants will load from Memphis JSON
   },
 ];
+
+// Post-process every Edition's asset paths through the basePath
+// helper so consumers always render production-ready URLs.
+export const editions: Edition[] = editionsRaw.map(e => ({
+  ...e,
+  heroImage: e.heroImage ? asset(e.heroImage) : e.heroImage,
+  links: {
+    ...e.links,
+    finalReport: e.links.finalReport ? asset(e.links.finalReport) : e.links.finalReport,
+    tripBook: e.links.tripBook ? asset(e.links.tripBook) : e.links.tripBook,
+  },
+}));
 
 export const editionById = (id: string) => editions.find(e => e.id === id);
 export const editionsByCountry = (countryId: string) => editions.filter(e => e.countryId === countryId);

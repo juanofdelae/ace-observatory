@@ -3,6 +3,8 @@
 // /reports/[id]. All numbers below are extracted verbatim from the source
 // PDF unless explicitly flagged as `sample` or `pending_verification`.
 
+import { asset } from "@/lib/asset-path";
+
 export type ReportVerificationStatus =
   | "extracted_from_report"
   | "sample"
@@ -100,7 +102,7 @@ export interface ACEReport {
   testimonials: ReportTestimonial[];
 }
 
-export const reports: ACEReport[] = [
+const reportsRaw: ACEReport[] = [
   {
     id: "ace-cordoba-2025",
     editionId: "ace-22-cordoba-2025",
@@ -2088,6 +2090,13 @@ export const reports: ACEReport[] = [
     ],
   },
 ];
+
+// Prefix the basePath onto sourcePdf so PDF download links resolve
+// under /ACE/observatory/documents/* in production.
+export const reports: ACEReport[] = reportsRaw.map(r => ({
+  ...r,
+  sourcePdf: r.sourcePdf ? asset(r.sourcePdf) : r.sourcePdf,
+}));
 
 export const reportById = (id: string) => reports.find(r => r.id === id);
 export const reportsByEdition = (editionId: string) =>

@@ -18,6 +18,7 @@ import {
 } from "recharts";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { GlobalSurveyImpact } from "@/components/GlobalSurveyImpact";
+import { asset } from "@/lib/asset-path";
 import {
   FileSignature, CheckCircle2, AlertCircle, ArrowRight, Sparkles,
   Users, ThumbsUp, Globe2, BarChart3, Handshake, Quote as QuoteIcon,
@@ -610,7 +611,7 @@ export default function ImpactPage() {
                             animationDuration={900}
                             onClick={(d: { reportId?: string }) => {
                               if (typeof window !== "undefined" && d.reportId) {
-                                window.location.href = `/reports/${d.reportId}`;
+                                window.location.href = asset(`/reports/${d.reportId}`);
                               }
                             }}
                             style={{ cursor: "pointer" }}

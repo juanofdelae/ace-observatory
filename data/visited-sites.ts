@@ -1,6 +1,7 @@
 import type { VisitedSite } from "@/types";
 import autoSitesRaw from "./_visited-sites-auto.json";
 import wave2SitesRaw from "./_visited-sites-wave2.json";
+import { asset } from "@/lib/asset-path";
 
 // --- Hand-curated visited sites ----------------------------------------
 // The entries below are hand-authored (with accurate lat/lng, stateId,
@@ -141,7 +142,10 @@ export const visitedSites: VisitedSite[] = [
   ...curatedSites,
   ...wave2Sites.filter(s => !curatedKeys.has(nameKey(s.name))),
   ...autoSites.filter(s => !curatedKeys.has(nameKey(s.name)) && !wave2Keys.has(nameKey(s.name))),
-];
+].map(s => ({
+  ...s,
+  image: s.image ? asset(s.image) : s.image,
+}));
 
 export const siteById = (id: string) => visitedSites.find(s => s.id === id);
 export const sitesByCity = (cityId: string) => visitedSites.filter(s => s.cityId === cityId);

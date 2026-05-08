@@ -7,6 +7,7 @@ import { cityById } from "@/data/cities";
 import { participantsByEdition } from "@/data/participants";
 import { Badge } from "@/components/ui/Badge";
 import { MapPin, Calendar, Users, ArrowUpRight } from "lucide-react";
+import { asset } from "@/lib/asset-path";
 
 /**
  * EditionCard — premium tablet-style panel.
@@ -21,7 +22,7 @@ import { MapPin, Calendar, Users, ArrowUpRight } from "lucide-react";
 export function EditionCard({ edition }: { edition: Edition }) {
   const country = countryById(edition.countryId);
   const mainCity = edition.cityIds[0] ? cityById(edition.cityIds[0]) : undefined;
-  const hero = edition.heroImage || "/logos/ace-logo.png";
+  const hero = edition.heroImage || asset("/logos/ace-logo.png");
   const participantCount = participantsByEdition(edition.id).length;
 
   return (

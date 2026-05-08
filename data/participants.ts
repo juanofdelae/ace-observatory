@@ -4,6 +4,7 @@ import historicalRaw from "./_historical-participants.json";
 import { countryByName } from "./countries";
 import { organizations } from "./organizations";
 import { slugify } from "@/lib/utils";
+import { asset } from "@/lib/asset-path";
 
 // Map ACE Memphis 2026 `sectors` labels → canonical ActorType enum.
 function mapActorType(sectors: string[] | null | undefined): ActorType {
@@ -363,7 +364,9 @@ function sortByRecencyThenCount(list: Participant[]): Participant[] {
   });
 }
 
-export const participants: Participant[] = dedupeByName([...memphisParticipants, ...historicalAlumni]);
+export const participants: Participant[] = dedupeByName(
+  [...memphisParticipants, ...historicalAlumni],
+).map(p => ({ ...p, photoUrl: p.photoUrl ? asset(p.photoUrl) : undefined }));
 
 export const participantById = (id: string) => participants.find(p => p.id === id);
 export const participantsByCountry = (countryId: string) => participants.filter(p => p.countryId === countryId);
