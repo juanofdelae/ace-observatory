@@ -45,18 +45,29 @@ jobs:
           test -f out/.htaccess || (echo "::error::out/.htaccess missing" && exit 1)
           echo "out/ size: $(du -sh out/ | cut -f1)"
 
-      # Pure SFTP upload using password auth — works with shared
-      # hosting that exposes SFTP on port 22 (or whatever SFTP_PORT
-      # is set to). On the first run this uploads ~700 MB and takes
-      # 10–20 minutes. Subsequent runs upload only changed files.
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # Incremental FTPS upload — works with cPanel-style shared
+      # hosting (port 21 + TLS). Only changed files are pushed on
+      # subsequent runs, so deploys after the first 700 MB upload
+      # take 1–2 minutes. The `exclude` block below preserves the
+      # /documents folder (manually uploaded PDFs, ~500 MB) so the
+      # sync never deletes or re-uploads them.
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.SFTP_HOST }}
-          port: ${{ vars.SFTP_PORT || '22' }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "./out/*"
-          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
-          sftp_only: true
-          delete_remote_files: false
+          server-dir: ${{ secrets.SFTP_REMOTE_PATH }}/
+          local-dir: ./out/
+          protocol: ftps
+          port: 21
+          # Belt-and-braces: never touch the manually-uploaded PDFs,
+          # the .well-known SSL cert dir, or anything outside our
+          # build output that the host might add.
+          exclude: |
+            **/documents/**
+            documents/**
+            **/.well-known/**
+            .well-known/**
+            **/.git/**
+            **/node_modules/**
