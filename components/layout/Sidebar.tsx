@@ -199,7 +199,7 @@ export function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) {
             Last updated
           </div>
           <div className="mt-1 text-[13px] font-bold text-white tracking-tight">
-            April 26, 2026
+            May 8, 2026
           </div>
           <div className="mt-2 flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-sidebar-accent" />
