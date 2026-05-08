@@ -1,0 +1,204 @@
+[
+  {
+    "name": "Paul Young",
+    "title": "Mayor",
+    "organization": "City of Memphis",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-paul-young.jpg",
+    "type": "organizer"
+  },
+  {
+    "name": "Joann Massey",
+    "title": "President & CEO",
+    "organization": "EDGE Economic Development Growth Engine for Memphis & Shelby County",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-joann-massey.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Mairi Albertson",
+    "title": "Chief of Staff",
+    "organization": "City of Memphis",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-mairi-albertson.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Penelope Huston",
+    "title": "Chief Communications Officer",
+    "organization": "City of Memphis",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-penelope-huston.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Vanessa Delgadillo",
+    "title": "Special Assistant to Mayor Young",
+    "organization": "City of Memphis",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-vanessa-delgadillo.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Queen Keskessa",
+    "title": "Community Outreach Manager, Multicultural Affairs",
+    "organization": "City of Memphis",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-queen-keskessa.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Andre Fowlkes",
+    "title": "President",
+    "organization": "Start Co.",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-andre-fowlkes.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Leann Grabski",
+    "title": "Program Director",
+    "organization": "Start Co.",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-leann-grabski.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Beth Wilson",
+    "title": "",
+    "organization": "City of Memphis",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "",
+    "type": "organizer"
+  },
+  {
+    "name": "Gremesha Session",
+    "title": "Chief Marketing Officer, EDGE",
+    "organization": "EDGE Economic Development Growth Engine for Memphis & Shelby County",
+    "section": "City of Memphis & Host Organizations",
+    "photo": "assets/photo-gremesha-session-v2.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Julianna Aynes-Neville",
+    "title": "Development Counselor",
+    "organization": "Permanent Mission of the United States to the OAS, U.S. Department of State",
+    "section": "Government of the United States",
+    "photo": "assets/org-julianna.jpg",
+    "type": "organizer"
+  },
+  {
+    "name": "Mitchell Harrison",
+    "title": "ACE Program Coordinator",
+    "organization": "Economic Development Administration (EDA), U.S. Department of Commerce",
+    "section": "Government of the United States",
+    "photo": "assets/org-mitchell.jpeg",
+    "type": "organizer"
+  },
+  {
+    "name": "Barbara Kotschwar",
+    "title": "Director, Department of Economic Development",
+    "organization": "Organization of American States",
+    "section": "Organization of American States",
+    "photo": "assets/org-barbara.png",
+    "type": "organizer"
+  },
+  {
+    "name": "César Parga",
+    "title": "Chief, Competitiveness, Innovation and Technology Section",
+    "organization": "Department of Economic Development, OAS",
+    "section": "Organization of American States",
+    "photo": "assets/org-cesar.png",
+    "type": "organizer"
+  },
+  {
+    "name": "Cristina Solís",
+    "title": "Coordinator, Americas Competitiveness Exchange (ACE)",
+    "organization": "Organization of American States",
+    "section": "Organization of American States",
+    "photo": "assets/org-cristina.png",
+    "type": "organizer"
+  },
+  {
+    "name": "Effy Gómez",
+    "title": "Research, Design and Content Development Assistant, ACE Program",
+    "organization": "Organization of American States",
+    "section": "Organization of American States",
+    "photo": "assets/org-effy.png",
+    "type": "organizer"
+  },
+  {
+    "name": "Juan Sebastián Fonseca",
+    "title": "Multimedia Designer, Web & Video Production, ACE Program",
+    "organization": "Organization of American States",
+    "section": "Organization of American States",
+    "photo": "assets/org-juanse.png",
+    "type": "organizer"
+  },
+  {
+    "name": "Natasha Main",
+    "title": "Co-Founder",
+    "organization": "Innovation Exchange Coalition (IEC)",
+    "section": "Innovation Exchange Coalition (IEC)",
+    "photo": "assets/photo-natasha-main.png",
+    "type": "organizer"
+  },
+  {
+    "name": "Ryan Ramkhelawan",
+    "title": "Co-Founder",
+    "organization": "Innovation Exchange Coalition (IEC)",
+    "section": "Innovation Exchange Coalition (IEC)",
+    "photo": "assets/photo-ryan-ramkhelawan.png",
+    "type": "organizer"
+  },
+  {
+    "name": "H.E. Leandro Rizzuto",
+    "title": "Ambassador",
+    "organization": "Permanent Mission of the United States to the OAS",
+    "section": "Special Guest",
+    "photo": "assets/photo-leandro-rizzuto.jpg",
+    "country": "United States",
+    "flag": "assets/flag-united-states.png",
+    "type": "guest"
+  },
+  {
+    "name": "Andrés Robalino",
+    "title": "Vice Minister of Production and Industries",
+    "organization": "Ministry of Production, Foreign Trade and Investments",
+    "section": "Special Guest",
+    "photo": "assets/photo-andres-robalino.png",
+    "country": "Ecuador",
+    "flag": "assets/flag-ecuador.png",
+    "type": "guest"
+  },
+  {
+    "name": "H.E. Raul Florentin Antola",
+    "title": "Ambassador",
+    "organization": "Permanent Mission of Paraguay to the OAS",
+    "section": "Special Guest",
+    "photo": "assets/photo-raul-florentin.jpg",
+    "country": "Paraguay",
+    "flag": "assets/flag-paraguay.png",
+    "type": "guest"
+  },
+  {
+    "name": "Alberto Sborovsky",
+    "title": "Vice Minister of Trade and Services",
+    "organization": "Ministry of Industry and Commerce of Paraguay",
+    "section": "Special Guest",
+    "photo": "assets/photo-alberto-sborovsky.jpg",
+    "country": "Paraguay",
+    "flag": "assets/flag-paraguay.png",
+    "type": "guest"
+  },
+  {
+    "name": "H.E. Edison Lanza",
+    "title": "Ambassador",
+    "organization": "Permanent Mission of Uruguay to OAS",
+    "section": "Special Guest",
+    "photo": "assets/photo-edison-lanza.jpeg",
+    "country": "Uruguay",
+    "flag": "assets/flag-uruguay.png",
+    "type": "guest"
+  }
+]

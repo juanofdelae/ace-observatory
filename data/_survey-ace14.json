@@ -1,0 +1,468 @@
+{
+  "editionId": "ace-14-louisiana-2022",
+  "totalResponses": 47,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 28,
+        "pct": 59.6
+      },
+      {
+        "label": "Above Expectations",
+        "count": 15,
+        "pct": 31.9
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 4,
+        "pct": 8.5
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 47,
+    "mean": 1.49
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 1.36,
+      "levels": {
+        "Very Poor": 34,
+        "Poor": 10,
+        "Neutral": 2,
+        "Good": 1,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 1.53,
+      "levels": {
+        "Very Poor": 29,
+        "Poor": 12,
+        "Neutral": 5,
+        "Good": 1,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 1.28,
+      "levels": {
+        "Very Poor": 37,
+        "Poor": 8,
+        "Neutral": 1,
+        "Good": 1,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 1.26,
+      "levels": {
+        "Very Poor": 38,
+        "Poor": 6,
+        "Neutral": 3,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Hotels",
+      "mean": 1.89,
+      "levels": {
+        "Very Poor": 20,
+        "Poor": 13,
+        "Neutral": 13,
+        "Good": 1,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 1.06,
+      "levels": {
+        "Very Poor": 45,
+        "Poor": 1,
+        "Neutral": 1,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Topics/themes",
+      "mean": 1.43,
+      "levels": {
+        "Very Poor": 30,
+        "Poor": 14,
+        "Neutral": 3,
+        "Good": 0,
+        "Very Good": 0
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 46,
+        "pct": 97.9
+      },
+      {
+        "label": "Maybe",
+        "count": 1,
+        "pct": 2.1
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 47,
+    "mean": 1.02
+  },
+  "knowledgeScope": [],
+  "programImpact": [],
+  "connectionsCount": {
+    "mean": 0.0,
+    "median": 0,
+    "total": 0,
+    "buckets": []
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 0,
+      "mean": 0.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 0,
+      "mean": 0.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "Mexico",
+      "count": 6,
+      "pct": 14.6
+    },
+    {
+      "country": "United States",
+      "count": 6,
+      "pct": 14.6
+    },
+    {
+      "country": "Ecuador",
+      "count": 3,
+      "pct": 7.3
+    },
+    {
+      "country": "Guatemala",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "Jamaica",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "Argentina",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "Panama",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "Saudi Arabia",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "Brasil",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "USA",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "Colombia",
+      "count": 2,
+      "pct": 4.9
+    },
+    {
+      "country": "Dominican Republic",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "Costa Rica",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "URuguay",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "Canada",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "Germany",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "Trinidad & Tobago",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "El Salvador",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "Barbados",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "Saint Lucia",
+      "count": 1,
+      "pct": 2.4
+    },
+    {
+      "country": "USA & México",
+      "count": 1,
+      "pct": 2.4
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7. Would",
+      "name": "Julio Eduardo Orozco Perez",
+      "country": "Guatemala",
+      "text": "With contacts that do have the potential to carry out joint collaboration actions both in the commercial aspect and in research and study"
+    },
+    {
+      "question": "7. Would",
+      "name": "Fausto Gerardo Gurrea Martinez",
+      "country": "Mexico",
+      "text": "I will develop a proposal to the federal government, led by the private sector, to organize the economic development of Mexico. Mapping the productivity vocations of different regions and enabling a system for economic developmente at the city, state and federal levels."
+    },
+    {
+      "question": "7. Would",
+      "name": "Charah Watson",
+      "country": "Jamaica",
+      "text": "Apart from the specific opportunities for collaboration on research projects, the main take away for me is to be audacious with our goals. The practice of planning 10-20 year cycle is one I will definitely be taking back to practice."
+    },
+    {
+      "question": "7. Would",
+      "name": "Douglas Ovalle",
+      "country": "Guatemala",
+      "text": "ACE helped me to grow my business knowledge, but especially helped me to grow as a person. With all that knowledge and experience acquired, need to help my peers and transfer the knowledge and experience to them"
+    },
+    {
+      "question": "7. Would",
+      "name": "Courtney Stuckwisch Wong",
+      "country": "United States",
+      "text": "Deepens relationships and potential collaborations with other economic development partners in the region such as NOBIC, GNO, Inc, NOLABA, Ashe Cultural Arts Center, and many more."
+    },
+    {
+      "question": "8",
+      "name": "Julio Eduardo Orozco Perez",
+      "country": "Guatemala",
+      "text": "Alliance with the University of Lafayette / Research Center - Possible commercial contact for export of groceries - Possibilities for Guatemalan workers to support companies under the H-2B Visa program"
+    },
+    {
+      "question": "8",
+      "name": "Charah Watson",
+      "country": "Jamaica",
+      "text": "Xavier university President Dr Vertte for research collab and Dr Mackie for STEM Jamaica collab were strong leads. There are a few others that I will be following up on."
+    },
+    {
+      "question": "8",
+      "name": "Douglas Ovalle",
+      "country": "Guatemala",
+      "text": "Potential MOU’s with BRAC, LED, U of L, government of Lafayette. Potential Business deals with Safe Source Direct and LAMAR"
+    },
+    {
+      "question": "8",
+      "name": "Courtney Stuckwisch Wong",
+      "country": "United States",
+      "text": "Our office may attend a tech event in Canada that one of the delegates invited us to. As tech is an industry we want to keep development, this is really exciting."
+    },
+    {
+      "question": "8",
+      "name": "Alexander Winer",
+      "country": "Mexico",
+      "text": "Colombia (gov advisory, soft landing for audiovisual productions, knowledge sharing) -Advano (comercialization of specific product) -University of Louisiana for platform creation. -University of Louisiana for research programs."
+    },
+    {
+      "question": "12",
+      "name": "Julio Eduardo Orozco Perez",
+      "country": "Guatemala",
+      "text": "Support the PPE manufacturing company that needs workers for its plant / H-2B Visa Program"
+    },
+    {
+      "question": "12",
+      "name": "Fausto Gerardo Gurrea Martinez",
+      "country": "Mexico",
+      "text": "Boosting economic growth in México. I will develop a proposal to the federal government, led by the private sector, to organize the economic development of Mexico. Mapping the productivity vocations of different regions and enabling a system for economic developmente at the city, state and federal levels. (ex. Manufacturing in the north, agribusiness in the south, tourism in the coasts, automotive in the center)"
+    },
+    {
+      "question": "12",
+      "name": "Douglas Ovalle",
+      "country": "Guatemala",
+      "text": "A Trade mission of Louisiana companies to Guatemala"
+    },
+    {
+      "question": "12",
+      "name": "Courtney Stuckwisch Wong",
+      "country": "United States",
+      "text": "It was great to be able to tell the stories of our region and our priorities and strategies to the delegation. I would like to find better ways to tell those same stories to our citizens in New Orleans, and especially our young people, so that they can be informal ambassadors, too."
+    },
+    {
+      "question": "12",
+      "name": "Alexander Winer",
+      "country": "Mexico",
+      "text": "With the University of Louisiana to cocreate a platform to meassure the footprint of specific sectors and the commercialization of technology developed in the institution."
+    },
+    {
+      "question": "14",
+      "name": "Julio Eduardo Orozco Perez",
+      "country": "Guatemala",
+      "text": "The panel with women entrepreneurs and the businessmen of the induction of music, cinema and computer science"
+    },
+    {
+      "question": "14",
+      "name": "Fausto Gerardo Gurrea Martinez",
+      "country": "Mexico",
+      "text": "Yes. Most panels included aspects of inclusion and equity. This was very impresive. We need to see this more frequently in other geographies."
+    },
+    {
+      "question": "14",
+      "name": "Douglas Ovalle",
+      "country": "Guatemala",
+      "text": "It is a fact that we need to open business spaces to women, youth and minorities, but also is a fact that we need to teach them how to fish and not just give them the fish"
+    },
+    {
+      "question": "14",
+      "name": "Courtney Stuckwisch Wong",
+      "country": "United States",
+      "text": "The focus seemed to be on inclusion of Black and brown New Orleanians. I think strategies to support women and youth was not as big of a focus. I would be interested to see how other cities and countries highlight this disparity."
+    },
+    {
+      "question": "14",
+      "name": "Alexander Winer",
+      "country": "Mexico",
+      "text": "It was complete in a way of showing different examples and telling different stories of the importance and the benefit of it. Showing the heart of the communities was the key."
+    },
+    {
+      "question": "16. What",
+      "name": "Julio Eduardo Orozco Perez",
+      "country": "Guatemala",
+      "text": "Achieve connecting institutions that can finance initiatives with groups of women and youth in rural areas of my country"
+    },
+    {
+      "question": "16. What",
+      "name": "Fausto Gerardo Gurrea Martinez",
+      "country": "Mexico",
+      "text": "Community needs to be involved, this implies that youth and womena are at the center of the planning process for economic development at the regional level. It is importante to understand problems and focus on solutions. The program was very powerful to convey this messages using specific examples (intuition beyond abstraction)."
+    },
+    {
+      "question": "16. What",
+      "name": "Charah Watson",
+      "country": "Jamaica",
+      "text": "We have been very deliberate in ensuring marginalized groups are supported and included. The Jamaican reality is also a bit different. Points were definitely taken however."
+    },
+    {
+      "question": "16. What",
+      "name": "Alexander Winer",
+      "country": "Mexico",
+      "text": "Help the construction of woman cooperatives and indigenous to help them get to new marketplaces. Implementation of eco techniques in marginal communities."
+    },
+    {
+      "question": "16. What",
+      "name": "Ana Maria Molina",
+      "country": "Ecuador",
+      "text": "I will strongly recommend to stress the need to incorporate and measure the presence of women in all of our entrepreneurial/startups projects. Likewise, include the impact of specific SDG's towards building a social entrepreneurial ecosystem in Ecuador. We need to boost investments in our country and in the Andean region which is generally ignored. The view of Latin America is generally focused in Mexico or Brazil. But there are other markets such as Ecuador, with social enterprises. At AEI we want to continue working on entrepreneurship with social impact."
+    }
+  ],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

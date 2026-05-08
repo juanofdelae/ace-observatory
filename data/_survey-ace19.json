@@ -1,0 +1,571 @@
+{
+  "editionId": "ace-19-armenia-2024",
+  "totalResponses": 32,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 23,
+        "pct": 71.9
+      },
+      {
+        "label": "Above Expectations",
+        "count": 9,
+        "pct": 28.1
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 32,
+    "mean": 1.28
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 4.84,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 5,
+        "Very Good": 27
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 4.56,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 14,
+        "Very Good": 18
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 4.62,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 10,
+        "Very Good": 21
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 4.62,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 2,
+        "Good": 8,
+        "Very Good": 22
+      }
+    },
+    {
+      "label": "Hotels",
+      "mean": 4.78,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 5,
+        "Very Good": 26
+      }
+    },
+    {
+      "label": "Topics/theme",
+      "mean": 4.69,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 8,
+        "Very Good": 23
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 4.91,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 3,
+        "Very Good": 29
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 32,
+        "pct": 100.0
+      },
+      {
+        "label": "Maybe",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 32,
+    "mean": 1.0
+  },
+  "knowledgeScope": [
+    {
+      "topic": "ICT and Engineering",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 13,
+        "High": 19
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Talent Development and STEM Education",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 10,
+        "High": 22
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Agriculture and Agribusiness",
+      "exit": {
+        "None": 0,
+        "Low": 2,
+        "Medium": 22,
+        "High": 8
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Sustainability and Renewable Energy",
+      "exit": {
+        "None": 1,
+        "Low": 4,
+        "Medium": 18,
+        "High": 9
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Viticulture and Winemaking",
+      "exit": {
+        "None": 1,
+        "Low": 1,
+        "Medium": 9,
+        "High": 21
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Tourism and the Cultural Economy",
+      "exit": {
+        "None": 0,
+        "Low": 2,
+        "Medium": 14,
+        "High": 16
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    }
+  ],
+  "programImpact": [
+    {
+      "label": "Inspire or improve economic development, innovation and entrepreneurship policies and/or national strategies",
+      "count": 26,
+      "pct": 81.2
+    },
+    {
+      "label": "Influence or strengthen economic development, innovation and entrepreneurship strategies, initiatives, and projects",
+      "count": 28,
+      "pct": 87.5
+    },
+    {
+      "label": "Expand your regional and international network of high-level decision-makers to advance your projects, enhance your events and or better position your company or institution in the Americas and beyond",
+      "count": 29,
+      "pct": 90.6
+    },
+    {
+      "label": "Enhance your skills in economic development, innovation and entrepreneurship to further support the national or subnational economic development agenda",
+      "count": 25,
+      "pct": 78.1
+    },
+    {
+      "label": "Learn about economic development best practices that can be replicated in your institution, your country and/or region",
+      "count": 23,
+      "pct": 71.9
+    },
+    {
+      "label": "Better position your company or institution in the Americas and beyond",
+      "count": 20,
+      "pct": 62.5
+    },
+    {
+      "label": "Learn about business soft-landing opportunities in Armenia and/or in other countries",
+      "count": 19,
+      "pct": 59.4
+    },
+    {
+      "label": "Other",
+      "count": 0,
+      "pct": 0.0
+    }
+  ],
+  "connectionsCount": {
+    "mean": 3.12,
+    "median": 3,
+    "total": 100,
+    "buckets": [
+      {
+        "range": "0",
+        "count": 0
+      },
+      {
+        "range": "1–2",
+        "count": 12
+      },
+      {
+        "range": "3–5",
+        "count": 18
+      },
+      {
+        "range": "6–10",
+        "count": 2
+      },
+      {
+        "range": "11+",
+        "count": 0
+      }
+    ]
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 3,
+          "pct": 9.4
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 1,
+          "pct": 3.1
+        },
+        {
+          "label": "Agree",
+          "count": 4,
+          "pct": 12.5
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 24,
+          "pct": 75.0
+        }
+      ],
+      "total": 32,
+      "mean": 4.44
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 4,
+          "pct": 12.5
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 1,
+          "pct": 3.1
+        },
+        {
+          "label": "Agree",
+          "count": 4,
+          "pct": 12.5
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 23,
+          "pct": 71.9
+        }
+      ],
+      "total": 32,
+      "mean": 4.31
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "USA",
+      "count": 8,
+      "pct": 26.7
+    },
+    {
+      "country": "United States",
+      "count": 7,
+      "pct": 23.3
+    },
+    {
+      "country": "Argentina",
+      "count": 3,
+      "pct": 10.0
+    },
+    {
+      "country": "Brazil",
+      "count": 3,
+      "pct": 10.0
+    },
+    {
+      "country": "MEXICO",
+      "count": 2,
+      "pct": 6.7
+    },
+    {
+      "country": "Brasil",
+      "count": 2,
+      "pct": 6.7
+    },
+    {
+      "country": "The Bahamas",
+      "count": 1,
+      "pct": 3.3
+    },
+    {
+      "country": "United States of America",
+      "count": 1,
+      "pct": 3.3
+    },
+    {
+      "country": "Jamaica",
+      "count": 1,
+      "pct": 3.3
+    },
+    {
+      "country": "of Armenia at Argentina",
+      "count": 1,
+      "pct": 3.3
+    },
+    {
+      "country": "Ecuador",
+      "count": 1,
+      "pct": 3.3
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7",
+      "name": "Wesley Hill",
+      "country": "United States",
+      "text": "ITIC will be cooperating with multiple Armenian partners, including the Armenian Chamber of Mine’s."
+    },
+    {
+      "question": "7",
+      "name": "Barry Griffin",
+      "country": "The Bahamas",
+      "text": "Fostered relationships for business development in The Bahamas. Fostered relationships for trade opportunities. Established a line of communication with Armenia’s Ministry of Economy regarding synergies."
+    },
+    {
+      "question": "7",
+      "name": "John Achoukian",
+      "country": "United States of America",
+      "text": "1. Early-age accelerators and tech hubs with a focus on STEM and technology entrepreneurship. Programs to channel youth interest in tech towards productive and economically stimulating endeavors. 2. Explore and facilitate mining connections between Armenia, the US (specifically Tucson, AZ), and potentially South American countries, such as Chile. 3. Explore health tech and standards across countries to collaborate on initiatives to improve public health across borders, and share research regarding health impacts from climate change. 2."
+    },
+    {
+      "question": "7",
+      "name": "Andrea Patricia Barrett",
+      "country": "Jamaica",
+      "text": "Collaboration in research, implementation of social initiatives models deployed in Armenia, academic enrichment with other academic institutions such as AUA."
+    },
+    {
+      "question": "7",
+      "name": "Vrej Barkhordarian",
+      "country": "USA",
+      "text": "I am in the electronic engineering field. More specifically, I work in the very niche high voltage power semiconductor devices area. Armenia has the potential of competing with Asia in the testing and prototyping of power modules. I intend to further evaluate the potential of collaborating with Engineering City on both of these topics."
+    },
+    {
+      "question": "8. ",
+      "name": "Barry Griffin",
+      "country": "The Bahamas",
+      "text": "Yes. Learned of things that can be replicated in The Bahamas. Established relationships in innovation and entrepreneurship."
+    },
+    {
+      "question": "8. ",
+      "name": "John Achoukian",
+      "country": "United States of America",
+      "text": "Yes. I am not involved in mining, nor an expert, but have assisted a few mining technologies with their startups with go to market strategies. As a result of this program I will be exposed mining for economic development."
+    },
+    {
+      "question": "8. ",
+      "name": "Andrea Patricia Barrett",
+      "country": "Jamaica",
+      "text": "For sure, the ACE program has enhanced the capacity and capacityin my personal capacity within my home institution as well as personal growth and my ability to continue as an advocate of economic development and social transformation through innovation and entrepreneurship."
+    },
+    {
+      "question": "8. ",
+      "name": "Venki Mandapati",
+      "country": "USA",
+      "text": "Yes, I learned about new innovations and how I can strategically align my company for global growth."
+    },
+    {
+      "question": "8. ",
+      "name": "Benn Bundy",
+      "country": "USA",
+      "text": "Yes, I was reminded by some fellow participants of the importance of small business development in the overall economic development picture."
+    },
+    {
+      "question": "12",
+      "name": "Wesley Hill",
+      "country": "United States",
+      "text": "ITIC and the Chamber of mines are in discussion pending a full proposal."
+    },
+    {
+      "question": "12",
+      "name": "Barry Griffin",
+      "country": "The Bahamas",
+      "text": "Yes. Met a number of persons who are interesting in doing business in and with The Bahamas. We will establish MOUs and other vehicles for cooperation."
+    },
+    {
+      "question": "12",
+      "name": "John Achoukian",
+      "country": "United States of America",
+      "text": "US Embassy in Armenia, ITA, Armenia Economy Ministry, on how to educate and channel the Armenian diaspora regarding doing business in and with Armenia."
+    },
+    {
+      "question": "12",
+      "name": "Andrea Patricia Barrett",
+      "country": "Jamaica",
+      "text": "Presentations from Synergy on their software solution to specific areas within Jamaica"
+    },
+    {
+      "question": "12",
+      "name": "William August Herrmann",
+      "country": "USA",
+      "text": "Yes, we’d like to sign an MOU for a venture bridge with the ministry of economy in addition to an MOU for TUMO and GITC to come to Texas. Additionally, we’d like to sign an MOU for a venture bridge for Minas Gerais with Bruno"
+    },
+    {
+      "question": "14",
+      "name": "Wesley Hill",
+      "country": "United States",
+      "text": "Yes. The program was great at introducing many topics, but needs more details in presentations."
+    },
+    {
+      "question": "14",
+      "name": "Barry Griffin",
+      "country": "The Bahamas",
+      "text": "Yes. The visit to Tumo was great. Showed how government and private sector can include youth in economic development by early training."
+    },
+    {
+      "question": "14",
+      "name": "John Achoukian",
+      "country": "United States of America",
+      "text": "Yes. The focus on female founders in Gyumri, especially those who escaped recent hardship was very powerful."
+    },
+    {
+      "question": "14",
+      "name": "Andrea Patricia Barrett",
+      "country": "Jamaica",
+      "text": "Exposure to SMEs integration of technologies in the improvement of their product/service quality and production costs to consumers."
+    },
+    {
+      "question": "14",
+      "name": "Vrej Barkhordarian",
+      "country": "USA",
+      "text": "Presentations by women entrepreneurs in Gyumri Information Technology Center, visits to Tumo Center in Yerevan and Digi Tech exhibition were very informative and educational in terms of demonstrating the potential role women and youth can play in shaping the future of a developing country."
+    },
+    {
+      "question": "16",
+      "name": "Barry Griffin",
+      "country": "The Bahamas",
+      "text": "The days were too long. I would suggest an early start or late finish to the days, but not both. Or perhaps include a break or rest period in the day at some point."
+    },
+    {
+      "question": "16",
+      "name": "John Achoukian",
+      "country": "United States of America",
+      "text": "Excellent program. I am looking forward to contributing and being part of future ACE delegations and opportunities."
+    },
+    {
+      "question": "16",
+      "name": "Andrea Patricia Barrett",
+      "country": "Jamaica",
+      "text": "Shorter days to facilitate participants to assimilate the knowledge and technology transfers each day. Very good programing on economic development."
+    },
+    {
+      "question": "16",
+      "name": "Vrej Barkhordarian",
+      "country": "USA",
+      "text": "Overall, I think that the agenda and site visits were excellent. Perhaps the days could have been a bit shorter. The length and topics of some of the panel discussions may be revised."
+    },
+    {
+      "question": "16",
+      "name": "Venki Mandapati",
+      "country": "USA",
+      "text": "Great job team. Thanks for putting this program together"
+    }
+  ],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

@@ -1,0 +1,646 @@
+{
+  "editionId": "ace-16-seattle-2023",
+  "totalResponses": 49,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 32,
+        "pct": 65.3
+      },
+      {
+        "label": "Above Expectations",
+        "count": 14,
+        "pct": 28.6
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 3,
+        "pct": 6.1
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 49,
+    "mean": 1.41
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 1.22,
+      "levels": {
+        "Very Poor": 39,
+        "Poor": 9,
+        "Neutral": 1,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 1.53,
+      "levels": {
+        "Very Poor": 26,
+        "Poor": 20,
+        "Neutral": 3,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 1.24,
+      "levels": {
+        "Very Poor": 37,
+        "Poor": 12,
+        "Neutral": 0,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 1.2,
+      "levels": {
+        "Very Poor": 39,
+        "Poor": 10,
+        "Neutral": 0,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Hotel",
+      "mean": 2.31,
+      "levels": {
+        "Very Poor": 12,
+        "Poor": 18,
+        "Neutral": 12,
+        "Good": 6,
+        "Very Good": 1
+      }
+    },
+    {
+      "label": "Topics/theme",
+      "mean": 1.37,
+      "levels": {
+        "Very Poor": 31,
+        "Poor": 18,
+        "Neutral": 0,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 1.02,
+      "levels": {
+        "Very Poor": 48,
+        "Poor": 1,
+        "Neutral": 0,
+        "Good": 0,
+        "Very Good": 0
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 49,
+        "pct": 100.0
+      },
+      {
+        "label": "Maybe",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 49,
+    "mean": 1.0
+  },
+  "knowledgeScope": [
+    {
+      "topic": "Aerospace industry",
+      "exit": {
+        "None": 0,
+        "Low": 4,
+        "Medium": 16,
+        "High": 28
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Information and Communication Technology",
+      "exit": {
+        "None": 0,
+        "Low": 2,
+        "Medium": 12,
+        "High": 35
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Maritime",
+      "exit": {
+        "None": 0,
+        "Low": 7,
+        "Medium": 14,
+        "High": 27
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Life Science",
+      "exit": {
+        "None": 0,
+        "Low": 3,
+        "Medium": 20,
+        "High": 26
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Global Health",
+      "exit": {
+        "None": 0,
+        "Low": 6,
+        "Medium": 24,
+        "High": 18
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Tourism",
+      "exit": {
+        "None": 0,
+        "Low": 2,
+        "Medium": 25,
+        "High": 22
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    }
+  ],
+  "programImpact": [
+    {
+      "label": "Sustainable best practices",
+      "count": 49,
+      "pct": 100.0
+    },
+    {
+      "label": "Seattle's economic development ecosystem",
+      "count": 49,
+      "pct": 100.0
+    },
+    {
+      "label": "The University of Washington - Seattle Campus",
+      "count": 49,
+      "pct": 100.0
+    },
+    {
+      "label": "Microsoft",
+      "count": 49,
+      "pct": 100.0
+    },
+    {
+      "label": "Spring District",
+      "count": 49,
+      "pct": 100.0
+    },
+    {
+      "label": "Ste. Michelle Winery",
+      "count": 49,
+      "pct": 100.0
+    },
+    {
+      "label": "5G Agricultural Fields",
+      "count": 49,
+      "pct": 100.0
+    },
+    {
+      "label": "Port of Everett",
+      "count": 49,
+      "pct": 100.0
+    }
+  ],
+  "connectionsCount": {
+    "mean": 3.55,
+    "median": 4,
+    "total": 174,
+    "buckets": [
+      {
+        "range": "0",
+        "count": 0
+      },
+      {
+        "range": "1–2",
+        "count": 3
+      },
+      {
+        "range": "3–5",
+        "count": 46
+      },
+      {
+        "range": "6–10",
+        "count": 0
+      },
+      {
+        "range": "11+",
+        "count": 0
+      }
+    ]
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 11,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 11,
+      "mean": 1.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 9,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 9,
+      "mean": 1.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "Mexico",
+      "count": 5,
+      "pct": 11.6
+    },
+    {
+      "country": "Ecuador",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Guatemala",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "USA",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "United States",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Argentina",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Colombia",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Uruguay",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Armenia",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Germany",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Dominican Republic",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "US",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Brazil",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Belize",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "HAITI",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Brasil",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Dominican República",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "SAINT LUCIA",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Saint Lucia",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Canada",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "México",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "MEXICO",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Chile",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Costa Rica",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Panamá",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Barbados",
+      "count": 1,
+      "pct": 2.3
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7. We",
+      "name": "Laura del Castillo",
+      "country": "Dominican Republic",
+      "text": "We are now part of the LAC investement Initiative, also has made contact to reach the Water Program at Stillman College, made conections to follow up on Starbucks Coffe Program in the LAC regions, and to engage the Innovation Cabinet in DR with the innovation cluster."
+    },
+    {
+      "question": "7. We",
+      "name": "Victor di rienzo",
+      "country": "Argentina",
+      "text": "We have an agency that its called Coroba acelera that will be very beneficiated duet its in contact with all the sectors and each of the memebers can contact lots of the institutios and people we meet during the evebt."
+    },
+    {
+      "question": "7. We",
+      "name": "Joe McKinney",
+      "country": "US",
+      "text": "Potential project with Panama on sustainable agriculture practices. Potential project with IEDC, Puget Sound Regional Council, Starbucks Foundation, and the Pan American Development Foundation on resilient economy - transition to coffee from coca."
+    },
+    {
+      "question": "7. We",
+      "name": "Celio Costa Vaz",
+      "country": "Brazil",
+      "text": "Partnership to improve Drones Performance and Certification in Brazil Possible cooperation in Nanosatellite trchnologies applied to agicultural sector"
+    },
+    {
+      "question": "7. We",
+      "name": "Tatiana Leon Gomez",
+      "country": "Colombia",
+      "text": "Many key people I’ve met, who is able to help us bring startups to our ecosystem directly themselves or Can connect us with the right person."
+    },
+    {
+      "question": "8. ",
+      "name": "Virginia Avila",
+      "country": "Argentina",
+      "text": "We learnt best practices at the University of Washington Tacoma . How the bring together academic sector + public+ private sector. How they make them know them self in order to produce under de the demand of the private sector."
+    },
+    {
+      "question": "8. ",
+      "name": "Ernesto Kruger",
+      "country": "Ecuador",
+      "text": "i have a partnership with a technologies local company"
+    },
+    {
+      "question": "8. ",
+      "name": "Laura del Castillo",
+      "country": "Dominican Republic",
+      "text": "Yes, I have engage in few possible initiative than might be replicated in DR."
+    },
+    {
+      "question": "8. ",
+      "name": "Victor di rienzo",
+      "country": "Argentina",
+      "text": "With this the new knoleadge we will be using to make contact between out enterprenuerships companies and your institutons Also we can learn about how thing that we dont know how to solve and here they hay allready figure kt out."
+    },
+    {
+      "question": "8. ",
+      "name": "Joe McKinney",
+      "country": "US",
+      "text": "Improved my knowledge of international economic development successes and challenges."
+    },
+    {
+      "question": "12. Would",
+      "name": "Laura del Castillo",
+      "country": "Dominican Republic",
+      "text": "With Barbados explore the possibility of MOU, also explore with Stillman College and follow up with Starbucks for tree recovery Programme"
+    },
+    {
+      "question": "12. Would",
+      "name": "Victor di rienzo",
+      "country": "Argentina",
+      "text": "We are allready coordinating with alan from brazil he is visiting us into cordoba in october he will be helping us on developping better out innovation program."
+    },
+    {
+      "question": "12. Would",
+      "name": "Joe McKinney",
+      "country": "US",
+      "text": "NADO would love to pursue a more formal partnership with ACE, similar to IEDC. We have a number of promising practices in rural economic development across the US that can be shared with other countries with challenges rural community and vice versa."
+    },
+    {
+      "question": "12. Would",
+      "name": "Celio Costa Vaz",
+      "country": "Brazil",
+      "text": "Interested to establish cooperation with satellites manufacturer companies."
+    },
+    {
+      "question": "12. Would",
+      "name": "Tatiana Leon Gomez",
+      "country": "Colombia",
+      "text": "With some of the participants, I would like to colaborate in sharing some practices in Innovation and entrepreneurship. Also, I would ask some to help to Connect with startups in your counties tiene help them softland in Colombia or connect with our large companies corps"
+    },
+    {
+      "question": "14",
+      "name": "Virginia Avila",
+      "country": "Argentina",
+      "text": "Everything is great. I would add a 3 min pitch with scenario and presentation for us. The acers Let's say Sunday morning. When everybody arrive"
+    },
+    {
+      "question": "14",
+      "name": "Ernesto Kruger",
+      "country": "Ecuador",
+      "text": "sugestivo please send us the presentation before and linkedin profile of the hosters"
+    },
+    {
+      "question": "14",
+      "name": "Laura del Castillo",
+      "country": "Dominican Republic",
+      "text": "Yes, specially learning about the indians native american situation and struggle to be recognize."
+    },
+    {
+      "question": "14",
+      "name": "Victor di rienzo",
+      "country": "Argentina",
+      "text": "The did nail all the presentations and did not only repeating a speach. So we learn a lot with their awnsers"
+    },
+    {
+      "question": "14",
+      "name": "Joe McKinney",
+      "country": "US",
+      "text": "Was very excited to have preliminary discussions with others interested in equitable and inclusive development. Would love to continue to work with the group."
+    },
+    {
+      "question": "16",
+      "name": "Virginia Avila",
+      "country": "Argentina",
+      "text": "3 min pitch In person for every acer before the agenda start"
+    },
+    {
+      "question": "16",
+      "name": "Laura del Castillo",
+      "country": "Dominican Republic",
+      "text": "Excellent programme, and the benefits that brings to develop economic growth in an inclisive way in our region."
+    },
+    {
+      "question": "16",
+      "name": "Victor di rienzo",
+      "country": "Argentina",
+      "text": "I want you to congratulate the enhancements of all the event on how did evolve to better since louisiana. Please know if any 0ne need helps to jump into digital innovation can count with all the experience we have."
+    },
+    {
+      "question": "16",
+      "name": "Joe McKinney",
+      "country": "US",
+      "text": "In my 55 years, this is one of the best experiences of my life. To meet like-minded and dedicated practitioners from across the world was amazing. The ACE program far exceeded my expectations."
+    },
+    {
+      "question": "16",
+      "name": "Celio Costa Vaz",
+      "country": "Brazil",
+      "text": "It is very good. But some time to the participans to present their offers and needs would be helpful."
+    }
+  ],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

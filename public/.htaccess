@@ -1,0 +1,82 @@
+# ACE Observatory — Apache config for riacevents.org/ACE/observatory
+# Lives in /public/.htaccess → next build copies it to out/.htaccess →
+# SFTP deploy lands it at /ACE/observatory/.htaccess on the server.
+#
+# Requires Apache modules: mod_headers, mod_deflate, mod_expires, mod_rewrite.
+# Most shared-hosting Apache stacks have all four enabled by default.
+
+# ────────────────────────────────────────────────────────────────────
+# Security headers (matches the original Vercel config)
+# ────────────────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  # Strict CSP — only self + Carto map tiles. Inline styles/scripts
+  # allowed because Next.js inlines hydration scripts and recharts/
+  # react-force-graph emit inline CSS.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https://*.basemaps.cartocdn.com; connect-src 'self' https://*.basemaps.cartocdn.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+
+  # Strip the default `X-Powered-By: PHP/...` Apache leaks (defense-in-depth).
+  Header unset X-Powered-By
+</IfModule>
+
+# ────────────────────────────────────────────────────────────────────
+# Long-lived cache for hashed Next.js assets (chunks, fonts, images)
+# ────────────────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+
+  # _next/static/* is content-hashed → safe to cache forever.
+  <FilesMatch "\.(js|css|woff2|woff|ttf|otf|eot)$">
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+    ExpiresDefault "access plus 30 days"
+  </FilesMatch>
+  <FilesMatch "\.(html|json|xml|txt)$">
+    ExpiresDefault "access plus 5 minutes"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "_next/static/.*\.(js|css|woff2|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ────────────────────────────────────────────────────────────────────
+# Gzip compression on text-y assets
+# ────────────────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml application/x-font-ttf font/otf font/eot
+</IfModule>
+
+# ────────────────────────────────────────────────────────────────────
+# URL rewrites — Next.js `trailingSlash: true` generates routes like
+# /editions/index.html. Without the rule below, requests to `/editions`
+# (no slash) 404. This appends the slash and Apache then serves the
+# index.html inside.
+# ────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /ACE/observatory/
+
+  # If request maps to an existing directory missing its trailing slash,
+  # 301 to the slashed version (matches Next's trailing-slash policy).
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteRule ^(.*)$ $1/ [L,R=301]
+
+  # Custom 404 page (Next's static export emits 404.html at the root
+  # of /out, so it lands at /ACE/observatory/404.html).
+  ErrorDocument 404 /ACE/observatory/404.html
+</IfModule>
+
+# Disable directory listings — never useful, often a leak.
+Options -Indexes

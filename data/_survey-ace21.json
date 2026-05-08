@@ -1,0 +1,556 @@
+{
+  "editionId": "ace-21-belem-2025",
+  "totalResponses": 22,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 7,
+        "pct": 31.8
+      },
+      {
+        "label": "Above Expectations",
+        "count": 6,
+        "pct": 27.3
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 8,
+        "pct": 36.4
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 1,
+        "pct": 4.5
+      }
+    ],
+    "total": 22,
+    "mean": 2.18
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 4.14,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 4,
+        "Good": 11,
+        "Very Good": 7
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 4.05,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 4,
+        "Good": 13,
+        "Very Good": 5
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 4.68,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 5,
+        "Very Good": 16
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 4.59,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 7,
+        "Very Good": 14
+      }
+    },
+    {
+      "label": "Hotels",
+      "mean": 3.86,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 1,
+        "Neutral": 7,
+        "Good": 8,
+        "Very Good": 6
+      }
+    },
+    {
+      "label": "Topics/theme",
+      "mean": 4.23,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 2,
+        "Good": 13,
+        "Very Good": 7
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 4.91,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 0,
+        "Very Good": 21
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 21,
+        "pct": 95.5
+      },
+      {
+        "label": "Maybe",
+        "count": 1,
+        "pct": 4.5
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 22,
+    "mean": 1.05
+  },
+  "knowledgeScope": [
+    {
+      "topic": "Techs and Eco Parks",
+      "exit": {
+        "None": 0,
+        "Low": 1,
+        "Medium": 11,
+        "High": 10
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Research Infraestructure",
+      "exit": {
+        "None": 0,
+        "Low": 1,
+        "Medium": 11,
+        "High": 10
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Innovation Ecosystem",
+      "exit": {
+        "None": 0,
+        "Low": 1,
+        "Medium": 11,
+        "High": 10
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Industry Networks",
+      "exit": {
+        "None": 1,
+        "Low": 3,
+        "Medium": 10,
+        "High": 8
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Sustainable Businesses",
+      "exit": {
+        "None": 1,
+        "Low": 3,
+        "Medium": 2,
+        "High": 16
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Inspire or improve economic development, innovation and entrepreneurship policies and/or national strategies",
+      "exit": {
+        "None": 13,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    }
+  ],
+  "programImpact": [
+    {
+      "label": "Influence or strengthen economic development, innovation and entrepreneurship strategies, initiatives, and projects",
+      "count": 13,
+      "pct": 59.1
+    },
+    {
+      "label": "Expand your regional and international network of high-level decision-makers to advance your projects, enhance your events and or better position your company or institution in the Americas and beyond",
+      "count": 21,
+      "pct": 95.5
+    },
+    {
+      "label": "Enhance your skills in economic development, innovation and entrepreneurship to further support the national or subnational economic development agenda",
+      "count": 14,
+      "pct": 63.6
+    },
+    {
+      "label": "Learn about economic development best practices that can be replicated in your institution, your country and/or region",
+      "count": 14,
+      "pct": 63.6
+    },
+    {
+      "label": "Better position your company or institution in the Americas and beyond",
+      "count": 15,
+      "pct": 68.2
+    },
+    {
+      "label": "Learn about business soft-landing opportunities in Brazil, and/or in other countries",
+      "count": 4,
+      "pct": 18.2
+    },
+    {
+      "label": "Other",
+      "count": 0,
+      "pct": 0.0
+    }
+  ],
+  "connectionsCount": {
+    "mean": 1.0,
+    "median": 1,
+    "total": 2,
+    "buckets": [
+      {
+        "range": "0",
+        "count": 0
+      },
+      {
+        "range": "1–2",
+        "count": 2
+      },
+      {
+        "range": "3–5",
+        "count": 0
+      },
+      {
+        "range": "6–10",
+        "count": 0
+      },
+      {
+        "range": "11+",
+        "count": 0
+      }
+    ]
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 0,
+      "mean": 0.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 0,
+      "mean": 0.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "USA",
+      "count": 3,
+      "pct": 15.0
+    },
+    {
+      "country": "Guatemala",
+      "count": 2,
+      "pct": 10.0
+    },
+    {
+      "country": "United States",
+      "count": 2,
+      "pct": 10.0
+    },
+    {
+      "country": "Colombia",
+      "count": 2,
+      "pct": 10.0
+    },
+    {
+      "country": "Chile",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "DOMINICA",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "BRAZIL",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "Brazil",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "Brasil",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "Saint Lucia",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "Costa Rica",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "Mexico",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "Dominican Republic",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "Bahamas",
+      "count": 1,
+      "pct": 5.0
+    },
+    {
+      "country": "México",
+      "count": 1,
+      "pct": 5.0
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7",
+      "name": "Felipe Mancini Ruiz-Tagle",
+      "country": "Chile",
+      "text": "The ACE program will contribute to my work primarily through the generation of networks and new strategic collaborations. The interaction with representatives from different countries and sectors allowed me to identify cooperation opportunities that strengthen both my initiatives at Chiletec and at Asimov Consultores."
+    },
+    {
+      "question": "7",
+      "name": "Shayan Monelle",
+      "country": "DOMINICA",
+      "text": "ACE has put myself, Invest Dominica Authority and Dominica in line with an exciting group of international business innovators, institutions, and government representatives who can be called upon for support, be partnered and collaborated with."
+    },
+    {
+      "question": "7",
+      "name": "Venkatesh Mandapati",
+      "country": "USA",
+      "text": "Two letter of intents with Brazil and St. Lucia. These are potential opportunities for my startup to expand our services"
+    },
+    {
+      "question": "7",
+      "name": "Michelle Guimarães Souza Correa",
+      "country": "Brazil",
+      "text": "One concrete example of how the ACE program has contributed to my work is through networking. The program allowed me to expand my connections with leaders from several countries."
+    },
+    {
+      "question": "7",
+      "name": "Barbra Coffee",
+      "country": "USA",
+      "text": "I signed an MOU to support Octavio Arzate by connecting him to contacts in Tucson that promote mezcal and heritage food. I met so many professionals who expand my network worldwide for best practices in economic development. I was able to share about IEDC conferences and opportunities that can benefit the cohort of professionals."
+    },
+    {
+      "question": "8. ",
+      "name": "Felipe Mancini Ruiz-Tagle",
+      "country": "Chile",
+      "text": "Rather than a direct improvement of technical capabilities, the ACE program provided me with a valuable source of inspiration through concrete cases. I would highlight, for example, the experience shared by the representative of the PUC Technology Park and the Usinas da Paz in the State of Pará. Both examples demonstrated how innovation, when articulated with the community and the public sector, can generate a real impact on economic and social development, offering lessons that can be applied to the Chilean context."
+    },
+    {
+      "question": "8. ",
+      "name": "Shayan Monelle",
+      "country": "DOMINICA",
+      "text": "It has broadened my scope of thinking in terms of access to and cooperation with Latin America, and other territories and productive sectors."
+    },
+    {
+      "question": "8. ",
+      "name": "Venkatesh Mandapati",
+      "country": "USA",
+      "text": "Connecting with business and economic development leaders helped me to gain insights on key initiatives and also got feedback on my current projects"
+    },
+    {
+      "question": "8. ",
+      "name": "Michelle Guimarães Souza Correa",
+      "country": "Brazil",
+      "text": "The ACE program has been extremely valuable in terms of networking and international exposure. However, regarding the specific themes of economic development, innovation, and entrepreneurship, I must say that my personal gain was not as significant as for other participants. This is mainly because I am originally from the Amazon region and already work daily with these realities, which are at the core of my company’s mission. That said, the program was still an important opportunity to exchange perspectives and to see how our challenges resonate in other parts of the world."
+    },
+    {
+      "question": "8. ",
+      "name": "Barbra Coffee",
+      "country": "USA",
+      "text": "Yes, it has expanded my global network of economic development professionals."
+    },
+    {
+      "question": "12",
+      "name": "Felipe Mancini Ruiz-Tagle",
+      "country": "Chile",
+      "text": "Yes, we are interested in exploring commercial collaborations with ProBarranquilla and in sharing Chiletec’s experience in developing software solutions for government with the team in Guatemala."
+    },
+    {
+      "question": "12",
+      "name": "Shayan Monelle",
+      "country": "DOMINICA",
+      "text": "Universidade Federal do Para - discussed collaborating in terms of innovation for agro processed products. Possibly an MOU for research and product development. Natura - for the development of a tour facility at Dominica's only soap factory j"
+    },
+    {
+      "question": "12",
+      "name": "Michelle Guimarães Souza Correa",
+      "country": "Brazil",
+      "text": "Yes. I already have a signed letter of intent with Túlio, from AeroRiver, which represents a very important step for the development of logistics and innovation in the Amazon. This partnership will allow us to combine efforts and expertise to improve connectivity in the region, creating more efficient solutions for cargo and passenger transportation while supporting the sustainable development of local communities. Through ACE Belém, this cooperation gains even greater visibility and strengthens our ability to scale impact in the Amazon and beyond."
+    },
+    {
+      "question": "12",
+      "name": "Barbra Coffee",
+      "country": "USA",
+      "text": "I would like a contact at Natura that handles their real estate sites and facilities worldwide."
+    },
+    {
+      "question": "12",
+      "name": "Evelyn Córdova López",
+      "country": "Guatemala",
+      "text": "Colaboración con ProBarranquilla, explorar el mecanismo para profundizar en el intercambio de experiencias. Colaboración con Felipe Mancini para ampliar el conocimiento de la experiencia de Chile para digitalización e innovación en procesos de gestión pública."
+    },
+    {
+      "question": "16",
+      "name": "Felipe Mancini Ruiz-Tagle",
+      "country": "Chile",
+      "text": "First of all, I would like to thank the OAS team for the excellent organization and this opportunity. The program was beyond my expectations, I met wonderful people and I am deeply grateful for the chance to participate."
+    },
+    {
+      "question": "16",
+      "name": "ALAN SENRA CHEIB",
+      "country": "BRAZIL",
+      "text": "I suggest that future editions of the ACE program consider concentrating the official agenda in the mornings and leaving the afternoons free. This would allow participants to hold in-person meetings with local institutions as well as with fellow ACE members. During ACE Belém, I noticed that many of us did not have sufficient time to connect directly with local organizations or to meet with all participants. Creating this space could significantly expand networking opportunities and ultimately enhance the outcomes of the ACE program for the OAS."
+    },
+    {
+      "question": "16",
+      "name": "Michelle Guimarães Souza Correa",
+      "country": "Brazil",
+      "text": "Participating in the ACE was a truly great experience, and I am very grateful for the opportunity. My main suggestion would be to include more practical visits to companies and institutions, instead of having so many debate panels. In my view, these hands-on experiences make the program more enriching, as they allow us to see real cases, engage directly with local actors, and generate more meaningful exchanges and opportunities for collaboration."
+    },
+    {
+      "question": "16",
+      "name": "Barbra Coffee",
+      "country": "USA",
+      "text": "Days are very long. Presentations without slides were very long and hard to stay engaged without visuals which also helps given language differences. Translators do not always capture the essence of the speaker’s points. I would suggest working in some sessions devoted to “speed dating” so cohort participants can do short 15 min with one on ones to get to know each other and then work they do. Do this near beginning of the week. Be sure to have hosted receptions for cocktails. Private industry can sponsor the beverages."
+    },
+    {
+      "question": "16",
+      "name": "Evelyn Córdova López",
+      "country": "Guatemala",
+      "text": "I would like to thank the ACE team for making these meetings possible. The dynamic of the event fosters interaction between organizations that would be difficult to achieve without the facilities the event provides. My only suggestion is to include specific networking moments in the agenda so that more structured conversations with stakeholders can be achieved. This could help, as it provides dedicated spaces for this purpose."
+    }
+  ],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

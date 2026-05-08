@@ -1,0 +1,631 @@
+{
+  "editionId": "ace-18-michigan-2024",
+  "totalResponses": 47,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 35,
+        "pct": 74.5
+      },
+      {
+        "label": "Above Expectations",
+        "count": 9,
+        "pct": 19.1
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 3,
+        "pct": 6.4
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 47,
+    "mean": 1.32
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 4.79,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 10,
+        "Very Good": 37
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 4.72,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 11,
+        "Very Good": 35
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 4.74,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 12,
+        "Very Good": 35
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 4.74,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 3,
+        "Good": 6,
+        "Very Good": 38
+      }
+    },
+    {
+      "label": "Hotels",
+      "mean": 4.62,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 4,
+        "Good": 10,
+        "Very Good": 33
+      }
+    },
+    {
+      "label": "Topics/theme",
+      "mean": 4.74,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 12,
+        "Very Good": 35
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 4.89,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 3,
+        "Very Good": 43
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 47,
+        "pct": 100.0
+      },
+      {
+        "label": "Maybe",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 47,
+    "mean": 1.0
+  },
+  "knowledgeScope": [
+    {
+      "topic": "Agribusiness",
+      "exit": {
+        "None": 0,
+        "Low": 8,
+        "Medium": 26,
+        "High": 13
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Life Sciences",
+      "exit": {
+        "None": 1,
+        "Low": 6,
+        "Medium": 21,
+        "High": 19
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Advanced Manufacturing",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 15,
+        "High": 32
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Automotive and Mobility",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 17,
+        "High": 30
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Aerospace",
+      "exit": {
+        "None": 1,
+        "Low": 9,
+        "Medium": 20,
+        "High": 17
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Inspire or improve economic development, innovation and entrepreneurship policies and/or national strategies",
+      "exit": {
+        "None": 32,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    }
+  ],
+  "programImpact": [
+    {
+      "label": "Influence or strengthen economic development, innovation and entrepreneurship strategies, initiatives, and projects",
+      "count": 39,
+      "pct": 83.0
+    },
+    {
+      "label": "Expand your regional and international network of high-level decision-makers to advance your projects, enhance your events and or better position your company or institution in the Americas and beyond",
+      "count": 45,
+      "pct": 95.7
+    },
+    {
+      "label": "Enhance your skills in economic development, innovation and entrepreneurship to further support the national or subnational economic development agenda",
+      "count": 38,
+      "pct": 80.9
+    },
+    {
+      "label": "Learn about economic development best practices that can be replicated in your institution, your country and/or region",
+      "count": 36,
+      "pct": 76.6
+    },
+    {
+      "label": "Better position your company or institution in the Americas and beyond",
+      "count": 28,
+      "pct": 59.6
+    },
+    {
+      "label": "Learn about business soft-landing opportunities in Michigan, U.S, and/or in other countries",
+      "count": 21,
+      "pct": 44.7
+    },
+    {
+      "label": "Other",
+      "count": 0,
+      "pct": 0.0
+    }
+  ],
+  "connectionsCount": {
+    "mean": 1.0,
+    "median": 1,
+    "total": 25,
+    "buckets": [
+      {
+        "range": "0",
+        "count": 0
+      },
+      {
+        "range": "1–2",
+        "count": 25
+      },
+      {
+        "range": "3–5",
+        "count": 0
+      },
+      {
+        "range": "6–10",
+        "count": 0
+      },
+      {
+        "range": "11+",
+        "count": 0
+      }
+    ]
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 4,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 4,
+      "mean": 1.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 35,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 35,
+      "mean": 1.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "USA",
+      "count": 4,
+      "pct": 9.3
+    },
+    {
+      "country": "Ecuador",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Armenia",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Argentina",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Barbados",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Mexico",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "United States",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Costa Rica",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Colombia",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Canada",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Uruguay",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Brazil",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "El Salvador",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "ARGENTINA",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Brasil",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Jamaica",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "México",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "BARBADOS",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "MEXICO",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "DOMINICAN REPUBLIC",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Paraguay",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "St.Lucia",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Panama",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "St. Lucia",
+      "count": 1,
+      "pct": 2.3
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7",
+      "name": "Erick Marín Muller",
+      "country": "Costa Rica",
+      "text": "Made valuable relationships with participants with whom we will try to establish working relations in the near future."
+    },
+    {
+      "question": "7",
+      "name": "Carlos Fernando Villacreses Sánchez",
+      "country": "Ecuador",
+      "text": "Networking, nuevas experiencias para implementar programas en la universidad y fortalecer el ecosistema de innovación y emprendimiento"
+    },
+    {
+      "question": "7",
+      "name": "Alejandro Echeverri",
+      "country": "Colombia",
+      "text": "Assist ACE fellows startups to understand and validate business opportunities in the Colombian ecosystem Assist the government of Cordoba (Argentina) to validate the opportunity to open a government representation in US, utilizing ProColombia’s experience Validate investment and business opportunities with the many companies we visited during the agenda this week."
+    },
+    {
+      "question": "7",
+      "name": "Narine Haroyan",
+      "country": "Armenia",
+      "text": "Collaborations between universities, private and public sectors"
+    },
+    {
+      "question": "7",
+      "name": "Alfredo E. Lagleyze",
+      "country": "Argentina",
+      "text": "Networking and connectiosn through the program were great."
+    },
+    {
+      "question": "8. ",
+      "name": "Erick Marín Muller",
+      "country": "Costa Rica",
+      "text": "Yes, the knowledge content of the program was very enriching!"
+    },
+    {
+      "question": "8. ",
+      "name": "Carlos Fernando Villacreses Sánchez",
+      "country": "Ecuador",
+      "text": "Sin duda alguna, el compartir conocimientos ha generado varias ideas que “tropicalizadas” pueden implementarse de inmediato y empezar a generar resultado en el mediano plazo"
+    },
+    {
+      "question": "8. ",
+      "name": "Alejandro Echeverri",
+      "country": "Colombia",
+      "text": "Definitely, the program helped me to better understand best practices for a government entity such as ProColombia to work and collaborate with the private sector and the academia"
+    },
+    {
+      "question": "8. ",
+      "name": "Alfredo E. Lagleyze",
+      "country": "Argentina",
+      "text": "Yes, in many different ways and on a diverse subjects. With contact with entrepreneurial projects and startups, non profit organizations and traditional plus advanced companies visits and presentations."
+    },
+    {
+      "question": "8. ",
+      "name": "Ronaldo Alexandre Barquette",
+      "country": "Brazil",
+      "text": "Yes. I could see what American companies are innovating and creating value in their sectors."
+    },
+    {
+      "question": "12",
+      "name": "Carlos Fernando Villacreses Sánchez",
+      "country": "Ecuador",
+      "text": "Si, convenios de transferencia de metodologías y organización de misiones para intercambios cortos de alumnos /docentes"
+    },
+    {
+      "question": "12",
+      "name": "Alejandro Echeverri",
+      "country": "Colombia",
+      "text": "With government of Cordoba (explained above) a collaboration to assist them to understand how to establish and open a government entity in US. Assist Jared and Issac with their endeavors to validate the Colombian market"
+    },
+    {
+      "question": "12",
+      "name": "Narine Haroyan",
+      "country": "Armenia",
+      "text": "We hope to bring some participants to ACE Armenia and explore possibilities"
+    },
+    {
+      "question": "12",
+      "name": "Sandra MarinRuiz",
+      "country": "USA",
+      "text": "Practitioner partnerships (6 in direct conversation and actionable items), Softlanding (2)"
+    },
+    {
+      "question": "12",
+      "name": "Jorge Tortos",
+      "country": "Costa Rica",
+      "text": "Yes, masstimber from MSU, in Costa Rica there is a need and business opportunity to import sustainable woods"
+    },
+    {
+      "question": "14",
+      "name": "Erick Marín Muller",
+      "country": "Costa Rica",
+      "text": "Yes, underrepresented communities were a significant part of the themes and presentations. Very well organized all around."
+    },
+    {
+      "question": "14",
+      "name": "Alfredo E. Lagleyze",
+      "country": "Argentina",
+      "text": "Yes, startup presentation with women and afroamerican"
+    },
+    {
+      "question": "14",
+      "name": "Sandra MarinRuiz",
+      "country": "USA",
+      "text": "The innovation strategy is inclusive and well designed"
+    },
+    {
+      "question": "14",
+      "name": "Jorge Tortos",
+      "country": "Costa Rica",
+      "text": "After the panelist, I see the capacities in many young entrepreneurs and the impact of partnerships. The culture of cooperation is present in Michigan"
+    },
+    {
+      "question": "14",
+      "name": "Jorge A Valentine",
+      "country": "",
+      "text": "Detroit and Michigan itself are moving forward and harnessing the “yes we can” attitude that can turn towns around. The groups and people we met during yhe tour are testament to that vision and actions."
+    },
+    {
+      "question": "16",
+      "name": "Alfredo E. Lagleyze",
+      "country": "Argentina",
+      "text": "Very well organized and rich in content, congrats!!"
+    },
+    {
+      "question": "16",
+      "name": "Sandra MarinRuiz",
+      "country": "USA",
+      "text": "I do appreciate the opportunity to be part of ACE. Thanks for all your efforts"
+    },
+    {
+      "question": "16",
+      "name": "Jorge Tortos",
+      "country": "Costa Rica",
+      "text": "A life changing economic experience that involves academia, public sector, the non for profit agile sector and those business oriented under a sustainable lens."
+    },
+    {
+      "question": "16",
+      "name": "Marcelo Alejandro Collahuazo Taco",
+      "country": "",
+      "text": "I recommend to showcase the entrepreneurs at the beginning or middle of the program."
+    },
+    {
+      "question": "16",
+      "name": "Erika Martinez",
+      "country": "El Salvador",
+      "text": "I appreciate you making me part of this program. It has been a self motivated experience. Having the chance of knowing so mano people , learning and sharing experiences is so nice. Besides , understanding what others do to better this world and the way they do it. I would recommed your program. It is gratis you can help us grow and Connecticut with each other"
+    }
+  ],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

@@ -1,0 +1,606 @@
+{
+  "editionId": "ace-20-illinois-2025",
+  "totalResponses": 48,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 26,
+        "pct": 54.2
+      },
+      {
+        "label": "Above Expectations",
+        "count": 20,
+        "pct": 41.7
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 1,
+        "pct": 2.1
+      },
+      {
+        "label": "Below Expectations",
+        "count": 1,
+        "pct": 2.1
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 48,
+    "mean": 1.52
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 4.69,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 13,
+        "Very Good": 34
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 4.6,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 2,
+        "Good": 15,
+        "Very Good": 31
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 4.77,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 2,
+        "Good": 7,
+        "Very Good": 39
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 4.52,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 4,
+        "Good": 15,
+        "Very Good": 29
+      }
+    },
+    {
+      "label": "Hotels",
+      "mean": 4.69,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 1,
+        "Neutral": 3,
+        "Good": 6,
+        "Very Good": 38
+      }
+    },
+    {
+      "label": "Topics/theme",
+      "mean": 4.6,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 2,
+        "Good": 15,
+        "Very Good": 31
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 4.96,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 0,
+        "Very Good": 47
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 48,
+        "pct": 100.0
+      },
+      {
+        "label": "Maybe",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 48,
+    "mean": 1.0
+  },
+  "knowledgeScope": [
+    {
+      "topic": "Advance Manufacturing",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 23,
+        "High": 25
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Life Sciences",
+      "exit": {
+        "None": 1,
+        "Low": 2,
+        "Medium": 28,
+        "High": 17
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Next Generation Agriculture, Agriculture Tech and Food Processing",
+      "exit": {
+        "None": 1,
+        "Low": 2,
+        "Medium": 28,
+        "High": 17
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Quantum Computing, AI, and Microelectronics",
+      "exit": {
+        "None": 1,
+        "Low": 7,
+        "Medium": 26,
+        "High": 14
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Energy Production and Manufacturing",
+      "exit": {
+        "None": 0,
+        "Low": 4,
+        "Medium": 26,
+        "High": 18
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Transportation, Distribution, and Logistics",
+      "exit": {
+        "None": 1,
+        "Low": 4,
+        "Medium": 22,
+        "High": 21
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    }
+  ],
+  "programImpact": [
+    {
+      "label": "Inspire or improve economic development, innovation and entrepreneurship policies and/or national strategies",
+      "count": 35,
+      "pct": 72.9
+    },
+    {
+      "label": "Influence or strengthen economic development, innovation and entrepreneurship strategies, initiatives, and projects",
+      "count": 34,
+      "pct": 70.8
+    },
+    {
+      "label": "Expand your regional and international network of high-level decision-makers to advance your projects, enhance your events and or better position your company or institution in the Americas and beyond",
+      "count": 44,
+      "pct": 91.7
+    },
+    {
+      "label": "Enhance your skills in economic development, innovation and entrepreneurship to further support the national or subnational economic development agenda",
+      "count": 37,
+      "pct": 77.1
+    },
+    {
+      "label": "Learn about economic development best practices that can be replicated in your institution, your country and/or region",
+      "count": 36,
+      "pct": 75.0
+    },
+    {
+      "label": "Better position your company or institution in the Americas and beyond",
+      "count": 34,
+      "pct": 70.8
+    },
+    {
+      "label": "Learn about business soft-landing opportunities in Illinois, U.S, and/or in other countries",
+      "count": 17,
+      "pct": 35.4
+    },
+    {
+      "label": "Other",
+      "count": 0,
+      "pct": 0.0
+    }
+  ],
+  "connectionsCount": {
+    "mean": 3.77,
+    "median": 3,
+    "total": 181,
+    "buckets": [
+      {
+        "range": "0",
+        "count": 0
+      },
+      {
+        "range": "1–2",
+        "count": 10
+      },
+      {
+        "range": "3–5",
+        "count": 32
+      },
+      {
+        "range": "6–10",
+        "count": 6
+      },
+      {
+        "range": "11+",
+        "count": 0
+      }
+    ]
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 28,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 28,
+      "mean": 1.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 26,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 26,
+      "mean": 1.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "United States",
+      "count": 12,
+      "pct": 27.9
+    },
+    {
+      "country": "Guatemala",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Colombia",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Mexico",
+      "count": 3,
+      "pct": 7.0
+    },
+    {
+      "country": "Brazil",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Ecuador",
+      "count": 2,
+      "pct": 4.7
+    },
+    {
+      "country": "Canada",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Germany",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Usa",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Belize",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "USA",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "MEXICO",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Costa Rica",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Puerto Rico",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "República Dominicana",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Uruguay",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "JAMAICA",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Panama",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Dominican Republic",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "ARGENTINA",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "México",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Argentina",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Armenia",
+      "count": 1,
+      "pct": 2.3
+    },
+    {
+      "country": "Grenada",
+      "count": 1,
+      "pct": 2.3
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7",
+      "name": "George Wilson",
+      "country": "United States",
+      "text": "I will be sending promising Vanderbilt technologies for potential licensing to Danielle for consideration in cohort 2 of her venture studio I will be coordinating with Jorge and Andrea on a joint webinar series supporting entrepreneurs I will be hosting Elizabeth in Nashville next week to explore engagement and partnership with Vanderbilt University Medical Center researchers looking to recruit for rare disease clinical trials I will be connecting Corinne with key healthcare stakeholders in Nashville for smart charts"
+    },
+    {
+      "question": "7",
+      "name": "Alia Abbas",
+      "country": "Canada",
+      "text": "The colleagues I met were great and I believe I have made enough connections to start working on my organization work."
+    },
+    {
+      "question": "7",
+      "name": "Sandra MarinRuiz",
+      "country": "",
+      "text": "Alliances that increase the impact bridging community with academia and small businesses"
+    },
+    {
+      "question": "7",
+      "name": "Jana Liebe",
+      "country": "Germany",
+      "text": "2 LOIs on promoting energy transition with Tucuman and Santa Catarina Great insights in identifying and solving proplems I will inform my cluster members about the business opportunities in Illinois"
+    },
+    {
+      "question": "7",
+      "name": "John Achoukian",
+      "country": "United States",
+      "text": "Site visits highlighted clear opportunities for organizations to strengthen partnerships with higher education institutions like the University of Illinois System by identifying shared challenges, such as those in health, water, or innovation, and collaborating to co-develop research initiatives, pilot programs, or workforce development efforts."
+    },
+    {
+      "question": "8. ",
+      "name": "George Wilson",
+      "country": "United States",
+      "text": "Yes, I will be taking back the presentations from the innovation ecosystems, especially those of the universities, to inform our programs and practices"
+    },
+    {
+      "question": "8. ",
+      "name": "Alia Abbas",
+      "country": "Canada",
+      "text": "Yes, I have learned so much about the Latin and South American countries and how they do business retention and FDI work."
+    },
+    {
+      "question": "8. ",
+      "name": "Sandra MarinRuiz",
+      "country": "",
+      "text": "Yes. The ACE host linked with foreign economic development delegates creates a mix os knowledge and best practices replicable across the board."
+    },
+    {
+      "question": "8. ",
+      "name": "Jana Liebe",
+      "country": "Germany",
+      "text": "My team size has remained the same, But a lot lerarnings for ThEEN and my consulting activities to the German regional and federal government."
+    },
+    {
+      "question": "8. ",
+      "name": "John Achoukian",
+      "country": "United States",
+      "text": "Yes, by deepening my understanding of cross-sector collaboration, exposing me to successful models of public-private partnerships, and expanding my network of global stakeholders. It has equipped me with new strategies to support startups, align innovation ecosystems, and drive impact through international knowledge exchange."
+    },
+    {
+      "question": "12",
+      "name": "George Wilson",
+      "country": "United States",
+      "text": "I’ll be working with Elizabeth and Corinne on MOUs with VUMC for their startups"
+    },
+    {
+      "question": "12",
+      "name": "Sandra MarinRuiz",
+      "country": "",
+      "text": "For instance: Intentions to design disaster preparedness to strengthen business continuity by leveraging expertise from the U.S., Latam and the Caribbean . (a) Panamerican Development Foundation (b) Florida SBDC at FAU"
+    },
+    {
+      "question": "12",
+      "name": "John Achoukian",
+      "country": "United States",
+      "text": "The Armenian delegation expressed strong interest in connecting with Illinois-based experts to explore entry into the Illinois and broader U.S. wine market, potentially through an introduction to companies like Breakthru Beverage Group in Chicago. Armenia’s rapidly growing and scaled winemaking industry, combined with reduced tariff emphasis, presents a compelling win-win opportunity: Illinois-based importers and distributors could gain access to high-quality, distinctive wines, while Armenian producers would benefit from expanded U.S. market access and visibility."
+    },
+    {
+      "question": "12",
+      "name": "Angel Saltos",
+      "country": "Usa",
+      "text": "I am open to explore partnerships with Ecuador ?? ‘s Chambers on Industry. El Ebro, mexican mezcal exporters"
+    },
+    {
+      "question": "12",
+      "name": "Evelyn Córdova",
+      "country": "Guatemala",
+      "text": "Yes, there is interest in exploring collaborations between the Ministry of Economy, which will be validated in the coming days. We would appreciate further discussions once we have received the approval from the authorities."
+    },
+    {
+      "question": "16",
+      "name": "George Wilson",
+      "country": "United States",
+      "text": "This is an excellent program and should continue to be supported. It was a great showcase of IL’s innovation and economic development capacity, and other states should be given the opportunity to host future events to do the same."
+    },
+    {
+      "question": "16",
+      "name": "Alia Abbas",
+      "country": "Canada",
+      "text": "For the agenda if we can add the location address. This would be easier for people to come."
+    },
+    {
+      "question": "16",
+      "name": "Sandra MarinRuiz",
+      "country": "",
+      "text": "I am very grateful for the opportunity to support the foreign economic development delegates."
+    },
+    {
+      "question": "16",
+      "name": "Jana Liebe",
+      "country": "Germany",
+      "text": "More insights in Clean Energy Research (would be fine) Sustainable Catering for avoiding the garbage (less plastics and paper) Thanks for the great week and all the insights"
+    },
+    {
+      "question": "16",
+      "name": "Evelyn Córdova",
+      "country": "Guatemala",
+      "text": "We appreciate the opportunity to participate, network, and learn from best practices. It was a very enriching event. We appreciate all the efforts of the ACE team in achieving such an ambitious agenda, executed in an exemplary manner."
+    }
+  ],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

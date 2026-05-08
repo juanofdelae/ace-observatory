@@ -1,0 +1,665 @@
+{
+  "editionId": "ace-22-cordoba-2025",
+  "totalResponses": 28,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 18,
+        "pct": 64.3
+      },
+      {
+        "label": "Above Expectations",
+        "count": 9,
+        "pct": 32.1
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 1,
+        "pct": 3.6
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 28,
+    "mean": 1.39
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 4.75,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 5,
+        "Very Good": 22
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 4.68,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 9,
+        "Very Good": 19
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 4.89,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 3,
+        "Very Good": 25
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 4.5,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 1,
+        "Neutral": 1,
+        "Good": 9,
+        "Very Good": 17
+      }
+    },
+    {
+      "label": "Hotels",
+      "mean": 4.61,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 3,
+        "Good": 5,
+        "Very Good": 20
+      }
+    },
+    {
+      "label": "Topics/theme",
+      "mean": 4.71,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 8,
+        "Very Good": 20
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 5.0,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 0,
+        "Good": 0,
+        "Very Good": 28
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 28,
+        "pct": 100.0
+      },
+      {
+        "label": "Maybe",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 28,
+    "mean": 1.0
+  },
+  "knowledgeScope": [
+    {
+      "topic": "Agribusiness & AgriTech",
+      "exit": {
+        "None": 1,
+        "Low": 0,
+        "Medium": 11,
+        "High": 16
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Automotive & Auto Parts Industry",
+      "exit": {
+        "None": 1,
+        "Low": 5,
+        "Medium": 12,
+        "High": 10
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Connectivity & Digital Transformation",
+      "exit": {
+        "None": 0,
+        "Low": 3,
+        "Medium": 10,
+        "High": 15
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Startup & Innovation Ecosystem",
+      "exit": {
+        "None": 0,
+        "Low": 1,
+        "Medium": 11,
+        "High": 16
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Life Sciences: HealthTech & BioTech",
+      "exit": {
+        "None": 0,
+        "Low": 4,
+        "Medium": 14,
+        "High": 10
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Inspire or improve economic development, innovation and entrepreneurship policies and/or national strategies",
+      "exit": {
+        "None": 21,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    }
+  ],
+  "programImpact": [
+    {
+      "label": "Influence or strengthen economic development, innovation and entrepreneurship strategies, initiatives, and projects",
+      "count": 23,
+      "pct": 82.1
+    },
+    {
+      "label": "Expand your regional and international network of high-level decision-makers to advance your projects, enhance your events and or better position your company or institution in the Americas and beyond",
+      "count": 26,
+      "pct": 92.9
+    },
+    {
+      "label": "Enhance your skills in economic development, innovation and entrepreneurship to further support the national or subnational economic development agenda",
+      "count": 21,
+      "pct": 75.0
+    },
+    {
+      "label": "Learn about economic development best practices that can be replicated in your institution, your country and/or region",
+      "count": 18,
+      "pct": 64.3
+    },
+    {
+      "label": "Better position your company or institution in the Americas and beyond",
+      "count": 17,
+      "pct": 60.7
+    },
+    {
+      "label": "Learn about business soft-landing opportunities in Argentina, and/or in other countries",
+      "count": 8,
+      "pct": 28.6
+    },
+    {
+      "label": "Other",
+      "count": 0,
+      "pct": 0.0
+    }
+  ],
+  "connectionsCount": {
+    "mean": 1.0,
+    "median": 1,
+    "total": 11,
+    "buckets": [
+      {
+        "range": "0",
+        "count": 0
+      },
+      {
+        "range": "1–2",
+        "count": 11
+      },
+      {
+        "range": "3–5",
+        "count": 0
+      },
+      {
+        "range": "6–10",
+        "count": 0
+      },
+      {
+        "range": "11+",
+        "count": 0
+      }
+    ]
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 14,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 14,
+      "mean": 1.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 9,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 9,
+      "mean": 1.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "USA",
+      "count": 4,
+      "pct": 14.8
+    },
+    {
+      "country": "Mexico",
+      "count": 3,
+      "pct": 11.1
+    },
+    {
+      "country": "Paraguay",
+      "count": 3,
+      "pct": 11.1
+    },
+    {
+      "country": "United States",
+      "count": 3,
+      "pct": 11.1
+    },
+    {
+      "country": "Bolivia",
+      "count": 2,
+      "pct": 7.4
+    },
+    {
+      "country": "MEXICO",
+      "count": 2,
+      "pct": 7.4
+    },
+    {
+      "country": "Argentina",
+      "count": 2,
+      "pct": 7.4
+    },
+    {
+      "country": "Ecuador",
+      "count": 1,
+      "pct": 3.7
+    },
+    {
+      "country": "Uruguay",
+      "count": 1,
+      "pct": 3.7
+    },
+    {
+      "country": "El Salvador",
+      "count": 1,
+      "pct": 3.7
+    },
+    {
+      "country": "PERU",
+      "count": 1,
+      "pct": 3.7
+    },
+    {
+      "country": "The Bahamas",
+      "count": 1,
+      "pct": 3.7
+    },
+    {
+      "country": "Costa Rica",
+      "count": 1,
+      "pct": 3.7
+    },
+    {
+      "country": "Peru",
+      "count": 1,
+      "pct": 3.7
+    },
+    {
+      "country": "Guatemala",
+      "count": 1,
+      "pct": 3.7
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7",
+      "name": "Guillermo Pou Munt",
+      "country": "Bolivia",
+      "text": "Hemos generado vínculos efectivos para poder desarrollar conocimientos actividades conjuntas y una serie de otras labores que nos van a vincular en un futuro con gente de las diferentes empresas que hemos visitado y con las mismas empresas"
+    },
+    {
+      "question": "7",
+      "name": "Gustavo Garcia",
+      "country": "Mexico",
+      "text": "For establishing collaboration between our cluster and other organizations in Córdoba"
+    },
+    {
+      "question": "7",
+      "name": "Silvana Andrea Pappalardo Fragnaud",
+      "country": "Paraguay",
+      "text": "En la elaboración de la nueva ley de Parques Industriales en la que estamos trabajando, en incentivar y mejorar los Clusters, incentivar la innovación y promover la inclusión de la academia en la formación de mano de obra acordé a las necesidades del mercado laboral"
+    },
+    {
+      "question": "7",
+      "name": "Laura Calabro",
+      "country": "Paraguay",
+      "text": "The experience with industrial parks and the contact with the director of the San Francisco Industrial Park open the door to collaboration on drafting Paraguay's new industrial park law. Furthermore, in terms of technological solutions, Constantini represents an excellent opportunity for collaboration with Paraguayan industry. There are also significant opportunities for collaboration with the dairy industry and Bio4."
+    },
+    {
+      "question": "7",
+      "name": "Senofer Mendoza",
+      "country": "United States",
+      "text": "We are implementing a few new projects, i think it is too early to tell if they will go through but the catalyst was here."
+    },
+    {
+      "question": "8. ",
+      "name": "Guillermo Pou Munt",
+      "country": "Bolivia",
+      "text": "Ciertamente ha permitido mirar un ejemplo real de todo el proceso de clusterización nosotros mismos estamos empeñados en algo similar y lo que se hace en Córdoba pues nos ha mostrado que funciona que es efectivo una gran idea la de tener un gerente o manager de cluster que es algo que vamos a adquirir a nuestra compañía como medio para impulsar de manera más efectiva nuestros negocios sectorializados"
+    },
+    {
+      "question": "8. ",
+      "name": "Silvana Andrea Pappalardo Fragnaud",
+      "country": "Paraguay",
+      "text": "Si, sobre todo en la importancia de los Clusters y de la academia como motores de la innovación"
+    },
+    {
+      "question": "8. ",
+      "name": "Laura Calabro",
+      "country": "Paraguay",
+      "text": "Yes, Regarding economic development and innovation, I have identified new opportunities within the experiences of the industries we visited during ACE."
+    },
+    {
+      "question": "8. ",
+      "name": "Senofer Mendoza",
+      "country": "United States",
+      "text": "I have a better understanding of agricultural innovation and the interior mechanics of building a company in Argentina. It expanded my understanding of how these things are implemented in the Cordoba region, but the core skills I had coming in."
+    },
+    {
+      "question": "8. ",
+      "name": "Emilio Gutiérrez valdivia",
+      "country": "Bolivia",
+      "text": "Adaptaremos los modelos de relación, metodologías y contactos para que nuestra universidad pueda aportar de mejor forma al desarrollo de la investigación, innovación y tecnología de los sectores económicos similares a los que hemos visitado"
+    },
+    {
+      "question": "12",
+      "name": "Guillermo Pou Munt",
+      "country": "Bolivia",
+      "text": "Con la universidad río cuarto en el marco de su programa de microbiología nos gustaría buscar un acuerdo para poder desarrollar algunos esquemas de investigación e identificación de uso de algunos microorganismos"
+    },
+    {
+      "question": "12",
+      "name": "Silvana Andrea Pappalardo Fragnaud",
+      "country": "Paraguay",
+      "text": "Si, con Carlos Martinez Cortes, compartir experiencias y ver la posibilidad de asistencia técnica en el ámbito del desarrollo regional"
+    },
+    {
+      "question": "12",
+      "name": "Laura Calabro",
+      "country": "Paraguay",
+      "text": "San Francisco Industrial Park Promedon Constantini Stelantis"
+    },
+    {
+      "question": "12",
+      "name": "Senofer Mendoza",
+      "country": "United States",
+      "text": "we signed seven MOUs including with the Innovation head of the region."
+    },
+    {
+      "question": "12",
+      "name": "Emilio Gutiérrez valdivia",
+      "country": "Bolivia",
+      "text": "Nos interesaria hacer vínculos con las autoridades del Gobierno de la provincia de Córdoba y los intendentes de las ciudades visitadas para transmitir a nuestras autoridades de gobierno el funcionamiento y potencia de la triple hélice."
+    },
+    {
+      "question": "16",
+      "name": "Guillermo Pou Munt",
+      "country": "Bolivia",
+      "text": "Ha sido una excelente experiencia a lo largo de los años veo que ha mejorado de manera sustancial sin perder la esencia de lo que implica el ace así que debo felicitarlos en toda la onda y alentarles a seguir desarrollando este extraordinaria actividad felicidades"
+    },
+    {
+      "question": "16",
+      "name": "Laura Calabro",
+      "country": "Paraguay",
+      "text": "I just want to say it was an excellent experience, thank you to the organizers, and we're looking forward to an ACE in Paraguay."
+    },
+    {
+      "question": "16",
+      "name": "Senofer Mendoza",
+      "country": "United States",
+      "text": "Some coordination across panels would be beneficial, we heard similar information about the region a few times, getting an introductory overlay on Day 1 would make us more informed participants. With the commitment needed, just a more efficient use of time would have been appreciated, there were long treks out to the country and then lots of repeat photos, some marketing is needed but it was difficult at times to tell if this was a diplomatic marketing effort"
+    },
+    {
+      "question": "16",
+      "name": "Emilio Gutiérrez valdivia",
+      "country": "Bolivia",
+      "text": "El proceso de conexión y transferencia de tecnologia es excelente y requiere un seguimiento y apoyo de los organizadores que sería muy útil para lograr potenciar los resultados esperados"
+    },
+    {
+      "question": "16",
+      "name": "Santiago Bartrina",
+      "country": "Paraguay",
+      "text": "The overall experience was excellent, and I truly appreciate the quality of the organization and coordination throughout the program. It provided valuable insights and opportunities for meaningful interaction among participants. For future editions, I would suggest reviewing the length of some daily agendas — particularly on the first day, which I found to be quite long. Due to fatigue, it became difficult to fully engage with the final sessions of the day. Adjusting the schedule slightly could help participants make the most of every activity."
+    }
+  ],
+  "knowledgeGrowth": [
+    {
+      "topic": "Agribusiness & AgriTech",
+      "pre": {
+        "None": 4,
+        "Low": 12,
+        "Medium": 7,
+        "High": 5
+      },
+      "exit": {
+        "None": 1,
+        "Low": 0,
+        "Medium": 11,
+        "High": 13
+      }
+    },
+    {
+      "topic": "Automotive & Auto Parts Industry",
+      "pre": {
+        "None": 5,
+        "Low": 14,
+        "Medium": 8,
+        "High": 1
+      },
+      "exit": {
+        "None": 1,
+        "Low": 5,
+        "Medium": 12,
+        "High": 7
+      }
+    },
+    {
+      "topic": "Connectivity & Digital Transformation",
+      "pre": {
+        "None": 7,
+        "Low": 9,
+        "Medium": 9,
+        "High": 3
+      },
+      "exit": {
+        "None": 0,
+        "Low": 3,
+        "Medium": 9,
+        "High": 13
+      }
+    },
+    {
+      "topic": "Startup & Innovation Ecosystem",
+      "pre": {
+        "None": 4,
+        "Low": 11,
+        "Medium": 7,
+        "High": 6
+      },
+      "exit": {
+        "None": 0,
+        "Low": 1,
+        "Medium": 10,
+        "High": 14
+      }
+    },
+    {
+      "topic": "Life Sciences: HealthTech & BioTech",
+      "pre": {
+        "None": 9,
+        "Low": 9,
+        "Medium": 7,
+        "High": 3
+      },
+      "exit": {
+        "None": 0,
+        "Low": 4,
+        "Medium": 14,
+        "High": 7
+      }
+    }
+  ],
+  "sessionsAttended": [
+    {
+      "range": "0",
+      "count": 0
+    },
+    {
+      "range": "1 - 10",
+      "count": 6
+    },
+    {
+      "range": "11 - 20",
+      "count": 10
+    },
+    {
+      "range": "21 - 30",
+      "count": 6
+    },
+    {
+      "range": "31 - 40",
+      "count": 1
+    },
+    {
+      "range": "41 - 50",
+      "count": 1
+    },
+    {
+      "range": "51 - 60",
+      "count": 1
+    },
+    {
+      "range": "More than 61",
+      "count": 1
+    }
+  ]
+}

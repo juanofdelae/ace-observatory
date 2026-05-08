@@ -1,0 +1,56 @@
+"use client";
+import { useState } from "react";
+import { Sidebar } from "./Sidebar";
+import { Menu } from "lucide-react";
+
+/**
+ * AppShell — premium iPad-style intelligence workspace.
+ *
+ * Layout intent:
+ * - The whole app sits on a soft canvas (`surface-canvas`).
+ * - A floating dark sidebar pill (220px wide on desktop) is anchored
+ *   left with generous outer breathing room (`lg:left-6`, `lg:my-4`).
+ * - The main column offsets by 260px on desktop (220 sidebar + 40 gap).
+ * - On mobile the sidebar collapses to a slide-in drawer; a small
+ *   floating menu button replaces the old top-bar trigger.
+ */
+export function DashboardLayout({ children }: { children: React.ReactNode }) {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  return (
+    <div className="relative min-h-screen bg-surface-canvas">
+      {/* Soft ambient gradient — gives the canvas a hint of depth without
+          competing with the panels above it. */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-0 opacity-[0.55]"
+        style={{
+          backgroundImage:
+            "radial-gradient(1100px 600px at 18% 10%, rgba(37, 99, 235, 0.05) 0%, transparent 60%), radial-gradient(900px 500px at 92% 90%, rgba(20, 184, 166, 0.04) 0%, transparent 60%)",
+        }}
+      />
+
+      <Sidebar
+        mobileOpen={mobileNavOpen}
+        onCloseMobile={() => setMobileNavOpen(false)}
+      />
+
+      {/* Mobile-only sidebar trigger. Replaces the old top utility bar —
+          desktop has the sidebar always visible so it doesn't need any
+          chrome above the canvas. */}
+      <button
+        onClick={() => setMobileNavOpen(true)}
+        aria-label="Open navigation"
+        className="lg:hidden fixed top-3 left-3 z-30 w-10 h-10 rounded-xl bg-white/90 backdrop-blur border border-surface-border shadow-card flex items-center justify-center text-ink"
+      >
+        <Menu size={18} />
+      </button>
+
+      {/* Main column — offset to make room for the floating sidebar
+          (220px pill + 24px left + ~16px gap = 260px). */}
+      <div className="relative z-10 flex flex-col min-h-screen lg:pl-sidebar-offset">
+        <main className="flex-1">{children}</main>
+      </div>
+    </div>
+  );
+}

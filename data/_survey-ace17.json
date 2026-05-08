@@ -1,0 +1,621 @@
+{
+  "editionId": "ace-17-panama-2024",
+  "totalResponses": 47,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 31,
+        "pct": 66.0
+      },
+      {
+        "label": "Above Expectations",
+        "count": 14,
+        "pct": 29.8
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 2,
+        "pct": 4.3
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 47,
+    "mean": 1.38
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 4.53,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 20,
+        "Very Good": 26
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 4.17,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 7,
+        "Good": 25,
+        "Very Good": 15
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 4.57,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 18,
+        "Very Good": 28
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 4.3,
+      "levels": {
+        "Very Poor": 1,
+        "Poor": 1,
+        "Neutral": 4,
+        "Good": 18,
+        "Very Good": 23
+      }
+    },
+    {
+      "label": "Hotel",
+      "mean": 4.09,
+      "levels": {
+        "Very Poor": 1,
+        "Poor": 3,
+        "Neutral": 9,
+        "Good": 12,
+        "Very Good": 22
+      }
+    },
+    {
+      "label": "Topics/theme",
+      "mean": 4.51,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 1,
+        "Neutral": 1,
+        "Good": 18,
+        "Very Good": 27
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 4.91,
+      "levels": {
+        "Very Poor": 0,
+        "Poor": 0,
+        "Neutral": 1,
+        "Good": 2,
+        "Very Good": 44
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 47,
+        "pct": 100.0
+      },
+      {
+        "label": "Maybe",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 47,
+    "mean": 1.0
+  },
+  "knowledgeScope": [
+    {
+      "topic": "Transportation and Logistics",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 13
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Advanced and Transformative Technologies",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 5,
+        "High": 27
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Information and Communication Technology (ICT)",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 6,
+        "High": 28
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Sustainable Water and Agriculture",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 8,
+        "High": 22
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Clean Energy",
+      "exit": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 9,
+        "High": 22
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    {
+      "topic": "Inspire or improve economic development, innovation and entrepreneurship policies and/or national strategies",
+      "exit": {
+        "None": 32,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      },
+      "pre": {
+        "None": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    }
+  ],
+  "programImpact": [
+    {
+      "label": "Influence or strengthen economic development, innovation and entrepreneurship strategies, initiatives, and projects",
+      "count": 33,
+      "pct": 73.3
+    },
+    {
+      "label": "Expand your regional and international network of high-level decision-makers to advance your projects, enhance your events and or better position your company or institution in the Americas and beyond",
+      "count": 40,
+      "pct": 88.9
+    },
+    {
+      "label": "Enhance your skills in economic development, innovation and entrepreneurship to further support the national or subnational economic development agenda",
+      "count": 23,
+      "pct": 51.1
+    },
+    {
+      "label": "Learn about economic development best practices that can be replicated in your institution, your country and/or region",
+      "count": 30,
+      "pct": 66.7
+    },
+    {
+      "label": "Better position your company or institution in the Americas and beyond",
+      "count": 30,
+      "pct": 66.7
+    },
+    {
+      "label": "Learn about business soft-landing opportunities in Panama, and/or in other countries",
+      "count": 25,
+      "pct": 55.6
+    },
+    {
+      "label": "Other",
+      "count": 0,
+      "pct": 0.0
+    }
+  ],
+  "connectionsCount": {
+    "mean": 1.0,
+    "median": 1,
+    "total": 11,
+    "buckets": [
+      {
+        "range": "0",
+        "count": 0
+      },
+      {
+        "range": "1–2",
+        "count": 11
+      },
+      {
+        "range": "3–5",
+        "count": 0
+      },
+      {
+        "range": "6–10",
+        "count": 0
+      },
+      {
+        "range": "11+",
+        "count": 0
+      }
+    ]
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 30,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 30,
+      "mean": 1.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 21,
+          "pct": 100.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 21,
+      "mean": 1.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "United States",
+      "count": 8,
+      "pct": 20.5
+    },
+    {
+      "country": "Ecuador",
+      "count": 4,
+      "pct": 10.3
+    },
+    {
+      "country": "USA",
+      "count": 4,
+      "pct": 10.3
+    },
+    {
+      "country": "Panama",
+      "count": 3,
+      "pct": 7.7
+    },
+    {
+      "country": "Barbados",
+      "count": 2,
+      "pct": 5.1
+    },
+    {
+      "country": "Argentina",
+      "count": 2,
+      "pct": 5.1
+    },
+    {
+      "country": "Dominican Republic",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "The Bahamas",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Guatemala",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Panamá",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Mexico",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Armenia",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Brazil",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Bahamas",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Canada",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Paraguay",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Saint Lucia",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Germany",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Uruguay",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Colombia",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Perú",
+      "count": 1,
+      "pct": 2.6
+    },
+    {
+      "country": "Colombia/ Panama",
+      "count": 1,
+      "pct": 2.6
+    }
+  ],
+  "qualitativeQuotes": [
+    {
+      "question": "7",
+      "name": "William Patrick Murphy",
+      "country": "United States",
+      "text": "Logistics industry is one where I see a lot of opportunities."
+    },
+    {
+      "question": "7",
+      "name": "Ana María Gallado",
+      "country": "Ecuador",
+      "text": "New partnerships that will help build new Projects in innovation and entrepreneurship with an important impact in my country"
+    },
+    {
+      "question": "7",
+      "name": "Laura Del Castillo",
+      "country": "Dominican Republic",
+      "text": "Learning how other competitive institutions are transforming their scope and trying to replicate those practices"
+    },
+    {
+      "question": "7",
+      "name": "Sarah Tennant",
+      "country": "",
+      "text": "Increased coordination with entities in the americas, Canada,Mexico and the Caribbean"
+    },
+    {
+      "question": "7",
+      "name": "Mikhail Bullard",
+      "country": "The Bahamas",
+      "text": "Will use panama best practices as proposals for economic development; will look to establish partnerships with several participants"
+    },
+    {
+      "question": "8. ",
+      "name": "William Patrick Murphy",
+      "country": "United States",
+      "text": "It has greatly enhanced my knowledge of the opportunities with Panamanian entrepreneurs."
+    },
+    {
+      "question": "8. ",
+      "name": "Ana María Gallado",
+      "country": "Ecuador",
+      "text": "Definitely, It has given me more tools and knowledge and a strong network that will help me Meet new goals that i have for my institution"
+    },
+    {
+      "question": "8. ",
+      "name": "Laura Del Castillo",
+      "country": "Dominican Republic",
+      "text": "Yes, I’m more able to talk about topics I didn’t before Ace"
+    },
+    {
+      "question": "8. ",
+      "name": "Sarah Tennant",
+      "country": "",
+      "text": "ACE has assisted in broadening my network within this space"
+    },
+    {
+      "question": "8. ",
+      "name": "Mikhail Bullard",
+      "country": "The Bahamas",
+      "text": "Learnt best practices that are applicable to shared developmental challenges"
+    },
+    {
+      "question": "12",
+      "name": "Ana María Gallado",
+      "country": "Ecuador",
+      "text": "Partnerships with orner universities on research and international exchange programa and académico missions for the students and professors"
+    },
+    {
+      "question": "12",
+      "name": "Sarah Tennant",
+      "country": "",
+      "text": "Yes we are looking to work with Aerialloop to establish potential coordination and pilots in Michigan"
+    },
+    {
+      "question": "12",
+      "name": "Mikhail Bullard",
+      "country": "The Bahamas",
+      "text": "MoUs/ Partnership Agreements; trade facilitation and business collaboration support"
+    },
+    {
+      "question": "12",
+      "name": "Chris Brown",
+      "country": "United States",
+      "text": "I believe there is great research already done by NADO that could be shared with rural areas to help with many of the problems we heard about. I feel NADO could also help compile and share other solutions from our partner countries ."
+    },
+    {
+      "question": "12",
+      "name": "Douglas Ovalle",
+      "country": "Guatemala",
+      "text": "Upcoming virtual meetings with plattforms developers to peruse future negotiations"
+    },
+    {
+      "question": "14",
+      "name": "Ana María Gallado",
+      "country": "Ecuador",
+      "text": "Yes It gave me an open perspective about the importance of circular economy and the role of the community private and public sector"
+    },
+    {
+      "question": "14",
+      "name": "Sarah Tennant",
+      "country": "",
+      "text": "Yes the presentations helped to increase my knowledge of the importance and the ways to be more inclusive of this population moving forward"
+    },
+    {
+      "question": "14",
+      "name": "Mikhail Bullard",
+      "country": "The Bahamas",
+      "text": "The inclusion of local entrepreneurs and their offerings as a part of sectoral presentations"
+    },
+    {
+      "question": "14",
+      "name": "Jeannette P Tamayo",
+      "country": "United States",
+      "text": "Liked the presentations. Would have liked to see more Panamanian entrepreneurship earlier in the tour"
+    },
+    {
+      "question": "14",
+      "name": "Douglas Ovalle",
+      "country": "Guatemala",
+      "text": "Need to involve more companies and their decision makers to boost and implement economic development"
+    },
+    {
+      "question": "16",
+      "name": "Ana María Gallado",
+      "country": "Ecuador",
+      "text": "Continue to Connect in zoom sessions with the participants of every ace"
+    },
+    {
+      "question": "16",
+      "name": "Mikhail Bullard",
+      "country": "The Bahamas",
+      "text": "Excellent coordination and agenda by panama as host and the OAS team but more time for engaging prospective partners and for breaks between visits on the early days could have enhanced delegate productivity"
+    },
+    {
+      "question": "16",
+      "name": "Douglas Ovalle",
+      "country": "Guatemala",
+      "text": "Like I said need more companies from private sector and their decision makers to be involved in the program"
+    },
+    {
+      "question": "16",
+      "name": "Luis Edgar Aparicio Pinto",
+      "country": "Panamá",
+      "text": "It has been a great program, with an excellent agenda my congratulations. Thank you to the entire Foreign Ministry and OAS team."
+    },
+    {
+      "question": "16",
+      "name": "Allyson Johnson",
+      "country": "",
+      "text": "The team was amazing - it was great to finally see what ACE is all about and the team knocked it out of the park. The Panama hosts were so kind and inclusive, it was an honor to be a part of this all. The unique background of every guest brought an invaluable amount to the experience. The opportunity to connect with so many different people has brought renewed inspiration. Very well done team ACE, OAS and Panama!"
+    }
+  ],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

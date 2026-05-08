@@ -1,0 +1,322 @@
+{
+  "editionId": "ace-15-ecuador-2022",
+  "totalResponses": 37,
+  "overallRating": {
+    "options": [
+      {
+        "label": "Significantly Above Expectations",
+        "count": 17,
+        "pct": 45.9
+      },
+      {
+        "label": "Above Expectations",
+        "count": 17,
+        "pct": 45.9
+      },
+      {
+        "label": "In Line with Expectations",
+        "count": 3,
+        "pct": 8.1
+      },
+      {
+        "label": "Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "Significantly Below Expectations",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 37,
+    "mean": 1.62
+  },
+  "aspectRatings": [
+    {
+      "label": "Overall agenda",
+      "mean": 1.65,
+      "levels": {
+        "Very Poor": 19,
+        "Poor": 13,
+        "Neutral": 4,
+        "Good": 1,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Presentations",
+      "mean": 1.73,
+      "levels": {
+        "Very Poor": 17,
+        "Poor": 13,
+        "Neutral": 7,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Group of participants",
+      "mean": 1.41,
+      "levels": {
+        "Very Poor": 26,
+        "Poor": 7,
+        "Neutral": 4,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Logistics",
+      "mean": 1.41,
+      "levels": {
+        "Very Poor": 24,
+        "Poor": 11,
+        "Neutral": 2,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Hotels",
+      "mean": 1.3,
+      "levels": {
+        "Very Poor": 26,
+        "Poor": 11,
+        "Neutral": 0,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Support team",
+      "mean": 1.03,
+      "levels": {
+        "Very Poor": 36,
+        "Poor": 1,
+        "Neutral": 0,
+        "Good": 0,
+        "Very Good": 0
+      }
+    },
+    {
+      "label": "Topics/themes",
+      "mean": 1.46,
+      "levels": {
+        "Very Poor": 23,
+        "Poor": 11,
+        "Neutral": 3,
+        "Good": 0,
+        "Very Good": 0
+      }
+    }
+  ],
+  "recommend": {
+    "options": [
+      {
+        "label": "Yes",
+        "count": 37,
+        "pct": 100.0
+      },
+      {
+        "label": "Maybe",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "label": "No",
+        "count": 0,
+        "pct": 0.0
+      }
+    ],
+    "total": 37,
+    "mean": 1.0
+  },
+  "knowledgeScope": [],
+  "programImpact": [],
+  "connectionsCount": {
+    "mean": 0.0,
+    "median": 0,
+    "total": 0,
+    "buckets": []
+  },
+  "equityRatings": {
+    "genderYouth": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 0,
+      "mean": 0.0
+    },
+    "equityImportance": {
+      "options": [
+        {
+          "label": "Strongly Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Disagree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Neutral",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Agree",
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "label": "Strongly Agree",
+          "count": 0,
+          "pct": 0.0
+        }
+      ],
+      "total": 0,
+      "mean": 0.0
+    }
+  },
+  "countryDistribution": [
+    {
+      "country": "Ecuador",
+      "count": 6,
+      "pct": 16.7
+    },
+    {
+      "country": "United States",
+      "count": 6,
+      "pct": 16.7
+    },
+    {
+      "country": "Puerto Rico",
+      "count": 2,
+      "pct": 5.6
+    },
+    {
+      "country": "ECUADOR",
+      "count": 2,
+      "pct": 5.6
+    },
+    {
+      "country": "Saint Lucia",
+      "count": 2,
+      "pct": 5.6
+    },
+    {
+      "country": "Colombia",
+      "count": 2,
+      "pct": 5.6
+    },
+    {
+      "country": "Trinidad & Tobago",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Germany",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Haiti",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Uruguay",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Paraguay",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "USA",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Barbados",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Belize",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "México",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Chile",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Nederland",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Dominican Republic",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Brazil",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Argentina",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Guatemala",
+      "count": 1,
+      "pct": 2.8
+    },
+    {
+      "country": "Honduras",
+      "count": 1,
+      "pct": 2.8
+    }
+  ],
+  "qualitativeQuotes": [],
+  "knowledgeGrowth": [],
+  "sessionsAttended": []
+}

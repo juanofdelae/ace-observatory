@@ -1,0 +1,2540 @@
+[
+  {
+    "id": "site-disney-springs",
+    "name": "Disney Springs",
+    "type": "Cluster",
+    "countryId": "us",
+    "cityId": "city-orlando",
+    "coordinates": {
+      "lat": 28.542483,
+      "lng": -81.39345
+    },
+    "sectorIds": [],
+    "description": "Disney Springs is a Cluster in Orlando, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-walt-disney-world-resort",
+    "name": "Walt Disney World Resort",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-orlando",
+    "coordinates": {
+      "lat": 28.531551,
+      "lng": -81.387504
+    },
+    "sectorIds": [],
+    "description": "Walt Disney World Resort is a NGO in Orlando, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-jw-marriott-grande-lakes-hotel",
+    "name": "JW Marriott Grande Lakes Hotel",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-orlando",
+    "coordinates": {
+      "lat": 28.545394,
+      "lng": -81.373899
+    },
+    "sectorIds": [],
+    "description": "JW Marriott Grande Lakes Hotel is a NGO in Orlando, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-walt-disney-s-magic-kingdom",
+    "name": "Walt Disney's Magic Kingdom",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-orlando",
+    "coordinates": {
+      "lat": 28.550065,
+      "lng": -81.391592
+    },
+    "sectorIds": [],
+    "description": "Walt Disney's Magic Kingdom is a NGO in Orlando, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-university-of-central-florida",
+    "name": "University of Central Florida",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-orlando",
+    "coordinates": {
+      "lat": 28.535958,
+      "lng": -81.393306
+    },
+    "sectorIds": [],
+    "description": "University of Central Florida is a University in Orlando, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-florida-institute-of-technology",
+    "name": "Florida Institute of Technology",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-melbourne-fl",
+    "coordinates": {
+      "lat": 28.075159,
+      "lng": -80.607939
+    },
+    "sectorIds": [],
+    "description": "Florida Institute of Technology is a University in Melbourne, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-fit-aviation",
+    "name": "FIT Aviation",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-melbourne-fl",
+    "coordinates": {
+      "lat": 28.069396,
+      "lng": -80.617135
+    },
+    "sectorIds": [],
+    "description": "FIT Aviation is a Innovation Center in Melbourne, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-fit-campus",
+    "name": "FIT Campus",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-melbourne-fl",
+    "coordinates": {
+      "lat": 28.088097,
+      "lng": -80.606752
+    },
+    "sectorIds": [],
+    "description": "FIT Campus is a University in Melbourne, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-camid",
+    "name": "CAMID",
+    "type": "Research Lab",
+    "countryId": "us",
+    "cityId": "city-melbourne-fl",
+    "coordinates": {
+      "lat": 28.075213,
+      "lng": -80.605422
+    },
+    "sectorIds": [],
+    "description": "CAMID is a Research Lab in Melbourne, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-larsen-motorsports",
+    "name": "Larsen Motorsports",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-melbourne-fl",
+    "coordinates": {
+      "lat": 28.092883,
+      "lng": -80.622905
+    },
+    "sectorIds": [],
+    "description": "Larsen Motorsports is a Innovation Center in Melbourne, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-port-canaveral",
+    "name": "Port Canaveral",
+    "type": "Chamber of Commerce",
+    "countryId": "us",
+    "cityId": "city-cape-canaveral",
+    "coordinates": {
+      "lat": 28.414675,
+      "lng": -80.598556
+    },
+    "sectorIds": [],
+    "description": "Port Canaveral is a Chamber of Commerce in Cape Canaveral, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-exploration-tower",
+    "name": "Exploration Tower",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-cape-canaveral",
+    "coordinates": {
+      "lat": 28.400708,
+      "lng": -80.614836
+    },
+    "sectorIds": [],
+    "description": "Exploration Tower is a Innovation Center in Cape Canaveral, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-nasa-kennedy-space-center",
+    "name": "NASA Kennedy Space Center",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-cape-canaveral",
+    "coordinates": {
+      "lat": 28.419216,
+      "lng": -80.609402
+    },
+    "sectorIds": [],
+    "description": "NASA Kennedy Space Center is a Innovation Center in Cape Canaveral, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-searay-boats",
+    "name": "SeaRay Boats",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-cape-canaveral",
+    "coordinates": {
+      "lat": 28.393282,
+      "lng": -80.616599
+    },
+    "sectorIds": [],
+    "description": "SeaRay Boats is a Company in Cape Canaveral, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-flagler-palm-coast-high-school",
+    "name": "Flagler Palm Coast High School",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-palm-coast",
+    "coordinates": {
+      "lat": 29.595125,
+      "lng": -81.204688
+    },
+    "sectorIds": [],
+    "description": "Flagler Palm Coast High School is a Innovation Center in Palm Coast, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-castillo-de-san-marcos",
+    "name": "Castillo de San Marcos",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-st-augustine",
+    "coordinates": {
+      "lat": 29.910414,
+      "lng": -81.305508
+    },
+    "sectorIds": [],
+    "description": "Castillo de San Marcos is a NGO in St. Augustine, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-st-augustine-distillery",
+    "name": "St. Augustine Distillery",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-st-augustine",
+    "coordinates": {
+      "lat": 29.902287,
+      "lng": -81.298207
+    },
+    "sectorIds": [],
+    "description": "St. Augustine Distillery is a NGO in St. Augustine, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-university-of-florida-new-engineering-building",
+    "name": "University of Florida New Engineering Building",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-gainesville",
+    "coordinates": {
+      "lat": 29.647956,
+      "lng": -82.323239
+    },
+    "sectorIds": [],
+    "description": "University of Florida New Engineering Building is a University in Gainesville, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-cade-museum",
+    "name": "Cade Museum",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-gainesville",
+    "coordinates": {
+      "lat": 29.661482,
+      "lng": -82.321244
+    },
+    "sectorIds": [],
+    "description": "Cade Museum is a Innovation Center in Gainesville, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-santa-fe-college",
+    "name": "Santa Fe College",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-gainesville",
+    "coordinates": {
+      "lat": 29.662451,
+      "lng": -82.322479
+    },
+    "sectorIds": [],
+    "description": "Santa Fe College is a University in Gainesville, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-innovation-square",
+    "name": "Innovation Square",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-gainesville",
+    "coordinates": {
+      "lat": 29.657737,
+      "lng": -82.338425
+    },
+    "sectorIds": [],
+    "description": "Innovation Square is a Innovation Center in Gainesville, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-innovation-hub",
+    "name": "Innovation Hub",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-gainesville",
+    "coordinates": {
+      "lat": 29.643437,
+      "lng": -82.331118
+    },
+    "sectorIds": [],
+    "description": "Innovation Hub is a Innovation Center in Gainesville, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-infinity-hall",
+    "name": "Infinity Hall",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-gainesville",
+    "coordinates": {
+      "lat": 29.638994,
+      "lng": -82.332816
+    },
+    "sectorIds": [],
+    "description": "Infinity Hall is a University in Gainesville, United States. Visited during ACE 8 (2017).",
+    "relatedEditionIds": [
+      "ace-8-florida-2017"
+    ],
+    "mediaIds": [],
+    "stateId": "us-fl"
+  },
+  {
+    "id": "site-airport-city",
+    "name": "Airport City",
+    "type": "Innovation Center",
+    "countryId": "il",
+    "cityId": "city-tel-aviv",
+    "coordinates": {
+      "lat": 32.07333,
+      "lng": 34.775139
+    },
+    "sectorIds": [],
+    "description": "Airport City is a Innovation Center in Tel Aviv, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-israel-innovation-authority",
+    "name": "Israel Innovation Authority",
+    "type": "Innovation Center",
+    "countryId": "il",
+    "cityId": "city-tel-aviv",
+    "coordinates": {
+      "lat": 32.089371,
+      "lng": 34.777745
+    },
+    "sectorIds": [],
+    "description": "Israel Innovation Authority is a Innovation Center in Tel Aviv, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-innovation-lab",
+    "name": "Innovation Lab",
+    "type": "Innovation Center",
+    "countryId": "il",
+    "cityId": "city-tel-aviv",
+    "coordinates": {
+      "lat": 32.081405,
+      "lng": 34.773085
+    },
+    "sectorIds": [],
+    "description": "Innovation Lab is a Innovation Center in Tel Aviv, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-sanara-ventures",
+    "name": "Sanara Ventures",
+    "type": "Innovation Center",
+    "countryId": "il",
+    "cityId": "city-tel-aviv",
+    "coordinates": {
+      "lat": 32.078309,
+      "lng": 34.7949
+    },
+    "sectorIds": [],
+    "description": "Sanara Ventures is a Innovation Center in Tel Aviv, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-labs-tel-aviv",
+    "name": "Labs Tel Aviv",
+    "type": "Innovation Center",
+    "countryId": "il",
+    "cityId": "city-tel-aviv",
+    "coordinates": {
+      "lat": 32.089741,
+      "lng": 34.785074
+    },
+    "sectorIds": [],
+    "description": "Labs Tel Aviv is a Innovation Center in Tel Aviv, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-aeronautics-ltd",
+    "name": "Aeronautics Ltd.",
+    "type": "Company",
+    "countryId": "il",
+    "cityId": "city-tel-aviv",
+    "coordinates": {
+      "lat": 32.075434,
+      "lng": 34.788674
+    },
+    "sectorIds": [],
+    "description": "Aeronautics Ltd. is a Company in Tel Aviv, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-scr-cow-intelligence-solution-company",
+    "name": "SCR Cow Intelligence Solution Company",
+    "type": "Research Lab",
+    "countryId": "il",
+    "cityId": "city-caesarea",
+    "coordinates": {
+      "lat": 32.495002,
+      "lng": 34.899884
+    },
+    "sectorIds": [],
+    "description": "SCR Cow Intelligence Solution Company is a Research Lab in Caesarea, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-hadera-desalination-plant",
+    "name": "Hadera Desalination Plant",
+    "type": "Chamber of Commerce",
+    "countryId": "il",
+    "cityId": "city-hadera",
+    "coordinates": {
+      "lat": 32.452286,
+      "lng": 34.9238
+    },
+    "sectorIds": [],
+    "description": "Hadera Desalination Plant is a Chamber of Commerce in Hadera, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-ide-technologies",
+    "name": "IDE Technologies",
+    "type": "Company",
+    "countryId": "il",
+    "cityId": "city-hadera",
+    "coordinates": {
+      "lat": 32.439308,
+      "lng": 34.925138
+    },
+    "sectorIds": [],
+    "description": "IDE Technologies is a Company in Hadera, Israel. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-federal-ministry-for-economic-affairs-and-energy",
+    "name": "Federal Ministry for Economic Affairs and Energy",
+    "type": "Public Entity",
+    "countryId": "de",
+    "cityId": "city-berlin",
+    "coordinates": {
+      "lat": 52.530286,
+      "lng": 13.41328
+    },
+    "sectorIds": [],
+    "description": "Federal Ministry for Economic Affairs and Energy is a Public Entity in Berlin, Germany. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-fraunhofer-society",
+    "name": "Fraunhofer Society",
+    "type": "Research Lab",
+    "countryId": "de",
+    "cityId": "city-berlin",
+    "coordinates": {
+      "lat": 52.511871,
+      "lng": 13.390963
+    },
+    "sectorIds": [],
+    "description": "Fraunhofer Society is a Research Lab in Berlin, Germany. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-euref-campus",
+    "name": "EUREF Campus",
+    "type": "University",
+    "countryId": "de",
+    "cityId": "city-berlin",
+    "coordinates": {
+      "lat": 52.514464,
+      "lng": 13.398032
+    },
+    "sectorIds": [],
+    "description": "EUREF Campus is a University in Berlin, Germany. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-factory-berlin",
+    "name": "Factory Berlin",
+    "type": "Innovation Center",
+    "countryId": "de",
+    "cityId": "city-berlin",
+    "coordinates": {
+      "lat": 52.511329,
+      "lng": 13.418287
+    },
+    "sectorIds": [],
+    "description": "Factory Berlin is a Innovation Center in Berlin, Germany. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-dlr",
+    "name": "DLR",
+    "type": "Research Lab",
+    "countryId": "de",
+    "cityId": "city-berlin",
+    "coordinates": {
+      "lat": 52.531291,
+      "lng": 13.39944
+    },
+    "sectorIds": [],
+    "description": "DLR is a Research Lab in Berlin, Germany. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-ihd-dresden",
+    "name": "IHD Dresden",
+    "type": "Research Lab",
+    "countryId": "de",
+    "cityId": "city-dresden",
+    "coordinates": {
+      "lat": 51.055063,
+      "lng": 13.734169
+    },
+    "sectorIds": [],
+    "description": "IHD Dresden is a Research Lab in Dresden, Germany. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-volkswagen-transparent-factory",
+    "name": "Volkswagen Transparent Factory",
+    "type": "Company",
+    "countryId": "de",
+    "cityId": "city-dresden",
+    "coordinates": {
+      "lat": 51.062836,
+      "lng": 13.736066
+    },
+    "sectorIds": [],
+    "description": "Volkswagen Transparent Factory is a Company in Dresden, Germany. Visited during ACE 9 (2018).",
+    "relatedEditionIds": [
+      "ace-9-germany-israel-2018"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-the-vault",
+    "name": "The Vault",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-san-francisco",
+    "coordinates": {
+      "lat": 37.767846,
+      "lng": -122.427001
+    },
+    "sectorIds": [],
+    "description": "The Vault is a Innovation Center in San Francisco, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-the-commonwealth-club",
+    "name": "The Commonwealth Club",
+    "type": "Public Entity",
+    "countryId": "us",
+    "cityId": "city-san-francisco",
+    "coordinates": {
+      "lat": 37.776741,
+      "lng": -122.426518
+    },
+    "sectorIds": [],
+    "description": "The Commonwealth Club is a Public Entity in San Francisco, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-qb3-ucsf",
+    "name": "QB3 UCSF",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-san-francisco",
+    "coordinates": {
+      "lat": 37.777438,
+      "lng": -122.407465
+    },
+    "sectorIds": [],
+    "description": "QB3 UCSF is a University in San Francisco, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-cisco-systems",
+    "name": "Cisco Systems",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-silicon-valley",
+    "coordinates": {
+      "lat": 37.384482,
+      "lng": -122.06592
+    },
+    "sectorIds": [],
+    "description": "Cisco Systems is a Company in Silicon Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-nasa-ames-center",
+    "name": "NASA Ames Center",
+    "type": "Research Lab",
+    "countryId": "us",
+    "cityId": "city-silicon-valley",
+    "coordinates": {
+      "lat": 37.402426,
+      "lng": -122.057214
+    },
+    "sectorIds": [],
+    "description": "NASA Ames Center is a Research Lab in Silicon Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-seymour-marine-discovery-center",
+    "name": "Seymour Marine Discovery Center",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-monterey-bay",
+    "coordinates": {
+      "lat": 36.605427,
+      "lng": -121.930187
+    },
+    "sectorIds": [],
+    "description": "Seymour Marine Discovery Center is a NGO in Monterey Bay Area, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-national-steinbeck-center",
+    "name": "National Steinbeck Center",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-monterey-bay",
+    "coordinates": {
+      "lat": 36.605989,
+      "lng": -121.912777
+    },
+    "sectorIds": [],
+    "description": "National Steinbeck Center is a NGO in Monterey Bay Area, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-taylor-fresh-foods",
+    "name": "Taylor Fresh Foods",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-monterey-bay",
+    "coordinates": {
+      "lat": 36.626462,
+      "lng": -121.918935
+    },
+    "sectorIds": [],
+    "description": "Taylor Fresh Foods is a Company in Monterey Bay Area, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-hahn-estate",
+    "name": "Hahn Estate",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-monterey-bay",
+    "coordinates": {
+      "lat": 36.604606,
+      "lng": -121.920151
+    },
+    "sectorIds": [],
+    "description": "Hahn Estate is a Company in Monterey Bay Area, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-hartnell-college",
+    "name": "Hartnell College",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-monterey-bay",
+    "coordinates": {
+      "lat": 36.632584,
+      "lng": -121.915727
+    },
+    "sectorIds": [],
+    "description": "Hartnell College is a University in Monterey Bay Area, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-monterey-bay-aquarium",
+    "name": "Monterey Bay Aquarium",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-monterey-bay",
+    "coordinates": {
+      "lat": 36.631832,
+      "lng": -121.905777
+    },
+    "sectorIds": [],
+    "description": "Monterey Bay Aquarium is a Company in Monterey Bay Area, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-california-state-university-fresno",
+    "name": "California State University Fresno",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-fresno",
+    "coordinates": {
+      "lat": 36.723144,
+      "lng": -119.780478
+    },
+    "sectorIds": [],
+    "description": "California State University Fresno is a University in Fresno / Central Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-wet-center",
+    "name": "WET Center",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-fresno",
+    "coordinates": {
+      "lat": 36.743251,
+      "lng": -119.785991
+    },
+    "sectorIds": [],
+    "description": "WET Center is a Innovation Center in Fresno / Central Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-bitwise-industries",
+    "name": "Bitwise Industries",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-fresno",
+    "coordinates": {
+      "lat": 36.730805,
+      "lng": -119.782871
+    },
+    "sectorIds": [],
+    "description": "Bitwise Industries is a Innovation Center in Fresno / Central Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-product-incubator-pi-shop",
+    "name": "Product Incubator / PI Shop",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-fresno",
+    "coordinates": {
+      "lat": 36.726147,
+      "lng": -119.789057
+    },
+    "sectorIds": [],
+    "description": "Product Incubator / PI Shop is a Innovation Center in Fresno / Central Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-museum-arte-americas",
+    "name": "Museum Arte Americas",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-fresno",
+    "coordinates": {
+      "lat": 36.736412,
+      "lng": -119.773486
+    },
+    "sectorIds": [],
+    "description": "Museum Arte Americas is a NGO in Fresno / Central Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-almond-orchard",
+    "name": "Almond Orchard",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-fresno",
+    "coordinates": {
+      "lat": 36.749076,
+      "lng": -119.794198
+    },
+    "sectorIds": [],
+    "description": "Almond Orchard is a NGO in Fresno / Central Valley, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-golden-1-center",
+    "name": "Golden 1 Center",
+    "type": "Chamber of Commerce",
+    "countryId": "us",
+    "cityId": "city-sacramento",
+    "coordinates": {
+      "lat": 38.581618,
+      "lng": -121.50404
+    },
+    "sectorIds": [],
+    "description": "Golden 1 Center is a Chamber of Commerce in Sacramento, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-urban-hive",
+    "name": "Urban Hive",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-sacramento",
+    "coordinates": {
+      "lat": 38.593979,
+      "lng": -121.483284
+    },
+    "sectorIds": [],
+    "description": "Urban Hive is a Innovation Center in Sacramento, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-leland-stanford-mansion-state-historic-park",
+    "name": "Leland Stanford Mansion State Historic Park",
+    "type": "Public Entity",
+    "countryId": "us",
+    "cityId": "city-sacramento",
+    "coordinates": {
+      "lat": 38.575553,
+      "lng": -121.490232
+    },
+    "sectorIds": [],
+    "description": "Leland Stanford Mansion State Historic Park is a Public Entity in Sacramento, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-california-museum",
+    "name": "California Museum",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-sacramento",
+    "coordinates": {
+      "lat": 38.584869,
+      "lng": -121.504815
+    },
+    "sectorIds": [],
+    "description": "California Museum is a NGO in Sacramento, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-uc-davis",
+    "name": "UC Davis",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-davis",
+    "coordinates": {
+      "lat": 38.552775,
+      "lng": -121.739319
+    },
+    "sectorIds": [],
+    "description": "UC Davis is a University in Davis, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-bayer-crop-science",
+    "name": "Bayer Crop Science",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-davis",
+    "coordinates": {
+      "lat": 38.553259,
+      "lng": -121.739589
+    },
+    "sectorIds": [],
+    "description": "Bayer Crop Science is a Company in Davis, United States. Visited during ACE 10 (2018).",
+    "relatedEditionIds": [
+      "ace-10-northern-california-2018"
+    ],
+    "mediaIds": [],
+    "stateId": "us-ca"
+  },
+  {
+    "id": "site-san-cristobal-fort",
+    "name": "San Cristobal Fort",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.451017,
+      "lng": -66.110275
+    },
+    "sectorIds": [],
+    "description": "San Cristobal Fort is a NGO in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-puerto-rico-government-reception-center",
+    "name": "Puerto Rico Government Reception Center",
+    "type": "Public Entity",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.451584,
+      "lng": -66.092127
+    },
+    "sectorIds": [],
+    "description": "Puerto Rico Government Reception Center is a Public Entity in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-bacardi-distillery",
+    "name": "Bacardi Distillery",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.477362,
+      "lng": -66.09505
+    },
+    "sectorIds": [],
+    "description": "Bacardi Distillery is a NGO in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-puerto-rico-convention-center",
+    "name": "Puerto Rico Convention Center",
+    "type": "Public Entity",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.460225,
+      "lng": -66.118262
+    },
+    "sectorIds": [],
+    "description": "Puerto Rico Convention Center is a Public Entity in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-piloto-151",
+    "name": "Piloto 151",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.47734,
+      "lng": -66.091592
+    },
+    "sectorIds": [],
+    "description": "Piloto 151 is a Innovation Center in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-grupo-guayac-n",
+    "name": "Grupo Guayacán",
+    "type": "Chamber of Commerce",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.45357,
+      "lng": -66.10542
+    },
+    "sectorIds": [],
+    "description": "Grupo Guayacán is a Chamber of Commerce in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-advent-morro",
+    "name": "Advent-Morro",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.453076,
+      "lng": -66.097182
+    },
+    "sectorIds": [],
+    "description": "Advent-Morro is a Company in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-puerto-rico-private-sector-coalition",
+    "name": "Puerto Rico Private Sector Coalition",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.473975,
+      "lng": -66.116148
+    },
+    "sectorIds": [],
+    "description": "Puerto Rico Private Sector Coalition is a Innovation Center in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-puerto-rico-science-technology-and-research-trust",
+    "name": "Puerto Rico Science, Technology and Research Trust",
+    "type": "Research Lab",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.465258,
+      "lng": -66.103506
+    },
+    "sectorIds": [],
+    "description": "Puerto Rico Science, Technology and Research Trust is a Research Lab in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-parallel-18",
+    "name": "Parallel 18",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.458952,
+      "lng": -66.093827
+    },
+    "sectorIds": [],
+    "description": "Parallel 18 is a Innovation Center in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-colmena-66",
+    "name": "Colmena 66",
+    "type": "Chamber of Commerce",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.463694,
+      "lng": -66.113646
+    },
+    "sectorIds": [],
+    "description": "Colmena 66 is a Chamber of Commerce in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-foundation-for-puerto-rico",
+    "name": "Foundation for Puerto Rico",
+    "type": "Public Entity",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.467179,
+      "lng": -66.098102
+    },
+    "sectorIds": [],
+    "description": "Foundation for Puerto Rico is a Public Entity in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-university-of-puerto-rico",
+    "name": "University of Puerto Rico",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.457035,
+      "lng": -66.110649
+    },
+    "sectorIds": [],
+    "description": "University of Puerto Rico is a University in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-polytechnic-university-of-puerto-rico",
+    "name": "Polytechnic University of Puerto Rico",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.480854,
+      "lng": -66.100504
+    },
+    "sectorIds": [],
+    "description": "Polytechnic University of Puerto Rico is a University in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-engine-4",
+    "name": "Engine 4",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-san-juan",
+    "coordinates": {
+      "lat": 18.464143,
+      "lng": -66.104473
+    },
+    "sectorIds": [],
+    "description": "Engine 4 is a Innovation Center in San Juan, United States. Visited during ACE 11 (2019).",
+    "relatedEditionIds": [
+      "ace-11-puerto-rico-2019"
+    ],
+    "mediaIds": [],
+    "stateId": "us-pr"
+  },
+  {
+    "id": "site-hotel-regal-pacific",
+    "name": "Hotel Regal Pacific",
+    "type": "NGO",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.46037,
+      "lng": -70.677259
+    },
+    "sectorIds": [],
+    "description": "Hotel Regal Pacific is a NGO in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-corfo",
+    "name": "CORFO",
+    "type": "Public Entity",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.453857,
+      "lng": -70.666351
+    },
+    "sectorIds": [],
+    "description": "CORFO is a Public Entity in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-start-up-chile",
+    "name": "Start-Up Chile",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.457097,
+      "lng": -70.677393
+    },
+    "sectorIds": [],
+    "description": "Start-Up Chile is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-investchile",
+    "name": "InvestChile",
+    "type": "Public Entity",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.46187,
+      "lng": -70.665067
+    },
+    "sectorIds": [],
+    "description": "InvestChile is a Public Entity in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-la-moneda",
+    "name": "La Moneda",
+    "type": "Public Entity",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.457132,
+      "lng": -70.656837
+    },
+    "sectorIds": [],
+    "description": "La Moneda is a Public Entity in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-universidad-del-desarrollo",
+    "name": "Universidad del Desarrollo",
+    "type": "University",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.438211,
+      "lng": -70.681874
+    },
+    "sectorIds": [],
+    "description": "Universidad del Desarrollo is a University in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-fundaci-n-chile",
+    "name": "Fundación Chile",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.45686,
+      "lng": -70.663931
+    },
+    "sectorIds": [],
+    "description": "Fundación Chile is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-hub-apta",
+    "name": "Hub APTA",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.457573,
+      "lng": -70.680031
+    },
+    "sectorIds": [],
+    "description": "Hub APTA is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-hubtec-chile",
+    "name": "Hubtec Chile",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.435935,
+      "lng": -70.666869
+    },
+    "sectorIds": [],
+    "description": "Hubtec Chile is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-knowhub",
+    "name": "Knowhub",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.44982,
+      "lng": -70.660461
+    },
+    "sectorIds": [],
+    "description": "Knowhub is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-sofofa-hub",
+    "name": "SOFOFA Hub",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.439775,
+      "lng": -70.678288
+    },
+    "sectorIds": [],
+    "description": "SOFOFA Hub is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-nace-center-bci",
+    "name": "Nace Center / BCI",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.461092,
+      "lng": -70.671068
+    },
+    "sectorIds": [],
+    "description": "Nace Center / BCI is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-uc-davis-chile",
+    "name": "UC Davis Chile",
+    "type": "University",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.451293,
+      "lng": -70.669989
+    },
+    "sectorIds": [],
+    "description": "UC Davis Chile is a University in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-santiago-park-plaza-hotel",
+    "name": "Santiago Park Plaza Hotel",
+    "type": "NGO",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.442128,
+      "lng": -70.663799
+    },
+    "sectorIds": [],
+    "description": "Santiago Park Plaza Hotel is a NGO in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-fundaci-n-la-protectora-de-la-infancia",
+    "name": "Fundación la Protectora de la Infancia",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.434475,
+      "lng": -70.681047
+    },
+    "sectorIds": [],
+    "description": "Fundación la Protectora de la Infancia is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-innovation-square-building",
+    "name": "Innovation Square Building",
+    "type": "Innovation Center",
+    "countryId": "cl",
+    "cityId": "city-santiago",
+    "coordinates": {
+      "lat": -33.451921,
+      "lng": -70.673821
+    },
+    "sectorIds": [],
+    "description": "Innovation Square Building is a Innovation Center in Santiago, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-vi-amar",
+    "name": "Viñamar",
+    "type": "Company",
+    "countryId": "cl",
+    "cityId": "city-valparaiso",
+    "coordinates": {
+      "lat": -33.03615,
+      "lng": -71.62654
+    },
+    "sectorIds": [],
+    "description": "Viñamar is a Company in Valparaíso, Chile. Visited during ACE 12 (2019).",
+    "relatedEditionIds": [
+      "ace-12-chile-2019"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-chalmette-battlefield",
+    "name": "Chalmette Battlefield",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.941706,
+      "lng": -90.072542
+    },
+    "sectorIds": [],
+    "description": "Chalmette Battlefield is a NGO in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-ranch-film-studios",
+    "name": "Ranch Film Studios",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.948656,
+      "lng": -90.077644
+    },
+    "sectorIds": [],
+    "description": "Ranch Film Studios is a Company in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-the-national-wwii-museum",
+    "name": "The National WWII Museum",
+    "type": "Public Entity",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.943494,
+      "lng": -90.058302
+    },
+    "sectorIds": [],
+    "description": "The National WWII Museum is a Public Entity in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-the-shops-at-the-contemporary-arts-center",
+    "name": "The Shops at the Contemporary Arts Center",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.949294,
+      "lng": -90.06016
+    },
+    "sectorIds": [],
+    "description": "The Shops at the Contemporary Arts Center is a NGO in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-new-orleans-jazz-market",
+    "name": "New Orleans Jazz Market",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.95251,
+      "lng": -90.084482
+    },
+    "sectorIds": [],
+    "description": "New Orleans Jazz Market is a NGO in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-andr-cailloux-center-for-performing-arts-cultural-justice",
+    "name": "André Cailloux Center for Performing Arts & Cultural Justice",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.965978,
+      "lng": -90.060919
+    },
+    "sectorIds": [],
+    "description": "André Cailloux Center for Performing Arts & Cultural Justice is a NGO in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-scale-workspace-at-tylor-education-center",
+    "name": "Scale Workspace at Tylor Education Center",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.96507,
+      "lng": -90.058209
+    },
+    "sectorIds": [],
+    "description": "Scale Workspace at Tylor Education Center is a Innovation Center in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-new-orleans-bioinnovation-center",
+    "name": "New Orleans BioInnovation Center",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.961461,
+      "lng": -90.081011
+    },
+    "sectorIds": [],
+    "description": "New Orleans BioInnovation Center is a Innovation Center in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-university-of-new-orleans",
+    "name": "University of New Orleans",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.950569,
+      "lng": -90.079588
+    },
+    "sectorIds": [],
+    "description": "University of New Orleans is a University in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-churchill-technology-and-business-park",
+    "name": "Churchill Technology and Business Park",
+    "type": "Technology Hub",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.948031,
+      "lng": -90.084241
+    },
+    "sectorIds": [],
+    "description": "Churchill Technology and Business Park is a Technology Hub in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-avondale-marine",
+    "name": "Avondale Marine",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.947369,
+      "lng": -90.056441
+    },
+    "sectorIds": [],
+    "description": "Avondale Marine is a Company in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-xavier-university-of-louisiana",
+    "name": "Xavier University of Louisiana",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.943956,
+      "lng": -90.062478
+    },
+    "sectorIds": [],
+    "description": "Xavier University of Louisiana is a University in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-mardi-gras-world",
+    "name": "Mardi Gras World",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.94965,
+      "lng": -90.07331
+    },
+    "sectorIds": [],
+    "description": "Mardi Gras World is a NGO in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-claiborne-corridor-cultural-innovation-district",
+    "name": "Claiborne Corridor Cultural Innovation District",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.96472,
+      "lng": -90.056137
+    },
+    "sectorIds": [],
+    "description": "Claiborne Corridor Cultural Innovation District is a Innovation Center in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-dooky-chase-restaurant",
+    "name": "Dooky Chase Restaurant",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.952673,
+      "lng": -90.064448
+    },
+    "sectorIds": [],
+    "description": "Dooky Chase Restaurant is a NGO in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-port-of-new-orleans",
+    "name": "Port of New Orleans",
+    "type": "Chamber of Commerce",
+    "countryId": "us",
+    "cityId": "city-new-orleans",
+    "coordinates": {
+      "lat": 29.940644,
+      "lng": -90.077099
+    },
+    "sectorIds": [],
+    "description": "Port of New Orleans is a Chamber of Commerce in New Orleans, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-pennington-biomedical-research-center",
+    "name": "Pennington Biomedical Research Center",
+    "type": "Research Lab",
+    "countryId": "us",
+    "cityId": "city-baton-rouge",
+    "coordinates": {
+      "lat": 30.465561,
+      "lng": -91.184725
+    },
+    "sectorIds": [],
+    "description": "Pennington Biomedical Research Center is a Research Lab in Baton Rouge, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-lsu-center-for-river-studies",
+    "name": "LSU Center for River Studies",
+    "type": "Research Lab",
+    "countryId": "us",
+    "cityId": "city-baton-rouge",
+    "coordinates": {
+      "lat": 30.452766,
+      "lng": -91.179661
+    },
+    "sectorIds": [],
+    "description": "LSU Center for River Studies is a Research Lab in Baton Rouge, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-the-estuary-at-the-water-campus",
+    "name": "The Estuary at The Water Campus",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-baton-rouge",
+    "coordinates": {
+      "lat": 30.438215,
+      "lng": -91.184575
+    },
+    "sectorIds": [],
+    "description": "The Estuary at The Water Campus is a University in Baton Rouge, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-louisiana-state-university",
+    "name": "Louisiana State University",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-baton-rouge",
+    "coordinates": {
+      "lat": 30.451586,
+      "lng": -91.176518
+    },
+    "sectorIds": [],
+    "description": "Louisiana State University is a University in Baton Rouge, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-louisiana-immersive-technologies-enterprise",
+    "name": "Louisiana Immersive Technologies Enterprise",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-lafayette",
+    "coordinates": {
+      "lat": 30.213823,
+      "lng": -92.005977
+    },
+    "sectorIds": [],
+    "description": "Louisiana Immersive Technologies Enterprise is a Innovation Center in Lafayette, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-university-of-louisiana-at-lafayette",
+    "name": "University of Louisiana at Lafayette",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-lafayette",
+    "coordinates": {
+      "lat": 30.211503,
+      "lng": -92.029225
+    },
+    "sectorIds": [],
+    "description": "University of Louisiana at Lafayette is a University in Lafayette, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-cgi-technologies-and-solutions",
+    "name": "CGI Technologies and Solutions",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-lafayette",
+    "coordinates": {
+      "lat": 30.226951,
+      "lng": -92.014544
+    },
+    "sectorIds": [],
+    "description": "CGI Technologies and Solutions is a Company in Lafayette, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-rock-n-bowl",
+    "name": "Rock n' Bowl",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-lafayette",
+    "coordinates": {
+      "lat": 30.216156,
+      "lng": -92.031203
+    },
+    "sectorIds": [],
+    "description": "Rock n' Bowl is a NGO in Lafayette, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-safesource-direct",
+    "name": "SafeSource Direct",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-acadiana",
+    "coordinates": {
+      "lat": 30.018709,
+      "lng": -92.027614
+    },
+    "sectorIds": [],
+    "description": "SafeSource Direct is a Company in Acadiana, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-metal-shark",
+    "name": "Metal Shark",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-acadiana",
+    "coordinates": {
+      "lat": 30.009836,
+      "lng": -92.016419
+    },
+    "sectorIds": [],
+    "description": "Metal Shark is a Company in Acadiana, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-tabasco-factory",
+    "name": "Tabasco Factory",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-acadiana",
+    "coordinates": {
+      "lat": 30.004577,
+      "lng": -92.01749
+    },
+    "sectorIds": [],
+    "description": "Tabasco Factory is a NGO in Acadiana, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-avery-island",
+    "name": "Avery Island",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-acadiana",
+    "coordinates": {
+      "lat": 30.007683,
+      "lng": -92.006959
+    },
+    "sectorIds": [],
+    "description": "Avery Island is a NGO in Acadiana, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-thibodaux-regional-wellness-center",
+    "name": "Thibodaux Regional Wellness Center",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-acadiana",
+    "coordinates": {
+      "lat": 29.998128,
+      "lng": -92.013514
+    },
+    "sectorIds": [],
+    "description": "Thibodaux Regional Wellness Center is a Company in Acadiana, United States. Visited during ACE 14 (2022).",
+    "relatedEditionIds": [
+      "ace-14-louisiana-2022"
+    ],
+    "mediaIds": [],
+    "stateId": "us-la"
+  },
+  {
+    "id": "site-universidad-san-francisco-de-quito",
+    "name": "Universidad San Francisco de Quito",
+    "type": "University",
+    "countryId": "ec",
+    "cityId": "city-quito",
+    "coordinates": {
+      "lat": -0.187839,
+      "lng": -78.470126
+    },
+    "sectorIds": [],
+    "description": "Universidad San Francisco de Quito is a University in Quito, Ecuador. Visited during ACE 15 (2022).",
+    "relatedEditionIds": [
+      "ace-15-ecuador-2022"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-enkador",
+    "name": "Enkador",
+    "type": "Company",
+    "countryId": "ec",
+    "cityId": "city-quito",
+    "coordinates": {
+      "lat": -0.174849,
+      "lng": -78.473
+    },
+    "sectorIds": [],
+    "description": "Enkador is a Company in Quito, Ecuador. Visited during ACE 15 (2022).",
+    "relatedEditionIds": [
+      "ace-15-ecuador-2022"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-quito-s-economic-development-secretariat",
+    "name": "Quito's Economic Development Secretariat",
+    "type": "Public Entity",
+    "countryId": "ec",
+    "cityId": "city-quito",
+    "coordinates": {
+      "lat": -0.185515,
+      "lng": -78.459444
+    },
+    "sectorIds": [],
+    "description": "Quito's Economic Development Secretariat is a Public Entity in Quito, Ecuador. Visited during ACE 15 (2022).",
+    "relatedEditionIds": [
+      "ace-15-ecuador-2022"
+    ],
+    "mediaIds": []
+  },
+  {
+    "id": "site-swan-trail-farms",
+    "name": "Swan Trail Farms",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.593176,
+      "lng": -122.333251
+    },
+    "sectorIds": [],
+    "description": "Swan Trail Farms is a Company in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-port-of-everett",
+    "name": "Port of Everett",
+    "type": "Chamber of Commerce",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.620954,
+      "lng": -122.317117
+    },
+    "sectorIds": [],
+    "description": "Port of Everett is a Chamber of Commerce in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-boeing-everett-factory",
+    "name": "Boeing Everett Factory",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.593198,
+      "lng": -122.340605
+    },
+    "sectorIds": [],
+    "description": "Boeing Everett Factory is a Company in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-aviation-technical-services",
+    "name": "Aviation Technical Services",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.598956,
+      "lng": -122.319002
+    },
+    "sectorIds": [],
+    "description": "Aviation Technical Services is a Company in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-boeing-future-of-flight-building",
+    "name": "Boeing Future of Flight Building",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.617426,
+      "lng": -122.320622
+    },
+    "sectorIds": [],
+    "description": "Boeing Future of Flight Building is a Innovation Center in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-joint-base-lewis-mcchord",
+    "name": "Joint Base Lewis-McChord",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.602086,
+      "lng": -122.342268
+    },
+    "sectorIds": [],
+    "description": "Joint Base Lewis-McChord is a Innovation Center in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-port-of-tacoma",
+    "name": "Port of Tacoma",
+    "type": "Chamber of Commerce",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.616012,
+      "lng": -122.325894
+    },
+    "sectorIds": [],
+    "description": "Port of Tacoma is a Chamber of Commerce in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-tacoma-youth-marine-center",
+    "name": "Tacoma Youth Marine Center",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.60935,
+      "lng": -122.317383
+    },
+    "sectorIds": [],
+    "description": "Tacoma Youth Marine Center is a Company in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-center-for-urban-waters",
+    "name": "Center for Urban Waters",
+    "type": "Research Lab",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.610619,
+      "lng": -122.346765
+    },
+    "sectorIds": [],
+    "description": "Center for Urban Waters is a Research Lab in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-university-of-washington-tacoma-campus",
+    "name": "University of Washington Tacoma Campus",
+    "type": "University",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.615513,
+      "lng": -122.338019
+    },
+    "sectorIds": [],
+    "description": "University of Washington Tacoma Campus is a University in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-museum-of-glass",
+    "name": "Museum of Glass",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.610902,
+      "lng": -122.318832
+    },
+    "sectorIds": [],
+    "description": "Museum of Glass is a NGO in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-edgewater-hotel",
+    "name": "Edgewater Hotel",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.595029,
+      "lng": -122.343537
+    },
+    "sectorIds": [],
+    "description": "Edgewater Hotel is a NGO in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-chihuly-glass-museum",
+    "name": "Chihuly Glass Museum",
+    "type": "NGO",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.594211,
+      "lng": -122.330403
+    },
+    "sectorIds": [],
+    "description": "Chihuly Glass Museum is a NGO in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-fred-hutchinson-cancer-research-institute",
+    "name": "Fred Hutchinson Cancer Research Institute",
+    "type": "Research Lab",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.59917,
+      "lng": -122.328855
+    },
+    "sectorIds": [],
+    "description": "Fred Hutchinson Cancer Research Institute is a Research Lab in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-amazon-web-services",
+    "name": "Amazon Web Services",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.612528,
+      "lng": -122.340892
+    },
+    "sectorIds": [],
+    "description": "Amazon Web Services is a Company in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-amazon-com",
+    "name": "Amazon.com",
+    "type": "Company",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.610027,
+      "lng": -122.33908
+    },
+    "sectorIds": [],
+    "description": "Amazon.com is a Company in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  },
+  {
+    "id": "site-amazon-spheres",
+    "name": "Amazon Spheres",
+    "type": "Innovation Center",
+    "countryId": "us",
+    "cityId": "city-seattle",
+    "coordinates": {
+      "lat": 47.605656,
+      "lng": -122.31984
+    },
+    "sectorIds": [],
+    "description": "Amazon Spheres is a Innovation Center in Seattle, United States. Visited during ACE 16 (2023).",
+    "relatedEditionIds": [
+      "ace-16-seattle-2023"
+    ],
+    "mediaIds": [],
+    "stateId": "us-wa"
+  }
+]

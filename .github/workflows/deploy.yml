@@ -1,0 +1,62 @@
+name: Build and deploy to riacevents.org
+
+# Triggers:
+#   - push to main → auto-deploy
+#   - manual run from the Actions tab → re-deploy on demand
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Only one deploy at a time. Newer pushes cancel in-flight builds so
+# we never have two SFTP uploads racing for /ACE/observatory/.
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies (locked)
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      # Sanity check: bail out if `out/` is missing or empty so we
+      # never upload a partial build over a working production site.
+      - name: Verify build output
+        run: |
+          test -d out || (echo "::error::out/ missing — build failed" && exit 1)
+          test -f out/index.html || (echo "::error::out/index.html missing" && exit 1)
+          test -f out/.htaccess || (echo "::error::out/.htaccess missing" && exit 1)
+          echo "out/ size: $(du -sh out/ | cut -f1)"
+
+      # Pure SFTP upload using password auth — works with shared
+      # hosting that exposes SFTP on port 22 (or whatever SFTP_PORT
+      # is set to). On the first run this uploads ~700 MB and takes
+      # 10–20 minutes. Subsequent runs upload only changed files.
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ vars.SFTP_PORT || '22' }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: "./out/*"
+          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
+          sftp_only: true
+          delete_remote_files: false

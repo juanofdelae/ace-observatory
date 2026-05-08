@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Legacy ACE tokens — preserved for any consumer that still references them */
+  --navy: #0B1F3A;
+  --blue-mid: #1E4E8C;
+  --blue-bright: #2F80ED;
+  --turquoise: #2FB7B2;
+  --orange: #F05A28;
+  --gray-light: #F5F7FA;
+  --gray-text: #5E6B7A;
+  --border: #E2E8F0;
+
+  /* v2 Observatory tokens — premium tablet-style canvas */
+  --canvas: #F4F5F7;
+  --panel: #FFFFFF;
+  --sidebar-bg: #0B1F3A;
+  --sidebar-hover-bg: #162E4A;
+  --sidebar-idle: #9DB0CB;
+  --sidebar-active: #FFFFFF;
+  --sidebar-accent: #F97316;
+  --ink: #0B1F3A;
+  --ink-secondary: #334155;
+  --ink-muted: #64748B;
+  --ink-border: #E2E8F0;
+  --accent-blue: #2563EB;
+  --accent-orange: #F97316;
+  --accent-teal: #14B8A6;
+  --accent-purple: #7C3AED;
+  --accent-amber: #F59E0B;
+  --shadow-card: 0 1px 2px 0 rgba(11, 31, 58, 0.06), 0 6px 20px -8px rgba(11, 31, 58, 0.08);
+  --shadow-card-hover: 0 2px 4px 0 rgba(11, 31, 58, 0.08), 0 12px 28px -10px rgba(11, 31, 58, 0.14);
+  --shadow-panel: 0 1px 2px 0 rgba(11, 31, 58, 0.05), 0 16px 40px -16px rgba(11, 31, 58, 0.18);
+  --shadow-sidebar: 0 1px 2px 0 rgba(11, 31, 58, 0.10), 0 24px 48px -16px rgba(11, 31, 58, 0.30);
+}
+
+html, body {
+  font-family: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  font-feature-settings: "ss01", "cv11", "tnum";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Leaflet */
+.leaflet-container {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  background: #EEF1F5 !important;
+}
+.leaflet-tile-pane { filter: saturate(0.85) brightness(1.02); }
+.leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: 0 8px 24px -8px rgba(11, 31, 58, 0.18);
+}
+.leaflet-popup-content { margin: 12px 14px; font-size: 13px; color: #0B1F3A; font-family: var(--font-montserrat), sans-serif; }
+.leaflet-control-zoom a { color: #0B1F3A !important; border-color: #E2E8F0 !important; font-family: var(--font-montserrat), sans-serif !important; }
+.leaflet-control-attribution { font-size: 10px; background: rgba(255,255,255,0.85); }
+
+/* Custom scrollbar */
+.thin-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.thin-scroll::-webkit-scrollbar-track { background: transparent; }
+.thin-scroll::-webkit-scrollbar-thumb { background: #CBD2DB; border-radius: 3px; }
+.thin-scroll::-webkit-scrollbar-thumb:hover { background: #9AA5B4; }
+
+/* Sidebar scrollbar — dark variant for the floating pill */
+.thin-scroll-dark::-webkit-scrollbar { width: 5px; height: 5px; }
+.thin-scroll-dark::-webkit-scrollbar-track { background: transparent; }
+.thin-scroll-dark::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+.thin-scroll-dark::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+/* Animations */
+@keyframes counter-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+.counter-up { animation: counter-up 0.5s ease-out; }
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.fade-in { animation: fade-in 0.3s ease-out; }
+
+/* Sample-data ribbon */
+.sample-ribbon {
+  background: linear-gradient(135deg, rgba(245,183,0,0.12), rgba(240,90,40,0.08));
+  color: #7A5100;
+  border: 1px solid rgba(245,183,0,0.35);
+}
+
+/* Gradient text for brand highlight */
+.brand-gradient {
+  background: linear-gradient(135deg, #1E4E8C 0%, #2F80ED 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card pattern */
+.ace-pattern {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(47, 128, 237, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(47, 183, 178, 0.04) 0%, transparent 40%);
+}
+
+/* Tablet-style observatory utilities */
+.observatory-canvas {
+  background: var(--canvas);
+}
+.observatory-panel {
+  background: var(--panel);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--ink-border);
+}
+.observatory-panel-lift {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.observatory-panel-lift:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}

@@ -1,0 +1,32 @@
+node_modules/
+.next/
+out/
+.env
+.env.*
+.DS_Store
+**/.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+*.bak
+*.tmp
+.vercel
+
+# Heavy raw inputs used only by extraction scripts. The clean,
+# extracted data lives in data/ and is committed; the originals
+# (610+ MB of PDFs and HTML mirrors) stay local.
+info-reports/
+tablepress-export-*/
+
+# Source PDFs (~392 MB, one file >100 MB) — GitHub-hostile and
+# already mirrored on the production server under
+# /ACE/observatory/documents/. Uploaded once by SFTP, then preserved
+# across deploys (workflow has delete_remote_files: false).
+public/documents/
+
+# Internal planning/QA docs — not part of the public site
+ACE_ATLAS_QA_CHECKLIST.md
+ACE_UX_REDESIGN_CHECKLIST.md
+
+# Python bytecode from extraction scripts
+__pycache__/
+*.pyc
