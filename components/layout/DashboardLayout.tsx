@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Sidebar } from "./Sidebar";
 import { Menu } from "lucide-react";
+import { asset } from "@/lib/asset-path";
 
 /**
  * AppShell — premium iPad-style intelligence workspace.
@@ -35,16 +38,35 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         onCloseMobile={() => setMobileNavOpen(false)}
       />
 
-      {/* Mobile-only sidebar trigger. Replaces the old top utility bar —
-          desktop has the sidebar always visible so it doesn't need any
-          chrome above the canvas. */}
-      <button
-        onClick={() => setMobileNavOpen(true)}
-        aria-label="Open navigation"
-        className="lg:hidden fixed top-3 left-3 z-30 w-10 h-10 rounded-xl bg-white/90 backdrop-blur border border-surface-border shadow-card flex items-center justify-center text-ink"
-      >
-        <Menu size={18} />
-      </button>
+      {/* Mobile-only top bar with the ACE brand and the menu trigger.
+          Desktop has the sidebar always visible so this stays hidden
+          on `lg:` and up. */}
+      <header className="lg:hidden sticky top-0 z-30 flex items-center justify-between gap-3 px-3 py-2 bg-white/90 backdrop-blur border-b border-surface-border">
+        <Link
+          href="/"
+          aria-label="ACE Observatory home"
+          className="flex items-center gap-2 min-w-0"
+        >
+          <Image
+            src={asset("/logos/ace-logo.png")}
+            alt="ACE"
+            width={28}
+            height={28}
+            className="object-contain shrink-0"
+            priority
+          />
+          <span className="text-[14px] font-bold text-ink tracking-tight truncate">
+            ACE Observatory
+          </span>
+        </Link>
+        <button
+          onClick={() => setMobileNavOpen(true)}
+          aria-label="Open navigation"
+          className="w-10 h-10 rounded-xl border border-surface-border bg-white flex items-center justify-center text-ink shrink-0"
+        >
+          <Menu size={18} />
+        </button>
+      </header>
 
       {/* Main column — offset to make room for the floating sidebar
           (220px pill + 24px left + ~16px gap = 260px). */}
