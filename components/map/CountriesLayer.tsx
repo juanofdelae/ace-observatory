@@ -13,6 +13,7 @@ import {
   selectedPolygonStyle,
   type DrillLevelKey,
 } from "./mapStyles";
+import { asset } from "@/lib/asset-path";
 
 /**
  * World country polygons. Resting state is intentionally desaturated so the
@@ -71,7 +72,7 @@ export function CountriesLayer({
   const [geo, setGeo] = useState<GeoJSON.FeatureCollection | null>(null);
 
   useEffect(() => {
-    fetch("/countries.geo.json")
+    fetch(asset("/countries.geo.json"))
       .then(r => r.json())
       .then(setGeo)
       .catch(() => setGeo(null));

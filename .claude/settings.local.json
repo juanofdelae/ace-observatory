@@ -205,7 +205,8 @@
       "Bash(git push *)",
       "Bash(git commit *)",
       "Bash(grep -rn 'src=\"/\\\\|href=\"/photos\\\\|href=\"/documents\\\\|src={`/\\\\|src={\"/' app components data)",
-      "Bash(grep -rn 'window\\\\.location\\\\.href.*=.*`/\\\\|window\\\\.location\\\\.href.*=.*`\\\\${' app components)"
+      "Bash(grep -rn 'window\\\\.location\\\\.href.*=.*`/\\\\|window\\\\.location\\\\.href.*=.*`\\\\${' app components)",
+      "Bash(grep -rn 'fetch\\(\"/\\\\|fetch\\(`/\\\\|countries\\\\.geo\\\\.json\\\\|us-states\\\\.geo\\\\.json' app components)"
     ]
   }
 }

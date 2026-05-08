@@ -4,6 +4,7 @@ import Link from "next/link";
 import { participants } from "@/data/participants";
 import { countries } from "@/data/countries";
 import { Globe2, X, ArrowRight, Users, Plus, Minus, RotateCcw } from "lucide-react";
+import { asset } from "@/lib/asset-path";
 
 // World-country geojson lives at /public/countries.geo.json — features
 // keyed by ISO-3 (`id: "USA"`, etc.). We project the polygons through a
@@ -96,7 +97,7 @@ export function ParticipantWorldMap() {
   });
 
   useEffect(() => {
-    fetch("/countries.geo.json")
+    fetch(asset("/countries.geo.json"))
       .then((r) => r.json())
       .then(setGeo)
       .catch(() => {});

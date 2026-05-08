@@ -11,6 +11,7 @@ import {
   selectedPolygonStyle,
   type DrillLevelKey,
 } from "./mapStyles";
+import { asset } from "@/lib/asset-path";
 
 interface Props {
   selectedStateId?: string;
@@ -56,7 +57,7 @@ export function StatesLayer({ selectedStateId, onSelectState, level = "state" }:
   const [geo, setGeo] = useState<GeoJSON.FeatureCollection | null>(null);
 
   useEffect(() => {
-    fetch("/us-states.geo.json")
+    fetch(asset("/us-states.geo.json"))
       .then(r => r.json())
       .then(setGeo)
       .catch(() => setGeo(null));

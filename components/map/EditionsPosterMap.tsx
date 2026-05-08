@@ -85,8 +85,8 @@ export function EditionsPosterMap() {
   const [statesGeo, setStatesGeo] = useState<GeoJSON.FeatureCollection | null>(null);
 
   useEffect(() => {
-    fetch("/countries.geo.json").then(r => r.json()).then(setCountriesGeo).catch(() => {});
-    fetch("/us-states.geo.json").then(r => r.json()).then(setStatesGeo).catch(() => {});
+    fetch(asset("/countries.geo.json")).then(r => r.json()).then(setCountriesGeo).catch(() => {});
+    fetch(asset("/us-states.geo.json")).then(r => r.json()).then(setStatesGeo).catch(() => {});
   }, []);
 
   const ordered = useMemo(() => [...editions].sort((a, b) => a.number - b.number), []);
