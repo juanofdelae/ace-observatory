@@ -54,7 +54,11 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
 
   const docs = documentsByEdition(e.id);
   const hasDocs =
-    docs.length > 0 || e.links.finalReport || e.links.tripBook || e.links.website;
+    docs.length > 0
+    || e.links.finalReport
+    || e.links.tripBook
+    || e.links.photos
+    || e.links.website;
   const organizerNames = e.organizerIds
     .map(id => organizerById(id)?.name)
     .filter(Boolean) as string[];
@@ -168,6 +172,9 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
                     )}
                     {docs.length === 0 && e.links.tripBook && (
                       <DocLink label="Trip Book" href={e.links.tripBook} />
+                    )}
+                    {e.links.photos && (
+                      <DocLink label="Photos on Flickr" href={e.links.photos} />
                     )}
                     {e.links.website && <DocLink label="Website" href={e.links.website} />}
                   </div>
