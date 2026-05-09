@@ -53,12 +53,15 @@ export default function MediaPage() {
         {filtered.map(e => {
           const country = countryById(e.countryId);
           const year = new Date(e.startDate).getUTCFullYear();
-          return (
-            <Link
-              key={e.id}
-              href={`/editions/${e.id}`}
-              className="group bg-white border border-surface-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all"
-            >
+          // The Media Gallery is a "click to see the actual photos"
+          // surface — when an edition has a Flickr album, send the
+          // click straight there in a new tab. Editions without an
+          // album (Memphis 2026, etc.) fall back to the edition page.
+          const flickrUrl = e.links.photos;
+          const cardClass =
+            "group bg-white border border-surface-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all relative";
+          const inner = (
+            <>
               <div className="relative aspect-[4/3] bg-white overflow-hidden">
                 {e.heroImage && (
                   <Image
@@ -68,6 +71,11 @@ export default function MediaPage() {
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="object-contain p-6 group-hover:scale-[1.03] transition-transform duration-500"
                   />
+                )}
+                {flickrUrl && (
+                  <span className="absolute top-2 right-2 text-[9px] font-bold uppercase tracking-wider bg-ink text-white px-1.5 py-0.5 rounded">
+                    Flickr ↗
+                  </span>
                 )}
               </div>
               <div className="p-3 border-t border-surface-border">
@@ -82,6 +90,23 @@ export default function MediaPage() {
                   <span>{year}</span>
                 </div>
               </div>
+            </>
+          );
+
+          return flickrUrl ? (
+            <a
+              key={e.id}
+              href={flickrUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cardClass}
+              aria-label={`Open ACE ${editionRegion(e)} photos on Flickr`}
+            >
+              {inner}
+            </a>
+          ) : (
+            <Link key={e.id} href={`/editions/${e.id}`} className={cardClass}>
+              {inner}
             </Link>
           );
         })}
