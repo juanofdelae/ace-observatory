@@ -167,9 +167,9 @@ export default function OverviewPage() {
           <h1 className="text-display-1 font-bold tracking-tight leading-[1.02]">
             ACE Observatory
           </h1>
-          <p className="mt-3 text-base md:text-lg text-white/80 leading-relaxed max-w-2xl">
-            The institutional intelligence platform of the Americas
-            Competitiveness Exchange.
+          <p className="mt-3 text-base md:text-lg text-white/80 leading-relaxed max-w-3xl">
+            The institutional intelligence platform of the Americas{" "}
+            <span className="whitespace-nowrap">Competitiveness Exchange.</span>
           </p>
 
           {/* Headline KPIs — every value is queryable from the live
