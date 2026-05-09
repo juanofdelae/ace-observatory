@@ -325,43 +325,68 @@ export function OverviewInsightRail() {
       </RailCard>
 
       {/* Data freshness footer — three different ways of counting
-          leaders are surfaced together so the 789 / 792 / 1,041
-          ambiguity is explicit rather than buried in three places. */}
+          leaders are surfaced together with their definitions so the
+          789 / 823 / 1,041 distinction is explicit instead of being
+          reverse-engineered by the reader. */}
       <RailCard className="bg-surface-canvas/60 shadow-soft">
-        <div className="flex items-start gap-2">
+        <div className="flex items-start gap-2.5">
           <div className="w-7 h-7 rounded-lg bg-accent-teal-soft/15 text-accent-teal-soft flex items-center justify-center shrink-0">
             <Database size={13} strokeWidth={1.75} />
           </div>
-          <div className="min-w-0 space-y-1.5">
-            <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
-              Data status
+          <div className="min-w-0 space-y-2.5">
+            <div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
+                Data status
+              </div>
+              <div className="text-[11.5px] font-semibold text-ink leading-tight">
+                {editions.length} editions ingested
+              </div>
             </div>
-            <div className="text-[11.5px] font-semibold text-ink leading-tight">
-              {editions.length} editions ingested
-            </div>
-            <ul className="text-[10.5px] text-text-secondary leading-snug space-y-0.5">
-              <li>
-                <span className="font-bold text-ink tabular-nums">
-                  {participants.length.toLocaleString()}
-                </span>{" "}
-                verified delegates
-              </li>
-              <li>
-                <span className="font-bold text-ink tabular-nums">
-                  {leadersIngested.toLocaleString()}
-                </span>{" "}
-                leaders ingested
-              </li>
-              <li>
-                <span className="font-bold text-ink tabular-nums">
-                  {cumulativeParticipations.toLocaleString()}
-                </span>{" "}
-                cumulative participations
-              </li>
-            </ul>
+            <DataStatusMetric
+              value={participants.length}
+              label="verified delegates"
+              description="Unique individuals verified across ACE records."
+            />
+            <DataStatusMetric
+              value={cumulativeParticipations}
+              label="cumulative participations"
+              description="Total participations, including alumni who attended more than one edition."
+            />
+            <DataStatusMetric
+              value={leadersIngested}
+              label="leaders ingested"
+              description="Internal database records processed for validation."
+            />
           </div>
         </div>
       </RailCard>
     </aside>
+  );
+}
+
+// Single-line metric with its definition underneath. Keeps the data
+// status block scannable while letting the reader resolve the count
+// in place (no tooltip / no separate page).
+function DataStatusMetric({
+  value,
+  label,
+  description,
+}: {
+  value: number;
+  label: string;
+  description: string;
+}) {
+  return (
+    <div>
+      <div className="text-[11.5px] text-ink leading-tight">
+        <span className="font-bold tabular-nums">
+          {value.toLocaleString()}
+        </span>{" "}
+        <span className="font-semibold">{label}</span>
+      </div>
+      <div className="text-[10.5px] text-text-muted leading-snug mt-0.5">
+        {description}
+      </div>
+    </div>
   );
 }

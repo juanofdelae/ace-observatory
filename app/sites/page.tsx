@@ -1,11 +1,11 @@
 "use client";
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SearchInput } from "@/components/ui/Input";
 import { FilterBar } from "@/components/FilterBar";
 import { visitedSites } from "@/data/visited-sites";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import type { FilterState } from "@/types";
 import { countryById } from "@/data/countries";
 import { cityById } from "@/data/cities";
@@ -64,11 +64,14 @@ export default function SitesPage() {
             .sort((a, b) => a - b);
 
           return (
-            <div
+            <Link
               key={s.id}
-              className="bg-white border border-surface-border rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow flex flex-col"
+              href={`/sites/${s.id}`}
+              className="group bg-white border border-surface-border rounded-xl p-4 shadow-card hover:shadow-card-hover hover:border-accent-blue/40 transition flex flex-col"
             >
-              <div className="font-semibold text-ink text-sm leading-snug">{s.name}</div>
+              <div className="font-semibold text-ink text-sm leading-snug group-hover:text-accent-blue transition-colors">
+                {s.name}
+              </div>
               <div className="text-xs text-text-muted mt-0.5">
                 {s.type} · {city?.name}, {c?.name}
               </div>
@@ -83,7 +86,7 @@ export default function SitesPage() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

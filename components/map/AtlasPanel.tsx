@@ -5,12 +5,11 @@ import { stateById, statesByCountry } from "@/data/states";
 import { cityById, citiesByCountry, citiesByState } from "@/data/cities";
 import { editions, editionsByCountry, editionById } from "@/data/editions";
 import { siteById, sitesByCity, sitesByCountry, sitesByEdition } from "@/data/visited-sites";
-import { participantsByEdition } from "@/data/participants";
-import { participantsByCountry } from "@/data/participants";
+import { participantsByEdition, participants, participantsByCountry } from "@/data/participants";
+import { visitedSites } from "@/data/visited-sites";
 import { mediaByEdition } from "@/data/media";
-import { outcomesByCountry } from "@/data/outcomes";
+import { outcomesByCountry, outcomes } from "@/data/outcomes";
 import { sectors } from "@/data/sectors";
-import { ACE_HERO_STATS } from "@/data";
 import { Badge } from "@/components/ui/Badge";
 import { formatDateRange, formatNumber, editionRegion } from "@/lib/utils";
 import {
@@ -177,10 +176,28 @@ function GlobalView({ onNavigate }: { onNavigate: Props["onNavigate"] }) {
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <StatTile label="Editions" value={`${ACE_HERO_STATS.editions}+`} color="#0B1F3A" />
-        <StatTile label="Countries" value={`${ACE_HERO_STATS.countries}`} color="#2563EB" />
-        <StatTile label="Leaders" value={`${ACE_HERO_STATS.leaders}+`} color="#14B8A6" />
-        <StatTile label="Partnerships" value={`${ACE_HERO_STATS.partnerships}+`} color="#F97316" />
+        <StatTile
+          label="Editions"
+          value={`${editions.length}`}
+          color="#0B1F3A"
+        />
+        <StatTile
+          label="Countries represented"
+          value={`${
+            new Set(participants.map(p => p.countryId).filter(c => c && c !== "intl")).size
+          }`}
+          color="#2563EB"
+        />
+        <StatTile
+          label="Verified delegates"
+          value={`${participants.length}`}
+          color="#14B8A6"
+        />
+        <StatTile
+          label="Sites visited"
+          value={`${visitedSites.length}`}
+          color="#F97316"
+        />
       </div>
 
       {/* Edition picker — primary drill target at the global level. Click

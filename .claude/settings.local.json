@@ -207,7 +207,11 @@
       "Bash(grep -rn 'src=\"/\\\\|href=\"/photos\\\\|href=\"/documents\\\\|src={`/\\\\|src={\"/' app components data)",
       "Bash(grep -rn 'window\\\\.location\\\\.href.*=.*`/\\\\|window\\\\.location\\\\.href.*=.*`\\\\${' app components)",
       "Bash(grep -rn 'fetch\\(\"/\\\\|fetch\\(`/\\\\|countries\\\\.geo\\\\.json\\\\|us-states\\\\.geo\\\\.json' app components)",
-      "Bash(grep -oE 'value=\"[0-9]{2,4}\"|>[0-9]{2,4}<' out/index.html)"
+      "Bash(grep -oE 'value=\"[0-9]{2,4}\"|>[0-9]{2,4}<' out/index.html)",
+      "Bash(cd \"/Users/juansebastianfonseca/WORK/Claude Code VSCode/ace-data-observatory\" && mkdir -p \"app/sites/[id]\")"
+    ],
+    "additionalDirectories": [
+      "/Users/juansebastianfonseca/WORK/Claude Code VSCode/ace-data-observatory/app/sites"
     ]
   }
 }
