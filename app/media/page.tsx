@@ -50,7 +50,7 @@ export default function MediaPage() {
         Showing <span className="font-semibold text-ink">{filtered.length}</span> of {editions.length} editions
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
         {filtered.map(e => {
           const country = countryById(e.countryId);
           const year = new Date(e.startDate).getUTCFullYear();
@@ -67,31 +67,31 @@ export default function MediaPage() {
             >
               <Link
                 href={`/editions/${e.id}`}
-                className="relative aspect-[4/3] bg-white overflow-hidden block"
+                className="relative aspect-[5/3] bg-white overflow-hidden block"
               >
                 {e.heroImage && (
                   <Image
                     src={e.heroImage}
                     alt={`${e.name} logo`}
                     fill
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    className="object-contain p-6 group-hover:scale-[1.03] transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-contain p-3 group-hover:scale-[1.03] transition-transform duration-500"
                   />
                 )}
               </Link>
-              <div className="px-3 pt-3">
+              <div className="px-2.5 pt-2 pb-2">
                 <Link
                   href={`/editions/${e.id}`}
                   className="block hover:text-accent-blue transition-colors"
                 >
-                  <div className="text-sm font-semibold text-ink line-clamp-1">
+                  <div className="text-[13px] font-semibold text-ink line-clamp-1 leading-tight">
                     ACE {editionRegion(e)}
                   </div>
                 </Link>
-                <div className="text-[11px] text-text-muted mt-1 flex items-center gap-1.5">
+                <div className="text-[10.5px] text-text-muted mt-0.5 flex items-center gap-1 truncate">
                   <span>#{e.number}</span>
                   <span aria-hidden>·</span>
-                  <span>{country?.name ?? "—"}</span>
+                  <span className="truncate">{country?.name ?? "—"}</span>
                   <span aria-hidden>·</span>
                   <span>{year}</span>
                 </div>
@@ -100,7 +100,7 @@ export default function MediaPage() {
                   state for editions where the source isn't uploaded
                   yet so the user understands the option exists in
                   principle but isn't available right now. */}
-              <div className="mt-3 grid grid-cols-2 border-t border-surface-border">
+              <div className="grid grid-cols-2 border-t border-surface-border">
                 <MediaActionChip
                   href={flickrUrl}
                   icon={ImgIcon}
@@ -149,7 +149,7 @@ function MediaActionChip({
   color: string;
 }) {
   const divider = side === "right" ? "border-l border-surface-border" : "";
-  const base = `flex items-center justify-center gap-1.5 py-2.5 text-[12px] font-semibold transition-colors ${divider}`;
+  const base = `flex items-center justify-center gap-1.5 py-2 text-[11.5px] font-semibold transition-colors ${divider}`;
   if (!href) {
     return (
       <span
