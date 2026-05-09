@@ -15,6 +15,9 @@ import {
   FileText,
   Building2,
   Layers,
+  Share2,
+  Award,
+  type LucideIcon,
 } from "lucide-react";
 import { KPIGrid, KPICard } from "@/components/KPICard";
 import { Button } from "@/components/ui/Button";
@@ -199,6 +202,64 @@ export default function OverviewPage() {
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ──────────── EXPLORE THE OBSERVATORY ────────────
+          The four entry points, each disambiguated. Resolves the four
+          most common new-user questions: Atlas vs Sites, Delegates vs
+          Network, Reports vs Reports Intelligence, and what Impact
+          actually contains. */}
+      <section aria-label="Explore the Observatory">
+        <div className="mb-6">
+          <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-text-muted mb-2">
+            Explore the Observatory
+          </div>
+          <h2 className="text-2xl md:text-[28px] font-bold text-ink tracking-tight leading-[1.1]">
+            Four entry points, depending on what you want to understand
+          </h2>
+          <p className="mt-2 text-[14px] text-text-secondary leading-relaxed max-w-2xl">
+            Pick the lens — geography, people, reports or impact — and
+            the Observatory will route you to the right deep dive.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <EntryPointCard
+            href="/map"
+            icon={MapIcon}
+            accent="#2563EB"
+            eyebrow="Geography"
+            title="ACE Atlas"
+            pitch="Explore host cities, visited institutions, and regional innovation clusters."
+            body="Use the Atlas to navigate ACE geographically — from countries and host cities to specific companies, universities, public agencies, innovation hubs, and sites visited during each edition."
+          />
+          <EntryPointCard
+            href="/network"
+            icon={Share2}
+            accent="#7C3AED"
+            eyebrow="People"
+            title="ACE Network"
+            pitch="Discover delegates, institutions, and cross-border connections."
+            body="Explore the people and organizations that make up the ACE community, including participating leaders, countries represented, institutional affiliations, and connections across editions."
+          />
+          <EntryPointCard
+            href="/reports"
+            icon={FileText}
+            accent="#0B7A4A"
+            eyebrow="Reports"
+            title="Reports Intelligence"
+            pitch="Turn final reports into searchable indicators, outcomes, and documented partnerships."
+            body="Access structured information extracted from ACE Final Reports, including letters of intent, documented outcomes, media results, partnerships, sites visited, and follow-up opportunities."
+          />
+          <EntryPointCard
+            href="/impact"
+            icon={Award}
+            accent="#F05A28"
+            eyebrow="Impact"
+            title="Impact & Outcomes"
+            pitch="Track documented results, agreements, collaborations, and follow-up actions generated through ACE."
+            body="Review the concrete outputs linked to ACE editions, including partnerships, policy exchanges, derived projects, institutional commitments, and other evidence of regional impact."
+          />
         </div>
       </section>
 
@@ -435,6 +496,73 @@ function LayerHeading({
         {description}
       </p>
     </div>
+  );
+}
+
+// Entry-point card for the "Explore the Observatory" grid. Whole
+// surface is clickable; the colored accent rail signals which lens
+// (geography / people / reports / impact) the destination represents.
+function EntryPointCard({
+  href,
+  icon: Icon,
+  accent,
+  eyebrow,
+  title,
+  pitch,
+  body,
+}: {
+  href: string;
+  icon: LucideIcon;
+  accent: string;
+  eyebrow: string;
+  title: string;
+  pitch: string;
+  body: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group relative overflow-hidden rounded-2xl bg-white border border-surface-border shadow-card hover:shadow-card-hover transition-all hover:-translate-y-0.5 flex flex-col"
+    >
+      <span
+        aria-hidden
+        className="absolute top-0 left-0 right-0 h-1"
+        style={{ backgroundColor: accent }}
+      />
+      <div className="p-6 md:p-7 flex-1 flex flex-col">
+        <div className="flex items-center gap-2.5 mb-4">
+          <span
+            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+            style={{ backgroundColor: `${accent}14`, color: accent }}
+          >
+            <Icon size={18} strokeWidth={1.75} />
+          </span>
+          <span
+            className="text-[10px] font-bold uppercase tracking-[0.18em]"
+            style={{ color: accent }}
+          >
+            {eyebrow}
+          </span>
+        </div>
+        <h3 className="text-[20px] font-bold text-ink tracking-tight">
+          {title}
+        </h3>
+        <p className="mt-1.5 text-[14px] font-semibold text-ink/85 leading-snug">
+          {pitch}
+        </p>
+        <p className="mt-3 text-[13px] text-text-secondary leading-relaxed">
+          {body}
+        </p>
+        <div className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-text-muted group-hover:text-ink transition-colors">
+          Open
+          <ArrowRight
+            size={13}
+            strokeWidth={2}
+            className="transition-transform group-hover:translate-x-0.5"
+          />
+        </div>
+      </div>
+    </Link>
   );
 }
 
