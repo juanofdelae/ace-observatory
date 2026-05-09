@@ -15,6 +15,11 @@ import {
 } from "lucide-react";
 import { editions } from "@/data/editions";
 import { reports } from "@/data/reports";
+import {
+  participants,
+  leadersIngested,
+  cumulativeParticipations,
+} from "@/data/participants";
 import { cityById } from "@/data/cities";
 import { countryById } from "@/data/countries";
 import { cn } from "@/lib/utils";
@@ -319,19 +324,41 @@ export function OverviewInsightRail() {
         </div>
       </RailCard>
 
-      {/* Data freshness footer */}
+      {/* Data freshness footer — three different ways of counting
+          leaders are surfaced together so the 789 / 792 / 1,041
+          ambiguity is explicit rather than buried in three places. */}
       <RailCard className="bg-surface-canvas/60 shadow-soft">
-        <div className="flex items-center gap-2">
+        <div className="flex items-start gap-2">
           <div className="w-7 h-7 rounded-lg bg-accent-teal-soft/15 text-accent-teal-soft flex items-center justify-center shrink-0">
             <Database size={13} strokeWidth={1.75} />
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 space-y-1.5">
             <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
               Data status
             </div>
             <div className="text-[11.5px] font-semibold text-ink leading-tight">
-              23 editions · 792 leaders ingested
+              {editions.length} editions ingested
             </div>
+            <ul className="text-[10.5px] text-text-secondary leading-snug space-y-0.5">
+              <li>
+                <span className="font-bold text-ink tabular-nums">
+                  {participants.length.toLocaleString()}
+                </span>{" "}
+                verified delegates
+              </li>
+              <li>
+                <span className="font-bold text-ink tabular-nums">
+                  {leadersIngested.toLocaleString()}
+                </span>{" "}
+                leaders ingested
+              </li>
+              <li>
+                <span className="font-bold text-ink tabular-nums">
+                  {cumulativeParticipations.toLocaleString()}
+                </span>{" "}
+                cumulative participations
+              </li>
+            </ul>
           </div>
         </div>
       </RailCard>

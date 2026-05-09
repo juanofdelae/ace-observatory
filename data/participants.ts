@@ -368,6 +368,22 @@ export const participants: Participant[] = dedupeByName(
   [...memphisParticipants, ...historicalAlumni],
 ).map(p => ({ ...p, photoUrl: p.photoUrl ? asset(p.photoUrl) : undefined }));
 
+// Three different ways to count "leaders" — kept side-by-side so the
+// observatory can show all three transparently and avoid the
+// 789-vs-792-vs-1041 ambiguity in the data status footer.
+//   - leadersIngested  = raw row count from both alumni sources before
+//     name-dedupe (one number per ingested record).
+//   - participants.length = verified delegates after dedupe (same
+//     person across two source files counts once).
+//   - cumulativeParticipations = sum of edition attendances (one
+//     person attending three ACEs counts three).
+export const leadersIngested =
+  memphisParticipants.length + historicalAlumni.length;
+export const cumulativeParticipations = participants.reduce(
+  (sum, p) => sum + p.editionIds.length,
+  0,
+);
+
 export const participantById = (id: string) => participants.find(p => p.id === id);
 export const participantsByCountry = (countryId: string) => participants.filter(p => p.countryId === countryId);
 export const participantsByEdition = (editionId: string) => participants.filter(p => p.editionIds.includes(editionId));
