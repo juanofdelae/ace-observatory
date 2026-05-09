@@ -29,7 +29,6 @@ import { media } from "@/data/media";
 import { participants } from "@/data/participants";
 import { reports } from "@/data/reports";
 import { outcomes } from "@/data/outcomes";
-import { ACE_HERO_STATS } from "@/data";
 import { EditionCard } from "@/components/EditionCard";
 import { LatestReportIntelligenceCard } from "@/components/LatestReportIntelligenceCard";
 import { OverviewInsightRail } from "@/components/OverviewInsightRail";
@@ -48,6 +47,12 @@ export default function OverviewPage() {
   const totalSites = visitedSites.length;
   const totalSectors = sectors.length;
   const totalMedia = media.length;
+  const totalDelegates = participants.length;
+  // Real countries represented across the alumni roster (excludes the
+  // synthetic "intl" bucket used for institutional-only entries).
+  const countriesRepresented = new Set(
+    participants.map(p => p.countryId).filter(c => c && c !== "intl"),
+  ).size;
 
   // Minimal map: all host cities (used inside Geographic Footprint module).
   const mapPoints = editions
@@ -152,10 +157,9 @@ export default function OverviewPage() {
           className="absolute -bottom-24 left-10 w-72 h-72 rounded-full bg-accent-orange-cta/10 blur-3xl pointer-events-none"
         />
 
-        <div className="relative px-7 md:px-12 py-12 md:py-16 max-w-4xl">
-          {/* Editorial column — now full width inside a max-width
-              container so the dark hero reads like a single-statement
-              observatory cover, not a split brochure. */}
+        <div className="relative px-7 md:px-12 py-12 md:py-16 max-w-5xl">
+          {/* Executive cover — single statement, four hard numbers,
+              two doors. Everything else lives below the fold. */}
           <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70 mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-orange-cta" />
             Institutional intelligence · OAS
@@ -164,18 +168,27 @@ export default function OverviewPage() {
             ACE Observatory
           </h1>
           <p className="mt-3 text-base md:text-lg text-white/80 leading-relaxed max-w-2xl">
-            A decade of leaders, host cities, visited institutions and
-            documented partnerships across the Americas — in one integrated
-            observatory.
+            The institutional intelligence platform of the Americas
+            Competitiveness Exchange.
           </p>
 
-          {/* CTA cluster — primary (orange) → secondary (ghost bordered) →
-              tertiary (text link). */}
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          {/* Headline KPIs — every value is queryable from the live
+              data layer below, not editorial. */}
+          <div className="mt-9 grid grid-cols-2 md:grid-cols-4 gap-3">
+            <HeroKPI value={totalEditions} label="Editions" />
+            <HeroKPI value={countriesRepresented} label="Countries" />
+            <HeroKPI value={totalDelegates} label="Verified delegates" />
+            <HeroKPI value={totalSites} label="Institutions visited" />
+          </div>
+
+          {/* Two doors. Atlas (geographic intelligence) and Reports
+              (analytical intelligence). Tertiary "Browse editions"
+              moved below the fold. */}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link href="/map">
               <Button variant="accent" size="lg">
                 <MapIcon size={16} strokeWidth={1.75} />
-                Open ACE Atlas
+                Explore the Atlas
                 <ArrowRight size={14} strokeWidth={1.75} />
               </Button>
             </Link>
@@ -186,83 +199,40 @@ export default function OverviewPage() {
                 className="border border-white/20 text-white/90 hover:bg-white/8 hover:text-white hover:border-white/35 backdrop-blur-sm"
               >
                 <FileText size={15} strokeWidth={1.75} />
-                Reports Intelligence
+                View Report Intelligence
               </Button>
-            </Link>
-            <Link
-              href="/editions"
-              className="group ml-1 inline-flex items-center gap-1.5 text-[13px] font-semibold text-white/65 hover:text-white transition-colors"
-            >
-              Browse editions
-              <ArrowRight
-                size={13}
-                strokeWidth={2}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ───────────── 2-COL: KPIs + Quick Access | Insight rail ───────────── */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
-        <div className="xl:col-span-9 space-y-7">
-          {/* Results that matter — outcome-led KPIs derived from live
-              data (participants directory, sites map, reports/LOIs). The
-              numbers here are queryable, not editorial — every card
-              corresponds to a click-through that lets the reader audit
-              the source. */}
-          <ResultsSection />
-
-          {/* Edition timeline strip — visual proof of a decade of
-              continuity, every edition clickable. */}
-          <EditionTimeline />
-
-          {/* Strongest testimonial pull-quote available across all
-              ingested reports. Speaks louder than another stat tile. */}
-          <FeaturedTestimonial />
-
-          {/* Growth-over-time chart — institutional proof of decade-long
-              expansion. Shows cumulative editions, delegates and countries
-              represented. The line going up is the headline story. */}
-          <GrowthChart />
-
-          {/* Where participants come from — world map highlighting every
-              country with at least one ACE delegate. Click a country to
-              open its dedicated page. Sits near the bottom so the
-              quantitative narrative leads, then the geographic reach
-              closes. */}
-          <ParticipantWorldMap />
-        </div>
-
-        <div className="xl:col-span-3">
-          <OverviewInsightRail />
-        </div>
-      </div>
-
-      {/* ────────────── GEOGRAPHIC FOOTPRINT — promoted up after KPIs ────────────── */}
+      {/* ──────────── ATLAS as protagonist ────────────
+          Promoted right under the hero. The map IS the observatory's
+          centerpiece — geographic intelligence is the strongest
+          institutional asset ACE has. */}
       <section
-        aria-label="Geographic footprint"
+        aria-label="Geographic intelligence"
         className="relative overflow-hidden rounded-3xl bg-white border border-surface-border shadow-card"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
           <div className="lg:col-span-5 p-7 md:p-10 flex flex-col justify-center">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-accent-blue">
-                Geographic footprint
+                ACE Atlas
               </span>
               <span className="w-1 h-1 rounded-full bg-accent-blue/60" />
               <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-text-muted">
-                ACE Atlas preview
+                Geographic intelligence layer
               </span>
             </div>
-            <h2 className="text-[26px] md:text-[30px] font-bold text-ink tracking-tight leading-[1.08]">
-              ACE across the Americas
+            <h2 className="text-[26px] md:text-[32px] font-bold text-ink tracking-tight leading-[1.05]">
+              From countries to cities to innovation sites
             </h2>
-            <p className="mt-3 text-[13.5px] text-text-secondary leading-relaxed max-w-md">
-              Every dot is a host city. The Atlas drills from country to state
-              to city to specific innovation sites — every visit, every cluster,
-              every leader, on a single interactive map.
+            <p className="mt-3 text-[14px] text-text-secondary leading-relaxed max-w-md">
+              Explore every ACE mission through a geographic intelligence
+              layer. Drill from country to state to city to specific
+              institutions — every visit, every cluster, every leader, on a
+              single interactive map.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3">
               <FootprintStat
@@ -275,28 +245,54 @@ export default function OverviewPage() {
               <FootprintStat label="Visited sites" value={totalSites} />
               <FootprintStat
                 label="Countries represented"
-                value={ACE_HERO_STATS.countries}
-                suffix="+"
+                value={countriesRepresented}
               />
             </div>
             <div className="mt-7">
               <Link href="/map">
                 <Button variant="primary" size="md">
                   <MapIcon size={14} />
-                  Explore in ACE Atlas
+                  Explore the Atlas
                   <ArrowRight size={14} />
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="lg:col-span-7 h-[380px] lg:h-[480px] relative bg-surface-subtle border-t lg:border-t-0 lg:border-l border-surface-border">
+          <div className="lg:col-span-7 h-[420px] lg:h-[560px] relative bg-surface-subtle border-t lg:border-t-0 lg:border-l border-surface-border">
             <MapMini points={mapPoints} center={[10, -75]} zoom={3} />
           </div>
         </div>
       </section>
 
-      {/* ─────────── LATEST REPORT INTELLIGENCE — anchor ─────────── */}
-      <LatestReportIntelligenceCard />
+      {/* ───────── DATA LAYER ─────────
+          Editions, delegates, countries, sites, sectors. The factual
+          spine of the observatory — counts, distributions, timelines,
+          everything that answers "what happened, where and when". */}
+      <LayerHeading
+        eyebrow="Data layer"
+        title="Activity across a decade"
+        description="Editions, delegates, countries, host cities and visited institutions — the factual spine of the observatory."
+      />
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+        <div className="xl:col-span-9 space-y-7">
+          {/* Edition timeline strip — visual proof of a decade of
+              continuity, every edition clickable. */}
+          <EditionTimeline />
+
+          {/* Growth-over-time chart — institutional proof of decade-long
+              expansion. Shows cumulative editions, delegates and countries
+              represented. The line going up is the headline story. */}
+          <GrowthChart />
+
+          {/* Where participants come from — world map highlighting every
+              country with at least one ACE delegate. */}
+          <ParticipantWorldMap />
+        </div>
+
+        <div className="xl:col-span-3">
+          <OverviewInsightRail />
+        </div>
+      </div>
 
       {/* ─────────── SECONDARY KPI strip ─────────── */}
       <section aria-label="Supporting indicators">
@@ -344,6 +340,27 @@ export default function OverviewPage() {
         </div>
       </section>
 
+      {/* ───────── IMPACT LAYER ─────────
+          Letters of intent, alliances, derivative projects, testimonials
+          and verifiable outcomes. Where the data layer says "what
+          happened", the impact layer says "what changed because of it". */}
+      <LayerHeading
+        eyebrow="Impact layer"
+        title="What changed because of ACE"
+        description="Letters of intent, alliances, derivative projects, testimonials and verifiable outcomes — beyond activity counts."
+        accent="orange"
+      />
+
+      {/* Outcome-led KPIs derived from live data (LOIs, partnerships,
+          documented projects). Every card is queryable. */}
+      <ResultsSection />
+
+      {/* Latest report-intelligence anchor. */}
+      <LatestReportIntelligenceCard />
+
+      {/* Strongest testimonial pull-quote across all ingested reports. */}
+      <FeaturedTestimonial />
+
       {/* ─────────── FOOTER credit ─────────── */}
       <footer className="pt-3 pb-2">
         <div className="rounded-2xl bg-white border border-surface-border px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3 shadow-soft">
@@ -373,6 +390,57 @@ export default function OverviewPage() {
   );
 }
 
+
+// Headline KPI tile rendered inside the dark hero. Glassy translucent
+// fill + tabular-nums so the four cards line up cleanly on every
+// breakpoint. Values are passed in from the live data layer.
+function HeroKPI({ value, label }: { value: number | string; label: string }) {
+  const display = typeof value === "number" ? value.toLocaleString() : value;
+  return (
+    <div className="rounded-2xl bg-white/8 border border-white/12 backdrop-blur px-4 py-4 md:py-5">
+      <div className="text-[34px] md:text-[42px] font-bold text-white tabular-nums tracking-tight leading-none">
+        {display}
+      </div>
+      <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/65">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+// Section heading used to mark the Data layer / Impact layer split.
+// `accent` controls the colored eyebrow + bullet so the two layers
+// read as distinct rails on the page.
+function LayerHeading({
+  eyebrow,
+  title,
+  description,
+  accent = "blue",
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  accent?: "blue" | "orange";
+}) {
+  const eyebrowColor = accent === "orange" ? "text-accent-orange-cta" : "text-accent-blue";
+  const dotColor = accent === "orange" ? "bg-accent-orange-cta" : "bg-accent-blue";
+  return (
+    <div className="flex flex-col gap-1.5 pt-3">
+      <div className="flex items-center gap-2">
+        <span className={`w-1.5 h-1.5 rounded-full ${dotColor}`} />
+        <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${eyebrowColor}`}>
+          {eyebrow}
+        </span>
+      </div>
+      <h2 className="text-2xl md:text-[28px] font-bold text-ink tracking-tight leading-[1.1]">
+        {title}
+      </h2>
+      <p className="text-[14px] text-text-secondary leading-relaxed max-w-2xl">
+        {description}
+      </p>
+    </div>
+  );
+}
 
 function FootprintStat({
   label,

@@ -52,96 +52,130 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
     radius: 6,
   }));
 
+  const docs = documentsByEdition(e.id);
+  const hasDocs =
+    docs.length > 0 || e.links.finalReport || e.links.tripBook || e.links.website;
+  const organizerNames = e.organizerIds
+    .map(id => organizerById(id)?.name)
+    .filter(Boolean) as string[];
+
   return (
     <div className="max-w-canvas mx-auto px-4 md:px-8 pb-8">
-      {/* Hero — large rounded panel */}
-      <div className="relative h-[360px] md:h-[440px] bg-ink overflow-hidden rounded-3xl mt-6 shadow-panel">
-        {e.heroImage && (
-          <>
-            <Image src={e.heroImage} alt={e.name} fill priority className="object-cover opacity-75" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10" />
-          </>
-        )}
-        <div className="relative h-full px-7 md:px-10 flex flex-col justify-end pb-9 text-white">
-          <Link href="/editions" className="inline-flex items-center gap-1 text-xs text-white/80 hover:text-white mb-3">
-            <ArrowLeft size={12} /> Back to editions
-          </Link>
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] bg-white/15 backdrop-blur px-2 py-1 rounded">
-              Edition {e.number}
-            </span>
-            {e.status === "upcoming" && (
-              <span className="text-xs font-bold uppercase tracking-wider bg-brand-orange text-white px-2 py-1 rounded">
-                Upcoming
-              </span>
+      {/* Hero — split panel: white logo zone + dark info zone */}
+      <div className="relative rounded-3xl overflow-hidden mt-6 shadow-panel bg-white border border-surface-border">
+        <Link
+          href="/editions"
+          className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-[11px] font-medium text-text-muted hover:text-ink bg-white/90 backdrop-blur border border-surface-border rounded-full px-2.5 py-1 shadow-soft"
+        >
+          <ArrowLeft size={11} /> Back to editions
+        </Link>
+
+        <div className="grid md:grid-cols-12">
+          {/* Logo panel — white bg, object-contain so the full logo is visible */}
+          <div className="md:col-span-5 lg:col-span-4 relative bg-white min-h-[220px] md:min-h-[360px] border-b md:border-b-0 md:border-r border-surface-border">
+            {e.heroImage && (
+              <Image
+                src={e.heroImage}
+                alt={e.name}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-contain p-8 md:p-10"
+              />
             )}
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold leading-tight max-w-3xl">ACE {e.number} — {editionRegion(e)}</h1>
-          <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-white/90">
-            <span className="flex items-center gap-1.5"><MapPin size={14} />
-              {mainCity?.name}{state ? `, ${state.abbreviation}` : ""}, {country?.name}
-            </span>
-            <span className="flex items-center gap-1.5"><Calendar size={14} />{formatDateRange(e.startDate, e.endDate)}</span>
-            <span className="flex items-center gap-1.5"><Users size={14} />{parts.length || "—"} participants</span>
-            <span className="flex items-center gap-1.5"><Sparkles size={14} />{e.sectorIds.length} sectors</span>
+
+          {/* Info panel — dark navy with title, meta, summary, sectors */}
+          <div className="md:col-span-7 lg:col-span-8 bg-ink text-white p-6 md:p-9 flex flex-col justify-center">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-white/12 px-2 py-1 rounded">
+                Edition {e.number}
+              </span>
+              {e.status === "upcoming" && (
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-brand-orange text-white px-2 py-1 rounded">
+                  Upcoming
+                </span>
+              )}
+            </div>
+            <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+              ACE {e.number} — {editionRegion(e)}
+            </h1>
+            <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[13px] text-white/85">
+              <span className="flex items-center gap-1.5">
+                <MapPin size={13} />
+                {mainCity?.name}
+                {state ? `, ${state.abbreviation}` : ""}, {country?.name}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Calendar size={13} />
+                {formatDateRange(e.startDate, e.endDate)}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Users size={13} />
+                {parts.length || "—"} participants
+              </span>
+            </div>
+            <p className="mt-5 text-sm text-white/80 leading-relaxed max-w-2xl">
+              {e.summary}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {e.sectorIds.map(id => {
+                const s = sectors.find(x => x.id === id);
+                return s ? (
+                  <Badge key={id} variant="sector" color={s.color} className="text-[11px]">
+                    {s.name}
+                  </Badge>
+                ) : null;
+              })}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="py-7 space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {/* Summary + data */}
-          <Card className="lg:col-span-2">
-            <CardHeader><CardTitle>Executive summary</CardTitle></CardHeader>
-            <CardContent className="text-sm text-text-secondary leading-relaxed">
-              <p>{e.summary}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {e.sectorIds.map(id => {
-                  const s = sectors.find(x => x.id === id);
-                  return s ? (
-                    <Badge key={id} variant="sector" color={s.color} className="text-xs">{s.name}</Badge>
-                  ) : null;
-                })}
-              </div>
-            </CardContent>
-          </Card>
+      <div className="py-6 space-y-6">
+        {/* Key data — horizontal KPI strip + meta + documents */}
+        <Card>
+          <CardContent className="p-5 md:p-6 space-y-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-4 gap-y-4">
+              <Stat value={`${e.representedCountryIds.length}`} label="Countries" />
+              <Stat value={`${sites.length}`} label="Sites visited" />
+              <Stat value={`${e.sectorIds.length}`} label="Sectors" />
+              <Stat value={`${outs.length}`} label="Outcomes" />
+              <Stat value={`${parts.length || "—"}`} label="Participants" />
+              <Stat
+                value={mainCity?.name ?? "—"}
+                label={state ? `${state.abbreviation}, ${country?.name}` : country?.name ?? "Host"}
+              />
+            </div>
 
-          {/* Key data card */}
-          <Card>
-            <CardHeader><CardTitle>Key data</CardTitle></CardHeader>
-            <CardContent className="space-y-2.5 text-sm">
-              <DataRow label="Host country" value={country?.name} />
-              {state && <DataRow label="Host state" value={state.name} />}
-              <DataRow label="Host city" value={mainCity?.name} />
-              <DataRow label="Dates" value={formatDateRange(e.startDate, e.endDate)} />
-              <DataRow label="Countries represented" value={`${e.representedCountryIds.length}`} />
-              <DataRow label="Sites visited" value={`${sites.length}`} />
-              <DataRow label="Sectors" value={`${e.sectorIds.length}`} />
-              <DataRow label="Outcomes" value={`${outs.length}`} />
-              {e.organizerIds.length > 0 && (
-                <DataRow
-                  label="Organizers"
-                  value={e.organizerIds.map(id => organizerById(id)?.name).filter(Boolean).join(" · ")}
-                />
-              )}
-              {(() => {
-                const docs = documentsByEdition(e.id);
-                const hasAny = docs.length > 0 || e.links.finalReport || e.links.tripBook || e.links.website;
-                if (!hasAny) return null;
-                return (
-                  <div className="pt-3 border-t border-surface-border flex flex-wrap gap-2">
+            {(organizerNames.length > 0 || hasDocs) && (
+              <div className="pt-4 border-t border-surface-border flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                {organizerNames.length > 0 && (
+                  <div className="text-xs text-text-secondary">
+                    <span className="text-text-muted">Organized by </span>
+                    <span className="text-ink font-medium">
+                      {organizerNames.join(" · ")}
+                    </span>
+                  </div>
+                )}
+                {hasDocs && (
+                  <div className="flex flex-wrap gap-2">
                     {docs.map(d => (
                       <DocLink key={d.filename} label={`${d.label} (${d.pages}p)`} href={d.url} />
                     ))}
-                    {docs.length === 0 && e.links.finalReport && <DocLink label="Final Report" href={e.links.finalReport} />}
-                    {docs.length === 0 && e.links.tripBook && <DocLink label="Trip Book" href={e.links.tripBook} />}
+                    {docs.length === 0 && e.links.finalReport && (
+                      <DocLink label="Final Report" href={e.links.finalReport} />
+                    )}
+                    {docs.length === 0 && e.links.tripBook && (
+                      <DocLink label="Trip Book" href={e.links.tripBook} />
+                    )}
                     {e.links.website && <DocLink label="Website" href={e.links.website} />}
                   </div>
-                );
-              })()}
-            </CardContent>
-          </Card>
-        </div>
+                )}
+              </div>
+            )}
+          </CardContent>
+        </Card>
 
         {/* Sites map */}
         {sites.length > 0 && (
@@ -226,11 +260,15 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
   );
 }
 
-function DataRow({ label, value }: { label: string; value?: string }) {
+function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex justify-between gap-3">
-      <span className="text-text-muted shrink-0">{label}</span>
-      <span className="text-ink font-medium text-right">{value ?? "—"}</span>
+    <div className="min-w-0">
+      <div className="text-2xl md:text-[28px] font-bold text-ink leading-none tracking-tight truncate">
+        {value}
+      </div>
+      <div className="text-[11px] font-medium uppercase tracking-[0.08em] text-text-muted mt-1.5 truncate">
+        {label}
+      </div>
     </div>
   );
 }
