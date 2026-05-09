@@ -210,7 +210,8 @@
       "Bash(grep -oE 'value=\"[0-9]{2,4}\"|>[0-9]{2,4}<' out/index.html)",
       "Bash(cd \"/Users/juansebastianfonseca/WORK/Claude Code VSCode/ace-data-observatory\" && mkdir -p \"app/sites/[id]\")",
       "WebFetch(domain:www.flickr.com)",
-      "Bash(python3 scripts/add_flickr_links.py)"
+      "Bash(python3 scripts/add_flickr_links.py)",
+      "WebFetch(domain:www.youtube.com)"
     ],
     "additionalDirectories": [
       "/Users/juansebastianfonseca/WORK/Claude Code VSCode/ace-data-observatory/app/sites"

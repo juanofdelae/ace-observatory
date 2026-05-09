@@ -58,6 +58,7 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
     || e.links.finalReport
     || e.links.tripBook
     || e.links.photos
+    || e.links.videos
     || e.links.website;
   const organizerNames = e.organizerIds
     .map(id => organizerById(id)?.name)
@@ -175,6 +176,9 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
                     )}
                     {e.links.photos && (
                       <DocLink label="Photos on Flickr" href={e.links.photos} />
+                    )}
+                    {e.links.videos && (
+                      <DocLink label="Videos on YouTube" href={e.links.videos} />
                     )}
                     {e.links.website && <DocLink label="Website" href={e.links.website} />}
                   </div>
