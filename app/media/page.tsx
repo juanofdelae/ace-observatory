@@ -106,12 +106,14 @@ export default function MediaPage() {
                   icon={ImgIcon}
                   label="Photos"
                   side="left"
+                  color="#0063DC"
                 />
                 <MediaActionChip
                   href={youtubeUrl}
                   icon={Play}
                   label="Videos"
                   side="right"
+                  color="#FF0000"
                 />
               </div>
             </div>
@@ -137,14 +139,17 @@ function MediaActionChip({
   icon: Icon,
   label,
   side,
+  color,
 }: {
   href: string | undefined;
   icon: typeof Play;
   label: string;
   side: "left" | "right";
+  /** Brand color for the active state — Flickr blue, YouTube red. */
+  color: string;
 }) {
   const divider = side === "right" ? "border-l border-surface-border" : "";
-  const base = `flex items-center justify-center gap-1.5 py-2.5 text-[12px] font-semibold ${divider}`;
+  const base = `flex items-center justify-center gap-1.5 py-2.5 text-[12px] font-semibold transition-colors ${divider}`;
   if (!href) {
     return (
       <span
@@ -161,7 +166,10 @@ function MediaActionChip({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${base} text-ink/75 hover:text-accent-blue hover:bg-surface-subtle transition-colors`}
+      // Inline style so each chip can carry its own brand color
+      // (Flickr blue / YouTube red) without bloating Tailwind config.
+      className={`${base} hover:bg-surface-subtle`}
+      style={{ color }}
     >
       <Icon size={13} strokeWidth={1.75} />
       {label}

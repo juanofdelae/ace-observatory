@@ -277,6 +277,7 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
                   icon={ImgIcon}
                   label="Photo Gallery"
                   hint="Browse the full Flickr album"
+                  color="#0063DC"
                 />
               )}
               {e.links.videos && (
@@ -285,6 +286,7 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
                   icon={Play}
                   label="Videos"
                   hint="Watch the YouTube playlist"
+                  color="#FF0000"
                 />
               )}
             </div>
@@ -329,20 +331,28 @@ function GalleryButton({
   icon: Icon,
   label,
   hint,
+  color,
 }: {
   href: string;
   icon: typeof FileText;
   label: string;
   hint: string;
+  /** Brand color: Flickr blue (#0063DC) or YouTube red (#FF0000). */
+  color: string;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative bg-white border border-surface-border rounded-2xl p-5 shadow-card hover:shadow-card-hover hover:border-accent-blue/40 transition flex items-center gap-4"
+      className="group relative bg-white border border-surface-border rounded-2xl p-5 shadow-card hover:shadow-card-hover transition flex items-center gap-4"
+      style={{ borderColor: undefined }}
+      onMouseEnter={undefined}
     >
-      <span className="w-12 h-12 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0 group-hover:bg-accent-blue group-hover:text-white transition-colors">
+      <span
+        className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors"
+        style={{ backgroundColor: `${color}1A`, color }}
+      >
         <Icon size={20} strokeWidth={1.75} />
       </span>
       <div className="min-w-0 flex-1">
@@ -351,7 +361,8 @@ function GalleryButton({
       </div>
       <ExternalLink
         size={14}
-        className="text-text-muted group-hover:text-accent-blue shrink-0"
+        className="text-text-muted shrink-0"
+        style={{ color: undefined }}
       />
     </a>
   );
