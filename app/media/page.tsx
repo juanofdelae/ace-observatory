@@ -53,11 +53,17 @@ export default function MediaPage() {
         {filtered.map(e => {
           const country = countryById(e.countryId);
           const year = new Date(e.startDate).getUTCFullYear();
-          // The Media Gallery is a "click to see the actual photos"
-          // surface — when an edition has a Flickr album, send the
-          // click straight there in a new tab. Editions without an
-          // album (Memphis 2026, etc.) fall back to the edition page.
+          // The Media Gallery is a "click to see the actual media"
+          // surface. Routing priority:
+          //   1. Flickr photo album (best visual, primary intent).
+          //   2. YouTube playlist of the edition (fallback for the
+          //      few editions where photos haven't been uploaded yet
+          //      but the video coverage exists — Belém, Córdoba 2025).
+          //   3. /editions/[id] (final fallback when neither is set).
           const flickrUrl = e.links.photos;
+          const youtubeUrl = e.links.videos;
+          const externalUrl = flickrUrl ?? youtubeUrl;
+          const externalLabel = flickrUrl ? "Flickr" : youtubeUrl ? "YouTube" : null;
           const cardClass =
             "group bg-white border border-surface-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all relative";
           const inner = (
@@ -72,9 +78,9 @@ export default function MediaPage() {
                     className="object-contain p-6 group-hover:scale-[1.03] transition-transform duration-500"
                   />
                 )}
-                {flickrUrl && (
+                {externalLabel && (
                   <span className="absolute top-2 right-2 text-[9px] font-bold uppercase tracking-wider bg-ink text-white px-1.5 py-0.5 rounded">
-                    Flickr ↗
+                    {externalLabel} ↗
                   </span>
                 )}
               </div>
@@ -93,14 +99,16 @@ export default function MediaPage() {
             </>
           );
 
-          return flickrUrl ? (
+          return externalUrl ? (
             <a
               key={e.id}
-              href={flickrUrl}
+              href={externalUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={cardClass}
-              aria-label={`Open ACE ${editionRegion(e)} photos on Flickr`}
+              aria-label={`Open ACE ${editionRegion(e)} ${
+                externalLabel === "Flickr" ? "photos on Flickr" : "videos on YouTube"
+              }`}
             >
               {inner}
             </a>
