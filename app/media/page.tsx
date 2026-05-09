@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Image as ImgIcon, Play } from "lucide-react";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SearchInput } from "@/components/ui/Input";
 import { editions } from "@/data/editions";
@@ -49,26 +50,25 @@ export default function MediaPage() {
         Showing <span className="font-semibold text-ink">{filtered.length}</span> of {editions.length} editions
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filtered.map(e => {
           const country = countryById(e.countryId);
           const year = new Date(e.startDate).getUTCFullYear();
-          // The Media Gallery is a "click to see the actual media"
-          // surface. Routing priority:
-          //   1. Flickr photo album (best visual, primary intent).
-          //   2. YouTube playlist of the edition (fallback for the
-          //      few editions where photos haven't been uploaded yet
-          //      but the video coverage exists — Belém, Córdoba 2025).
-          //   3. /editions/[id] (final fallback when neither is set).
+          // Two equal media destinations are surfaced inline on each
+          // card so the user sees BOTH options at a glance — Photos
+          // (Flickr) and Videos (YouTube) — and picks the one they
+          // want without an extra navigation step.
           const flickrUrl = e.links.photos;
           const youtubeUrl = e.links.videos;
-          const externalUrl = flickrUrl ?? youtubeUrl;
-          const externalLabel = flickrUrl ? "Flickr" : youtubeUrl ? "YouTube" : null;
-          const cardClass =
-            "group bg-white border border-surface-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all relative";
-          const inner = (
-            <>
-              <div className="relative aspect-[4/3] bg-white overflow-hidden">
+          return (
+            <div
+              key={e.id}
+              className="group bg-white border border-surface-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all flex flex-col"
+            >
+              <Link
+                href={`/editions/${e.id}`}
+                className="relative aspect-[4/3] bg-white overflow-hidden block"
+              >
                 {e.heroImage && (
                   <Image
                     src={e.heroImage}
@@ -78,16 +78,16 @@ export default function MediaPage() {
                     className="object-contain p-6 group-hover:scale-[1.03] transition-transform duration-500"
                   />
                 )}
-                {externalLabel && (
-                  <span className="absolute top-2 right-2 text-[9px] font-bold uppercase tracking-wider bg-ink text-white px-1.5 py-0.5 rounded">
-                    {externalLabel} ↗
-                  </span>
-                )}
-              </div>
-              <div className="p-3 border-t border-surface-border">
-                <div className="text-sm font-semibold text-ink line-clamp-1">
-                  ACE {editionRegion(e)}
-                </div>
+              </Link>
+              <div className="px-3 pt-3">
+                <Link
+                  href={`/editions/${e.id}`}
+                  className="block hover:text-accent-blue transition-colors"
+                >
+                  <div className="text-sm font-semibold text-ink line-clamp-1">
+                    ACE {editionRegion(e)}
+                  </div>
+                </Link>
                 <div className="text-[11px] text-text-muted mt-1 flex items-center gap-1.5">
                   <span>#{e.number}</span>
                   <span aria-hidden>·</span>
@@ -96,26 +96,25 @@ export default function MediaPage() {
                   <span>{year}</span>
                 </div>
               </div>
-            </>
-          );
-
-          return externalUrl ? (
-            <a
-              key={e.id}
-              href={externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cardClass}
-              aria-label={`Open ACE ${editionRegion(e)} ${
-                externalLabel === "Flickr" ? "photos on Flickr" : "videos on YouTube"
-              }`}
-            >
-              {inner}
-            </a>
-          ) : (
-            <Link key={e.id} href={`/editions/${e.id}`} className={cardClass}>
-              {inner}
-            </Link>
+              {/* Two action chips — visible on EVERY card. Disabled
+                  state for editions where the source isn't uploaded
+                  yet so the user understands the option exists in
+                  principle but isn't available right now. */}
+              <div className="mt-3 grid grid-cols-2 border-t border-surface-border">
+                <MediaActionChip
+                  href={flickrUrl}
+                  icon={ImgIcon}
+                  label="Photos"
+                  side="left"
+                />
+                <MediaActionChip
+                  href={youtubeUrl}
+                  icon={Play}
+                  label="Videos"
+                  side="right"
+                />
+              </div>
+            </div>
           );
         })}
       </div>
@@ -126,5 +125,46 @@ export default function MediaPage() {
         </div>
       )}
     </div>
+  );
+}
+
+// Inline chip rendered at the bottom of each Media Gallery card —
+// one for Photos (Flickr), one for Videos (YouTube). When the
+// underlying URL is missing, the chip stays visible but disabled so
+// users still see that the option exists in principle.
+function MediaActionChip({
+  href,
+  icon: Icon,
+  label,
+  side,
+}: {
+  href: string | undefined;
+  icon: typeof Play;
+  label: string;
+  side: "left" | "right";
+}) {
+  const divider = side === "right" ? "border-l border-surface-border" : "";
+  const base = `flex items-center justify-center gap-1.5 py-2.5 text-[12px] font-semibold ${divider}`;
+  if (!href) {
+    return (
+      <span
+        className={`${base} text-text-muted/50 cursor-not-allowed`}
+        title={`${label} not available yet`}
+      >
+        <Icon size={13} strokeWidth={1.75} />
+        {label}
+      </span>
+    );
+  }
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${base} text-ink/75 hover:text-accent-blue hover:bg-surface-subtle transition-colors`}
+    >
+      <Icon size={13} strokeWidth={1.75} />
+      {label}
+    </a>
   );
 }
