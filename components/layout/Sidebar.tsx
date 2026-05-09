@@ -195,6 +195,12 @@ export function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) {
             Bump this constant when a meaningful data ingest or content
             refresh ships. It surfaces the institutional freshness signal
             without depending on git/build metadata at runtime. */}
+        {/* Social handles sit ABOVE the divider so they get visual
+            weight as the persistent footer brand bar, before the
+            informational "Last updated" block. */}
+        <div className="px-4 pt-3 pb-1">
+          <SocialRailInline className="-ml-1" />
+        </div>
         <div className="px-5 py-4 border-t border-white/8">
           <div className="text-[10px] font-semibold tracking-[0.16em] uppercase text-sidebar-idle">
             Last updated
@@ -208,10 +214,6 @@ export function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) {
               v0.1 · MVP
             </span>
           </div>
-          {/* Social handles — same five links as the desktop top-right
-              pill, but rendered inside the sidebar so mobile users
-              reach them through the drawer. */}
-          <SocialRailInline className="mt-3 -ml-1" />
         </div>
       </aside>
     </>

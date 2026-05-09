@@ -62,7 +62,7 @@ export function SocialRail() {
 // positioning.
 export function SocialRailInline({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-1 ${className}`}>
+    <div className={`flex items-center gap-1.5 ${className}`}>
       {SOCIALS.map((s) => (
         <a
           key={s.label}
@@ -71,12 +71,23 @@ export function SocialRailInline({ className = "" }: { className?: string }) {
           rel="noopener noreferrer"
           aria-label={s.label}
           title={s.label}
-          className="w-7 h-7 rounded-full flex items-center justify-center text-sidebar-idle hover:text-white hover:bg-white/8 transition-colors"
+          className="w-9 h-9 rounded-full flex items-center justify-center text-sidebar-idle hover:text-white hover:bg-white/10 transition-colors"
         >
-          {s.svg ? <FlickrIcon /> : <s.icon size={13} strokeWidth={1.75} />}
+          {s.svg ? <FlickrIconLg /> : <s.icon size={17} strokeWidth={1.75} />}
         </a>
       ))}
     </div>
+  );
+}
+
+// Larger Flickr glyph that visually matches the bumped-up lucide
+// icons inside the sidebar variant.
+function FlickrIconLg() {
+  return (
+    <svg viewBox="0 0 24 24" width={17} height={17} aria-hidden className="shrink-0">
+      <circle cx="7.5" cy="12" r="3.5" fill="currentColor" />
+      <circle cx="16.5" cy="12" r="3.5" fill="currentColor" />
+    </svg>
   );
 }
 

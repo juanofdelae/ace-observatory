@@ -3,7 +3,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sidebar } from "./Sidebar";
-import { SocialRail } from "./SocialRail";
 import { Menu } from "lucide-react";
 import { asset } from "@/lib/asset-path";
 
@@ -38,10 +37,6 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         mobileOpen={mobileNavOpen}
         onCloseMobile={() => setMobileNavOpen(false)}
       />
-
-      {/* Social-media pill anchored top-right on desktop. Mobile uses
-          the sidebar drawer footer for the same links. */}
-      <SocialRail />
 
       {/* Mobile-only top bar with the ACE brand and the menu trigger.
           Desktop has the sidebar always visible so this stays hidden
