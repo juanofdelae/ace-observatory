@@ -23,6 +23,11 @@ EDITIONS_FILE = ROOT / "data" / "editions.ts"
 FLICKR_BASE = "https://www.flickr.com/photos/89835551@N02/albums"
 
 EDITION_TO_ALBUM = {
+    "ace-1-southeast-2014":          "72157644625497016",
+    "ace-2-mexico-2014":             "72157647271994268",
+    "ace-3-midwest-2015":            "72157649740810553",
+    "ace-4-cordoba-2015":            "72157660395238875",
+    "ace-5-arizona-california-2016": "72157665940084415",
     "ace-6-ontario-2016":            "72157673498898042",
     "ace-7-texas-2017":              "72157680172730321",
     "ace-8-florida-2017":            "72157688104121882",
