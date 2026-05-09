@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset-path";
+import { SocialRailInline } from "./SocialRail";
 import { useEffect } from "react";
 
 interface NavItem {
@@ -207,6 +208,10 @@ export function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) {
               v0.1 · MVP
             </span>
           </div>
+          {/* Social handles — same five links as the desktop top-right
+              pill, but rendered inside the sidebar so mobile users
+              reach them through the drawer. */}
+          <SocialRailInline className="mt-3 -ml-1" />
         </div>
       </aside>
     </>
