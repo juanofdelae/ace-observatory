@@ -21,7 +21,7 @@ import type { Participant } from "@/types";
 import { OutcomeCard } from "@/components/OutcomeCard";
 import { MediaCard } from "@/components/MediaCard";
 import {
-  MapPin, Calendar, Users, Sparkles, GalleryHorizontalEnd, FileText, ExternalLink, ArrowLeft, Globe,
+  MapPin, Calendar, Users, Sparkles, GalleryHorizontalEnd, FileText, ExternalLink, ArrowLeft, Globe, Image as ImgIcon, Play,
 } from "lucide-react";
 
 const MapMini = dynamic(() => import("@/components/map/MapView"), { ssr: false });
@@ -257,12 +257,36 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
           </section>
         )}
 
-        {/* Media */}
-        {mediaItems.length > 0 && (
+        {/* Photo & video gallery shortcuts. The two buttons replace the
+            old grid of MediaCards: rather than rendering one card per
+            mediaResource (which often duplicated the edition logo),
+            we just route the user to the actual sources — Flickr for
+            photos and YouTube for videos. Each button only renders
+            when the underlying URL is set on this edition. */}
+        {(e.links.photos || e.links.videos) && (
           <section>
-            <SectionHeader icon={GalleryHorizontalEnd} title="Media & documents" count={mediaItems.length} />
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {mediaItems.map(m => <MediaCard key={m.id} m={m} />)}
+            <SectionHeader
+              icon={GalleryHorizontalEnd}
+              title="Media gallery"
+              count={(e.links.photos ? 1 : 0) + (e.links.videos ? 1 : 0)}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {e.links.photos && (
+                <GalleryButton
+                  href={e.links.photos}
+                  icon={ImgIcon}
+                  label="Photo Gallery"
+                  hint="Browse the full Flickr album"
+                />
+              )}
+              {e.links.videos && (
+                <GalleryButton
+                  href={e.links.videos}
+                  icon={Play}
+                  label="Videos"
+                  hint="Watch the YouTube playlist"
+                />
+              )}
             </div>
           </section>
         )}
@@ -293,6 +317,42 @@ function DocLink({ label, href }: { label: string; href: string }) {
       className="inline-flex items-center gap-1.5 text-xs font-medium text-brand-blue-bright hover:text-brand-blue-mid border border-surface-border rounded px-2.5 py-1.5 hover:bg-surface-subtle"
     >
       <FileText size={12} /> {label} <ExternalLink size={10} />
+    </a>
+  );
+}
+
+// Larger, panel-style CTA used at the bottom of each edition page
+// to surface the Flickr photo album and the YouTube playlist as
+// equally-weighted media destinations.
+function GalleryButton({
+  href,
+  icon: Icon,
+  label,
+  hint,
+}: {
+  href: string;
+  icon: typeof FileText;
+  label: string;
+  hint: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative bg-white border border-surface-border rounded-2xl p-5 shadow-card hover:shadow-card-hover hover:border-accent-blue/40 transition flex items-center gap-4"
+    >
+      <span className="w-12 h-12 rounded-xl bg-accent-blue/10 text-accent-blue flex items-center justify-center shrink-0 group-hover:bg-accent-blue group-hover:text-white transition-colors">
+        <Icon size={20} strokeWidth={1.75} />
+      </span>
+      <div className="min-w-0 flex-1">
+        <div className="text-base font-bold text-ink leading-tight">{label}</div>
+        <div className="text-xs text-text-muted mt-0.5 truncate">{hint}</div>
+      </div>
+      <ExternalLink
+        size={14}
+        className="text-text-muted group-hover:text-accent-blue shrink-0"
+      />
     </a>
   );
 }
