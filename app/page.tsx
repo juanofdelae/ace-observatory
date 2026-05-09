@@ -167,9 +167,10 @@ export default function OverviewPage() {
             ACE Observatory
           </h1>
           <p className="mt-3 text-base md:text-lg text-white/80 leading-relaxed max-w-3xl">
-            Explore the data, network, and documented impact of the
-            Americas{" "}
-            <span className="whitespace-nowrap">Competitiveness Exchange.</span>
+            Explore the data, network, and documented impact of the{" "}
+            <span className="whitespace-nowrap">
+              Americas Competitiveness Exchange.
+            </span>
           </p>
 
           {/* Headline KPIs — every value is queryable from the live
