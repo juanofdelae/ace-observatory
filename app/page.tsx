@@ -160,10 +160,6 @@ export default function OverviewPage() {
         <div className="relative px-7 md:px-12 py-12 md:py-16 max-w-5xl">
           {/* Executive cover — single statement, four hard numbers,
               two doors. Everything else lives below the fold. */}
-          <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70 mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-orange-cta" />
-            Institutional intelligence · OAS
-          </div>
           <h1 className="text-display-1 font-bold tracking-tight leading-[1.02]">
             ACE Observatory
           </h1>
