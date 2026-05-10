@@ -394,7 +394,7 @@ const editionsRaw: Edition[] = [
     number: 19,
     name: "ACE XIX (Special) — Yerevan",
     countryId: "intl",
-    cityIds: [],
+    cityIds: ["city-yerevan"],
     startDate: "2024-09-30",
     endDate: "2024-10-04",
     organizerIds: ["org-oas-1"],

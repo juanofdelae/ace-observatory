@@ -57,22 +57,34 @@ export default function OverviewPage() {
     participants.map(p => p.countryId).filter(c => c && c !== "intl"),
   ).size;
 
-  // Minimal map: all host cities (used inside Geographic Footprint module).
-  const mapPoints = editions
-    .flatMap((e) =>
-      e.cityIds.map((cid) => {
-        const c = cityById(cid);
-        if (!c) return null;
-        return {
-          id: `o-${cid}`,
-          name: c.name,
-          coordinates: c.coordinates,
-          kind: "host" as const,
-          meta: `ACE ${e.number}`,
-          radius: 6,
-        };
-      }),
-    )
+  // Minimal map: one marker per unique host city, with the meta
+  // combining EVERY ACE number that touched the city. Without the
+  // dedupe, cities that hosted twice (Córdoba → ACE 4 + ACE 22)
+  // generated two map points with the same React key, so only one
+  // ever rendered.
+  const cityToEditionNumbers = new Map<string, number[]>();
+  for (const e of editions) {
+    for (const cid of e.cityIds) {
+      const list = cityToEditionNumbers.get(cid) ?? [];
+      list.push(e.number);
+      cityToEditionNumbers.set(cid, list);
+    }
+  }
+  const mapPoints = Array.from(cityToEditionNumbers.entries())
+    .map(([cid, numbers]) => {
+      const c = cityById(cid);
+      if (!c) return null;
+      const sorted = [...numbers].sort((a, b) => a - b);
+      const label = sorted.map(n => `ACE ${n}`).join(" · ");
+      return {
+        id: `o-${cid}`,
+        name: c.name,
+        coordinates: c.coordinates,
+        kind: "host" as const,
+        meta: label,
+        radius: 6,
+      };
+    })
     .filter((p): p is NonNullable<typeof p> => p !== null);
 
   const featured = [
