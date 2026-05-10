@@ -69,7 +69,11 @@ interface ViewTransform {
 const INITIAL_VIEW: ViewTransform = { tx: 0, ty: 0, scale: 1 };
 const MIN_SCALE = 1;
 const MAX_SCALE = 8;
-const PAN_DRAG_THRESHOLD = 4; // px — under this we treat as click, not pan
+// px — under this we treat the gesture as a click, not a pan. Bumped
+// from 4 because trackpads (especially Mac) often jitter the pointer
+// by a few pixels on a single tap, which used to mark the gesture as
+// "moved" and silently swallow the country click.
+const PAN_DRAG_THRESHOLD = 10;
 
 export function ParticipantWorldMap() {
   const [geo, setGeo] = useState<CountriesGeo | null>(null);
@@ -228,7 +232,11 @@ export function ParticipantWorldMap() {
       startTy: view.ty,
       moved: false,
     };
-    (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+    // NOTE: setPointerCapture is intentionally deferred to the first
+    // real drag in handlePointerMove. Capturing on every pointerdown
+    // makes some browsers (notably Safari) deliver the synthetic
+    // `click` event to the SVG instead of the actual <path>, which
+    // silently breaks the country click handler.
   }
 
   function handlePointerMove(e: React.PointerEvent<SVGSVGElement>) {
@@ -237,7 +245,12 @@ export function ParticipantWorldMap() {
     const dxPx = e.clientX - s.startClientX;
     const dyPx = e.clientY - s.startClientY;
     if (!s.moved && Math.hypot(dxPx, dyPx) < PAN_DRAG_THRESHOLD) return;
-    s.moved = true;
+    if (!s.moved) {
+      s.moved = true;
+      // Now that we know this is a real pan, take pointer capture so
+      // the drag keeps tracking even when the cursor leaves the SVG.
+      (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+    }
     const svg = svgRef.current;
     if (!svg) return;
     const rect = svg.getBoundingClientRect();
