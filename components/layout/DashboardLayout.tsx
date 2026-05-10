@@ -2,9 +2,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Sidebar } from "./Sidebar";
 import { Menu } from "lucide-react";
 import { asset } from "@/lib/asset-path";
+
+// Pages that should render full-screen without the sidebar or
+// mobile top bar — e.g. the executive cover at /executive is meant
+// to be screenshotable / projector-ready, so it owns the whole
+// viewport.
+const FULL_SCREEN_PATHS = ["/executive"];
 
 /**
  * AppShell — premium iPad-style intelligence workspace.
@@ -19,6 +26,16 @@ import { asset } from "@/lib/asset-path";
  */
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const pathname = usePathname() ?? "";
+  const isFullScreen = FULL_SCREEN_PATHS.some(
+    (p) => pathname === p || pathname.startsWith(`${p}/`),
+  );
+
+  // Executive cover and other full-screen pages own the viewport
+  // entirely — no sidebar, no top bar, no canvas chrome.
+  if (isFullScreen) {
+    return <>{children}</>;
+  }
 
   return (
     <div className="relative min-h-screen bg-surface-canvas">
