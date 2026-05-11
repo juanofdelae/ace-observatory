@@ -213,7 +213,8 @@
       "Bash(python3 scripts/add_flickr_links.py)",
       "WebFetch(domain:www.youtube.com)",
       "Bash(python3 scripts/add_youtube_links.py)",
-      "Bash(python3 -c \"import json; d=json.load\\(open\\('data/_memphis-participants.json'\\)\\); print\\(len\\(d\\), 'participants'\\)\")"
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('data/_memphis-participants.json'\\)\\); print\\(len\\(d\\), 'participants'\\)\")",
+      "Bash(python3 -c \"import sys,re,collections; c=collections.Counter\\(re.findall\\(r'\\\\\"actorType\\\\\":\\\\s*\\\\\"\\([^\\\\\"]+\\)\\\\\"',sys.stdin.read\\(\\)\\)\\); print\\(c\\)\")"
     ],
     "additionalDirectories": [
       "/Users/juansebastianfonseca/WORK/Claude Code VSCode/ace-data-observatory/app/sites"
