@@ -242,9 +242,6 @@ export default function ExecutiveCoverPage() {
             aria-label="Back to ACE Observatory"
             className="inline-flex items-center gap-5 group"
           >
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/55 hidden sm:inline">
-              ACE Observatory · Executive cover
-            </span>
             <Image
               src={asset("/logos/ace-logo.png")}
               alt="ACE"
@@ -253,6 +250,9 @@ export default function ExecutiveCoverPage() {
               priority
               className="object-contain w-[96px] h-[96px] md:w-[128px] md:h-[128px] group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)]"
             />
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/55 hidden sm:inline">
+              ACE Observatory · Executive cover
+            </span>
           </Link>
         </div>
 
