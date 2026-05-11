@@ -13,6 +13,7 @@ import {
   Sparkles,
   Handshake,
   ScrollText,
+  Activity,
   CheckCircle2,
 } from "lucide-react";
 import { editions } from "@/data/editions";
@@ -21,21 +22,26 @@ import { visitedSites } from "@/data/visited-sites";
 import { outcomes } from "@/data/outcomes";
 import { countries } from "@/data/countries";
 import { cityById } from "@/data/cities";
-import { loisCount, crossBorderLois } from "@/data/lois";
+import {
+  loisCount,
+  crossBorderLois,
+  loisByEdition,
+  uniqueCountryPairs,
+} from "@/data/lois";
 import { asset } from "@/lib/asset-path";
 
-// 90-second executive cover for an institutional audience. Light
-// palette inspired by OAS / IDB / World Bank / OECD reports. Seven
-// strategic sections, all numbers pulled from the live data layer
-// so the home, sidebar and this cover never disagree. Renders
-// without sidebar via DashboardLayout's FULL_SCREEN_PATHS.
+// 90-second executive cover. Light institutional palette inspired by
+// OAS / IDB / World Bank / OECD reports. Seven strategic sections,
+// every number sourced from the live data layer so this cover, the
+// home and the sidebar never disagree.
 //
-// Editorial rule: use "verified", "documented", "mapped",
-// "reported", "potential", "initial evidence layer" — never claim
-// ROI, mobilized capital, active agreements, or impact percentages
-// that aren't backed by data in this repo.
+// Editorial rule: use "verified", "documented", "mapped", "reported",
+// "potential", "initial evidence layer" — never claim ROI, mobilized
+// capital, active agreements or impact percentages without backup.
+// Numbers tagged below as TODO need verification before they can
+// move from copy to live computation.
 export default function ExecutiveCoverPage() {
-  // ── HEADLINE NUMBERS (all live, no rounding for marketing) ────
+  // ── HEADLINE NUMBERS — all live, all computed from current data ─
   const totalEditions = editions.length;
   const totalDelegates = participants.length;
   const totalSites = visitedSites.length;
@@ -45,9 +51,44 @@ export default function ExecutiveCoverPage() {
   const totalParticipations = cumulativeParticipations;
   const hostCountries = new Set(editions.map(e => e.countryId)).size;
   const hostCities = new Set(editions.flatMap(e => e.cityIds)).size;
-  const documentedOutcomes = outcomes.length;
+  const totalOutcomes = outcomes.length;
+  const crossBorderPct = Math.round(
+    (crossBorderLois / Math.max(loisCount, 1)) * 100,
+  );
 
-  // ── ACTOR MIX (four buckets, conic-gradient rings) ────────────
+  // ── EVIDENCE SUB-BREAKDOWN ────────────────────────────────────
+  // We slice the 20 documented outcomes into the three categories the
+  // brief calls out (partnerships / derived projects / policy
+  // alignments). Any category not in those three rolls into "other".
+  const outcomeMix = (() => {
+    const map: Record<string, number> = {
+      Partnership: 0,
+      "Derived Project": 0,
+      Policy: 0,
+      Other: 0,
+    };
+    for (const o of outcomes) {
+      if (o.category === "Partnership") map.Partnership += 1;
+      else if (o.category === "Derived Project") map["Derived Project"] += 1;
+      else if (o.category === "Policy") map.Policy += 1;
+      else map.Other += 1;
+    }
+    return map;
+  })();
+
+  // ── YEARS OF CONTINUITY (verifiable, no "zero gap years" claim) ─
+  const years = (() => {
+    const sorted = [...editions].sort(
+      (a, b) => +new Date(a.startDate) - +new Date(b.startDate),
+    );
+    const first = new Date(sorted[0].startDate).getUTCFullYear();
+    const last = new Date(
+      sorted[sorted.length - 1].startDate,
+    ).getUTCFullYear();
+    return { first, last, span: last - first + 1 };
+  })();
+
+  // ── ACTOR MIX ────────────────────────────────────────────────
   const actorMix = (() => {
     const counts: Record<string, number> = {
       Government: 0,
@@ -91,7 +132,7 @@ export default function ExecutiveCoverPage() {
     return order.map(b => ({ ...b, pct: total > 0 ? (b.count / total) * 100 : 0 }));
   })();
 
-  // ── TOP COUNTRIES (delegate roster) ──────────────────────────
+  // ── TOP COUNTRIES ────────────────────────────────────────────
   const topCountries = (() => {
     const counts: Record<string, number> = {};
     for (const p of participants) {
@@ -163,15 +204,34 @@ export default function ExecutiveCoverPage() {
           </h1>
           <p className="mt-7 text-base md:text-lg text-text-secondary leading-relaxed max-w-3xl mx-auto">
             The Americas Competitiveness Exchange has connected leaders,
-            cities, institutions and innovation ecosystems across the
-            hemisphere. The ACE Observatory makes that legacy{" "}
-            <span className="font-semibold text-ink">visible, searchable, and actionable</span>.
+            host cities, and innovation institutions for over a decade.
+            The ACE Observatory makes that legacy{" "}
+            <span className="font-semibold text-ink">
+              visible, searchable, and actionable
+            </span>
+            .
           </p>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
             <CoverKPI value={totalEditions} label="ACE editions" />
             <CoverKPI value={countriesRepresented} label="Countries represented" />
             <CoverKPI value={totalDelegates} label="Verified delegates" />
             <CoverKPI value={totalSites} label="Institutions visited" />
+          </div>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-ink hover:bg-ink/85 text-white text-[14px] font-bold tracking-tight shadow-lg transition-colors"
+            >
+              Explore the Observatory
+              <ArrowRight size={16} strokeWidth={2} />
+            </Link>
+            <Link
+              href="/map"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-surface-subtle border border-surface-border text-ink text-[14px] font-bold tracking-tight shadow-soft transition-colors"
+            >
+              <MapIcon size={15} />
+              Open ACE Atlas
+            </Link>
           </div>
         </section>
 
@@ -187,7 +247,7 @@ export default function ExecutiveCoverPage() {
           />
           <div className="relative">
             <div className="text-[10px] font-bold uppercase tracking-[0.24em] text-accent-orange-cta mb-5">
-              Scale
+              Scale · What ACE has built
             </div>
             <h2 className="text-3xl md:text-[44px] font-bold tracking-tight leading-[1.08] max-w-4xl">
               ACE has built one of the most active
@@ -195,9 +255,13 @@ export default function ExecutiveCoverPage() {
               competitiveness networks in the hemisphere.
             </h2>
             <p className="mt-6 text-base md:text-lg text-white/75 leading-relaxed max-w-3xl">
-              Across government, private sector, academia and innovation
-              ecosystems, ACE connects people and institutions that
-              would otherwise take years to reach each other.
+              Across more than a decade, ACE has brought together
+              leaders, institutions, cities and innovation ecosystems
+              through a sustained program of executive exchanges —{" "}
+              <span className="font-semibold text-white">
+                {years.span} years of continuous regional engagement
+              </span>
+              .
             </p>
             <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               <ScaleTile value={totalEditions} label="ACE editions" />
@@ -208,17 +272,17 @@ export default function ExecutiveCoverPage() {
           </div>
         </section>
 
-        {/* ════ 3 · REACH — geographic ════ */}
+        {/* ════ 3 · REACH — large geographic map ════ */}
         <Section
-          eyebrow="Reach"
-          title="Where ACE has activated ecosystems"
+          eyebrow="Reach · Where ACE has activated ecosystems"
+          title="The geographic footprint of a decade of executive exchanges"
         >
           <p className="text-text-secondary leading-relaxed max-w-2xl">
-            From host cities to visited institutions, the Observatory
-            maps where ACE has activated ecosystems, connected
-            delegations and documented collaboration opportunities.
-            Every dot below tells a visit, a connection or an
-            opportunity.
+            From host cities to visited institutions, the ACE Observatory
+            shows the geographic footprint of the program and the
+            regional corridors it has helped activate. Every dot on the
+            map below represents a city where ACE has landed a
+            delegation.
           </p>
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             <FootprintStat value={hostCountries} label="Host countries" />
@@ -244,18 +308,22 @@ export default function ExecutiveCoverPage() {
           </div>
         </Section>
 
-        {/* ════ 4 · CONNECTIONS — actor mix + top countries ════ */}
+        {/* ════ 4 · NETWORK — actor mix + top countries ════ */}
         <Section
-          eyebrow="Connections"
-          title={`From Canada to Argentina: a verified network of ${totalDelegates.toLocaleString()} decision-makers`}
+          eyebrow="Network · The network behind the numbers"
+          title={`From Canada to Argentina: ${totalDelegates.toLocaleString()} verified decision-makers across ${countriesRepresented} countries`}
         >
           <p className="text-text-secondary leading-relaxed max-w-2xl">
             ACE connects people and institutions that would otherwise
-            take years to reach each other. A balanced, cross-sector
-            roster — not a single-actor club. {totalParticipations.toLocaleString()}{" "}
-            cumulative participations mean dozens of alumni have
-            returned to multiple editions, multiplying the network
-            effect.
+            take years to reach each other. The network brings together
+            public officials, business leaders, researchers,
+            entrepreneurs, universities, innovation hubs and
+            international organizations.{" "}
+            <span className="font-semibold text-ink">
+              {totalParticipations.toLocaleString()} cumulative participations
+            </span>{" "}
+            mean dozens of alumni have returned to multiple editions,
+            multiplying the network effect.
           </p>
 
           <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -309,53 +377,125 @@ export default function ExecutiveCoverPage() {
 
         {/* ════ 5 · EVIDENCE — pipeline + named testimonial ════ */}
         <Section
-          eyebrow="Evidence"
+          eyebrow="Evidence · What continues after each edition"
           title="ACE impact is measured by what continues after each edition."
         >
           <p className="text-text-secondary leading-relaxed max-w-2xl">
-            The Observatory is building an initial evidence layer
-            extracted from final reports and verified records. The
-            pipeline below is anchored on the most recent verifiable
-            cohort — ACE Córdoba 2025 — and will be backfilled as
-            earlier editions are consolidated.
+            The Observatory organizes an initial documented evidence
+            layer from final reports and verified records — including
+            letters of intent, partnerships, derived projects, policy
+            alignment and follow-up opportunities.
           </p>
 
-          {/* 3-stage pipeline */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+          {/* Four-stage pipeline — honest about the follow-up tracking
+              layer being a work-in-progress rather than a finished
+              capability. */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             <PipelineStage
               icon={Handshake}
               tone="blue"
               stage="Stage 1"
+              status="Verified"
               label="Connection made"
               value={totalDelegates}
-              caption="Verified delegates who have met on the ground across 23 editions."
+              caption={`Delegates who have met on the ground across ${totalEditions} editions.`}
             />
             <PipelineStage
               icon={ScrollText}
               tone="orange"
               stage="Stage 2"
+              status="Documented"
               label="Letter of intent"
               value={loisCount}
-              caption={`Signed at ACE Córdoba 2025. ${crossBorderLois} are cross-border (${Math.round(
-                (crossBorderLois / Math.max(loisCount, 1)) * 100,
-              )}%).`}
+              caption={`Signed across ACE 20, 21 and 22. ${crossBorderLois} are cross-border (${crossBorderPct}%).`}
+            />
+            <PipelineStage
+              icon={Activity}
+              tone="muted"
+              stage="Stage 3"
+              status="In development"
+              label="Follow-up action"
+              value={null}
+              caption="Post-event follow-up tracking is an upcoming Observatory capability."
             />
             <PipelineStage
               icon={CheckCircle2}
               tone="green"
-              stage="Stage 3"
+              stage="Stage 4"
+              status="Documented"
               label="Documented outcome"
-              value={documentedOutcomes}
+              value={totalOutcomes}
               caption="Partnerships, derived projects and policy alignments traced to a specific edition."
             />
           </div>
 
-          {/* Methodology line — exact wording requested */}
+          {/* LOI breakdown by edition + outcomes sub-breakdown */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white border border-surface-border rounded-2xl shadow-card p-6">
+              <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-text-muted mb-4">
+                Letters of intent by edition
+              </div>
+              <ul className="space-y-2.5">
+                {loisByEdition.map(row => (
+                  <li
+                    key={row.edition}
+                    className="flex items-center justify-between text-[13.5px]"
+                  >
+                    <span className="font-semibold text-ink">{row.label}</span>
+                    <span className="text-text-secondary tabular-nums">
+                      <span className="font-bold text-ink">{row.count}</span>{" "}
+                      LOIs
+                    </span>
+                  </li>
+                ))}
+                <li className="flex items-center justify-between text-[12px] pt-2 mt-2 border-t border-surface-border text-text-muted">
+                  <span className="font-semibold uppercase tracking-wider">
+                    Across {uniqueCountryPairs} unique country pairs
+                  </span>
+                  <span className="tabular-nums">
+                    {crossBorderPct}% cross-border
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white border border-surface-border rounded-2xl shadow-card p-6">
+              <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-text-muted mb-4">
+                Documented outcomes by type
+              </div>
+              <ul className="space-y-2.5">
+                {[
+                  { label: "Partnerships", count: outcomeMix.Partnership },
+                  {
+                    label: "Derived projects",
+                    count: outcomeMix["Derived Project"],
+                  },
+                  { label: "Policy alignments", count: outcomeMix.Policy },
+                  { label: "Other categories", count: outcomeMix.Other },
+                ].map(row => (
+                  <li
+                    key={row.label}
+                    className="flex items-center justify-between text-[13.5px]"
+                  >
+                    <span className="font-semibold text-ink">{row.label}</span>
+                    <span className="font-bold text-ink tabular-nums">
+                      {row.count}
+                    </span>
+                  </li>
+                ))}
+                <li className="flex items-center justify-between text-[12px] pt-2 mt-2 border-t border-surface-border text-text-muted uppercase tracking-wider">
+                  <span className="font-semibold">Total documented</span>
+                  <span className="font-bold tabular-nums">{totalOutcomes}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Methodology disclaimer — exact wording from brief */}
           <p className="mt-6 text-[12px] text-text-muted leading-relaxed italic max-w-3xl">
-            Initial documented evidence layer extracted from available
-            final reports and verified records. The full pipeline,
-            including post-event follow-up tracking, will be expanded
-            edition by edition.
+            Initial documented evidence layer. Not all letters of intent
+            represent active or completed agreements. Follow-up tracking
+            is a capability under development; figures will be expanded
+            edition by edition as final reports are consolidated.
           </p>
 
           {/* Named testimonial — peer validation */}
@@ -402,14 +542,15 @@ export default function ExecutiveCoverPage() {
           </div>
         </Section>
 
-        {/* ════ 6 · INTELLIGENCE — capabilities ════ */}
+        {/* ════ 6 · INTELLIGENCE LAYER ════ */}
         <Section
-          eyebrow="Intelligence"
-          title="The Observatory turns institutional memory into actionable intelligence."
+          eyebrow="Intelligence · From institutional memory to actionable intelligence"
+          title="The Observatory turns ACE's institutional memory into actionable intelligence."
         >
           <p className="text-text-secondary leading-relaxed max-w-2xl">
-            Four core capabilities are live today. The Observatory will
-            grow as edition data is consolidated.
+            By connecting editions, delegates, institutions, reports and
+            documented outcomes, the Observatory helps users move from
+            historical records to strategic insight.
           </p>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             <CapabilityCard
@@ -418,7 +559,7 @@ export default function ExecutiveCoverPage() {
               accent="#2563EB"
               eyebrow="Geography"
               title="ACE Atlas"
-              body="Country → state → city → institution drill-down across every host edition."
+              body="Explore host cities, visited institutions and regional innovation clusters."
             />
             <CapabilityCard
               href="/network"
@@ -426,7 +567,7 @@ export default function ExecutiveCoverPage() {
               accent="#7C3AED"
               eyebrow="People"
               title="ACE Network"
-              body="Delegate roster, institutional affiliations and cross-border connections across editions."
+              body="Discover delegates, organizations and cross-border connections across editions."
             />
             <CapabilityCard
               href="/reports"
@@ -434,7 +575,7 @@ export default function ExecutiveCoverPage() {
               accent="#0B7A4A"
               eyebrow="Reports"
               title="Reports Intelligence"
-              body="Final reports turned into searchable indicators, outcomes and documented partnerships."
+              body="Turn final reports into searchable indicators, partnerships, outcomes and documented evidence."
             />
             <CapabilityCard
               href="/impact"
@@ -442,39 +583,44 @@ export default function ExecutiveCoverPage() {
               accent="#F05A28"
               eyebrow="Impact"
               title="Impact & Outcomes"
-              body="Letters of intent, derived projects, partnerships and follow-up actions traced edition by edition."
+              body="Track documented results, agreements, collaborations and follow-up actions generated through ACE."
             />
           </div>
 
-          {/* Next layer — modules under development */}
+          {/* Next intelligence layers — clearly framed as future
+              capabilities, not as current claims. */}
           <div className="mt-8 bg-white border border-dashed border-surface-border rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-text-muted">
-                Next layer · in development
+                Next intelligence layers · in development
               </span>
               <span className="w-1 h-1 rounded-full bg-text-muted/40" />
               <span className="text-[10px] font-medium uppercase tracking-wider text-text-muted">
                 Not yet published
               </span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[13px] text-text-secondary">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-[13px] text-text-secondary">
               <NextLayerItem
                 title="Smart Connections"
                 body="Suggested alumni-to-alumni introductions based on shared sectors and complementary capabilities."
+              />
+              <NextLayerItem
+                title="Partnership Pathways"
+                body="Traceable thread from encounter → letter of intent → follow-up → documented outcome, per delegate."
               />
               <NextLayerItem
                 title="Ecosystem Match"
                 body="Side-by-side comparison of two regions to surface shared sectors, capability gaps and partnership pathways."
               />
               <NextLayerItem
-                title="Partnership Pathways"
-                body="Traceable thread from encounter → letter of intent → follow-up → documented outcome, per delegate."
+                title="Catalytic Value"
+                body="Separate documented / estimated / potential value tracks — only published when verified data exists."
               />
             </div>
           </div>
         </Section>
 
-        {/* ════ 7 · FINAL CTA + Memphis preview ════ */}
+        {/* ════ 7 · NEXT OPPORTUNITY + FINAL CTAs ════ */}
         <section className="space-y-8">
           {memphis && (
             <div className="bg-white border border-surface-border rounded-2xl shadow-card p-7 md:p-10">
@@ -517,35 +663,46 @@ export default function ExecutiveCoverPage() {
             </div>
           )}
 
-          {/* Final CTA cluster — three doors back into the Observatory */}
+          {/* Final CTA cluster — four doors back into the Observatory */}
           <div className="text-center pt-4">
-            <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-text-muted mb-4">
+            <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-text-muted mb-3">
               Explore deeper
             </div>
-            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
+            <h2 className="text-2xl md:text-[28px] font-bold text-ink tracking-tight leading-tight mb-7">
+              Explore the network behind the numbers.
+            </h2>
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/map"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-ink hover:bg-ink/85 text-white text-[14px] font-bold tracking-tight shadow-lg transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-ink hover:bg-ink/85 text-white text-[13.5px] font-bold tracking-tight shadow-lg transition-colors"
               >
-                <MapIcon size={16} />
+                <MapIcon size={15} />
                 Explore ACE Atlas
-                <ArrowRight size={16} />
+                <ArrowRight size={14} />
               </Link>
               <Link
                 href="/reports"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-surface-subtle border border-surface-border text-ink text-[14px] font-bold tracking-tight shadow-soft transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-surface-subtle border border-surface-border text-ink text-[13.5px] font-bold tracking-tight shadow-soft transition-colors"
               >
-                <FileText size={16} />
+                <FileText size={15} />
                 Open Reports Intelligence
-                <ArrowRight size={16} />
+                <ArrowRight size={14} />
               </Link>
               <Link
                 href="/network"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-surface-subtle border border-surface-border text-ink text-[14px] font-bold tracking-tight shadow-soft transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-surface-subtle border border-surface-border text-ink text-[13.5px] font-bold tracking-tight shadow-soft transition-colors"
               >
-                <Share2 size={16} />
+                <Share2 size={15} />
                 View ACE Network
-                <ArrowRight size={16} />
+                <ArrowRight size={14} />
+              </Link>
+              <Link
+                href="/impact"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-surface-subtle border border-surface-border text-ink text-[13.5px] font-bold tracking-tight shadow-soft transition-colors"
+              >
+                <Sparkles size={15} />
+                Track Outcomes
+                <ArrowRight size={14} />
               </Link>
             </div>
             <div className="mt-7 text-[11px] uppercase tracking-[0.2em] text-text-muted font-semibold">
@@ -573,7 +730,6 @@ function CoverKPI({ value, label }: { value: number; label: string }) {
   );
 }
 
-// Scale tile — same shape as CoverKPI but for dark backgrounds.
 function ScaleTile({ value, label }: { value: number; label: string }) {
   return (
     <div className="rounded-2xl bg-white/[0.06] border border-white/12 backdrop-blur px-4 py-5">
@@ -600,26 +756,35 @@ function FootprintStat({ value, label }: { value: number; label: string }) {
   );
 }
 
-// One pipeline stage. The three together communicate the "what
-// continues after the encounter" story without claiming follow-up
-// tracking we don't yet have.
+// One pipeline stage. The four together communicate the "what
+// continues after the encounter" story. `value: null` renders a
+// placeholder dash for stages we don't yet have data for (currently
+// Stage 3 · Follow-up action), keeping the page honest.
 function PipelineStage({
   icon: Icon,
   tone,
   stage,
+  status,
   label,
   value,
   caption,
 }: {
   icon: typeof Handshake;
-  tone: "blue" | "orange" | "green";
+  tone: "blue" | "orange" | "green" | "muted";
   stage: string;
+  status: string;
   label: string;
-  value: number;
+  value: number | null;
   caption: string;
 }) {
   const accent =
-    tone === "blue" ? "#2563EB" : tone === "orange" ? "#F97316" : "#0B7A4A";
+    tone === "blue"
+      ? "#2563EB"
+      : tone === "orange"
+        ? "#F97316"
+        : tone === "green"
+          ? "#0B7A4A"
+          : "#94A3B8";
   return (
     <div
       className="relative bg-white border border-surface-border rounded-2xl shadow-card p-5 md:p-6 flex flex-col"
@@ -639,8 +804,16 @@ function PipelineStage({
           {stage}
         </span>
       </div>
-      <div className="text-[36px] md:text-[44px] font-bold text-ink tabular-nums leading-none">
-        {value.toLocaleString()}
+      <div className="flex items-baseline gap-3">
+        <div className="text-[36px] md:text-[44px] font-bold text-ink tabular-nums leading-none">
+          {value !== null ? value.toLocaleString() : "—"}
+        </div>
+        <span
+          className="text-[9.5px] font-bold uppercase tracking-[0.14em] px-2 py-0.5 rounded-full"
+          style={{ backgroundColor: `${accent}1A`, color: accent }}
+        >
+          {status}
+        </span>
       </div>
       <div className="mt-2 text-[14px] font-bold text-ink leading-tight">
         {label}
@@ -779,8 +952,9 @@ function Section({
 }
 
 // Mini map with subtle country outlines + orange dots for every host
-// city. Zoomed to fit Americas plus the three non-American host
-// cities on the right (Tel Aviv, Berlin, Yerevan).
+// city, plus thin connector lines between host cities sorted by
+// edition number — gives the visual sense of an emerging
+// hemispheric corridor without overclaiming "trade corridors".
 function ExecutiveMap() {
   const [geo, setGeo] = useState<GeoJSON.FeatureCollection | null>(null);
   useEffect(() => {
@@ -791,7 +965,7 @@ function ExecutiveMap() {
   }, []);
 
   const W = 1000;
-  const H = 540;
+  const H = 600;
   const LON_MIN = -160;
   const LON_MAX = 50;
   const LAT_MIN = -55;
@@ -802,17 +976,40 @@ function ExecutiveMap() {
     return [x, y];
   };
 
-  const cityIds = new Set<string>();
+  // One marker per unique host city; ordered by the lowest edition
+  // number that touched it (rough chronology used for connector
+  // lines below).
+  const cityToFirstEdition = new Map<string, number>();
   for (const e of editions) {
-    for (const cid of e.cityIds) cityIds.add(cid);
+    for (const cid of e.cityIds) {
+      const prev = cityToFirstEdition.get(cid);
+      if (prev === undefined || e.number < prev) {
+        cityToFirstEdition.set(cid, e.number);
+      }
+    }
   }
-  const dots = Array.from(cityIds)
-    .map(cid => cityById(cid))
-    .filter((c): c is NonNullable<typeof c> => Boolean(c))
-    .map(c => {
+  const dots = Array.from(cityToFirstEdition.entries())
+    .map(([cid, num]) => {
+      const c = cityById(cid);
+      if (!c) return null;
       const [x, y] = project(c.coordinates.lat, c.coordinates.lng);
-      return { name: c.name, x, y };
+      return { name: c.name, x, y, num };
+    })
+    .filter((d): d is NonNullable<typeof d> => Boolean(d))
+    .sort((a, b) => a.num - b.num);
+
+  // Connector lines — connect consecutive host cities in chronological
+  // order. Very low opacity so they read as a network suggestion, not
+  // as literal trade routes.
+  const connectors: Array<{ x1: number; y1: number; x2: number; y2: number }> = [];
+  for (let i = 1; i < dots.length; i++) {
+    connectors.push({
+      x1: dots[i - 1].x,
+      y1: dots[i - 1].y,
+      x2: dots[i].x,
+      y2: dots[i].y,
     });
+  }
 
   const geomToPath = (geom: GeoJSON.Geometry): string => {
     if (geom.type !== "Polygon" && geom.type !== "MultiPolygon") return "";
@@ -847,6 +1044,7 @@ function ExecutiveMap() {
         </defs>
         <rect width={W} height={H} fill="url(#execGrid)" />
 
+        {/* Country outlines */}
         {geo &&
           geo.features.map((f, i) => (
             <path
@@ -859,19 +1057,35 @@ function ExecutiveMap() {
             />
           ))}
 
-        {dots.map((d, i) => (
-          <g key={i}>
-            <circle cx={d.x} cy={d.y} r={10} fill="#F97316" opacity="0.18" />
+        {/* Subtle connector lines — chronological order. */}
+        {connectors.map((c, i) => (
+          <line
+            key={i}
+            x1={c.x1}
+            y1={c.y1}
+            x2={c.x2}
+            y2={c.y2}
+            stroke="#F97316"
+            strokeWidth={0.9}
+            strokeOpacity={0.22}
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+
+        {/* Host city dots with soft glow */}
+        {dots.map(d => (
+          <g key={d.name}>
+            <circle cx={d.x} cy={d.y} r={11} fill="#F97316" opacity="0.18" />
             <circle
               cx={d.x}
               cy={d.y}
-              r={5}
+              r={5.5}
               fill="#F97316"
               stroke="#FFFFFF"
               strokeWidth={1.5}
               vectorEffect="non-scaling-stroke"
             />
-            <title>{d.name}</title>
+            <title>{`${d.name} · first hosted ACE ${d.num}`}</title>
           </g>
         ))}
       </svg>
