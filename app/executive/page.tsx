@@ -1157,21 +1157,23 @@ function HeroMap() {
           transform-box: fill-box;
           animation: hero-pulse-keyframes 5s ease-in-out infinite;
         }
+        /* Pulse is purely additive on top of an always-on base halo,
+           so even at the dimmest frame the dot never reads as "off". */
         @keyframes hero-pulse-keyframes {
           0%,
           100% {
-            opacity: 0.10;
-            transform: scale(0.9);
+            opacity: 0.20;
+            transform: scale(1);
           }
           50% {
-            opacity: 0.28;
-            transform: scale(1.18);
+            opacity: 0.42;
+            transform: scale(1.22);
           }
         }
         @media (prefers-reduced-motion: reduce) {
           .hero-pulse {
             animation: none;
-            opacity: 0.16;
+            opacity: 0.28;
           }
         }
       `}</style>
@@ -1229,12 +1231,23 @@ function HeroMap() {
           />
         )}
 
-        {/* Host city dots — every node pulses softly with a per-dot
-            delay so the motion is distributed across the hemisphere
-            instead of clustered in one region. */}
+        {/* Host city dots — three layers per dot:
+            1. always-on outer base halo (no animation, guarantees the
+               node never reads as "off"),
+            2. pulsing halo on top that purely *adds* brightness,
+            3. inner white core. Per-dot delay distributes the motion
+               organically across the hemisphere. */}
         {dots.map(d => (
           <g key={d.id} filter="url(#hero-dot-glow)">
-            {/* Soft outer halo — pulses */}
+            {/* Always-on base halo */}
+            <circle
+              cx={d.x}
+              cy={d.y}
+              r={7}
+              fill="#A9D2FF"
+              opacity={0.22}
+            />
+            {/* Pulsing halo — additive breath */}
             <circle
               cx={d.x}
               cy={d.y}
@@ -1243,13 +1256,13 @@ function HeroMap() {
               className="hero-pulse"
               style={{ animationDelay: `${pulseDelayFor(d.id).toFixed(2)}s` }}
             />
-            {/* Inner luminous core — quiet, no animation */}
+            {/* Inner luminous core */}
             <circle
               cx={d.x}
               cy={d.y}
               r={3.2}
               fill="#FFFFFF"
-              opacity={0.85}
+              opacity={0.92}
             />
             <title>{`${d.name} · first hosted ACE ${d.num}`}</title>
           </g>
