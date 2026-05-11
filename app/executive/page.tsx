@@ -357,12 +357,6 @@ export default function ExecutiveCoverPage() {
             map below represents a city where ACE has landed a
             delegation.
           </p>
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <FootprintStat value={hostCountries} label="Host countries" />
-            <FootprintStat value={hostCities} label="Host cities" />
-            <FootprintStat value={totalSites} label="Institutions visited" />
-            <FootprintStat value={countriesRepresented} label="Delegate countries" />
-          </div>
           <div className="mt-8 bg-white border border-surface-border rounded-2xl shadow-card overflow-hidden">
             <ExecutiveMap />
           </div>
