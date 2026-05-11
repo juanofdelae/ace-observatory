@@ -166,92 +166,139 @@ export default function ExecutiveCoverPage() {
 
   return (
     <div className="min-h-screen bg-surface-canvas text-ink">
-      {/* ════ 1 · HERO — full-bleed dark navy with hemispheric map ════
-          Inspired by institutional dashboards (UDC, OECD, Bloomberg).
-          Map bleeds off the left edge to feel premium; KPIs stack
-          vertical-separator style on the right (no boxed cards). */}
-      <section className="relative overflow-hidden bg-ink text-white">
+      {/* ════ 1 · HERO — atmospheric map background, content overlay ════
+          The map is no longer a column with a visible rectangular
+          frame. It lives as a full-bleed absolutely-positioned layer
+          underneath the content, with a radial mask that fades its
+          edges into the navy background. Content sits on top with a
+          subtle right-side gradient to keep the text readable. */}
+      <section className="relative overflow-hidden text-white">
+        {/* Layered navy bg — soft directional gradient + a faint blue
+            "globe halo" behind where the map lives. Together they give
+            the hero atmospheric depth and a hint of curvature without
+            a 3D globe. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-70"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage:
-              "radial-gradient(1100px 600px at 14% 30%, rgba(37, 99, 235, 0.18) 0%, transparent 60%), radial-gradient(800px 500px at 95% 90%, rgba(249, 115, 22, 0.08) 0%, transparent 60%)",
+            background:
+              "radial-gradient(circle at 28% 50%, rgba(80,130,180,0.22) 0%, transparent 42%), linear-gradient(120deg, #071c35 0%, #06172b 55%, #081426 100%)",
           }}
         />
 
-        {/* Top-left brand */}
+        {/* Globe-halo glow — large, soft, sits underneath the map so the
+            map reads as illuminated/curved instead of flat. */}
+        <div
+          aria-hidden
+          className="absolute pointer-events-none rounded-full"
+          style={{
+            left: "-15%",
+            top: "0%",
+            width: "85%",
+            height: "100%",
+            background:
+              "radial-gradient(circle at 45% 50%, rgba(96,156,230,0.22) 0%, rgba(60,110,180,0.10) 32%, transparent 62%)",
+            filter: "blur(30px)",
+          }}
+        />
+
+        {/* Atmospheric map layer — extends well beyond the left edge,
+            soft radial mask blends the map into the navy. No visible
+            rectangular frame. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+        >
+          <div
+            className="absolute left-[-22%] -top-[6%] w-[110%] h-[112%] opacity-[0.78]"
+            style={{
+              WebkitMaskImage:
+                "radial-gradient(ellipse 58% 60% at 42% 50%, #000 0%, #000 38%, rgba(0,0,0,0.55) 62%, transparent 88%)",
+              maskImage:
+                "radial-gradient(ellipse 58% 60% at 42% 50%, #000 0%, #000 38%, rgba(0,0,0,0.55) 62%, transparent 88%)",
+              transform: "perspective(1400px) rotateY(-4deg) scale(1.02)",
+              transformOrigin: "40% 50%",
+            }}
+          >
+            <HeroMap />
+          </div>
+        </div>
+
+        {/* Right-side darkening so text never fights the map. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none hidden lg:block"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, transparent 42%, rgba(6,23,43,0.55) 68%, rgba(6,23,43,0.88) 100%)",
+          }}
+        />
+
+        {/* Top-left brand — logo enlarged per request. */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-8 md:pt-10">
           <Link
             href="/"
             aria-label="Back to ACE Observatory"
-            className="inline-flex items-center gap-3 group"
+            className="inline-flex items-center gap-5 group"
           >
             <Image
               src={asset("/logos/ace-logo.png")}
               alt="ACE"
-              width={48}
-              height={48}
+              width={140}
+              height={140}
               priority
-              className="object-contain group-hover:scale-105 transition-transform duration-300"
+              className="object-contain w-[96px] h-[96px] md:w-[128px] md:h-[128px] group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)]"
             />
-            <span className="text-[10.5px] font-bold uppercase tracking-[0.22em] text-white/55">
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/55">
               ACE Observatory · Executive cover
             </span>
           </Link>
         </div>
 
-        {/* Hero content grid */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-8 pb-16 md:pt-12 md:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
-            {/* LEFT · Map */}
-            <div className="relative -mx-6 md:-mx-12 lg:-ml-24 lg:mr-0 order-2 lg:order-1">
-              <HeroMap />
+        {/* Hero content — right-aligned on desktop so it doesn't fight
+            the map. Full-width centered on mobile. */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-20 md:pt-16 md:pb-28 min-h-[85vh] flex items-center">
+          <div className="w-full lg:w-[55%] lg:ml-auto">
+            <h1 className="text-[30px] md:text-[40px] lg:text-[52px] font-bold tracking-tight leading-[1.06] text-white">
+              Turning a decade of exchange into a living intelligence
+              platform for the Americas.
+            </h1>
+            <p className="mt-6 text-[15px] md:text-base text-white/70 leading-relaxed max-w-xl">
+              The Americas Competitiveness Exchange has connected
+              leaders, host cities, and innovation institutions for
+              over a decade. The ACE Observatory makes that legacy{" "}
+              <span className="font-semibold text-white">
+                visible, searchable, and actionable
+              </span>
+              .
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-white/90 text-ink text-[14px] font-bold tracking-tight transition-colors"
+              >
+                Explore the Observatory
+                <ArrowRight size={16} strokeWidth={2} />
+              </Link>
+              <Link
+                href="/map"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/8 hover:bg-white/12 border border-white/20 text-white text-[14px] font-bold tracking-tight backdrop-blur transition-colors"
+              >
+                <MapIcon size={15} />
+                Open ACE Atlas
+              </Link>
             </div>
 
-            {/* RIGHT · Text + CTAs + KPIs */}
-            <div className="order-1 lg:order-2">
-              <h1 className="text-[30px] md:text-[40px] lg:text-[48px] font-bold tracking-tight leading-[1.08] text-white">
-                Turning a decade of exchange into a living intelligence
-                platform for the Americas.
-              </h1>
-              <p className="mt-6 text-[15px] md:text-base text-white/70 leading-relaxed max-w-xl">
-                The Americas Competitiveness Exchange has connected
-                leaders, host cities, and innovation institutions for
-                over a decade. The ACE Observatory makes that legacy{" "}
-                <span className="font-semibold text-white">
-                  visible, searchable, and actionable
-                </span>
-                .
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link
-                  href="/"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-white/90 text-ink text-[14px] font-bold tracking-tight transition-colors"
-                >
-                  Explore the Observatory
-                  <ArrowRight size={16} strokeWidth={2} />
-                </Link>
-                <Link
-                  href="/map"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/8 hover:bg-white/12 border border-white/20 text-white text-[14px] font-bold tracking-tight backdrop-blur transition-colors"
-                >
-                  <MapIcon size={15} />
-                  Open ACE Atlas
-                </Link>
-              </div>
-
-              {/* KPIs — UDC reference style: vertical separator + big
-                  number + small label. No cards. */}
-              <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-7 max-w-lg">
-                <HeroKPI value={totalEditions} label="ACE editions" />
-                <HeroKPI
-                  value={countriesRepresented}
-                  label="Countries represented"
-                />
-                <HeroKPI value={totalDelegates} label="Verified delegates" />
-                <HeroKPI value={totalSites} label="Institutions visited" />
-              </div>
+            {/* KPIs — UDC reference style: vertical separator + big
+                number + small label. No cards. */}
+            <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-8 max-w-xl">
+              <HeroKPI value={totalEditions} label="ACE editions" />
+              <HeroKPI
+                value={countriesRepresented}
+                label="Countries represented"
+              />
+              <HeroKPI value={totalDelegates} label="Verified delegates" />
+              <HeroKPI value={totalSites} label="Institutions visited" />
             </div>
           </div>
         </div>
@@ -1125,7 +1172,27 @@ function HeroMap() {
         className="w-full h-auto block"
         aria-label="ACE host cities across the Americas"
       >
-        {/* Country outlines + fills */}
+        <defs>
+          {/* Soft glow filter for host city dots — gives a luminous,
+              "node lit from within" feel that blends with the navy bg. */}
+          <filter id="hero-dot-glow" x="-200%" y="-200%" width="500%" height="500%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          {/* Linear gradient for connector arcs — fades along the path
+              so it never reads as a hard line. */}
+          <linearGradient id="hero-arc" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#F97316" stopOpacity="0" />
+            <stop offset="50%" stopColor="#F9B27D" stopOpacity="0.42" />
+            <stop offset="100%" stopColor="#F97316" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+
+        {/* Country outlines + fills — kept very faint so the map reads
+            as an atmospheric layer, not a bordered illustration. */}
         {geo &&
           geo.features.map((f, i) => {
             const isHost = participantIso.has(String(f.id ?? ""));
@@ -1133,50 +1200,47 @@ function HeroMap() {
               <path
                 key={f.id ?? i}
                 d={geomToPath(f.geometry)}
-                fill={isHost ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0.04)"}
-                stroke="rgba(255,255,255,0.18)"
-                strokeWidth={0.55}
+                fill={isHost ? "rgba(180,210,245,0.08)" : "rgba(180,210,245,0.025)"}
+                stroke="rgba(180,210,245,0.10)"
+                strokeWidth={0.4}
                 vectorEffect="non-scaling-stroke"
               />
             );
           })}
 
-        {/* Connector curve — chronological, very subtle */}
+        {/* Connector curve — chronological, gradient stroke for soft fade */}
         {connectorPath && (
           <path
             d={connectorPath}
             fill="none"
-            stroke="#F97316"
-            strokeWidth={1.1}
-            strokeOpacity={0.18}
+            stroke="url(#hero-arc)"
+            strokeWidth={1.2}
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
           />
         )}
 
-        {/* Host city dots */}
+        {/* Host city dots — luminous nodes with soft glow */}
         {dots.map(d => {
           const isPulse = pulseNumbers.has(d.num);
           return (
-            <g key={d.id}>
-              {/* Outer halo */}
+            <g key={d.id} filter="url(#hero-dot-glow)">
+              {/* Soft outer halo */}
               <circle
                 cx={d.x}
                 cy={d.y}
-                r={14}
-                fill="#FFFFFF"
+                r={isPulse ? 16 : 11}
+                fill="#A9D2FF"
                 className={isPulse ? "hero-pulse" : ""}
-                opacity={isPulse ? undefined : 0.12}
+                opacity={isPulse ? undefined : 0.16}
               />
-              {/* Solid dot */}
+              {/* Inner luminous core */}
               <circle
                 cx={d.x}
                 cy={d.y}
-                r={4.5}
+                r={isPulse ? 5.5 : 4}
                 fill="#FFFFFF"
-                stroke="rgba(11,31,58,0.55)"
-                strokeWidth={1}
-                vectorEffect="non-scaling-stroke"
+                opacity={0.95}
               />
               <title>{`${d.name} · first hosted ACE ${d.num}`}</title>
             </g>
