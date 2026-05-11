@@ -195,12 +195,9 @@ export default function ExecutiveCoverPage() {
               ACE Observatory · Executive cover
             </span>
           </Link>
-          <h1 className="text-4xl md:text-6xl lg:text-[68px] font-bold tracking-tight leading-[1.04] text-ink max-w-5xl mx-auto">
-            Turning a decade of exchange
-            <br />
-            into a living intelligence platform
-            <br />
-            for the Americas.
+          <h1 className="text-[28px] md:text-[40px] lg:text-[48px] font-bold tracking-tight leading-[1.1] text-ink max-w-3xl mx-auto">
+            Turning a decade of exchange into a living intelligence
+            platform for the Americas.
           </h1>
           <p className="mt-7 text-base md:text-lg text-text-secondary leading-relaxed max-w-3xl mx-auto">
             The Americas Competitiveness Exchange has connected leaders,
