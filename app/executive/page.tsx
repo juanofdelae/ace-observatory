@@ -260,15 +260,14 @@ export default function ExecutiveCoverPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-20 md:pt-16 md:pb-28 min-h-[85vh] flex items-center">
           <div className="w-full lg:w-[55%] lg:ml-auto">
             <h1 className="text-[30px] md:text-[40px] lg:text-[52px] font-bold tracking-tight leading-[1.06] text-white">
-              Turning a decade of exchange into a living intelligence
-              platform for the Americas.
+              Connecting the innovation ecosystems of the Americas.
             </h1>
             <p className="mt-6 text-[15px] md:text-base text-white/70 leading-relaxed max-w-xl">
-              The Americas Competitiveness Exchange has connected
-              leaders, host cities, and innovation institutions for
-              over a decade. The ACE Observatory makes that legacy{" "}
+              For over a decade, ACE has connected leaders, institutions,
+              cities, and industries across the hemisphere. The ACE
+              Observatory transforms those relationships into a{" "}
               <span className="font-semibold text-white">
-                visible, searchable, and actionable
+                living intelligence network
               </span>
               .
             </p>
