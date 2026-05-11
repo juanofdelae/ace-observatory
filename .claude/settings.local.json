@@ -214,7 +214,11 @@
       "WebFetch(domain:www.youtube.com)",
       "Bash(python3 scripts/add_youtube_links.py)",
       "Bash(python3 -c \"import json; d=json.load\\(open\\('data/_memphis-participants.json'\\)\\); print\\(len\\(d\\), 'participants'\\)\")",
-      "Bash(python3 -c \"import sys,re,collections; c=collections.Counter\\(re.findall\\(r'\\\\\"actorType\\\\\":\\\\s*\\\\\"\\([^\\\\\"]+\\)\\\\\"',sys.stdin.read\\(\\)\\)\\); print\\(c\\)\")"
+      "Bash(python3 -c \"import sys,re,collections; c=collections.Counter\\(re.findall\\(r'\\\\\"actorType\\\\\":\\\\s*\\\\\"\\([^\\\\\"]+\\)\\\\\"',sys.stdin.read\\(\\)\\)\\); print\\(c\\)\")",
+      "Bash(curl -s -H \"Cache-Control: no-cache\" \"https://riacevents.org/ACE/observatory/executive/?bust=$\\(date +%s\\)\")",
+      "Bash(curl -s -I \"https://riacevents.org/ACE/observatory/executive/\")",
+      "Bash(curl -s \"https://api.github.com/repos/juanofdelae/ace-observatory/actions/runs?per_page=5\")",
+      "Bash(curl -s \"https://api.github.com/repos/juanofdelae/ace-observatory/actions/runs/25649839725\")"
     ],
     "additionalDirectories": [
       "/Users/juansebastianfonseca/WORK/Claude Code VSCode/ace-data-observatory/app/sites"
