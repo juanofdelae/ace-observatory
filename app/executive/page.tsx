@@ -334,10 +334,13 @@ export default function ExecutiveCoverPage() {
               .
             </p>
             <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              <ScaleTile value={totalEditions} label="ACE editions" />
-              <ScaleTile value={countriesRepresented} label="Countries in roster" />
-              <ScaleTile value={totalDelegates} label="Verified delegates" />
-              <ScaleTile value={totalSites} label="Institutions visited" />
+              <ScaleTile value={years.span} label="Years of engagement" />
+              <ScaleTile value={hostCountries} label="Host countries" />
+              <ScaleTile value={hostCities} label="Host cities" />
+              <ScaleTile
+                value={totalParticipations}
+                label="Cumulative participations"
+              />
             </div>
           </div>
         </section>
@@ -1096,11 +1099,16 @@ function HeroMap() {
     .filter((d): d is NonNullable<typeof d> => Boolean(d))
     .sort((a, b) => a.num - b.num);
 
-  // Four "key" host cities get the pulse: origin (#1 Atlanta),
-  // mid-decade marker (#16 Seattle), last completed (#22 Córdoba),
-  // and the upcoming Memphis (#23). Falls back gracefully if any
-  // are missing.
-  const pulseNumbers = new Set([1, 16, 22, 23]);
+  // Every host city pulses softly — distributed across the entire
+  // hemisphere instead of just four US-coastal anchors. Animation
+  // delays are derived per-dot from the city id so the pulse is
+  // staggered and reads as organic ambient motion, not a synced
+  // strobe.
+  const pulseDelayFor = (id: string): number => {
+    let h = 0;
+    for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+    return ((h % 100) / 100) * 4.5;
+  };
 
   // Connector path — gentle quadratic curve between consecutive host
   // cities so the line reads as "network" rather than as straight
@@ -1139,29 +1147,31 @@ function HeroMap() {
 
   return (
     <>
-      {/* CSS pulse + a `prefers-reduced-motion` opt-out, scoped via a
-          unique class so it doesn't leak. */}
+      {/* Soft, slow pulse — every host city pulses, but with a per-dot
+          delay so the motion reads as ambient breath, not a strobe.
+          Opacity range and scale range both kept tight so it never
+          dominates the hero. */}
       <style jsx>{`
         .hero-pulse {
           transform-origin: center;
           transform-box: fill-box;
-          animation: hero-pulse-keyframes 3.2s ease-in-out infinite;
+          animation: hero-pulse-keyframes 5s ease-in-out infinite;
         }
         @keyframes hero-pulse-keyframes {
           0%,
           100% {
-            opacity: 0.18;
-            transform: scale(1);
+            opacity: 0.10;
+            transform: scale(0.9);
           }
           50% {
-            opacity: 0.45;
-            transform: scale(1.6);
+            opacity: 0.28;
+            transform: scale(1.18);
           }
         }
         @media (prefers-reduced-motion: reduce) {
           .hero-pulse {
             animation: none;
-            opacity: 0.22;
+            opacity: 0.16;
           }
         }
       `}</style>
@@ -1219,32 +1229,31 @@ function HeroMap() {
           />
         )}
 
-        {/* Host city dots — luminous nodes with soft glow */}
-        {dots.map(d => {
-          const isPulse = pulseNumbers.has(d.num);
-          return (
-            <g key={d.id} filter="url(#hero-dot-glow)">
-              {/* Soft outer halo */}
-              <circle
-                cx={d.x}
-                cy={d.y}
-                r={isPulse ? 16 : 11}
-                fill="#A9D2FF"
-                className={isPulse ? "hero-pulse" : ""}
-                opacity={isPulse ? undefined : 0.16}
-              />
-              {/* Inner luminous core */}
-              <circle
-                cx={d.x}
-                cy={d.y}
-                r={isPulse ? 5.5 : 4}
-                fill="#FFFFFF"
-                opacity={0.95}
-              />
-              <title>{`${d.name} · first hosted ACE ${d.num}`}</title>
-            </g>
-          );
-        })}
+        {/* Host city dots — every node pulses softly with a per-dot
+            delay so the motion is distributed across the hemisphere
+            instead of clustered in one region. */}
+        {dots.map(d => (
+          <g key={d.id} filter="url(#hero-dot-glow)">
+            {/* Soft outer halo — pulses */}
+            <circle
+              cx={d.x}
+              cy={d.y}
+              r={9}
+              fill="#A9D2FF"
+              className="hero-pulse"
+              style={{ animationDelay: `${pulseDelayFor(d.id).toFixed(2)}s` }}
+            />
+            {/* Inner luminous core — quiet, no animation */}
+            <circle
+              cx={d.x}
+              cy={d.y}
+              r={3.2}
+              fill="#FFFFFF"
+              opacity={0.85}
+            />
+            <title>{`${d.name} · first hosted ACE ${d.num}`}</title>
+          </g>
+        ))}
       </svg>
     </>
   );
