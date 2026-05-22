@@ -188,7 +188,10 @@ async function seedHistorical(): Promise<void> {
       });
     }
 
-    const syntheticEmail = `${slug(r.name)}-${r.id.slice(-6)}@no-email.observatory.ace`;
+    // r.id is already unique and slug-safe (e.g. p-hist-ca-syeda-alia-abbas).
+    // Using a truncated slug+suffix collided when two records shared the same
+    // last 6 chars (rare, but it happens in real data).
+    const syntheticEmail = `${r.id}@no-email.observatory.ace`;
 
     const participant = await prisma.participant.upsert({
       where: { externalId: r.id },
