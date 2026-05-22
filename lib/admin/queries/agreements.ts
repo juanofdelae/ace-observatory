@@ -1,13 +1,17 @@
 import "server-only";
 
-import type {
-  AlertStatus,
-  InstrumentType,
-  Phase,
-  Sector,
-} from "@prisma/client";
+import { Phase as PhaseEnum, type AlertStatus, type InstrumentType, type Phase, type Sector } from "@prisma/client";
 
 import { prisma } from "@/lib/prisma";
+
+export type AgreementView = "all" | "needs-attention" | "active" | "closed";
+
+const VIEW_WHERE: Record<AgreementView, Record<string, unknown>> = {
+  all: {},
+  "needs-attention": { alertStatus: "NEEDS_ATTENTION" },
+  active: { phase: { in: [PhaseEnum.ACTIVE, PhaseEnum.RESULT] } },
+  closed: { alertStatus: "CLOSED" },
+};
 
 export type AgreementListItem = {
   id: string;
@@ -32,9 +36,28 @@ export type AgreementListItem = {
   resultDate: Date | null;
 };
 
-export async function listAgreements(): Promise<AgreementListItem[]> {
+export async function countAgreementsByView(): Promise<Record<AgreementView, number>> {
+  const [all, needsAttention, active, closed] = await Promise.all([
+    prisma.agreement.count({ where: { deletedAt: null } }),
+    prisma.agreement.count({
+      where: { deletedAt: null, ...VIEW_WHERE["needs-attention"] },
+    }),
+    prisma.agreement.count({
+      where: { deletedAt: null, ...VIEW_WHERE.active },
+    }),
+    prisma.agreement.count({
+      where: { deletedAt: null, ...VIEW_WHERE.closed },
+    }),
+  ]);
+  return { all, "needs-attention": needsAttention, active, closed };
+}
+
+export async function listAgreements(
+  opts: { view?: AgreementView } = {},
+): Promise<AgreementListItem[]> {
+  const view = opts.view ?? "all";
   const rows = await prisma.agreement.findMany({
-    where: { deletedAt: null },
+    where: { deletedAt: null, ...VIEW_WHERE[view] },
     orderBy: [{ signedDate: "desc" }],
     include: {
       partyA: { select: { name: true } },
