@@ -1,3 +1,4 @@
+import { AlertStatus, Phase, Sector } from "@prisma/client";
 import Link from "next/link";
 
 import {
@@ -5,6 +6,7 @@ import {
   listAgreements,
   type AgreementView,
 } from "@/lib/admin/queries/agreements";
+import { prisma } from "@/lib/prisma";
 import {
   ALERT_STATUS_LABELS,
   PHASE_LABELS,
@@ -12,6 +14,7 @@ import {
 } from "@/lib/admin/schemas/agreement";
 import { cn } from "@/lib/utils";
 
+import { FilterBar, type FilterDef } from "./_components/filter-bar";
 import { InlineProgress } from "./_components/inline-progress";
 import { ViewTabs, type ViewKey } from "./_components/view-tabs";
 
@@ -26,23 +29,77 @@ const dateFmt = new Intl.DateTimeFormat("es-ES", {
 
 const VALID_VIEWS: ViewKey[] = ["all", "needs-attention", "active", "closed"];
 
-type SearchParams = Promise<{ view?: string }>;
+function parseCsv<T extends string>(raw: string | undefined, allowed: readonly T[]): T[] {
+  if (!raw) return [];
+  const set = new Set<T>();
+  for (const part of raw.split(",")) {
+    const trimmed = part.trim() as T;
+    if ((allowed as readonly string[]).includes(trimmed)) set.add(trimmed);
+  }
+  return Array.from(set);
+}
+
+type SearchParams = Promise<{
+  view?: string;
+  phase?: string;
+  alert?: string;
+  sector?: string;
+  edition?: string;
+}>;
 
 export default async function AgreementsPage({
   searchParams,
 }: {
   searchParams: SearchParams;
 }) {
-  const { view: rawView } = await searchParams;
-  const view: ViewKey = (VALID_VIEWS as string[]).includes(rawView ?? "")
-    ? (rawView as ViewKey)
+  const sp = await searchParams;
+  const view: ViewKey = (VALID_VIEWS as string[]).includes(sp.view ?? "")
+    ? (sp.view as ViewKey)
     : "all";
 
-  // Fire both queries in parallel — both hit Postgres directly, no shared state.
-  const [rows, counts] = await Promise.all([
-    listAgreements({ view: view as AgreementView }),
+  const phases = parseCsv(sp.phase, Object.values(Phase));
+  const alertStatuses = parseCsv(sp.alert, Object.values(AlertStatus));
+  const sectors = parseCsv(sp.sector, Object.values(Sector));
+  const editionIds = sp.edition?.split(",").map((s) => s.trim()).filter(Boolean) ?? [];
+
+  // Fire queries in parallel — list, view counts, and editions for the filter dropdown.
+  const [rows, counts, editions] = await Promise.all([
+    listAgreements({
+      view: view as AgreementView,
+      phases,
+      alertStatuses,
+      sectors,
+      editionIds,
+    }),
     countAgreementsByView(),
+    prisma.edition.findMany({
+      orderBy: [{ year: "desc" }, { startDate: "desc" }],
+      select: { id: true, name: true },
+    }),
   ]);
+
+  const filters: FilterDef[] = [
+    {
+      key: "phase",
+      label: "Fase",
+      options: Object.entries(PHASE_LABELS).map(([value, label]) => ({ value, label })),
+    },
+    {
+      key: "alert",
+      label: "Alerta",
+      options: Object.entries(ALERT_STATUS_LABELS).map(([value, label]) => ({ value, label })),
+    },
+    {
+      key: "sector",
+      label: "Sector",
+      options: Object.entries(SECTOR_LABELS).map(([value, label]) => ({ value, label })),
+    },
+    {
+      key: "edition",
+      label: "Edición",
+      options: editions.map((e) => ({ value: e.id, label: e.name })),
+    },
+  ];
 
   return (
     <div className="mx-auto max-w-7xl space-y-6">
@@ -66,6 +123,15 @@ export default async function AgreementsPage({
       </header>
 
       <ViewTabs current={view} counts={counts} />
+
+      <FilterBar filters={filters} />
+
+      {rows.length !== counts.all ? (
+        <p className="text-text-muted text-xs">
+          Mostrando <span className="text-text font-medium tabular-nums">{rows.length}</span>{" "}
+          de {counts.all.toLocaleString()} acuerdos
+        </p>
+      ) : null}
 
       <div className="border-border bg-surface overflow-hidden rounded-xl border">
         <table className="w-full text-sm">

@@ -52,12 +52,29 @@ export async function countAgreementsByView(): Promise<Record<AgreementView, num
   return { all, "needs-attention": needsAttention, active, closed };
 }
 
+export type AgreementFilters = {
+  view?: AgreementView;
+  phases?: Phase[];
+  alertStatuses?: AlertStatus[];
+  sectors?: Sector[];
+  editionIds?: string[];
+};
+
 export async function listAgreements(
-  opts: { view?: AgreementView } = {},
+  opts: AgreementFilters = {},
 ): Promise<AgreementListItem[]> {
   const view = opts.view ?? "all";
+
+  // Ad-hoc filter overlays compose with the view's base where clause.
+  // Empty arrays are ignored (treated as "no filter on this dimension").
+  const adHoc: Record<string, unknown> = {};
+  if (opts.phases?.length) adHoc.phase = { in: opts.phases };
+  if (opts.alertStatuses?.length) adHoc.alertStatus = { in: opts.alertStatuses };
+  if (opts.sectors?.length) adHoc.primarySector = { in: opts.sectors };
+  if (opts.editionIds?.length) adHoc.editionId = { in: opts.editionIds };
+
   const rows = await prisma.agreement.findMany({
-    where: { deletedAt: null, ...VIEW_WHERE[view] },
+    where: { deletedAt: null, ...VIEW_WHERE[view], ...adHoc },
     orderBy: [{ signedDate: "desc" }],
     include: {
       partyA: { select: { name: true } },
