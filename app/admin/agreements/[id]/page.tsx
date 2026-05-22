@@ -1,3 +1,4 @@
+import { Pencil } from "lucide-react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
@@ -11,6 +12,8 @@ import {
 import { cn } from "@/lib/utils";
 
 import { AdminPageHeader } from "../../_components/page-header";
+import { DeleteButton } from "./_components/delete-button";
+import { TransitionButton } from "./_components/transition-button";
 
 export const metadata = { title: "Detalle de acuerdo" };
 
@@ -46,12 +49,27 @@ export default async function AgreementDetailPage({ params }: { params: Params }
         >
           ← Acuerdos
         </Link>
-        <div className="mt-4">
+        <div className="mt-4 flex items-start justify-between gap-4">
           <AdminPageHeader
             eyebrow={`${INSTRUMENT_LABELS[a.instrumentType]} · ${a.edition.name}`}
             title={`${a.partyA.name} ↔ ${a.partyB.name}`}
             description={a.subject || undefined}
           />
+          <div className="flex shrink-0 items-center gap-2">
+            <Link
+              href={`/admin/agreements/${a.id}/edit`}
+              className="border-border bg-surface text-text hover:bg-surface-canvas inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-sm font-medium transition-colors"
+            >
+              <Pencil className="size-3.5" />
+              Editar
+            </Link>
+            <TransitionButton
+              agreementId={a.id}
+              currentPhase={a.phase}
+              currentAlert={a.alertStatus}
+            />
+            <DeleteButton agreementId={a.id} />
+          </div>
         </div>
       </div>
 

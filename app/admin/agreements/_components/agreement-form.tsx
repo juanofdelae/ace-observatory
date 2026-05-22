@@ -15,7 +15,7 @@ import {
 } from "@/lib/admin/schemas/agreement";
 import { cn } from "@/lib/utils";
 
-import { submitNewAgreement } from "../_actions/form-actions";
+import { submitEditAgreement, submitNewAgreement } from "../_actions/form-actions";
 
 type InstitutionOption = { id: string; name: string; countryLabel: string };
 type EditionOption = { id: string; name: string };
@@ -97,32 +97,44 @@ function validateStep(step: number, v: FormValues): string | null {
 
 const today = () => new Date().toISOString().slice(0, 10);
 
+export type AgreementFormMode =
+  | { kind: "create" }
+  | { kind: "edit"; agreementId: string; initialValues: FormValues };
+
 export function AgreementForm({
   editions,
   institutions,
+  mode = { kind: "create" },
 }: {
   editions: EditionOption[];
   institutions: InstitutionOption[];
+  mode?: AgreementFormMode;
 }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [step, setStep] = useState(0);
+  // In edit mode we land on the Review step so the user can see everything;
+  // they jump back to the relevant step to make changes.
+  const [step, setStep] = useState(mode.kind === "edit" ? STEPS.length - 1 : 0);
   const [formError, setFormError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-  const [values, setValues] = useState<FormValues>({
-    code: "",
-    editionId: "",
-    instrumentType: "LOI",
-    signedDate: today(),
-    partyAId: "",
-    partyBId: "",
-    subject: "",
-    primarySector: "OTHER",
-    tags: "",
-    delegate: "",
-    phase: "SIGNED",
-    alertStatus: "ACTIVE",
-  });
+  const [values, setValues] = useState<FormValues>(
+    mode.kind === "edit"
+      ? mode.initialValues
+      : {
+          code: "",
+          editionId: "",
+          instrumentType: "LOI",
+          signedDate: today(),
+          partyAId: "",
+          partyBId: "",
+          subject: "",
+          primarySector: "OTHER",
+          tags: "",
+          delegate: "",
+          phase: "SIGNED",
+          alertStatus: "ACTIVE",
+        },
+  );
 
   // Memoize the "step completion" array so the stepper rail and Next button
   // share one source of truth.
@@ -177,10 +189,15 @@ export function AgreementForm({
     for (const [k, v] of Object.entries(values)) fd.set(k, v);
 
     startTransition(async () => {
-      const result = await submitNewAgreement(fd);
+      const result =
+        mode.kind === "edit"
+          ? await submitEditAgreement(mode.agreementId, fd)
+          : await submitNewAgreement(fd);
       if (result.ok) {
-        toast.success("Acuerdo creado.");
-        router.push(`/admin/agreements/${result.id}`);
+        toast.success(mode.kind === "edit" ? "Cambios guardados." : "Acuerdo creado.");
+        const targetId = mode.kind === "edit" ? mode.agreementId : result.id;
+        router.push(`/admin/agreements/${targetId}`);
+        router.refresh();
         return;
       }
       setFormError(result.formError ?? "Revisa los campos marcados.");
@@ -257,7 +274,13 @@ export function AgreementForm({
             </Button>
           ) : (
             <Button type="button" onClick={submit} disabled={isPending}>
-              {isPending ? "Creando…" : "Crear acuerdo"}
+              {isPending
+                ? mode.kind === "edit"
+                  ? "Guardando…"
+                  : "Creando…"
+                : mode.kind === "edit"
+                  ? "Guardar cambios"
+                  : "Crear acuerdo"}
             </Button>
           )}
         </div>
