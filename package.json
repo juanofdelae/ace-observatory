@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
+    "build:public": "bash scripts/build-public.sh",
     "start": "next start",
     "lint": "next lint",
     "db:seed": "tsx prisma/seed/index.ts",
