@@ -23,6 +23,10 @@ const envSchema = z.object({
   SUPABASE_URL: optionalString.pipe(z.string().url().optional()),
   SUPABASE_SERVICE_ROLE_KEY: optionalString,
   SUPABASE_STORAGE_BUCKET: optionalString.pipe(z.string().default("agreements").optional()),
+  // Vercel cron secret. Checked at request time in /api/cron/* routes — not
+  // required at build time so production builds (NODE_ENV=production) succeed
+  // even before the secret is set in Vercel dashboard.
+  CRON_SECRET: optionalString,
 });
 
 const parsed = envSchema.safeParse(process.env);
