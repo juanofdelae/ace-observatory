@@ -82,7 +82,7 @@ export default function SiteDetailPage({ params }: { params: { id: string } }) {
       <div className="relative rounded-3xl overflow-hidden mt-6 shadow-panel bg-white border border-surface-border">
         <Link
           href="/sites"
-          className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-[11px] font-medium text-text-muted hover:text-ink bg-white/90 backdrop-blur border border-surface-border rounded-full px-2.5 py-1 shadow-soft"
+          className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-[11px] font-medium text-text-muted hover:text-ink bg-white/90 backdrop-blur-sm border border-surface-border rounded-full px-2.5 py-1 shadow-soft"
         >
           <ArrowLeft size={11} /> Back to sites
         </Link>
@@ -90,7 +90,7 @@ export default function SiteDetailPage({ params }: { params: { id: string } }) {
         <div className="grid md:grid-cols-12">
           {/* Image panel — show photo if present, fallback to gradient
               placeholder with the type icon. */}
-          <div className="md:col-span-5 relative bg-surface-subtle min-h-[220px] md:min-h-[320px] border-b md:border-b-0 md:border-r border-surface-border">
+          <div className="md:col-span-5 relative bg-surface-subtle min-h-sidebar-w md:min-h-[320px] border-b md:border-b-0 md:border-r border-surface-border">
             {site.image ? (
               <Image
                 src={site.image}
@@ -101,7 +101,7 @@ export default function SiteDetailPage({ params }: { params: { id: string } }) {
                 className="object-cover"
               />
             ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-ink/95 to-ink-700 flex items-center justify-center text-white/40">
+              <div className="absolute inset-0 bg-linear-to-br from-ink/95 to-ink-700 flex items-center justify-center text-white/40">
                 <Building2 size={64} strokeWidth={1.25} />
               </div>
             )}
@@ -331,7 +331,7 @@ export default function SiteDetailPage({ params }: { params: { id: string } }) {
                   href={m.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-subtle border border-surface-border block"
+                  className="relative aspect-4/3 rounded-xl overflow-hidden bg-surface-subtle border border-surface-border block"
                 >
                   {m.thumbnailUrl && (
                     <Image

@@ -67,7 +67,7 @@ export default function MediaPage() {
             >
               <Link
                 href={`/editions/${e.id}`}
-                className="relative aspect-[5/3] bg-white overflow-hidden block"
+                className="relative aspect-5/3 bg-white overflow-hidden block"
               >
                 {e.heroImage && (
                   <Image

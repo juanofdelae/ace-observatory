@@ -32,7 +32,7 @@ export function ReportTestimonials({ testimonials }: Props) {
           />
           <span
             aria-hidden
-            className="absolute left-0 top-6 bottom-6 w-[3px] rounded-r-full bg-gradient-to-b from-accent-blue/60 to-accent-blue/0"
+            className="absolute left-0 top-6 bottom-6 w-[3px] rounded-r-full bg-linear-to-b from-accent-blue/60 to-accent-blue/0"
           />
 
           <p className="relative text-[14px] text-text-secondary leading-relaxed pl-2">

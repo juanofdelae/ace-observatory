@@ -63,7 +63,7 @@ export function ReportKPIGrid({ kpis, className }: { kpis: ReportKPI[]; classNam
         return (
           <div
             key={`${k.label}-${i}`}
-            className="relative bg-white rounded-2xl border border-surface-border p-5 md:p-6 shadow-card hover:shadow-card-hover hover:-translate-y-[2px] transition-all overflow-hidden"
+            className="relative bg-white rounded-2xl border border-surface-border p-5 md:p-6 shadow-card hover:shadow-card-hover hover:translate-y-[-2px] transition-all overflow-hidden"
           >
             {/* Accent stripe — top-left corner */}
             <span

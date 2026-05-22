@@ -210,7 +210,7 @@ export default function ExecutiveCoverPage() {
           className="absolute inset-0 pointer-events-none"
         >
           <div
-            className="absolute left-[-22%] -top-[6%] w-[110%] h-[112%] opacity-[0.78]"
+            className="absolute left-[-22%] top-[-6%] w-[110%] h-[112%] opacity-[0.78]"
             style={{
               WebkitMaskImage:
                 "radial-gradient(ellipse 58% 60% at 42% 50%, #000 0%, #000 38%, rgba(0,0,0,0.55) 62%, transparent 88%)",
@@ -282,7 +282,7 @@ export default function ExecutiveCoverPage() {
               </Link>
               <Link
                 href="/map"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/8 hover:bg-white/12 border border-white/20 text-white text-[14px] font-bold tracking-tight backdrop-blur transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/8 hover:bg-white/12 border border-white/20 text-white text-[14px] font-bold tracking-tight backdrop-blur-sm transition-colors"
               >
                 <MapIcon size={15} />
                 Open ACE Atlas
@@ -717,7 +717,7 @@ export default function ExecutiveCoverPage() {
                   </div>
                 </div>
                 {memphis.heroImage && (
-                  <div className="relative aspect-[4/3] bg-surface-canvas rounded-2xl overflow-hidden border border-surface-border">
+                  <div className="relative aspect-4/3 bg-surface-canvas rounded-2xl overflow-hidden border border-surface-border">
                     <Image
                       src={memphis.heroImage}
                       alt="ACE Memphis 2026"
@@ -817,7 +817,7 @@ function CoverKPI({ value, label }: { value: number; label: string }) {
 
 function ScaleTile({ value, label }: { value: number; label: string }) {
   return (
-    <div className="rounded-2xl bg-white/[0.06] border border-white/12 backdrop-blur px-4 py-5">
+    <div className="rounded-2xl bg-white/6 border border-white/12 backdrop-blur-sm px-4 py-5">
       <div className="text-[34px] md:text-[44px] font-bold text-white tabular-nums tracking-tight leading-none">
         {value.toLocaleString()}
       </div>

@@ -10,7 +10,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
       ref={ref}
       className={cn(
         "h-11 w-full rounded-xl border border-surface-border bg-white px-4 text-sm text-ink",
-        "placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/25 focus:border-accent-blue/50",
+        "placeholder:text-text-muted focus:outline-hidden focus:ring-2 focus:ring-accent-blue/25 focus:border-accent-blue/50",
         className,
       )}
       {...props}
@@ -31,7 +31,7 @@ export function SearchInput({
       <input
         className={cn(
           "h-11 w-full rounded-full border border-surface-border bg-white pl-11 pr-4 text-sm text-ink leading-none shadow-soft",
-          "placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/25 focus:border-accent-blue/50",
+          "placeholder:text-text-muted focus:outline-hidden focus:ring-2 focus:ring-accent-blue/25 focus:border-accent-blue/50",
         )}
         {...props}
       />
@@ -45,7 +45,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSel
       ref={ref}
       className={cn(
         "h-11 rounded-xl border border-surface-border bg-white px-4 text-sm text-ink min-w-[140px]",
-        "focus:outline-none focus:ring-2 focus:ring-accent-blue/25 focus:border-accent-blue/50",
+        "focus:outline-hidden focus:ring-2 focus:ring-accent-blue/25 focus:border-accent-blue/50",
         className,
       )}
       {...props}

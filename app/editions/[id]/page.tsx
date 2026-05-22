@@ -70,14 +70,14 @@ export default function EditionDetailPage({ params }: { params: { id: string } }
       <div className="relative rounded-3xl overflow-hidden mt-6 shadow-panel bg-white border border-surface-border">
         <Link
           href="/editions"
-          className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-[11px] font-medium text-text-muted hover:text-ink bg-white/90 backdrop-blur border border-surface-border rounded-full px-2.5 py-1 shadow-soft"
+          className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-[11px] font-medium text-text-muted hover:text-ink bg-white/90 backdrop-blur-sm border border-surface-border rounded-full px-2.5 py-1 shadow-soft"
         >
           <ArrowLeft size={11} /> Back to editions
         </Link>
 
         <div className="grid md:grid-cols-12">
           {/* Logo panel — white bg, object-contain so the full logo is visible */}
-          <div className="md:col-span-5 lg:col-span-4 relative bg-white min-h-[220px] md:min-h-[360px] border-b md:border-b-0 md:border-r border-surface-border">
+          <div className="md:col-span-5 lg:col-span-4 relative bg-white min-h-sidebar-w md:min-h-[360px] border-b md:border-b-0 md:border-r border-surface-border">
             {e.heroImage && (
               <Image
                 src={e.heroImage}

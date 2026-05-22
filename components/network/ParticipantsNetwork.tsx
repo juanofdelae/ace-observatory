@@ -178,7 +178,7 @@ export function ParticipantsNetwork({ initialEditionId, initialParticipantId }: 
           <select
             value={editionId}
             onChange={(e) => handleEditionChange(e.target.value)}
-            className="bg-white border border-surface-border rounded-md px-2.5 py-1.5 text-sm font-semibold text-ink hover:border-ink/30 focus:outline-none focus:ring-2 focus:ring-accent-blue/30"
+            className="bg-white border border-surface-border rounded-md px-2.5 py-1.5 text-sm font-semibold text-ink hover:border-ink/30 focus:outline-hidden focus:ring-2 focus:ring-accent-blue/30"
           >
             <option value={ALL_EDITIONS}>
               All editions — cross-ACE network ({participants.length})
@@ -235,7 +235,7 @@ export function ParticipantsNetwork({ initialEditionId, initialParticipantId }: 
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by name, role or organization…"
-                className="w-full bg-surface-canvas border border-surface-border rounded-md pl-8 pr-3 py-1.5 text-sm text-ink placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/30 focus:border-accent-blue/40"
+                className="w-full bg-surface-canvas border border-surface-border rounded-md pl-8 pr-3 py-1.5 text-sm text-ink placeholder:text-text-muted focus:outline-hidden focus:ring-2 focus:ring-accent-blue/30 focus:border-accent-blue/40"
               />
             </div>
             {/* Country filter — uses a select rather than chips because an
@@ -247,7 +247,7 @@ export function ParticipantsNetwork({ initialEditionId, initialParticipantId }: 
                 <select
                   value={countryFilter ?? ""}
                   onChange={(e) => setCountryFilter(e.target.value || null)}
-                  className="flex-1 bg-surface-canvas border border-surface-border rounded-md px-2 py-1 text-xs text-ink hover:border-ink/30 focus:outline-none focus:ring-2 focus:ring-accent-blue/30"
+                  className="flex-1 bg-surface-canvas border border-surface-border rounded-md px-2 py-1 text-xs text-ink hover:border-ink/30 focus:outline-hidden focus:ring-2 focus:ring-accent-blue/30"
                 >
                   <option value="">All countries ({countryOptions.length})</option>
                   {countryOptions.map((c) => (

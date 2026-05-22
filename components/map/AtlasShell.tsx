@@ -66,7 +66,7 @@ function bezierArc(
 
 function MapSkeleton() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-surface-subtle via-white to-surface-subtle animate-pulse flex items-center justify-center">
+    <div className="w-full h-full bg-linear-to-br from-surface-subtle via-white to-surface-subtle animate-pulse flex items-center justify-center">
       <div className="text-text-muted text-sm">Loading ACE Atlas…</div>
     </div>
   );
@@ -527,14 +527,14 @@ export function AtlasShell() {
           <AtlasStatsOverlay selection={selection} />
 
           {/* Breadcrumb pill — slim, white, glass, centered above the map */}
-          <div className="absolute top-[92px] left-1/2 -translate-x-1/2 z-[440] pointer-events-auto">
+          <div className="absolute top-[92px] left-1/2 -translate-x-1/2 z-440 pointer-events-auto">
             <div className="bg-white/95 backdrop-blur-md border border-white/70 shadow-panel rounded-full px-3.5 py-1.5">
               <AtlasBreadcrumb selection={selection} onNavigate={setSelection} />
             </div>
           </div>
 
           {/* Map controls cluster — top right, glass */}
-          <div className="absolute top-4 right-4 z-[445] flex flex-col gap-2 pointer-events-auto w-[280px]">
+          <div className="absolute top-4 right-4 z-445 flex flex-col gap-2 pointer-events-auto w-[280px]">
             <div className="flex gap-2 self-end flex-wrap justify-end">
               <button
                 onClick={() => setSearchOpen(true)}
@@ -582,7 +582,7 @@ export function AtlasShell() {
           </div>
 
           {selection.level === "global" && (
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[440] pointer-events-none">
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-440 pointer-events-none">
               <div className="bg-ink/90 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide px-3.5 py-1.5 rounded-full shadow-panel">
                 Click a colored country to explore
               </div>
@@ -596,7 +596,7 @@ export function AtlasShell() {
         {!panelOpen && (
           <button
             onClick={() => setPanelOpen(true)}
-            className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-[445] bg-white border border-surface-border rounded-l-xl px-3 py-3 items-center gap-1.5 text-xs font-semibold text-ink shadow-panel hover:shadow-card-hover transition-shadow"
+            className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-445 bg-white border border-surface-border rounded-l-xl px-3 py-3 items-center gap-1.5 text-xs font-semibold text-ink shadow-panel hover:shadow-card-hover transition-shadow"
           >
             <PanelRight size={14} /> Details
           </button>

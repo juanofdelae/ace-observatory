@@ -386,7 +386,7 @@ export default function ImpactPage() {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[220px]">
+                  <div className="h-sidebar-w">
                     <ResponsiveContainer>
                       <BarChart data={byYear} margin={{ top: 16, right: 8, bottom: 0, left: -16 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#EEF1F5" />
@@ -463,7 +463,7 @@ export default function ImpactPage() {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[220px]">
+                  <div className="h-sidebar-w">
                     <ResponsiveContainer>
                       <BarChart
                         data={bySector}
@@ -583,7 +583,7 @@ export default function ImpactPage() {
                     </p>
                   </CardHeader>
                   <CardContent>
-                    <div className="h-[260px]">
+                    <div className="h-sidebar-offset">
                       <ResponsiveContainer>
                         <BarChart
                           data={loiByYear}

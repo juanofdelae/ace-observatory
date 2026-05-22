@@ -100,7 +100,7 @@ export function QuickAccessCard({
       <span
         aria-hidden
         className={cn(
-          "absolute inset-0 -z-10 rounded-2xl bg-gradient-to-tr opacity-0 transition-opacity duration-200 group-hover:opacity-100",
+          "absolute inset-0 -z-10 rounded-2xl bg-linear-to-tr opacity-0 transition-opacity duration-200 group-hover:opacity-100",
           a.glow,
           "to-transparent",
         )}

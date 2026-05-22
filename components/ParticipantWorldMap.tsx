@@ -418,7 +418,7 @@ export function ParticipantWorldMap() {
               </g>
             </svg>
             {/* Hint */}
-            <div className="absolute bottom-2 left-6 text-[10.5px] text-text-muted bg-white/80 backdrop-blur px-2 py-1 rounded">
+            <div className="absolute bottom-2 left-6 text-[10.5px] text-text-muted bg-white/80 backdrop-blur-sm px-2 py-1 rounded">
               Scroll to zoom · drag to pan
             </div>
           </div>
@@ -524,13 +524,13 @@ function CountryDetailPanel({
   const editionsHosted = country?.aceEditionsCount ?? 0;
 
   return (
-    <div className="p-6 border-t lg:border-t-0 lg:border-l border-surface-border bg-gradient-to-br from-white to-surface-canvas/40 flex flex-col gap-5 relative min-h-[360px]">
+    <div className="p-6 border-t lg:border-t-0 lg:border-l border-surface-border bg-linear-to-br from-white to-surface-canvas/40 flex flex-col gap-5 relative min-h-[360px]">
       {/* Close button */}
       <button
         type="button"
         onClick={onClose}
         aria-label="Close country details"
-        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white border border-surface-border hover:bg-surface-subtle hover:border-text-muted flex items-center justify-center transition-all shadow-sm"
+        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white border border-surface-border hover:bg-surface-subtle hover:border-text-muted flex items-center justify-center transition-all shadow-xs"
       >
         <X size={15} className="text-text-muted" />
       </button>
@@ -607,7 +607,7 @@ function CountryDetailPanel({
       {countryId && (
         <Link
           href={`/countries/${countryId}`}
-          className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-3 bg-accent-blue hover:bg-ink text-white rounded-lg text-[14px] font-semibold transition-colors shadow-sm"
+          className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-3 bg-accent-blue hover:bg-ink text-white rounded-lg text-[14px] font-semibold transition-colors shadow-xs"
         >
           View country details
           <ArrowRight size={15} />

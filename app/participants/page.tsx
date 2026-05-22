@@ -223,7 +223,7 @@ function ParticipantRow({ p }: { p: Participant }) {
         </span>
       </Td>
       <Td className="hidden xl:table-cell">
-        <div className="flex flex-wrap gap-1 max-w-[220px]">
+        <div className="flex flex-wrap gap-1 max-w-sidebar-w">
           {editionNumbers.slice(0, 4).map(n => (
             <span
               key={n}

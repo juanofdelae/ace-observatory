@@ -74,7 +74,7 @@ export default function ReportIntelligencePage({ params }: { params: { id: strin
   return (
     <div className="max-w-canvas mx-auto px-4 md:px-8 py-6 space-y-6">
       {/* Hero — rounded panel inside the canvas */}
-      <div className="relative rounded-3xl bg-gradient-to-br from-ink via-[#102347] to-brand-blue-bright/80 text-white overflow-hidden shadow-panel">
+      <div className="relative rounded-3xl bg-linear-to-br from-ink via-[#102347] to-brand-blue-bright/80 text-white overflow-hidden shadow-panel">
         <div
           className="absolute inset-0 opacity-15 pointer-events-none"
           style={{
@@ -90,7 +90,7 @@ export default function ReportIntelligencePage({ params }: { params: { id: strin
             <ArrowLeft size={12} /> Back to reports
           </Link>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-white/15 backdrop-blur px-2.5 py-1 rounded-full">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-white/15 backdrop-blur-sm px-2.5 py-1 rounded-full">
               Report Intelligence
             </span>
             <ReportVerificationChip status={report.verificationStatus} />
@@ -111,7 +111,7 @@ export default function ReportIntelligencePage({ params }: { params: { id: strin
             </span>
             <Link
               href={`/editions/${report.editionId}`}
-              className="ml-auto inline-flex items-center gap-1.5 text-xs font-semibold bg-white/15 hover:bg-white/25 backdrop-blur rounded-full px-3.5 py-2 transition-colors"
+              className="ml-auto inline-flex items-center gap-1.5 text-xs font-semibold bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full px-3.5 py-2 transition-colors"
             >
               View edition page <ExternalLink size={12} />
             </Link>

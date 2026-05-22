@@ -104,7 +104,7 @@ export default function OverviewPage() {
          Right column hosts a translucent "footprint snapshot" card
          so the hero stops feeling like a banner and starts feeling
          like an observatory interface. */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-ink via-ink/95 to-ink-700 text-white shadow-panel">
+      <section className="relative overflow-hidden rounded-3xl bg-linear-to-br from-ink via-ink/95 to-ink-700 text-white shadow-panel">
         {/* SVG geographic layer — full hero, very low opacity */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
@@ -209,7 +209,7 @@ export default function OverviewPage() {
               <Button
                 variant="ghost"
                 size="lg"
-                className="border border-white/20 text-white/90 hover:bg-white/8 hover:text-white hover:border-white/35 backdrop-blur-sm"
+                className="border border-white/20 text-white/90 hover:bg-white/8 hover:text-white hover:border-white/35 backdrop-blur-xs"
               >
                 <FileText size={15} strokeWidth={1.75} />
                 View Report Intelligence
@@ -468,7 +468,7 @@ export default function OverviewPage() {
 function HeroKPI({ value, label }: { value: number | string; label: string }) {
   const display = typeof value === "number" ? value.toLocaleString() : value;
   return (
-    <div className="rounded-2xl bg-white/8 border border-white/12 backdrop-blur px-4 py-4 md:py-5">
+    <div className="rounded-2xl bg-white/8 border border-white/12 backdrop-blur-sm px-4 py-4 md:py-5">
       <div className="text-[34px] md:text-[42px] font-bold text-white tabular-nums tracking-tight leading-none">
         {display}
       </div>
