@@ -2,8 +2,10 @@
  * Dev-only backdoor login. Creates a session for the given email and sets
  * the auth cookie so you don't need a working Resend setup to demo the app.
  *
- * Returns 404 in production. Hard-gated by NODE_ENV — there is no way to
- * accidentally hit this in a deployed environment.
+ * Hard-gated by Vercel's VERCEL_ENV (when present) so it stays available in
+ * local dev AND preview deploys, but never on production. Vercel sets
+ * NODE_ENV=production for ALL deploys (including preview), so checking
+ * VERCEL_ENV is the only way to keep this usable during merge-PR review.
  *
  *   GET /api/dev/login?email=admin@observatory.ace&to=/admin/dashboard
  */
@@ -11,14 +13,15 @@ import { randomBytes } from "node:crypto";
 
 import { NextResponse, type NextRequest } from "next/server";
 
-import { env } from "@/lib/env";
 import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
-  if (env.NODE_ENV === "production") {
+  // Block only on Vercel production. Allow local dev (no VERCEL_ENV) and
+  // Vercel preview/development environments.
+  if (process.env.VERCEL_ENV === "production") {
     return new NextResponse("Not found", { status: 404 });
   }
 
