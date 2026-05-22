@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 
 import { AdminPageHeader } from "../../_components/page-header";
 import { DeleteButton } from "./_components/delete-button";
+import { DocumentManager } from "./_components/document-manager";
 import { TransitionButton } from "./_components/transition-button";
 
 export const metadata = { title: "Detalle de acuerdo" };
@@ -106,6 +107,11 @@ export default async function AgreementDetailPage({ params }: { params: Params }
       <section className="grid gap-6 md:grid-cols-2">
         <PartyCard label="Parte A" name={a.partyA.name} signer={a.signerA?.fullName ?? null} />
         <PartyCard label="Parte B" name={a.partyB.name} signer={a.signerB?.fullName ?? null} />
+      </section>
+
+      <section>
+        <h2 className="text-text mb-3 text-base font-semibold tracking-tight">Documento firmado</h2>
+        <DocumentManager agreementId={a.id} currentDocumentUrl={a.documentUrl} />
       </section>
 
       {a.resultSummary ? (
