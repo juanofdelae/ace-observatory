@@ -23,10 +23,11 @@ export function generateStaticParams() {
 }
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function CountryProfilePage({ params }: PageProps) {
+export default async function CountryProfilePage(props: PageProps) {
+  const params = await props.params;
   const country = countryById(params.id);
   if (!country) notFound();
 

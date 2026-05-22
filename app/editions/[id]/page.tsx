@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import { MapMini } from "./_components/MapMini.client";
+import { SurveyDashboard } from "./_components/SurveyDashboardClient";
 import { editionById, editions } from "@/data/editions";
 import { countryById } from "@/data/countries";
 import { cityById } from "@/data/cities";
@@ -24,14 +25,12 @@ import {
   MapPin, Calendar, Users, Sparkles, GalleryHorizontalEnd, FileText, ExternalLink, ArrowLeft, Globe, Image as ImgIcon, Play,
 } from "lucide-react";
 
-const MapMini = dynamic(() => import("@/components/map/MapView"), { ssr: false });
-const SurveyDashboard = dynamic(() => import("@/components/SurveyDashboard").then(m => m.SurveyDashboard), { ssr: false });
-
 export function generateStaticParams() {
   return editions.map(e => ({ id: e.id }));
 }
 
-export default function EditionDetailPage({ params }: { params: { id: string } }) {
+export default async function EditionDetailPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const e = editionById(params.id);
   if (!e) notFound();
 

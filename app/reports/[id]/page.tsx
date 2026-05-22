@@ -41,7 +41,8 @@ const SECTIONS = [
   { id: "source", label: "Source PDF" },
 ];
 
-export default function ReportIntelligencePage({ params }: { params: { id: string } }) {
+export default async function ReportIntelligencePage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const report = reportById(params.id);
   if (!report) notFound();
 

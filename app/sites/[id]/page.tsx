@@ -30,7 +30,8 @@ export function generateStaticParams() {
   return visitedSites.map(s => ({ id: s.id }));
 }
 
-export default function SiteDetailPage({ params }: { params: { id: string } }) {
+export default async function SiteDetailPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const site = siteById(params.id);
   if (!site) notFound();
 
@@ -158,7 +159,6 @@ export default function SiteDetailPage({ params }: { params: { id: string } }) {
           </div>
         </div>
       </div>
-
       <div className="py-6 space-y-6">
         {/* Sectors */}
         {siteSectors.length > 0 && (

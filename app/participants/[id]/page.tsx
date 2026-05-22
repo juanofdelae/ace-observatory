@@ -31,7 +31,7 @@ export function generateStaticParams() {
 }
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 // The merged participants array uses the WINNER's id after the dedup
@@ -50,7 +50,8 @@ function findParticipantByLooseId(rawId: string) {
   return participants.find(p => p.id.endsWith(slug));
 }
 
-export default function ParticipantProfilePage({ params }: PageProps) {
+export default async function ParticipantProfilePage(props: PageProps) {
+  const params = await props.params;
   const p = findParticipantByLooseId(params.id);
   if (!p) notFound();
 
