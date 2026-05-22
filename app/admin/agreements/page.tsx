@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 
 import { FilterBar, type FilterDef } from "./_components/filter-bar";
 import { InlineProgress } from "./_components/inline-progress";
+import { SearchInput } from "./_components/search-input";
 import { ViewTabs, type ViewKey } from "./_components/view-tabs";
 
 export const metadata = { title: "Acuerdos" };
@@ -45,6 +46,7 @@ type SearchParams = Promise<{
   alert?: string;
   sector?: string;
   edition?: string;
+  q?: string;
 }>;
 
 export default async function AgreementsPage({
@@ -70,6 +72,7 @@ export default async function AgreementsPage({
       alertStatuses,
       sectors,
       editionIds,
+      q: sp.q,
     }),
     countAgreementsByView(),
     prisma.edition.findMany({
@@ -124,7 +127,10 @@ export default async function AgreementsPage({
 
       <ViewTabs current={view} counts={counts} />
 
-      <FilterBar filters={filters} />
+      <div className="flex flex-wrap items-center gap-3">
+        <SearchInput />
+        <FilterBar filters={filters} />
+      </div>
 
       {rows.length !== counts.all ? (
         <p className="text-text-muted text-xs">

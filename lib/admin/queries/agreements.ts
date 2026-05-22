@@ -58,6 +58,7 @@ export type AgreementFilters = {
   alertStatuses?: AlertStatus[];
   sectors?: Sector[];
   editionIds?: string[];
+  q?: string;
 };
 
 export async function listAgreements(
@@ -72,6 +73,19 @@ export async function listAgreements(
   if (opts.alertStatuses?.length) adHoc.alertStatus = { in: opts.alertStatuses };
   if (opts.sectors?.length) adHoc.primarySector = { in: opts.sectors };
   if (opts.editionIds?.length) adHoc.editionId = { in: opts.editionIds };
+
+  // Free-text search across the most common "I'm looking for X" fields.
+  // case-insensitive contains is Postgres-only but PrismaPg exposes it.
+  const q = opts.q?.trim();
+  if (q) {
+    adHoc.OR = [
+      { code: { contains: q, mode: "insensitive" } },
+      { subject: { contains: q, mode: "insensitive" } },
+      { delegate: { contains: q, mode: "insensitive" } },
+      { partyA: { name: { contains: q, mode: "insensitive" } } },
+      { partyB: { name: { contains: q, mode: "insensitive" } } },
+    ];
+  }
 
   const rows = await prisma.agreement.findMany({
     where: { deletedAt: null, ...VIEW_WHERE[view], ...adHoc },
