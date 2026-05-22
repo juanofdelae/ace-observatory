@@ -1,0 +1,442 @@
+// Unified schema for the merged Bridge × Observatory app.
+// See docs/MERGE_PLAN.md and docs/UNIFIED_SCHEMA_PROPOSAL.prisma for design rationale.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ──────────────────────────────────────────────────────────────────
+
+enum InstitutionType {
+  GOVERNMENT
+  UNIVERSITY
+  COMPANY
+  NGO
+  CHAMBER
+  OTHER
+}
+
+enum ActorType {
+  GOVERNMENT
+  PRIVATE_SECTOR
+  ACADEMIA
+  INTERNATIONAL_ORG
+  OTHER
+}
+
+enum Language {
+  ES
+  EN
+  PT
+  FR
+}
+
+enum InstrumentType {
+  LOI
+  MOU
+  CONTRACT
+}
+
+enum Sector {
+  INNOVATION
+  SMES
+  AGRITECH
+  LOGISTICS
+  EDTECH
+  TOURISM
+  MANUFACTURING
+  FINTECH
+  HEALTH
+  ENERGY
+  CLEAN_ENERGY
+  SMART_CITIES
+  CREATIVE_INDUSTRIES
+  ENTREPRENEURIAL_ECOSYSTEM
+  TRADE
+  OTHER
+}
+
+/// Lifecycle phase. CLOSED is intentionally absent — see AlertStatus.
+enum Phase {
+  SIGNED
+  CONTACTED
+  ACTIVE
+  RESULT
+}
+
+enum AlertStatus {
+  ACTIVE
+  NEEDS_ATTENTION
+  CLOSED
+}
+
+enum SurveyMilestone {
+  DAY_30
+  DAY_60
+  DAY_90
+  MONTH_6
+  MONTH_12
+}
+
+enum SupportCategory {
+  INFORMATION
+  FACILITATION
+  CONNECTION
+  DOCUMENTATION
+  LOGISTICS
+  STRATEGIC
+}
+
+enum Priority {
+  URGENT
+  HIGH
+  STANDARD
+  LOW
+}
+
+enum RequestStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CANCELLED
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum ParticipantRole {
+  DELEGATE
+  ORGANIZER
+  SPECIAL_GUEST
+  SPEAKER
+}
+
+// ─── Geography ──────────────────────────────────────────────────────────────
+
+model Country {
+  id           String        @id // ISO-3166 alpha-2 lowercase
+  name         String
+  flagAssetUrl String?
+  institutions Institution[]
+  participants Participant[]
+  editions     Edition[]
+}
+
+// ─── Domain models ──────────────────────────────────────────────────────────
+
+model Edition {
+  id            String               @id
+  externalId    String?              @unique
+  name          String
+  shortLabel    String?
+  year          Int
+  hostCity      String
+  hostCountryId String?
+  hostCountry   Country?             @relation(fields: [hostCountryId], references: [id])
+  startDate     DateTime
+  endDate       DateTime
+  description   String?              @db.Text
+  heroImageUrl  String?
+
+  agreements   Agreement[]
+  surveys      Survey[]
+  participants EditionParticipant[]
+  reports      Report[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([year])
+}
+
+model Institution {
+  id           String          @id @default(cuid())
+  externalId   String?         @unique
+  name         String
+  type         InstitutionType
+  actorType    ActorType?
+  countryId    String?
+  country      Country?        @relation(fields: [countryId], references: [id])
+  countryLabel String
+  city         String?
+  website      String?
+  logoUrl      String?
+  description  String?         @db.Text
+  sectorIds    Sector[]        @default([])
+
+  participants Participant[]
+  partsA       Agreement[]   @relation("PartyA")
+  partsB       Agreement[]   @relation("PartyB")
+  deletedAt    DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([countryId])
+  @@index([type])
+  @@index([deletedAt])
+}
+
+model Participant {
+  id                String          @id @default(cuid())
+  externalId        String?         @unique
+  fullName          String
+  email             String?         @unique
+  emailEncoded      String?
+  role              String?
+  organizationLabel String?
+  position          String?
+  linkedin          String?
+  preferredLang     Language        @default(ES)
+
+  countryId         String?
+  country           Country?        @relation(fields: [countryId], references: [id])
+
+  institutionId     String?
+  institution       Institution?    @relation(fields: [institutionId], references: [id])
+
+  photoUrl          String?
+  bio               String?         @db.Text
+  expertise         String[]        @default([])
+  sectorIds         Sector[]        @default([])
+  actorType         ActorType?
+
+  participantRole   ParticipantRole @default(DELEGATE)
+  source            String?
+
+  signedAsA         Agreement[]     @relation("SignerA")
+  signedAsB         Agreement[]     @relation("SignerB")
+  editions          EditionParticipant[]
+
+  deletedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([countryId])
+  @@index([institutionId])
+  @@index([deletedAt])
+}
+
+model EditionParticipant {
+  editionId     String
+  participantId String
+  edition       Edition         @relation(fields: [editionId], references: [id], onDelete: Cascade)
+  participant   Participant     @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  role          ParticipantRole @default(DELEGATE)
+
+  @@id([editionId, participantId])
+  @@index([editionId])
+  @@index([participantId])
+}
+
+model Agreement {
+  id             String         @id @default(cuid())
+  externalId     String?        @unique
+  code           String         @unique
+  editionId      String
+  edition        Edition        @relation(fields: [editionId], references: [id])
+  instrumentType InstrumentType
+  signedDate     DateTime
+
+  partyAId  String
+  partyA    Institution  @relation("PartyA", fields: [partyAId], references: [id])
+  signerAId String?
+  signerA   Participant? @relation("SignerA", fields: [signerAId], references: [id])
+
+  partyBId  String
+  partyB    Institution  @relation("PartyB", fields: [partyBId], references: [id])
+  signerBId String?
+  signerB   Participant? @relation("SignerB", fields: [signerBId], references: [id])
+
+  subject       String  @db.Text
+  delegate      String?
+  primarySector Sector
+  tags          String[]
+
+  phase       Phase       @default(SIGNED)
+  alertStatus AlertStatus @default(ACTIVE)
+
+  resultSummary String?   @db.Text
+  resultDate    DateTime?
+
+  documentUrl String?
+
+  surveys         Survey[]
+  supportRequests SupportRequest[]
+  statusChanges   StatusChange[]
+
+  createdById String?
+  createdBy   User?    @relation("AgreementCreator", fields: [createdById], references: [id])
+  updatedById String?
+  updatedBy   User?    @relation("AgreementUpdater", fields: [updatedById], references: [id])
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@index([editionId])
+  @@index([phase])
+  @@index([alertStatus])
+  @@index([primarySector])
+  @@index([signedDate])
+  @@index([deletedAt])
+}
+
+model Survey {
+  id           String           @id @default(cuid())
+  agreementId  String?
+  agreement    Agreement?       @relation(fields: [agreementId], references: [id], onDelete: Cascade)
+  editionId    String?
+  edition      Edition?         @relation(fields: [editionId], references: [id])
+  milestone    SurveyMilestone?
+  scheduledFor DateTime?
+  sentAt       DateTime?
+  respondedAt  DateTime?
+  uniqueToken  String           @unique @db.VarChar(64)
+  responses    SurveyResponse[]
+  createdAt    DateTime         @default(now())
+
+  @@index([agreementId])
+  @@index([editionId])
+  @@index([scheduledFor])
+  @@index([sentAt])
+  @@index([respondedAt])
+}
+
+model SurveyResponse {
+  id        String   @id @default(cuid())
+  surveyId  String
+  survey    Survey   @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+  question  String
+  answer    String   @db.Text
+  createdAt DateTime @default(now())
+
+  @@index([surveyId])
+}
+
+model SupportRequest {
+  id             String          @id @default(cuid())
+  agreementId    String
+  agreement      Agreement       @relation(fields: [agreementId], references: [id])
+  category       SupportCategory
+  priority       Priority        @default(STANDARD)
+  description    String          @db.Text
+  status         RequestStatus   @default(OPEN)
+  assignedToId   String?
+  assignedTo     User?           @relation("SupportAssignee", fields: [assignedToId], references: [id])
+  resolvedAt     DateTime?
+  resolutionNote String?         @db.Text
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([agreementId])
+  @@index([status])
+  @@index([priority])
+  @@index([assignedToId])
+}
+
+model StatusChange {
+  id          String       @id @default(cuid())
+  agreementId String
+  agreement   Agreement    @relation(fields: [agreementId], references: [id], onDelete: Cascade)
+  fromPhase   Phase?
+  toPhase     Phase?
+  fromStatus  AlertStatus?
+  toStatus    AlertStatus?
+  changedById String
+  changedBy   User         @relation(fields: [changedById], references: [id])
+  note        String?      @db.Text
+  createdAt   DateTime     @default(now())
+
+  @@index([agreementId])
+  @@index([createdAt])
+}
+
+// ─── Reports — Observatory's /reports/[id] pages ────────────────────────────
+
+model Report {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  editionId   String?
+  edition     Edition?  @relation(fields: [editionId], references: [id])
+  publishedAt DateTime?
+  summary     String?   @db.Text
+  contentMd   String    @db.Text
+  pdfUrl      String?
+  authorId    String?
+  author      User?     @relation("ReportAuthor", fields: [authorId], references: [id])
+  tags        String[]  @default([])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([editionId])
+  @@index([publishedAt])
+}
+
+// ─── Identity / Auth.js ─────────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  emailVerified DateTime?
+  image         String?
+  role          UserRole  @default(VIEWER)
+
+  accounts Account[]
+  sessions Session[]
+
+  createdAgreements Agreement[]      @relation("AgreementCreator")
+  updatedAgreements Agreement[]      @relation("AgreementUpdater")
+  assignedRequests  SupportRequest[] @relation("SupportAssignee")
+  statusChanges     StatusChange[]
+  authoredReports   Report[]         @relation("ReportAuthor")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}

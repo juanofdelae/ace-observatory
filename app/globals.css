@@ -1,6 +1,145 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-ink-50: #eef2f7;
+  --color-ink-100: #d5dde8;
+  --color-ink-200: #adbbce;
+  --color-ink-300: #8196b1;
+  --color-ink-400: #576f90;
+  --color-ink-500: #344f75;
+  --color-ink-600: #234060;
+  --color-ink-700: #162e4a;
+  --color-ink-800: #0d2340;
+  --color-ink-900: #0b1f3a;
+  --color-ink: #0b1f3a;
+
+  --color-brand-navy: #0b1f3a;
+  --color-brand-blue-mid: #1e4e8c;
+  --color-brand-blue-bright: #2f80ed;
+  --color-brand-blue-ace: #2563eb;
+  --color-brand-turquoise: #2fb7b2;
+  --color-brand-orange: #f05a28;
+  --color-brand-orange-hover: #d44d22;
+  --color-brand-orange-ace: #f97316;
+  --color-brand-orange-ace-hover: #ea6a0a;
+
+  --color-accent-yellow: #f5b700;
+  --color-accent-orange: #f05a28;
+  --color-accent-orange-cta: #f97316;
+  --color-accent-purple: #6a4c93;
+  --color-accent-purple-soft: #7c3aed;
+  --color-accent-teal: #2fb7b2;
+  --color-accent-teal-soft: #14b8a6;
+  --color-accent-amber: #f59e0b;
+  --color-accent-bright: #2f80ed;
+  --color-accent-blue: #2563eb;
+
+  --color-surface: #ffffff;
+  --color-surface-canvas: #f4f5f7;
+  --color-surface-panel: #ffffff;
+  --color-surface-panel-muted: #f8fafc;
+  --color-surface-muted: #f5f7fa;
+  --color-surface-subtle: #eef1f5;
+  --color-surface-border: #e2e8f0;
+  --color-surface-footer: #06101f;
+
+  --color-sidebar-bg: #0b1f3a;
+  --color-sidebar-hover: #162e4a;
+  --color-sidebar-border: #1b3358;
+  --color-sidebar-idle: #9db0cb;
+  --color-sidebar-active: #ffffff;
+  --color-sidebar-accent: #f97316;
+
+  --color-text-primary: #0b1f3a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+
+  --font-sans:
+    var(--font-montserrat), Montserrat, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-montserrat), Montserrat, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-display-1: 2.75rem;
+  --text-display-1--line-height: 1.05;
+  --text-display-1--letter-spacing: -0.025em;
+  --text-display-1--font-weight: 700;
+  --text-display-2: 2.125rem;
+  --text-display-2--line-height: 1.12;
+  --text-display-2--letter-spacing: -0.02em;
+  --text-display-2--font-weight: 700;
+  --text-kpi: 2rem;
+  --text-kpi--line-height: 1;
+  --text-kpi--letter-spacing: -0.02em;
+  --text-kpi--font-weight: 700;
+  --text-kpi-lg: 2.5rem;
+  --text-kpi-lg--line-height: 1;
+  --text-kpi-lg--letter-spacing: -0.025em;
+  --text-kpi-lg--font-weight: 700;
+
+  --shadow-card:
+    0 1px 2px 0 rgba(11, 31, 58, 0.06), 0 6px 20px -8px rgba(11, 31, 58, 0.08);
+  --shadow-card-hover:
+    0 2px 4px 0 rgba(11, 31, 58, 0.08), 0 12px 28px -10px rgba(11, 31, 58, 0.14);
+  --shadow-panel:
+    0 1px 2px 0 rgba(11, 31, 58, 0.05), 0 16px 40px -16px rgba(11, 31, 58, 0.18);
+  --shadow-sidebar:
+    0 1px 2px 0 rgba(11, 31, 58, 0.1), 0 24px 48px -16px rgba(11, 31, 58, 0.3);
+  --shadow-soft: 0 1px 2px 0 rgba(11, 31, 58, 0.04);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.75rem;
+
+  --container-canvas: 1480px;
+
+  --spacing-sidebar-w: 220px;
+  --spacing-sidebar-offset: 260px;
+
+  /* Bridge admin token aliases — let copied admin components compile against
+     the unified theme without rewriting every className. Mapped to Observatory
+     equivalents where possible. */
+  --color-bg: #f4f5f7;
+  --color-surface-2: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text: #0b1f3a;
+  --color-text-muted: #64748b;
+  --color-text-subtle: #94a3b8;
+  --color-primary: #0b1f3a;
+  --color-primary-foreground: #ffffff;
+  --color-primary-soft: #162e4a;
+  --color-secondary: #2563eb;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #f97316;
+  --color-accent-foreground: #ffffff;
+  --color-state-active: #16a34a;
+  --color-state-active-bg: #f0fdf4;
+  --color-state-warning: #d97706;
+  --color-state-warning-bg: #fffbeb;
+  --color-state-closed: #94a3b8;
+  --color-state-blocked: #b91c1c;
+  --color-state-blocked-bg: #fef2f2;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   /* Legacy ACE tokens — preserved for any consumer that still references them */

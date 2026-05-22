@@ -58,7 +58,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       {/* Mobile-only top bar with the ACE brand and the menu trigger.
           Desktop has the sidebar always visible so this stays hidden
           on `lg:` and up. */}
-      <header className="lg:hidden sticky top-0 z-30 flex items-center justify-between gap-3 px-3 py-2 bg-white/90 backdrop-blur border-b border-surface-border">
+      <header className="lg:hidden sticky top-0 z-30 flex items-center justify-between gap-3 px-3 py-2 bg-white/90 backdrop-blur-sm border-b border-surface-border">
         <Link
           href="/"
           aria-label="ACE Observatory home"

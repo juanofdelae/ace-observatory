@@ -26,7 +26,7 @@ export function AtlasStatsOverlay({ selection }: Props) {
 
 function Legend() {
   return (
-    <div className="absolute bottom-4 left-4 z-[450] pointer-events-none">
+    <div className="absolute bottom-4 left-4 z-450 pointer-events-none">
       <div className="bg-white/95 backdrop-blur-md border border-white/70 shadow-card rounded-2xl p-3 text-[11px] space-y-2 min-w-[210px]">
         <div className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">
           Legend

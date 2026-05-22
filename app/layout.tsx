@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Toaster } from "sonner";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
-import { DashboardLayout } from "@/components/layout/DashboardLayout";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,7 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={montserrat.variable}>
       <body className="bg-surface-canvas text-ink antialiased font-sans">
-        <DashboardLayout>{children}</DashboardLayout>
+        {children}
+        <Toaster position="top-right" richColors closeButton />
       </body>
     </html>
   );

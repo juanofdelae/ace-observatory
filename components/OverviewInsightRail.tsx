@@ -203,7 +203,7 @@ export function OverviewInsightRail() {
 
       {/* Upcoming edition */}
       {upcoming && (
-        <RailCard className="bg-gradient-to-br from-white to-accent-orange-cta/5 border-accent-orange-cta/20">
+        <RailCard className="bg-linear-to-br from-white to-accent-orange-cta/5 border-accent-orange-cta/20">
           <RailEyebrow label="Upcoming" accent="orange" />
           <Link
             href={`/editions/${upcoming.id}`}
@@ -283,7 +283,7 @@ export function OverviewInsightRail() {
       )}
 
       {/* Featured insight */}
-      <RailCard className="bg-gradient-to-br from-ink to-ink/95 text-white border-ink">
+      <RailCard className="bg-linear-to-br from-ink to-ink/95 text-white border-ink">
         <div className="flex items-center gap-1.5 mb-2.5">
           <Sparkles size={11} className="text-accent-orange-cta" />
           <span className="text-[9.5px] font-bold uppercase tracking-[0.18em] text-white/70">

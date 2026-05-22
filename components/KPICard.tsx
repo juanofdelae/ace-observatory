@@ -52,7 +52,7 @@ export function KPICard({
     <div
       className={cn(
         "relative bg-white rounded-2xl border border-surface-border shadow-card overflow-hidden",
-        "transition-all duration-200 ease-out hover:shadow-card-hover hover:-translate-y-[2px]",
+        "transition-all duration-200 ease-out hover:shadow-card-hover hover:translate-y-[-2px]",
         isLg ? "p-6 md:p-7" : "p-5 md:p-6",
         className,
       )}

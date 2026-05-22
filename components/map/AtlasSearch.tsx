@@ -184,14 +184,14 @@ export function AtlasSearch({ open, onClose, onNavigate }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[1000] flex items-start justify-center pt-[12vh] px-4"
+      className="fixed inset-0 z-1000 flex items-start justify-center pt-[12vh] px-4"
       role="dialog"
       aria-modal="true"
       aria-label="Search the Atlas"
       onClick={onClose}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-ink/40 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-ink/40 backdrop-blur-xs" />
 
       {/* Modal */}
       <div
@@ -206,7 +206,7 @@ export function AtlasSearch({ open, onClose, onNavigate }: Props) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search countries, editions, cities, sites or delegates…"
-            className="flex-1 py-3 text-sm text-ink placeholder:text-text-muted bg-transparent focus:outline-none"
+            className="flex-1 py-3 text-sm text-ink placeholder:text-text-muted bg-transparent focus:outline-hidden"
           />
           <button
             onClick={onClose}

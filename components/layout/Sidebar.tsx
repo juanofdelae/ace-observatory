@@ -90,7 +90,7 @@ export function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) {
         <button
           type="button"
           aria-label="Close menu"
-          className="lg:hidden fixed inset-0 z-40 bg-ink/40 backdrop-blur-sm fade-in"
+          className="lg:hidden fixed inset-0 z-40 bg-ink/40 backdrop-blur-xs fade-in"
           onClick={onCloseMobile}
         />
       )}

@@ -30,7 +30,7 @@ export function EditionCard({ edition }: { edition: Edition }) {
       href={`/editions/${edition.id}`}
       className="group bg-white rounded-2xl border border-surface-border overflow-hidden shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-white">
+      <div className="relative aspect-4/3 overflow-hidden bg-white">
         <Image
           src={hero}
           alt={edition.name}

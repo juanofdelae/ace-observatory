@@ -163,7 +163,7 @@ export function ReportFeedbackChart({ feedback }: Props) {
         <div className="text-5xl font-bold text-ink mt-1 leading-none counter-up">
           {aboveCombined}%
         </div>
-        <div className="text-xs text-text-secondary mt-2 max-w-[220px] leading-relaxed">
+        <div className="text-xs text-text-secondary mt-2 max-w-sidebar-w leading-relaxed">
           combined share of delegates who rated the program above or significantly above their expectations.
         </div>
       </div>

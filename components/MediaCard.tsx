@@ -25,7 +25,7 @@ export function MediaCard({ m }: { m: MediaResource }) {
   const Icon = typeIcon[m.type];
   return (
     <div className="group bg-white border border-surface-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all">
-      <div className="relative aspect-[4/3] bg-ink/90 overflow-hidden">
+      <div className="relative aspect-4/3 bg-ink/90 overflow-hidden">
         {m.thumbnailUrl ? (
           <Image
             src={m.thumbnailUrl}

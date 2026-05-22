@@ -39,7 +39,7 @@ const SOCIALS: Array<
 // drawer footer surfaces them on small screens instead.
 export function SocialRail() {
   return (
-    <div className="hidden lg:flex fixed top-4 right-6 z-30 items-center gap-0.5 bg-white/85 backdrop-blur border border-surface-border rounded-full px-1.5 py-1 shadow-soft">
+    <div className="hidden lg:flex fixed top-4 right-6 z-30 items-center gap-0.5 bg-white/85 backdrop-blur-sm border border-surface-border rounded-full px-1.5 py-1 shadow-soft">
       {SOCIALS.map((s) => (
         <a
           key={s.label}
