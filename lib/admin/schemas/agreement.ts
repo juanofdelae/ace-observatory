@@ -68,9 +68,10 @@ export const agreementSchema = z
     instrumentType: z.enum(InstrumentType, { message: "Selecciona un tipo" }),
     signedDate: z.string().regex(isoDateRegex, "Fecha inválida"),
     partyAId: z.string().min(1, "Selecciona una institución"),
-    signerAId: z.string().min(1, "Selecciona un firmante"),
+    signerAId: z.string().min(1).optional().or(z.literal("").transform(() => undefined)),
     partyBId: z.string().min(1, "Selecciona una institución"),
-    signerBId: z.string().min(1, "Selecciona un firmante"),
+    signerBId: z.string().min(1).optional().or(z.literal("").transform(() => undefined)),
+    delegate: z.string().trim().max(160).optional().or(z.literal("").transform(() => undefined)),
     subject: z
       .string()
       .trim()

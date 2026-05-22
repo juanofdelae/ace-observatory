@@ -37,6 +37,7 @@ function toDbPayload(input: z.infer<typeof agreementSchema>) {
     partyBId: input.partyBId,
     signerBId: input.signerBId,
     subject: input.subject,
+    delegate: input.delegate ?? null,
     primarySector: input.primarySector,
     tags: input.tags ?? [],
     phase: input.phase ?? Phase.SIGNED,

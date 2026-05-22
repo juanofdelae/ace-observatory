@@ -22,15 +22,23 @@ export default async function AgreementsPage() {
 
   return (
     <div className="mx-auto max-w-7xl space-y-8">
-      <header>
-        <p className="text-text-muted text-xs font-semibold tracking-widest uppercase">
-          OAS · RIAC · ACE
-        </p>
-        <h1 className="text-text mt-2 text-3xl font-semibold tracking-tight">Acuerdos</h1>
-        <p className="text-text-muted mt-2 text-sm">
-          {rows.length.toLocaleString()} cartas de intención y memorandos firmados durante las
-          ediciones del ACE.
-        </p>
+      <header className="flex items-end justify-between gap-6">
+        <div>
+          <p className="text-text-muted text-xs font-semibold tracking-widest uppercase">
+            OAS · RIAC · ACE
+          </p>
+          <h1 className="text-text mt-2 text-3xl font-semibold tracking-tight">Acuerdos</h1>
+          <p className="text-text-muted mt-2 text-sm">
+            {rows.length.toLocaleString()} cartas de intención y memorandos firmados durante las
+            ediciones del ACE.
+          </p>
+        </div>
+        <Link
+          href="/admin/agreements/new"
+          className="bg-ink hover:bg-ink-700 inline-flex h-10 items-center justify-center rounded-full px-5 text-sm font-semibold text-white transition-colors"
+        >
+          + Nuevo acuerdo
+        </Link>
       </header>
 
       <div className="border-border bg-surface overflow-hidden rounded-xl border">
