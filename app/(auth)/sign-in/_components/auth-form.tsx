@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { toast } from "sonner";
 
@@ -9,13 +10,16 @@ import { Input } from "@/components/ui/Input";
 import { requestMagicLink } from "../_actions";
 
 export function AuthCardForm({ redirectTo }: { redirectTo?: string }) {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   async function action(formData: FormData) {
     startTransition(async () => {
       const result = await requestMagicLink(formData);
       if (result.ok) {
-        toast.success("Revisa tu correo. Te enviamos un enlace de acceso.");
+        const params = new URLSearchParams({ email: result.email });
+        if (result.from) params.set("from", result.from);
+        router.push(`/sign-in/verify-code?${params.toString()}`);
       } else {
         toast.error(result.message);
       }
@@ -40,10 +44,11 @@ export function AuthCardForm({ redirectTo }: { redirectTo?: string }) {
         />
       </div>
       <Button type="submit" className="w-full" disabled={isPending}>
-        {isPending ? "Enviando enlace…" : "Enviar enlace de acceso"}
+        {isPending ? "Enviando código…" : "Enviar código de acceso"}
       </Button>
       <p className="text-ink-muted pt-2 text-center text-xs">
-        El enlace expira en 30 minutos. Solo personal autorizado de ACE / OAS.
+        Recibirás un código de 6 dígitos por email. Válido 10 minutos. Solo personal autorizado de
+        ACE / OAS.
       </p>
     </form>
   );
