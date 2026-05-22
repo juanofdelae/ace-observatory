@@ -1,28 +1,26 @@
-import { redirect } from "next/navigation";
-
 import { Header } from "@/components/admin-layout/header";
 import { Sidebar } from "@/components/admin-layout/sidebar";
 import { TooltipProvider } from "@/components/admin-ui/tooltip";
-import { auth } from "@/lib/auth";
 
-export default async function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const session = await auth();
+/**
+ * ⚠️ AUTH TEMPORARILY DISABLED — see proxy.ts header.
+ *
+ * The session check was removed so testers can walk every admin page without
+ * sign-in. The sidebar still renders user-shaped data so the UI doesn't
+ * break; it just shows a synthetic "Testing" user.
+ */
+const TESTING_USER = {
+  email: "testing@observatory.ace",
+  name: "Testing (open mode)",
+  role: "ADMIN" as const,
+};
 
-  if (!session?.user) {
-    redirect("/sign-in");
-  }
-
+export default function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <TooltipProvider>
       <div className="bg-bg grid h-full min-h-screen grid-cols-1 md:grid-cols-[260px_1fr]">
         <div className="hidden md:block">
-          <Sidebar
-            user={{
-              email: session.user.email ?? "",
-              name: session.user.name,
-              role: session.user.role,
-            }}
-          />
+          <Sidebar user={TESTING_USER} />
         </div>
         <div className="flex min-h-screen flex-col">
           <Header />

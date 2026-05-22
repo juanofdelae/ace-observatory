@@ -1,4 +1,3 @@
-import { auth } from "@/lib/auth";
 import { probeStorage } from "@/lib/admin/storage";
 
 import { AdminPageHeader } from "../_components/page-header";
@@ -7,8 +6,16 @@ export const metadata = { title: "Configuración" };
 
 export const dynamic = "force-dynamic";
 
+// Auth is temporarily disabled — see proxy.ts header.
+const session = {
+  user: {
+    email: "testing@observatory.ace",
+    name: "Testing (open mode)",
+    role: "ADMIN",
+  },
+} as const;
+
 export default async function SettingsPage() {
-  const session = await auth();
   const storage = await probeStorage();
 
   return (
