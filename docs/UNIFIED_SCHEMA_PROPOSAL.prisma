@@ -1,0 +1,332 @@
+// PROPOSED unified Prisma schema for the merged Bridge × Observatory app.
+// NOT applied yet — see docs/MERGE_PLAN.md for sequencing. This file
+// extends Bridge's schema with the richer fields the Observatory data needs.
+//
+// Sources reconciled into one model:
+//   - ace-bridge prisma/schema.prisma           (audit, soft-delete, agreements pipeline)
+//   - _historical-participants.json shape       (photoUrl, sectorIds, actorType, editionIds)
+//   - _memphis-participants.json shape          (bio, expertise[], flag, encoded email)
+//   - _lois.json shape                          (delegate, purpose)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ──────────────────────────────────────────────────────────────────
+// Most preserved from Bridge as-is. Observatory's `actorType` becomes its
+// own enum so the public filters can use it directly.
+
+enum InstitutionType {
+  GOVERNMENT
+  UNIVERSITY
+  COMPANY
+  NGO
+  CHAMBER
+  OTHER
+}
+
+enum ActorType {
+  GOVERNMENT
+  PRIVATE_SECTOR
+  ACADEMIA
+  INTERNATIONAL_ORG
+  OTHER
+}
+
+enum Language {
+  ES
+  EN
+  PT
+  FR
+}
+
+enum InstrumentType {
+  LOI
+  MOU
+  CONTRACT
+}
+
+enum Sector {
+  INNOVATION
+  SMES
+  AGRITECH
+  LOGISTICS
+  EDTECH
+  TOURISM
+  MANUFACTURING
+  FINTECH
+  HEALTH
+  ENERGY
+  CLEAN_ENERGY
+  SMART_CITIES
+  CREATIVE_INDUSTRIES
+  ENTREPRENEURIAL_ECOSYSTEM
+  TRADE
+  OTHER
+}
+
+enum Phase {
+  SIGNED
+  CONTACTED
+  ACTIVE
+  RESULT
+}
+
+enum AlertStatus {
+  ACTIVE
+  NEEDS_ATTENTION
+  CLOSED
+}
+
+enum SurveyMilestone {
+  DAY_30
+  DAY_60
+  DAY_90
+  MONTH_6
+  MONTH_12
+}
+
+enum SupportCategory {
+  INFORMATION
+  FACILITATION
+  CONNECTION
+  DOCUMENTATION
+  LOGISTICS
+  STRATEGIC
+}
+
+enum Priority {
+  URGENT
+  HIGH
+  STANDARD
+  LOW
+}
+
+enum RequestStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CANCELLED
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum ParticipantRole {
+  DELEGATE       // default — the standard ACE delegate
+  ORGANIZER      // _memphis-organizers.json
+  SPECIAL_GUEST  // _memphis-special-guests.json
+  SPEAKER        // future: panel speakers
+}
+
+// ─── Geography ──────────────────────────────────────────────────────────────
+// New table. Observatory uses country codes (`ca`, `us`, `ar`). Bridge stored
+// country as free-text. Promoting to a table lets us join, sort, render flags.
+
+model Country {
+  id           String        @id          // ISO-3166 alpha-2 lowercase: "ar"
+  name         String                     // "Argentina"
+  flagAssetUrl String?                    // path to flag image
+  institutions Institution[]
+  participants Participant[]
+  editions     Edition[]
+}
+
+// ─── Domain models ──────────────────────────────────────────────────────────
+
+model Edition {
+  id              String        @id
+  externalId      String?       @unique   // Observatory's "ace-22-cordoba-2025"
+  name            String                  // "ACE 22 — Córdoba 2025"
+  shortLabel      String?                 // "ACE 22 · Córdoba"
+  year            Int
+  hostCity        String
+  hostCountryId   String?
+  hostCountry     Country?      @relation(fields: [hostCountryId], references: [id])
+  startDate       DateTime
+  endDate         DateTime
+  description     String?       @db.Text
+  heroImageUrl    String?
+  agreements      Agreement[]
+  surveys         Survey[]                // edition-level surveys (Observatory has these)
+  participants    EditionParticipant[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([year])
+}
+
+model Institution {
+  id           String          @id
+  externalId   String?         @unique   // future-proof for re-imports
+  name         String
+  type         InstitutionType
+  actorType    ActorType?                 // Observatory's filter dimension
+  countryId    String?
+  country      Country?        @relation(fields: [countryId], references: [id])
+  countryLabel String                     // denormalized "Argentina" for display
+  city         String?
+  website      String?
+  logoUrl      String?                    // institution logo if known
+  description  String?         @db.Text
+  sectorIds    Sector[]        @default([])  // institution-level sector tags
+
+  participants Participant[]
+  partsA       Agreement[]     @relation("PartyA")
+  partsB       Agreement[]     @relation("PartyB")
+  deletedAt    DateTime?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([countryId])
+  @@index([type])
+  @@index([deletedAt])
+}
+
+model Participant {
+  id                String         @id
+  externalId        String?        @unique   // "p-hist-ca-syeda-alia-abbas" / "memphis-45"
+  fullName          String
+  email             String?        @unique   // optional — many historical have none
+  emailEncoded      String?                   // base64-encoded for privacy display (Memphis)
+  role              String?                   // "CEO", "Director"
+  organizationLabel String?                   // denormalized "Alia Consulting - Economic Development Firm"
+  position          String?                   // legacy Bridge field
+  linkedin          String?
+  preferredLang     Language       @default(ES)
+
+  // Geography
+  countryId         String?
+  country           Country?       @relation(fields: [countryId], references: [id])
+
+  // Institution
+  institutionId     String?                    // optional — Observatory has free-text org sometimes
+  institution       Institution?   @relation(fields: [institutionId], references: [id])
+
+  // Content (new from Observatory)
+  photoUrl          String?
+  bio               String?        @db.Text
+  expertise         String[]       @default([])  // ["AgriTech", "Trade", ...]
+  sectorIds         Sector[]       @default([])
+  actorType         ActorType?
+
+  participantRole   ParticipantRole @default(DELEGATE)
+  source            String?                      // "tablepress-2026-04-24", "memphis-roster"
+
+  // Bridge fields
+  signedAsA         Agreement[]    @relation("SignerA")
+  signedAsB         Agreement[]    @relation("SignerB")
+
+  editions          EditionParticipant[]
+
+  deletedAt         DateTime?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@index([countryId])
+  @@index([institutionId])
+  @@index([deletedAt])
+}
+
+// ─── Many-to-many: which editions did each participant attend? ──────────────
+// New. Critical for filtering ("show me all ACE 22 delegates").
+model EditionParticipant {
+  editionId     String
+  participantId String
+  edition       Edition     @relation(fields: [editionId], references: [id])
+  participant   Participant @relation(fields: [participantId], references: [id])
+  role          ParticipantRole @default(DELEGATE)
+
+  @@id([editionId, participantId])
+  @@index([editionId])
+  @@index([participantId])
+}
+
+model Agreement {
+  id             String         @id
+  externalId     String?        @unique
+  code           String         @unique
+  editionId      String
+  edition        Edition        @relation(fields: [editionId], references: [id])
+  instrumentType InstrumentType
+  signedDate     DateTime
+
+  partyAId       String
+  partyA         Institution    @relation("PartyA", fields: [partyAId], references: [id])
+  signerAId      String?
+  signerA        Participant?   @relation("SignerA", fields: [signerAId], references: [id])
+
+  partyBId       String
+  partyB         Institution    @relation("PartyB", fields: [partyBId], references: [id])
+  signerBId      String?
+  signerB        Participant?   @relation("SignerB", fields: [signerBId], references: [id])
+
+  subject        String         @db.Text     // free-form "purpose" from Observatory
+  purpose        String?        @db.Text     // legacy field if we want to keep both
+  primarySector  Sector
+  tags           String[]       @default([])
+
+  phase          Phase          @default(SIGNED)
+  alertStatus    AlertStatus    @default(ACTIVE)
+
+  resultSummary  String?        @db.Text
+  resultDate     DateTime?
+
+  documentUrl    String?
+
+  surveys           Survey[]
+  supportRequests   SupportRequest[]
+  statusChanges     StatusChange[]
+
+  createdById  String?
+  createdBy    User?    @relation("AgreementCreator", fields: [createdById], references: [id])
+  updatedById  String?
+  updatedBy    User?    @relation("AgreementUpdater", fields: [updatedById], references: [id])
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@index([editionId])
+  @@index([phase])
+  @@index([alertStatus])
+  @@index([primarySector])
+  @@index([signedDate])
+  @@index([deletedAt])
+}
+
+// Survey + StatusChange + SupportRequest models unchanged from Bridge.
+// User/Account/Session/VerificationToken unchanged from Bridge.
+
+// ── Reports ────────────────────────────────────────────────────────────────
+// Observatory has /reports/[id] pages. New table to back them.
+
+model Report {
+  id          String   @id
+  title       String
+  slug        String   @unique
+  editionId   String?
+  edition     Edition? @relation(fields: [editionId], references: [id])
+  publishedAt DateTime?
+  summary     String?  @db.Text
+  contentMd   String   @db.Text  // markdown
+  pdfUrl      String?
+  authorId    String?
+  author      User?    @relation("ReportAuthor", fields: [authorId], references: [id])
+  tags        String[] @default([])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([editionId])
+  @@index([publishedAt])
+}
+
+// (Survey, SurveyResponse, SupportRequest, StatusChange, User and Auth.js
+//  models keep their Bridge shape — omitted here for brevity.)
