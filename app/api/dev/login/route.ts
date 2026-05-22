@@ -45,9 +45,17 @@ export async function GET(req: NextRequest) {
 
   const redirectTo = req.nextUrl.searchParams.get("to") ?? "/admin/dashboard";
   const response = NextResponse.redirect(new URL(redirectTo, req.nextUrl));
-  response.cookies.set("authjs.session-token", sessionToken, {
+
+  // NextAuth v5 prefixes the session cookie with `__Secure-` over HTTPS.
+  // Using the wrong name means proxy.ts won't see the session and will bounce
+  // the user back to /sign-in even though we just created the DB row.
+  const isHttps = req.nextUrl.protocol === "https:";
+  const cookieName = isHttps ? "__Secure-authjs.session-token" : "authjs.session-token";
+
+  response.cookies.set(cookieName, sessionToken, {
     httpOnly: true,
     sameSite: "lax",
+    secure: isHttps,
     path: "/",
     maxAge: 7 * 24 * 60 * 60,
   });
