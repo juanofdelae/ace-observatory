@@ -97,6 +97,30 @@
 
   --spacing-sidebar-w: 220px;
   --spacing-sidebar-offset: 260px;
+
+  /* Bridge admin token aliases — let copied admin components compile against
+     the unified theme without rewriting every className. Mapped to Observatory
+     equivalents where possible. */
+  --color-bg: #f4f5f7;
+  --color-surface-2: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text: #0b1f3a;
+  --color-text-muted: #64748b;
+  --color-text-subtle: #94a3b8;
+  --color-primary: #0b1f3a;
+  --color-primary-foreground: #ffffff;
+  --color-primary-soft: #162e4a;
+  --color-secondary: #2563eb;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #f97316;
+  --color-accent-foreground: #ffffff;
+  --color-state-active: #16a34a;
+  --color-state-active-bg: #f0fdf4;
+  --color-state-warning: #d97706;
+  --color-state-warning-bg: #fffbeb;
+  --color-state-closed: #94a3b8;
+  --color-state-blocked: #b91c1c;
+  --color-state-blocked-bg: #fef2f2;
 }
 
 /*
