@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 
 import { AdminPageHeader } from "../../_components/page-header";
+import { MilestoneStrip } from "./_components/milestone-strip";
 
 export const metadata = { title: "Detalle de acuerdo" };
 
@@ -54,6 +55,17 @@ export default async function AgreementDetailPage({ params }: { params: Params }
           />
         </div>
       </div>
+
+      <MilestoneStrip
+        currentPhase={a.phase}
+        signedDate={a.signedDate}
+        resultDate={a.resultDate}
+        statusChanges={a.statusChanges.map((c) => ({
+          fromPhase: c.fromPhase,
+          toPhase: c.toPhase,
+          createdAt: c.createdAt,
+        }))}
+      />
 
       <section className="border-border bg-surface grid grid-cols-2 gap-y-4 gap-x-6 rounded-xl border p-6 md:grid-cols-4">
         <Field label="Código">{a.code}</Field>
