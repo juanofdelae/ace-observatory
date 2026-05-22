@@ -57,11 +57,13 @@ Move Bridge's `src/app/(admin)/*`, `src/lib/*`, `src/components/*` into this
 repo. Bridge's standalone repo is archived once the merge is verified in
 production.
 
-### ADR-002 — Postgres replaces static JSONs as source of truth
+### ADR-002 — Postgres replaces static JSONs as source of truth ~~(superseded)~~
 
-JSONs in `data/_*.json` become **seed inputs**, loaded into Postgres tables
-on first deploy. Subsequent edits go through admin UI → DB. Public pages
-read from DB at request time (with caching).
+> **SUPERSEDED 2026-05-22 by ADR-007 + ADR-008.** Original wording assumed
+> "public pages read from DB at request time" — incompatible with the
+> hybrid deploy model (B) chosen below. The Postgres-as-source-of-truth
+> idea survives, but only on the admin side; public still reads from
+> snapshot JSONs.
 
 ### ADR-003 — Wipe Bridge data, re-seed from Observatory JSONs
 
@@ -94,24 +96,73 @@ field rather than separate tables.
 
 Public routes (`/participants`, `/editions`, `/map`, etc.) are open. Admin
 routes (`/admin/*` route group) require NextAuth session. Same proxy file
-gates the difference.
+gates the difference. In the hybrid model (ADR-007) the proxy only ships
+in the admin build — the public build excludes `(admin)` entirely and
+therefore needs no auth.
+
+### ADR-007 — Hybrid deploy: public static on Apache, admin server on Vercel
+
+Resolved 2026-05-22.
+
+The merged repo produces **two build artifacts** from a single codebase:
+
+| Target | `BUILD_TARGET=public` | `BUILD_TARGET=admin` |
+|---|---|---|
+| `next.config.js` mode | `output: "export"` + `basePath: /ACE/observatory` | full Next.js server (default) |
+| Routes included | everything except `(admin)`, `(auth)`, `api/admin/*` | everything except expensive public statically-exported pages |
+| Data source | `data/_*.json` at build time | Postgres at request time |
+| Host | Apache at `riacevents.org/ACE/observatory` (unchanged) | Vercel (new project) |
+| Auth | none | NextAuth magic link + session |
+| Cron | n/a | Vercel cron (`/api/cron/dispatch-surveys` daily 13:00 UTC) |
+
+**Why B over A (full-Vercel):** preserves the proven static public surface
+(immune to runtime CVEs, fast on cheap hosting, current production URL
+untouched). Trade-off: the publish flow (ADR-008) becomes the price of
+keeping public static.
+
+### ADR-008 — Publish flow: admin → snapshot JSONs → static rebuild
+
+Resolved 2026-05-22. Replaces the invalidated half of ADR-002.
+
+Public pages cannot read from DB at request time (no server runtime).
+Instead, the admin app exports DB → `data/_*.json` snapshots and triggers
+a public rebuild:
+
+```text
+Admin UI [Publish] →
+  /api/admin/publish (Vercel)  →
+    DB → JSON exporter         →
+      git commit + push        →
+        CI rebuild public      →
+          deploy to Apache
+```
+
+Latency expectation: ~2 minutes from Publish click to live. Not real-time
+WYSIWYG — an editorial control feature, not a bug. Reviewers see PR diffs
+on the snapshot JSONs.
+
+Public-side code does NOT change to read from DB. Bridge admin code adds
+the export endpoint.
 
 ## Sequenced execution (after this plan lands)
 
-| Phase | Work | Effort | Risk |
-|---|---|---|---|
-| **M-Up1** | Upgrade Tailwind 3→4 (independent) | 1 day | M |
-| **M-Up2** | Upgrade Next 14→16 + React 18→19 | 2-3 days | H |
-| **M-Up3** | Verify Observatory still builds and renders | 1 day | M |
-| **M-Db** | Add Prisma + Postgres + initial schema | 1 day | L |
-| **M-Seed** | Write seed scripts from JSONs | 2 days | L |
-| **M-Auth** | Add NextAuth + admin proxy | 1 day | L |
-| **M-Admin** | Move Bridge's admin pages, queries, actions | 3-4 days | M |
-| **M-Public** | Rewire public pages to read from DB | 2-3 days | M |
-| **M-Storage** | Add Supabase Storage adapter | 1 day | L |
-| **M-Qa** | E2E sweep + deploy | 2 days | L |
+| Phase | Work | Effort | Risk | Status |
+|---|---|---|---|---|
+| **M-Up1** | Upgrade Tailwind 3→4 (independent) | 1 day | M | ✓ done |
+| **M-Up2** | Upgrade Next 14→16 + React 18→19 | 2-3 days | H | ✓ done |
+| **M-Up3** | Verify Observatory still builds and renders | 1 day | M | pending verify |
+| **M-Db** | Add Prisma + Postgres + initial schema | 1 day | L | ✓ schema done |
+| **M-Seed** | Write seed scripts from JSONs | 2 days | L | ✓ scripts done |
+| **M-Build** | Two-target build config (`BUILD_TARGET=public\|admin`) | 1 day | M | new (ADR-007) |
+| **M-Auth** | Add NextAuth + proxy.ts gating admin routes | 1 day | L | — |
+| **M-Admin** | Copy Bridge `(admin)`, `(auth)`, `api/`, `lib/`, components | 3-4 days | M | — |
+| **M-Publish** | DB → JSON snapshot exporter + `/api/admin/publish` + CI trigger | 2 days | M | new (ADR-008) |
+| **M-Storage** | Add Supabase Storage adapter (new uploads only — historical photos stay in repo) | 1 day | L | — |
+| **M-Qa** | E2E sweep on both build targets + deploy | 2 days | L | — |
 
-**Total: ~3 weeks calendar.**
+~~M-Public~~ removed — ADR-008 makes it unnecessary, public reads JSONs as today.
+
+**Total remaining: ~2 weeks calendar.**
 
 ## What we are NOT doing in this PR
 
@@ -122,13 +173,16 @@ gates the difference.
   uses it, fine for both.
 - Dual-write between DB and JSONs. Once Postgres lands, JSONs are seed only.
 
-## Open questions before M-Up1
+## Resolved questions (2026-05-22)
 
-1. Where does the merged app deploy? Bridge points at Vercel; Observatory
-   has out/ artifacts suggesting static export. Production target needs
-   confirmation.
-2. Do we keep Observatory's `public/participants/historical/*.jpeg` photos
-   in the repo, move them to Supabase Storage, or accept the current layout?
-3. The Memphis participants have base64-encoded emails (`vF2aWxhc2VyaW...`).
-   That privacy pattern: do we preserve it (DB stores encoded) or decode +
-   protect at the API layer?
+1. **Deploy target** — Hybrid (B). Public stays on Apache as static export
+   at `riacevents.org/ACE/observatory`. Admin deploys to Vercel as a
+   server app. Same repo, two build targets. See ADR-007.
+2. **Historical photos** — Stay in repo at `public/participants/historical/`.
+   No Supabase Storage migration for the 521 existing photos. Supabase
+   Storage is reserved for new admin uploads (PDFs, future photos).
+3. **Memphis base64 emails** — Decode at seed time, store plaintext in
+   `Participant.email`. Protect via auth at the API layer (never serialize
+   `email` in public route responses unless caller has admin session).
+   Base64 is encoding not encryption; storing encoded breaks NextAuth
+   magic links, unique indexes, search, validation.
