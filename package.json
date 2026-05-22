@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "build:public": "bash scripts/build-public.sh",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "prisma generate",
     "db:seed": "tsx prisma/seed/index.ts",
     "db:reconcile": "tsx scripts/reconcile-bridge.ts"
   },
