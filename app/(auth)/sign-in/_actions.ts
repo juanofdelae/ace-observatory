@@ -11,7 +11,7 @@ const schema = z.object({
 
 export async function requestMagicLink(
   formData: FormData,
-): Promise<{ ok: true } | { ok: false; message: string }> {
+): Promise<{ ok: true; email: string; from?: string } | { ok: false; message: string }> {
   const parsed = schema.safeParse({
     email: formData.get("email"),
     redirectTo: formData.get("redirectTo") ?? undefined,
@@ -24,15 +24,15 @@ export async function requestMagicLink(
   try {
     await signIn("resend", {
       email: parsed.data.email,
-      redirectTo: parsed.data.redirectTo ?? "/admin",
+      redirectTo: parsed.data.redirectTo ?? "/admin/dashboard",
       redirect: false,
     });
-    return { ok: true };
+    return { ok: true, email: parsed.data.email, from: parsed.data.redirectTo };
   } catch (error) {
-    console.error("Magic link request failed", error);
+    console.error("OTP request failed", error);
     return {
       ok: false,
-      message: "No pudimos enviar el enlace. Intenta de nuevo en unos minutos.",
+      message: "No pudimos enviar el código. Intenta de nuevo en unos minutos.",
     };
   }
 }
