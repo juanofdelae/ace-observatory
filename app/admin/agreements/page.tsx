@@ -45,13 +45,6 @@ function shortEdition(editionId: string, editionName: string): string {
 export const metadata = { title: "Acuerdos" };
 export const dynamic = "force-dynamic";
 
-const dateFmt = new Intl.DateTimeFormat("es-ES", {
-  day: "2-digit",
-  month: "short",
-  year: "numeric",
-  timeZone: "UTC",
-});
-
 const relFmt = new Intl.RelativeTimeFormat("es-ES", { numeric: "auto" });
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -112,7 +105,6 @@ export default async function AgreementsPage({
                 <th className="px-3 py-3 font-medium">Código</th>
                 <th className="px-3 py-3 font-medium">Partes</th>
                 <th className="px-3 py-3 font-medium">Edición</th>
-                <th className="px-3 py-3 font-medium">Firma</th>
                 <th className="px-3 py-3 font-medium">Pipeline</th>
                 <th className="px-3 py-3 font-medium">Alerta</th>
                 <th className="px-3 py-3 font-medium">Sector</th>
@@ -185,9 +177,6 @@ export default async function AgreementsPage({
                     >
                       {shortEdition(row.editionId, row.editionName)}
                     </td>
-                    <td className="text-text-muted px-3 py-2.5 text-xs tabular-nums">
-                      {dateFmt.format(row.signedDate)}
-                    </td>
                     <td className="px-3 py-2.5">
                       <PipelineCell phase={row.phase} closed={closed} />
                     </td>
@@ -215,7 +204,7 @@ export default async function AgreementsPage({
               {items.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={11}
+                    colSpan={10}
                     className="text-text-subtle px-4 py-16 text-center text-sm"
                   >
                     No hay acuerdos que coincidan con los filtros actuales.
