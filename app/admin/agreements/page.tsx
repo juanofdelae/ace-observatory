@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { ArrowUpDown, Plus } from "lucide-react";
 import Link from "next/link";
 
 import { AdminPageHeader } from "@/app/admin/_components/page-header";
@@ -147,27 +147,36 @@ export default async function AgreementsPage({
                       </Link>
                     </td>
                     <td className="px-3 py-2.5">
-                      <div
-                        className="text-text flex max-w-[30ch] items-center gap-1.5 text-[13px]"
-                        title={`${row.partyAName}${row.partyACountry ? ` — ${row.partyACountry}` : ""}`}
-                      >
-                        <CountryFlag
-                          code={row.partyACountryCode}
-                          title={row.partyACountry ?? undefined}
-                          className="shrink-0 text-sm"
+                      <div className="flex items-center gap-2">
+                        <ArrowUpDown
+                          className="text-text-subtle size-3.5 shrink-0"
+                          strokeWidth={1.5}
+                          aria-label="Relación entre las dos partes"
                         />
-                        <span className="truncate">{row.partyAName}</span>
-                      </div>
-                      <div
-                        className="text-text mt-0.5 flex max-w-[30ch] items-center gap-1.5 text-[13px]"
-                        title={`${row.partyBName}${row.partyBCountry ? ` — ${row.partyBCountry}` : ""}`}
-                      >
-                        <CountryFlag
-                          code={row.partyBCountryCode}
-                          title={row.partyBCountry ?? undefined}
-                          className="shrink-0 text-sm"
-                        />
-                        <span className="truncate">{row.partyBName}</span>
+                        <div className="min-w-0 flex-1">
+                          <div
+                            className="text-text flex max-w-[30ch] items-center gap-1.5 text-[13px]"
+                            title={`${row.partyAName}${row.partyACountry ? ` — ${row.partyACountry}` : ""}`}
+                          >
+                            <CountryFlag
+                              code={row.partyACountryCode}
+                              title={row.partyACountry ?? undefined}
+                              className="shrink-0 text-sm"
+                            />
+                            <span className="truncate">{row.partyAName}</span>
+                          </div>
+                          <div
+                            className="text-text mt-0.5 flex max-w-[30ch] items-center gap-1.5 text-[13px]"
+                            title={`${row.partyBName}${row.partyBCountry ? ` — ${row.partyBCountry}` : ""}`}
+                          >
+                            <CountryFlag
+                              code={row.partyBCountryCode}
+                              title={row.partyBCountry ?? undefined}
+                              className="shrink-0 text-sm"
+                            />
+                            <span className="truncate">{row.partyBName}</span>
+                          </div>
+                        </div>
                       </div>
                     </td>
                     <td
