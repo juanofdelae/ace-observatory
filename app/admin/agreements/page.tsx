@@ -10,8 +10,6 @@ import {
   getEditionsForFilter,
   listAgreements,
 } from "@/lib/admin/queries/agreements";
-import { SECTOR_LABELS } from "@/lib/admin/schemas/agreement";
-
 import { AlertPill } from "./_components/alert-pill";
 import { DocumentPill } from "./_components/document-pill";
 import { FilterBar } from "./_components/filter-bar";
@@ -107,7 +105,6 @@ export default async function AgreementsPage({
                 <th className="px-3 py-3 font-medium">Edición</th>
                 <th className="px-3 py-3 font-medium">Pipeline</th>
                 <th className="px-3 py-3 font-medium">Alerta</th>
-                <th className="px-3 py-3 font-medium">Sector</th>
                 <th className="px-3 py-3 font-medium">Actualizado</th>
                 <th className="px-3 py-3 font-medium">Próxima acción</th>
                 <th className="px-3 py-3 font-medium">Doc</th>
@@ -183,9 +180,6 @@ export default async function AgreementsPage({
                     <td className="px-3 py-2.5">
                       <AlertPill status={row.alertStatus} />
                     </td>
-                    <td className="text-text-muted px-3 py-2.5 text-xs">
-                      {SECTOR_LABELS[row.primarySector]}
-                    </td>
                     <td className="text-text-muted px-3 py-2.5 text-xs tabular-nums">
                       {relativeUpdate(row.updatedAt)}
                     </td>
@@ -204,7 +198,7 @@ export default async function AgreementsPage({
               {items.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={10}
+                    colSpan={9}
                     className="text-text-subtle px-4 py-16 text-center text-sm"
                   >
                     No hay acuerdos que coincidan con los filtros actuales.
