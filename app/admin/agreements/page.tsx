@@ -32,6 +32,16 @@ function shortenCode(code: string): string {
   return `${type}-${n}-${city.slice(0, 3)}-${seq}`;
 }
 
+// Compact edition label for table columns: "ACE 23" instead of the full
+// "ACE 23 — Memphis 2026". Pulls the number from the canonical edition ID
+// pattern (`ace-{N}-{region}-{year}`); falls back to the full name for
+// non-standard IDs. Full edition name is preserved in the title attribute.
+function shortEdition(editionId: string, editionName: string): string {
+  const m = editionId.match(/^ace-(\d+)/i);
+  if (!m) return editionName;
+  return `ACE ${m[1]}`;
+}
+
 export const metadata = { title: "Acuerdos" };
 export const dynamic = "force-dynamic";
 
@@ -138,30 +148,34 @@ export default async function AgreementsPage({
                     </td>
                     <td className="px-3 py-2.5">
                       <div
-                        className="text-text flex max-w-[30ch] items-center gap-1.5"
+                        className="text-text flex max-w-[30ch] items-center gap-1.5 text-[13px]"
                         title={`${row.partyAName}${row.partyACountry ? ` — ${row.partyACountry}` : ""}`}
                       >
                         <CountryFlag
                           code={row.partyACountryCode}
-                          title={row.partyACountry ?? row.partyACountryCode ?? ""}
+                          title={row.partyACountry ?? undefined}
                           className="shrink-0 text-sm"
                         />
                         <span className="truncate">{row.partyAName}</span>
                       </div>
                       <div
-                        className="text-text-muted flex max-w-[30ch] items-center gap-1.5 text-xs"
+                        className="text-text mt-0.5 flex max-w-[30ch] items-center gap-1.5 text-[13px]"
                         title={`${row.partyBName}${row.partyBCountry ? ` — ${row.partyBCountry}` : ""}`}
                       >
-                        <span className="text-text-subtle" aria-hidden>↔</span>
                         <CountryFlag
                           code={row.partyBCountryCode}
-                          title={row.partyBCountry ?? row.partyBCountryCode ?? ""}
+                          title={row.partyBCountry ?? undefined}
                           className="shrink-0 text-sm"
                         />
                         <span className="truncate">{row.partyBName}</span>
                       </div>
                     </td>
-                    <td className="text-text-muted px-3 py-2.5 text-xs">{row.editionName}</td>
+                    <td
+                      className="text-text-muted px-3 py-2.5 text-xs whitespace-nowrap"
+                      title={row.editionName}
+                    >
+                      {shortEdition(row.editionId, row.editionName)}
+                    </td>
                     <td className="text-text-muted px-3 py-2.5 text-xs tabular-nums">
                       {dateFmt.format(row.signedDate)}
                     </td>
