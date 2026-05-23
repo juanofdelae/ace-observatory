@@ -27,10 +27,12 @@ export type AgreementListItem = {
   partyAId: string;
   partyAName: string;
   partyACountry: string | null;
+  partyACountryCode: string | null;
   signerAId: string | null;
   partyBId: string;
   partyBName: string;
   partyBCountry: string | null;
+  partyBCountryCode: string | null;
   editionId: string;
   editionName: string;
   editionYear: number;
@@ -140,8 +142,8 @@ export async function listAgreements(filters: AgreementFilters): Promise<Agreeme
       where,
       orderBy: [{ signedDate: "desc" }],
       include: {
-        partyA: { select: { name: true, countryLabel: true } },
-        partyB: { select: { name: true, countryLabel: true } },
+        partyA: { select: { name: true, countryLabel: true, countryId: true } },
+        partyB: { select: { name: true, countryLabel: true, countryId: true } },
         edition: { select: { name: true, year: true } },
       },
     }),
@@ -167,10 +169,12 @@ export async function listAgreements(filters: AgreementFilters): Promise<Agreeme
     partyAId: row.partyAId,
     partyAName: row.partyA.name,
     partyACountry: row.partyA.countryLabel || null,
+    partyACountryCode: row.partyA.countryId,
     signerAId: row.signerAId,
     partyBId: row.partyBId,
     partyBName: row.partyB.name,
     partyBCountry: row.partyB.countryLabel || null,
+    partyBCountryCode: row.partyB.countryId,
     editionId: row.editionId,
     editionName: row.edition.name,
     editionYear: row.edition.year,

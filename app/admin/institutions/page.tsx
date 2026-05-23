@@ -1,5 +1,6 @@
 import { listInstitutions } from "@/lib/admin/queries/lists";
 
+import { CountryFlag } from "../_components/country-flag";
 import { AdminEmpty, AdminPageHeader, adminTableShell } from "../_components/page-header";
 
 export const metadata = { title: "Instituciones" };
@@ -44,8 +45,15 @@ export default async function InstitutionsPage() {
                 <td className={t.td + " text-text-muted text-xs"}>
                   {TYPE_LABEL[row.type] ?? row.type}
                 </td>
-                <td className={t.td + " text-text-muted uppercase tabular-nums"}>
-                  {row.countryLabel}
+                <td className={t.td + " text-text-muted tabular-nums"}>
+                  <span className="inline-flex items-center gap-1.5">
+                    <CountryFlag
+                      code={row.countryId}
+                      title={row.countryLabel}
+                      className="text-sm"
+                    />
+                    <span className="uppercase">{row.countryLabel}</span>
+                  </span>
                 </td>
                 <td className={t.td + " text-text-muted truncate max-w-[30ch] text-xs"}>
                   {row.website ? (

@@ -1,5 +1,9 @@
-import { FileText, FileX2 } from "lucide-react";
+import { AlertTriangle, FileText } from "lucide-react";
 
+// Document presence is operationally critical. Present → soft green pill so
+// the eye can confirm at a glance; missing → soft orange pill so the row
+// reads as "action needed". No gray fallback — missing documents should
+// never be visually quiet.
 export function DocumentPill({ url }: { url: string | null }) {
   if (url) {
     return (
@@ -7,7 +11,7 @@ export function DocumentPill({ url }: { url: string | null }) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="border-border bg-surface-canvas text-text hover:bg-surface inline-flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-[11px] font-medium transition-colors"
+        className="border-state-active/30 bg-state-active/10 text-state-active hover:bg-state-active/15 inline-flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-[11px] font-medium transition-colors"
         title="Abrir PDF en una pestaña nueva"
       >
         <FileText className="size-3" aria-hidden />
@@ -17,11 +21,11 @@ export function DocumentPill({ url }: { url: string | null }) {
   }
   return (
     <span
-      className="text-text-subtle inline-flex items-center gap-1 text-[11px] font-medium"
-      title="No hay documento adjunto"
+      className="border-state-warning/30 bg-state-warning/10 text-state-warning inline-flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-[11px] font-medium"
+      title="No hay documento adjunto — acción operativa pendiente"
     >
-      <FileX2 className="size-3" aria-hidden />
-      Falta
+      <AlertTriangle className="size-3" aria-hidden />
+      Falta PDF
     </span>
   );
 }

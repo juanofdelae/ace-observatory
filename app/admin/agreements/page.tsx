@@ -2,6 +2,7 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 
 import { AdminPageHeader } from "@/app/admin/_components/page-header";
+import { CountryFlag } from "@/app/admin/_components/country-flag";
 import { parseFilters } from "@/lib/admin/agreements/url-state";
 import { deriveNextAction } from "@/lib/admin/derive/next-action";
 import {
@@ -19,6 +20,17 @@ import { PipelineCell } from "./_components/pipeline-cell";
 import { RowActions } from "./_components/row-actions";
 import { SearchInput } from "./_components/search-input";
 import { ViewTabs } from "./_components/view-tabs";
+
+// Strips the redundant "ACE-" prefix and 4-digit year, abbreviates the host
+// city to its first three letters: LOI-ACE-22-CORDOBA-2025-002 → LOI-22-COR-002.
+// Codes that don't match the canonical pattern (legacy, custom, smoke) pass
+// through unchanged. Full code stays accessible via the title attribute.
+function shortenCode(code: string): string {
+  const m = code.match(/^([A-Z]+)-ACE-(\d+)-([A-Z]+)-\d{4}-(\d+)$/);
+  if (!m) return code;
+  const [, type, n, city, seq] = m;
+  return `${type}-${n}-${city.slice(0, 3)}-${seq}`;
+}
 
 export const metadata = { title: "Acuerdos" };
 export const dynamic = "force-dynamic";
@@ -115,31 +127,38 @@ export default async function AgreementsPage({
                     key={row.id}
                     className="border-border hover:bg-surface-canvas border-b last:border-0 transition-colors"
                   >
-                    <td className="px-3 py-2.5 font-mono text-xs">
+                    <td className="px-3 py-2.5 font-mono text-xs whitespace-nowrap">
                       <Link
                         href={`/admin/agreements/${row.id}`}
                         className="text-secondary hover:underline"
+                        title={row.code}
                       >
-                        {row.code}
+                        {shortenCode(row.code)}
                       </Link>
                     </td>
                     <td className="px-3 py-2.5">
-                      <div className="text-text max-w-[28ch] truncate" title={row.partyAName}>
-                        {row.partyAName}
-                        {row.partyACountry ? (
-                          <span className="text-text-subtle ml-1 text-xs">
-                            · {row.partyACountry}
-                          </span>
-                        ) : null}
+                      <div
+                        className="text-text flex max-w-[30ch] items-center gap-1.5"
+                        title={`${row.partyAName}${row.partyACountry ? ` — ${row.partyACountry}` : ""}`}
+                      >
+                        <CountryFlag
+                          code={row.partyACountryCode}
+                          title={row.partyACountry ?? row.partyACountryCode ?? ""}
+                          className="shrink-0 text-sm"
+                        />
+                        <span className="truncate">{row.partyAName}</span>
                       </div>
                       <div
-                        className="text-text-muted max-w-[28ch] truncate text-xs"
-                        title={row.partyBName}
+                        className="text-text-muted flex max-w-[30ch] items-center gap-1.5 text-xs"
+                        title={`${row.partyBName}${row.partyBCountry ? ` — ${row.partyBCountry}` : ""}`}
                       >
-                        ↔ {row.partyBName}
-                        {row.partyBCountry ? (
-                          <span className="text-text-subtle ml-1">· {row.partyBCountry}</span>
-                        ) : null}
+                        <span className="text-text-subtle" aria-hidden>↔</span>
+                        <CountryFlag
+                          code={row.partyBCountryCode}
+                          title={row.partyBCountry ?? row.partyBCountryCode ?? ""}
+                          className="shrink-0 text-sm"
+                        />
+                        <span className="truncate">{row.partyBName}</span>
                       </div>
                     </td>
                     <td className="text-text-muted px-3 py-2.5 text-xs">{row.editionName}</td>
