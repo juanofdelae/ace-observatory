@@ -103,7 +103,7 @@ export default async function AgreementsPage({
                 <th className="px-3 py-3 font-medium">Código</th>
                 <th className="px-3 py-3 font-medium">Partes</th>
                 <th className="px-3 py-3 font-medium">Edición</th>
-                <th className="px-3 py-3 font-medium">Pipeline</th>
+                <th className="px-3 py-3 font-medium">Avance</th>
                 <th className="px-3 py-3 font-medium">Alerta</th>
                 <th className="px-3 py-3 font-medium">Actualizado</th>
                 <th className="px-3 py-3 font-medium">Próxima acción</th>
