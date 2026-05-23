@@ -14,6 +14,7 @@ import { AlertPill } from "./_components/alert-pill";
 import { DocumentPill } from "./_components/document-pill";
 import { FilterBar } from "./_components/filter-bar";
 import { NextActionPill } from "./_components/next-action-pill";
+import { PhaseLegend } from "./_components/phase-legend";
 import { PipelineCell } from "./_components/pipeline-cell";
 import { RowActions } from "./_components/row-actions";
 import { SearchInput } from "./_components/search-input";
@@ -87,6 +88,8 @@ export default async function AgreementsPage({
           Nuevo acuerdo
         </Link>
       </header>
+
+      <PhaseLegend />
 
       <ViewTabs filters={filters} counts={countsPerView} />
 

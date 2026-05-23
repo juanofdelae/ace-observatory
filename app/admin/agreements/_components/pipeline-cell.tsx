@@ -9,12 +9,16 @@ type StepDef = {
   label: string;
 };
 
-const STEPS: ReadonlyArray<StepDef> = [
+// Exported so the page header can render a legend using the same icons +
+// labels — single source of truth for phase visualization.
+export const PHASE_STEPS: ReadonlyArray<StepDef> = [
   { phase: Phase.SIGNED, icon: FileSignature, label: "Firmado" },
   { phase: Phase.CONTACTED, icon: Send, label: "Contactado" },
   { phase: Phase.ACTIVE, icon: Activity, label: "Activo" },
   { phase: Phase.RESULT, icon: CheckCircle2, label: "Resultado" },
 ];
+
+const STEPS = PHASE_STEPS;
 
 const ORDER: Record<Phase, number> = {
   SIGNED: 0,
