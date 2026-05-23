@@ -21,7 +21,7 @@ export default async function NewAgreementPage() {
   ]);
 
   return (
-    <div className="mx-auto max-w-3xl space-y-8">
+    <div className="mx-auto max-w-4xl space-y-8">
       <div>
         <Link
           href="/admin/agreements"
