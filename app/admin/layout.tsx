@@ -1,16 +1,13 @@
-import { redirect } from "next/navigation";
-
 import { Header } from "@/components/admin-layout/header";
 import { Sidebar } from "@/components/admin-layout/sidebar";
 import { TooltipProvider } from "@/components/admin-ui/tooltip";
-import { auth } from "@/lib/auth";
+import { STUB_USER } from "@/lib/admin/authz";
+import { getSidebarCounters } from "@/lib/admin/queries/sidebar-counters";
 
-export default async function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const session = await auth();
-
-  if (!session?.user) {
-    redirect("/sign-in");
-  }
+export default async function AdminLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  const counters = await getSidebarCounters();
 
   return (
     <TooltipProvider>
@@ -18,10 +15,11 @@ export default async function AdminLayout({ children }: Readonly<{ children: Rea
         <div className="hidden md:block">
           <Sidebar
             user={{
-              email: session.user.email ?? "",
-              name: session.user.name,
-              role: session.user.role,
+              email: STUB_USER.email,
+              name: STUB_USER.name,
+              role: STUB_USER.role,
             }}
+            counters={counters}
           />
         </div>
         <div className="flex min-h-screen flex-col">

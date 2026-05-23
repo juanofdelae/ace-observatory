@@ -4,19 +4,29 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { NAV_ITEMS } from "@/lib/admin/nav";
+import type { SidebarCounters } from "@/lib/admin/queries/sidebar-counters";
 import { cn } from "@/lib/utils";
 
 type SidebarNavProps = {
   /** Optional callback for closing the mobile sheet after a link click. */
   onNavigate?: () => void;
+  counters?: SidebarCounters;
 };
 
 function isActive(pathname: string, href: string): boolean {
-  if (href === "/dashboard") return pathname === "/dashboard";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function SidebarNav({ onNavigate }: SidebarNavProps) {
+// Map nav href → counter key. Null counters (or 0) hide the badge.
+function counterFor(href: string, counters?: SidebarCounters): number | null {
+  if (!counters) return null;
+  if (href === "/admin/agreements") return counters.needsAttention || null;
+  if (href === "/admin/support") return counters.openSupport || null;
+  if (href === "/admin/surveys") return counters.pendingSurveys || null;
+  return null;
+}
+
+export function SidebarNav({ onNavigate, counters }: SidebarNavProps) {
   const pathname = usePathname();
 
   return (
@@ -24,6 +34,7 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
       {NAV_ITEMS.map((item) => {
         const Icon = item.icon;
         const active = isActive(pathname, item.href);
+        const count = counterFor(item.href, counters);
         return (
           <Link
             key={item.href}
@@ -45,7 +56,20 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
               aria-hidden
               strokeWidth={1.75}
             />
-            <span className="truncate">{item.label}</span>
+            <span className="flex-1 truncate">{item.label}</span>
+            {count !== null ? (
+              <span
+                className={cn(
+                  "ml-auto inline-flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10px] font-semibold tabular-nums",
+                  item.href === "/admin/agreements"
+                    ? "bg-state-warning/15 text-state-warning"
+                    : "bg-surface-canvas text-text-muted",
+                )}
+                aria-label={`${count} pendientes`}
+              >
+                {count > 99 ? "99+" : count}
+              </span>
+            ) : null}
           </Link>
         );
       })}

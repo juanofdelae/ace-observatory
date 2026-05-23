@@ -1,34 +1,50 @@
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import NextAuth from "next-auth";
-import Resend from "next-auth/providers/resend";
+// Stub auth surface for the ACE Bridge section. In-app authentication is
+// disabled by design — protection at the hosting layer (Cloudflare, Vercel
+// password, HTTP Basic) handles access control. This file is kept (instead of
+// deleted) so the seven existing import sites compile without changes; each
+// export below is a deliberate no-op.
+//
+// To re-enable NextAuth: `git log -- lib/auth.ts` shows the original setup.
 
-import { env } from "@/lib/env";
-import { prisma } from "@/lib/prisma";
+import type { UserRole } from "@prisma/client";
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: PrismaAdapter(prisma),
-  session: { strategy: "database" },
-  secret: env.NEXTAUTH_SECRET,
-  providers: [
-    Resend({
-      apiKey: env.RESEND_API_KEY ?? "re_dev_placeholder",
-      from: env.EMAIL_FROM,
-      // 30-min validity — long enough for the user to switch to their inbox.
-      maxAge: 30 * 60,
-    }),
-  ],
-  pages: {
-    signIn: "/sign-in",
-    verifyRequest: "/sign-in/check-inbox",
-    error: "/sign-in/error",
+export const STUB_SESSION = {
+  user: {
+    id: "stub-testing-user",
+    email: "testing@observatory.ace",
+    name: "Testing",
+    role: "ADMIN" as UserRole,
   },
-  callbacks: {
-    session({ session, user }) {
-      if (session.user) {
-        session.user.id = user.id;
-        session.user.role = user.role;
-      }
-      return session;
-    },
-  },
-});
+};
+
+type AnyFn = (...args: unknown[]) => unknown;
+
+// NextAuth's `auth` is overloaded:
+//   await auth()         → session
+//   auth(handler)        → handler wrapped as middleware (HOF)
+// The stub mimics both call shapes so call sites compile unchanged.
+export function auth(handler?: AnyFn): unknown {
+  if (typeof handler === "function") {
+    return async (...args: unknown[]) => {
+      const req = args[0] as { auth?: typeof STUB_SESSION } | undefined;
+      if (req && typeof req === "object") req.auth = STUB_SESSION;
+      return handler(...args);
+    };
+  }
+  return Promise.resolve(STUB_SESSION);
+}
+
+export async function signIn(..._args: unknown[]): Promise<void> {
+  // no-op
+}
+
+export async function signOut(..._args: unknown[]): Promise<void> {
+  // no-op
+}
+
+// The NextAuth route handler is deleted in this build — these are stubs in
+// case any external caller probes /api/auth/* directly.
+export const handlers = {
+  GET: () => new Response("Auth disabled in this build.", { status: 410 }),
+  POST: () => new Response("Auth disabled in this build.", { status: 410 }),
+};

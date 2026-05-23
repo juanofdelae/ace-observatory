@@ -12,12 +12,14 @@ const optionalString = z
 
 const envSchema = z.object({
   DATABASE_URL: z.string().url("DATABASE_URL must be a valid Postgres URL"),
-  NEXTAUTH_URL: z.string().url(),
-  NEXTAUTH_SECRET: z
-    .string()
-    .min(16, "NEXTAUTH_SECRET must be >= 16 chars (use `openssl rand -base64 32`)"),
+  // NEXTAUTH_* and EMAIL_* are optional since the ACE Bridge section disables
+  // in-app authentication and ships the mail dispatcher in dry-run mode.
+  // Keeping the keys here (rather than removing) means an old .env.local with
+  // these set still parses fine.
+  NEXTAUTH_URL: optionalString.pipe(z.string().url().optional()),
+  NEXTAUTH_SECRET: optionalString,
   RESEND_API_KEY: optionalString,
-  EMAIL_FROM: z.string().min(1),
+  EMAIL_FROM: optionalString,
   EMAIL_REPLY_TO: optionalString.pipe(z.string().email().optional()),
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   SUPABASE_URL: optionalString.pipe(z.string().url().optional()),

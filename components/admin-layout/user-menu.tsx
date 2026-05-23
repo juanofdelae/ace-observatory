@@ -1,17 +1,14 @@
 "use client";
 
-import { LogOut, UserCircle } from "lucide-react";
-import { useTransition } from "react";
+import { UserCircle } from "lucide-react";
 
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/admin-ui/dropdown-menu";
-import { signOutAction } from "@/lib/admin/auth-actions";
 
 type UserMenuProps = {
   email: string;
@@ -19,20 +16,16 @@ type UserMenuProps = {
   role: string;
 };
 
+// Auth is disabled in this build — the menu is a static identity badge with
+// no sign-out action. Restore the "Cerrar sesión" item + signOutAction wiring
+// if you re-enable real sessions.
 export function UserMenu({ email, name, role }: UserMenuProps) {
-  const [isPending, startTransition] = useTransition();
   const display = name?.trim() || email;
   const initials = display
     .split(" ")
     .slice(0, 2)
     .map((s) => s[0]?.toUpperCase() ?? "")
     .join("");
-
-  function handleSignOut() {
-    startTransition(() => {
-      void signOutAction();
-    });
-  }
 
   return (
     <DropdownMenu>
@@ -47,14 +40,13 @@ export function UserMenu({ email, name, role }: UserMenuProps) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" side="top" className="w-56">
         <DropdownMenuLabel className="flex flex-col">
-          <span className="text-text-muted text-xs font-normal">Sesión iniciada como</span>
+          <span className="text-text-muted text-xs font-normal">Usuario (sin sesión)</span>
           <span className="text-text truncate text-sm font-medium">{email}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem variant="destructive" disabled={isPending} onClick={handleSignOut}>
-          <LogOut className="mr-2 h-4 w-4" aria-hidden />
-          {isPending ? "Cerrando sesión…" : "Cerrar sesión"}
-        </DropdownMenuItem>
+        <DropdownMenuLabel className="text-text-muted text-[11px] font-normal leading-snug">
+          Auth deshabilitada en este build. La protección la maneja el hosting.
+        </DropdownMenuLabel>
       </DropdownMenuContent>
     </DropdownMenu>
   );

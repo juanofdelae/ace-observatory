@@ -2,14 +2,16 @@ import Link from "next/link";
 
 import { SidebarNav } from "@/components/admin-layout/sidebar-nav";
 import { UserMenu } from "@/components/admin-layout/user-menu";
+import type { SidebarCounters } from "@/lib/admin/queries/sidebar-counters";
 import { cn } from "@/lib/utils";
 
 type SidebarProps = {
   user: { email: string; name?: string | null; role: string };
+  counters?: SidebarCounters;
   className?: string;
 };
 
-export function Sidebar({ user, className }: SidebarProps) {
+export function Sidebar({ user, counters, className }: SidebarProps) {
   return (
     <aside
       className={cn(
@@ -18,7 +20,7 @@ export function Sidebar({ user, className }: SidebarProps) {
       )}
     >
       <div className="flex h-16 items-center px-6">
-        <Link href="/dashboard" className="flex items-center gap-2.5">
+        <Link href="/admin/dashboard" className="flex items-center gap-2.5">
           <span className="bg-primary text-primary-foreground inline-flex h-7 w-7 items-center justify-center rounded-md text-[11px] font-bold tracking-tight">
             AB
           </span>
@@ -27,7 +29,7 @@ export function Sidebar({ user, className }: SidebarProps) {
       </div>
 
       <div className="flex-1 overflow-y-auto px-3 pt-2 pb-4">
-        <SidebarNav />
+        <SidebarNav counters={counters} />
       </div>
 
       <div className="px-3 pb-3">

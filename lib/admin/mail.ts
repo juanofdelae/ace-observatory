@@ -21,7 +21,11 @@ export type MailResult =
 let cachedClient: Resend | null = null;
 
 function isLive(): boolean {
-  return !!env.RESEND_API_KEY && env.RESEND_API_KEY !== "re_dev_placeholder";
+  // ACE Bridge spec: email dispatcher pinned to dry-run regardless of env.
+  // Every call logs to stdout via the branch below; nothing reaches Resend.
+  // Restore `!!env.RESEND_API_KEY && env.RESEND_API_KEY !== "re_dev_placeholder"`
+  // to re-enable live sends.
+  return false;
 }
 
 function client(): Resend {
@@ -38,7 +42,7 @@ function client(): Resend {
  * real sends.
  */
 export async function sendMail(message: MailMessage): Promise<MailResult> {
-  const from = message.from ?? env.EMAIL_FROM;
+  const from = message.from ?? env.EMAIL_FROM ?? "noreply@observatory.ace";
   if (!isLive()) {
     console.log(
       `[mail:dry-run] to=${message.to.join(",")} subject="${message.subject}" from="${from}"`,

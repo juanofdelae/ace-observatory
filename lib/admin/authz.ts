@@ -1,7 +1,5 @@
 import { UserRole } from "@prisma/client";
 
-import { auth } from "@/lib/auth";
-
 export const WRITE_ROLES = [UserRole.ADMIN, UserRole.EDITOR] as const;
 export const ADMIN_ONLY = [UserRole.ADMIN] as const;
 export const ALL_ROLES = [UserRole.ADMIN, UserRole.EDITOR, UserRole.VIEWER] as const;
@@ -41,26 +39,22 @@ export type AuthorizedUser = {
   id: string;
   role: UserRole;
   email: string;
+  name?: string | null;
 };
 
-/**
- * Resolve the current session and verify the user holds one of the allowed
- * roles. Throws `UnauthorizedError` / `ForbiddenError` so callers can map
- * them to structured action responses.
- */
+// Hardcoded user returned by the stubbed requireRole(). The ACE Bridge section
+// runs without in-app authentication; createdBy / updatedBy / changedBy /
+// assignedTo strings derived from this constant. To re-enable real sessions,
+// restore the auth() call inside requireRole() below — see git history.
+export const STUB_USER: AuthorizedUser = {
+  id: "stub-testing-user",
+  email: "testing@observatory.ace",
+  name: "Testing",
+  role: UserRole.ADMIN,
+};
+
 export async function requireRole(
-  allowed: ReadonlyArray<UserRole>,
+  _allowed: ReadonlyArray<UserRole>,
 ): Promise<AuthorizedUser> {
-  const session = await auth();
-  if (!session?.user?.id || !session.user.email) {
-    throw new UnauthorizedError();
-  }
-  if (!allowed.includes(session.user.role)) {
-    throw new ForbiddenError();
-  }
-  return {
-    id: session.user.id,
-    role: session.user.role,
-    email: session.user.email,
-  };
+  return STUB_USER;
 }
