@@ -27,6 +27,45 @@ const ORDER: Record<Phase, number> = {
   RESULT: 3,
 };
 
+// Per-phase color classes. Each phase owns a Tailwind color (blue → amber →
+// emerald → violet) so the pipeline reads as a journey with milestones,
+// not as a single-color progress bar. State (done/current/future) modulates
+// intensity within the phase's color. Strings are written literally — needed
+// so Tailwind's JIT picks them up (no dynamic class composition).
+export const PHASE_CLS: Record<
+  Phase,
+  { done: string; current: string; future: string; legend: string; line: string }
+> = {
+  SIGNED: {
+    done: "border-blue-500 bg-blue-500 text-white",
+    current: "border-blue-500 bg-blue-500/10 text-blue-600 ring-2 ring-blue-500/25",
+    future: "border-blue-200 bg-blue-50 text-blue-300",
+    legend: "border-blue-500/40 bg-blue-500/10 text-blue-600",
+    line: "bg-blue-500",
+  },
+  CONTACTED: {
+    done: "border-amber-500 bg-amber-500 text-white",
+    current: "border-amber-500 bg-amber-500/10 text-amber-600 ring-2 ring-amber-500/25",
+    future: "border-amber-200 bg-amber-50 text-amber-300",
+    legend: "border-amber-500/40 bg-amber-500/10 text-amber-600",
+    line: "bg-amber-500",
+  },
+  ACTIVE: {
+    done: "border-emerald-500 bg-emerald-500 text-white",
+    current: "border-emerald-500 bg-emerald-500/10 text-emerald-600 ring-2 ring-emerald-500/25",
+    future: "border-emerald-200 bg-emerald-50 text-emerald-300",
+    legend: "border-emerald-500/40 bg-emerald-500/10 text-emerald-600",
+    line: "bg-emerald-500",
+  },
+  RESULT: {
+    done: "border-violet-500 bg-violet-500 text-white",
+    current: "border-violet-500 bg-violet-500/10 text-violet-600 ring-2 ring-violet-500/25",
+    future: "border-violet-200 bg-violet-50 text-violet-300",
+    legend: "border-violet-500/40 bg-violet-500/10 text-violet-600",
+    line: "bg-violet-500",
+  },
+};
+
 type DotState = "done" | "current" | "future";
 
 function stateFor(idx: number, currentIdx: number): DotState {
@@ -35,9 +74,10 @@ function stateFor(idx: number, currentIdx: number): DotState {
   return "future";
 }
 
-// Inline 4-phase pipeline. Completed steps fill, current step gets a ring,
-// future steps are muted. When the agreement is CLOSED everything reads as
-// muted — closed agreements have no current step to act on.
+// Inline 4-phase pipeline. Each phase has its own color (blue/amber/emerald/
+// violet) so the row reads as a journey; state controls intensity (filled
+// done, ringed current, muted future). Closed agreements collapse to gray
+// since there's no current step to act on.
 export function PipelineCell({
   phase,
   closed,
@@ -55,23 +95,16 @@ export function PipelineCell({
       {STEPS.map((step, idx) => {
         const Icon = step.icon;
         const state = stateFor(idx, currentIdx);
-        const muted = closed;
+        const cls = PHASE_CLS[step.phase];
         return (
           <div key={step.phase} className="flex items-center" title={step.label}>
             <span
               className={cn(
                 "inline-flex h-5 w-5 items-center justify-center rounded-full border transition-colors",
-                muted &&
-                  "border-border bg-surface-canvas text-text-subtle",
-                !muted &&
-                  state === "done" &&
-                  "border-state-active bg-state-active text-white",
-                !muted &&
-                  state === "current" &&
-                  "border-state-active text-state-active bg-state-active/10 ring-2 ring-state-active/20",
-                !muted &&
-                  state === "future" &&
-                  "border-border bg-surface-canvas text-text-subtle",
+                closed && "border-border bg-surface-canvas text-text-subtle",
+                !closed && state === "done" && cls.done,
+                !closed && state === "current" && cls.current,
+                !closed && state === "future" && cls.future,
               )}
             >
               <Icon className="size-2.5" strokeWidth={2.5} aria-hidden />
@@ -81,7 +114,7 @@ export function PipelineCell({
                 aria-hidden
                 className={cn(
                   "block h-px w-2.5",
-                  !muted && state === "done" ? "bg-state-active" : "bg-border",
+                  !closed && state === "done" ? cls.line : "bg-border",
                 )}
               />
             ) : null}
