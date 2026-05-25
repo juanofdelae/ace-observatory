@@ -15,7 +15,16 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 export default async function InstitutionsPage() {
-  const rows = await listInstitutions();
+  const all = await listInstitutions();
+  // Sort by total agreements DESC, then by name ASC as tiebreaker so rows
+  // with equal counts stay alphabetical. Prisma can't sum two relation
+  // counts in orderBy; for ~800 rows, sorting in JS is microseconds.
+  const rows = [...all].sort((a, b) => {
+    const aTotal = a._count.partsA + a._count.partsB;
+    const bTotal = b._count.partsA + b._count.partsB;
+    if (bTotal !== aTotal) return bTotal - aTotal;
+    return a.name.localeCompare(b.name);
+  });
   const t = adminTableShell();
 
   return (
