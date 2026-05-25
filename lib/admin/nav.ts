@@ -1,12 +1,9 @@
 import {
   Building2,
-  Calendar,
   ClipboardList,
   FileText,
-  LayoutDashboard,
   LifeBuoy,
   Settings,
-  Users,
   type LucideIcon,
 } from "lucide-react";
 
@@ -18,17 +15,16 @@ export type NavItem = {
   upcoming?: boolean;
 };
 
-// All admin routes live under /admin/* in the merged Observatory app so the
-// proxy.ts gate can match them with a single prefix. Every item ships a
-// read-only page in M-Admin Phase 2; CRUD / mutation UIs land in Phase 3.
+// Sidebar is scoped to the operational core for MVP. Reference-only pages
+// (Dashboard / Participantes / Ediciones) still exist at their /admin/*
+// URLs — they're just not advertised in nav because they don't drive
+// day-to-day decisions on agreements. Re-add the imports + items here if
+// you want to expose them again.
 export const NAV_ITEMS: ReadonlyArray<NavItem> = [
-  { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/agreements", label: "Acuerdos", icon: FileText },
   { href: "/admin/institutions", label: "Instituciones", icon: Building2 },
-  { href: "/admin/participants", label: "Participantes", icon: Users },
-  { href: "/admin/surveys", label: "Encuestas", icon: ClipboardList },
   { href: "/admin/support", label: "Solicitudes de apoyo", icon: LifeBuoy },
-  { href: "/admin/editions", label: "Ediciones", icon: Calendar },
+  { href: "/admin/surveys", label: "Encuestas", icon: ClipboardList },
   { href: "/admin/settings", label: "Configuración", icon: Settings },
 ];
 
