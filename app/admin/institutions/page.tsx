@@ -34,13 +34,14 @@ export default async function InstitutionsPage() {
               <th className={t.th}>Nombre</th>
               <th className={t.th}>Tipo</th>
               <th className={t.th}>País</th>
-              <th className={t.th}>Sitio web</th>
+              <th className={t.th + " text-right"}>Acuerdos</th>
               <th className={t.th}>Participante(s)</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => {
               const extra = row._count.participants - row.participants.length;
+              const agreements = row._count.partsA + row._count.partsB;
               return (
                 <tr key={row.id} className={t.tr}>
                   <td className={t.td + " text-text font-medium"}>{row.name}</td>
@@ -57,19 +58,14 @@ export default async function InstitutionsPage() {
                       <span className="uppercase">{row.countryLabel}</span>
                     </span>
                   </td>
-                  <td className={t.td + " text-text-muted truncate max-w-[30ch] text-xs"}>
-                    {row.website ? (
-                      <a
-                        href={row.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-secondary hover:underline"
-                      >
-                        {row.website.replace(/^https?:\/\//, "").slice(0, 40)}
-                      </a>
-                    ) : (
-                      "—"
-                    )}
+                  <td
+                    className={
+                      t.td +
+                      " text-right tabular-nums " +
+                      (agreements > 0 ? "text-text font-medium" : "text-text-subtle")
+                    }
+                  >
+                    {agreements}
                   </td>
                   <td className={t.td + " text-text-muted text-xs"}>
                     {row.participants.length === 0 ? (

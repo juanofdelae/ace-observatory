@@ -30,7 +30,10 @@ export async function listInstitutions() {
         select: { id: true, fullName: true, position: true },
         take: 3,
       },
-      _count: { select: { participants: true } },
+      // partsA + partsB give the total number of LOIs the institution
+      // appears on (as either side). Summed in the page; ordered separately
+      // would require a computed column.
+      _count: { select: { participants: true, partsA: true, partsB: true } },
     },
   });
 }
