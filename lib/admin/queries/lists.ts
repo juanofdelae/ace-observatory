@@ -21,6 +21,15 @@ export async function listInstitutions() {
       countryId: true,
       countryLabel: true,
       website: true,
+      // Pull the first few participants so the institutions table can show
+      // WHO from this institution attended (not just the count). Capped at
+      // 3 names — the rest collapse to a "+N más" pill in the UI.
+      participants: {
+        where: { deletedAt: null },
+        orderBy: { fullName: "asc" },
+        select: { id: true, fullName: true, position: true },
+        take: 3,
+      },
       _count: { select: { participants: true } },
     },
   });

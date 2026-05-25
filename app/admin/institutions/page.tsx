@@ -35,45 +35,72 @@ export default async function InstitutionsPage() {
               <th className={t.th}>Tipo</th>
               <th className={t.th}>País</th>
               <th className={t.th}>Sitio web</th>
-              <th className={t.th + " text-right"}>Participantes</th>
+              <th className={t.th}>Participante(s)</th>
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
-              <tr key={row.id} className={t.tr}>
-                <td className={t.td + " text-text font-medium"}>{row.name}</td>
-                <td className={t.td + " text-text-muted text-xs"}>
-                  {TYPE_LABEL[row.type] ?? row.type}
-                </td>
-                <td className={t.td + " text-text-muted tabular-nums"}>
-                  <span className="inline-flex items-center gap-1.5">
-                    <CountryFlag
-                      code={row.countryId}
-                      title={row.countryLabel}
-                      className="text-sm"
-                    />
-                    <span className="uppercase">{row.countryLabel}</span>
-                  </span>
-                </td>
-                <td className={t.td + " text-text-muted truncate max-w-[30ch] text-xs"}>
-                  {row.website ? (
-                    <a
-                      href={row.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-secondary hover:underline"
-                    >
-                      {row.website.replace(/^https?:\/\//, "").slice(0, 40)}
-                    </a>
-                  ) : (
-                    "—"
-                  )}
-                </td>
-                <td className={t.td + " text-text text-right font-medium tabular-nums"}>
-                  {row._count.participants}
-                </td>
-              </tr>
-            ))}
+            {rows.map((row) => {
+              const extra = row._count.participants - row.participants.length;
+              return (
+                <tr key={row.id} className={t.tr}>
+                  <td className={t.td + " text-text font-medium"}>{row.name}</td>
+                  <td className={t.td + " text-text-muted text-xs"}>
+                    {TYPE_LABEL[row.type] ?? row.type}
+                  </td>
+                  <td className={t.td + " text-text-muted tabular-nums"}>
+                    <span className="inline-flex items-center gap-1.5">
+                      <CountryFlag
+                        code={row.countryId}
+                        title={row.countryLabel}
+                        className="text-sm"
+                      />
+                      <span className="uppercase">{row.countryLabel}</span>
+                    </span>
+                  </td>
+                  <td className={t.td + " text-text-muted truncate max-w-[30ch] text-xs"}>
+                    {row.website ? (
+                      <a
+                        href={row.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-secondary hover:underline"
+                      >
+                        {row.website.replace(/^https?:\/\//, "").slice(0, 40)}
+                      </a>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
+                  <td className={t.td + " text-text-muted text-xs"}>
+                    {row.participants.length === 0 ? (
+                      <span className="text-text-subtle">—</span>
+                    ) : (
+                      <span className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+                        {row.participants.map((p, i) => (
+                          <span key={p.id} className="text-text">
+                            {p.fullName}
+                            {p.position ? (
+                              <span className="text-text-subtle"> · {p.position}</span>
+                            ) : null}
+                            {i < row.participants.length - 1 ? (
+                              <span className="text-text-subtle">,</span>
+                            ) : null}
+                          </span>
+                        ))}
+                        {extra > 0 ? (
+                          <span
+                            className="bg-surface-canvas text-text-muted inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium"
+                            title={`${extra} participante(s) más en esta institución`}
+                          >
+                            +{extra} más
+                          </span>
+                        ) : null}
+                      </span>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
             {rows.length === 0 ? (
               <AdminEmpty message="Aún no hay instituciones registradas. Corre npm run db:seed." />
             ) : null}
