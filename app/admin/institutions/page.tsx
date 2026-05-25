@@ -32,9 +32,9 @@ export default async function InstitutionsPage() {
           <thead className={t.thead}>
             <tr>
               <th className={t.th}>Nombre</th>
+              <th className={t.th + " text-right"}>Acuerdos</th>
               <th className={t.th}>Tipo</th>
               <th className={t.th}>País</th>
-              <th className={t.th + " text-right"}>Acuerdos</th>
               <th className={t.th}>Participante(s)</th>
             </tr>
           </thead>
@@ -45,6 +45,15 @@ export default async function InstitutionsPage() {
               return (
                 <tr key={row.id} className={t.tr}>
                   <td className={t.td + " text-text font-medium"}>{row.name}</td>
+                  <td
+                    className={
+                      t.td +
+                      " text-right tabular-nums " +
+                      (agreements > 0 ? "text-text font-medium" : "text-text-subtle")
+                    }
+                  >
+                    {agreements}
+                  </td>
                   <td className={t.td + " text-text-muted text-xs"}>
                     {TYPE_LABEL[row.type] ?? row.type}
                   </td>
@@ -57,15 +66,6 @@ export default async function InstitutionsPage() {
                       />
                       <span className="uppercase">{row.countryLabel}</span>
                     </span>
-                  </td>
-                  <td
-                    className={
-                      t.td +
-                      " text-right tabular-nums " +
-                      (agreements > 0 ? "text-text font-medium" : "text-text-subtle")
-                    }
-                  >
-                    {agreements}
                   </td>
                   <td className={t.td + " text-text-muted text-xs"}>
                     {row.participants.length === 0 ? (
