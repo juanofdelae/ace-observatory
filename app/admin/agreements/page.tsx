@@ -72,7 +72,7 @@ export default async function AgreementsPage({
   ]);
 
   return (
-    <div className="mx-auto max-w-7xl space-y-6">
+    <div className="mx-auto max-w-7xl space-y-8">
       <header className="flex items-end justify-between gap-6">
         <AdminPageHeader
           title="Acuerdos"
@@ -82,7 +82,7 @@ export default async function AgreementsPage({
         />
         <Link
           href="/admin/agreements/new"
-          className="bg-ink hover:bg-ink-700 inline-flex h-9 items-center gap-1.5 rounded-md px-4 text-sm font-medium text-white transition-colors"
+          className="bg-accent-orange-cta hover:bg-brand-orange-ace-hover inline-flex h-10 items-center gap-1.5 rounded-full px-5 text-sm font-semibold text-white shadow-card transition-all hover:shadow-card-hover"
         >
           <Plus className="size-4" aria-hidden />
           Nuevo acuerdo
@@ -98,7 +98,7 @@ export default async function AgreementsPage({
         <FilterBar filters={filters} editions={editions} countries={countries} />
       </div>
 
-      <div className="border-border bg-surface overflow-hidden rounded-xl border">
+      <div className="border-surface-border bg-white shadow-card overflow-hidden rounded-2xl border">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-surface-canvas text-text-subtle border-border border-b text-left text-[11px] font-medium tracking-widest uppercase">

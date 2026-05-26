@@ -13,16 +13,18 @@ export function AdminPageHeader({
 }) {
   return (
     <header>
-      <p className="text-text-muted text-xs font-semibold tracking-widest uppercase">
+      <p className="text-accent-blue text-xs font-semibold tracking-widest uppercase">
         {eyebrow}
       </p>
-      <h1 className="text-text mt-2 text-3xl font-semibold tracking-tight">{title}</h1>
+      <h1 className="text-ink mt-3 text-3xl font-bold tracking-tight leading-[1.05] md:text-[2.125rem]">
+        {title}
+      </h1>
       {description ? (
-        <p className="text-text-muted mt-2 max-w-2xl text-sm leading-relaxed">{description}</p>
+        <p className="text-text-muted mt-3 max-w-2xl text-sm leading-relaxed">{description}</p>
       ) : null}
       {typeof count === "number" ? (
-        <p className="text-text-muted mt-2 text-sm">
-          <span className="text-text font-medium tabular-nums">{count.toLocaleString()}</span>{" "}
+        <p className="text-text-muted mt-3 text-sm">
+          <span className="text-ink font-semibold tabular-nums">{count.toLocaleString()}</span>{" "}
           {countLabel}
         </p>
       ) : null}

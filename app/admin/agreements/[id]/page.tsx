@@ -50,22 +50,22 @@ export default async function AgreementDetailPage({ params }: { params: Params }
   const partyBCountryCode = a.partyB.countryId ?? null;
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6">
+    <div className="mx-auto max-w-6xl space-y-8">
       <Link
         href="/admin/agreements"
-        className="text-text-muted hover:text-text inline-flex items-center gap-1 text-xs transition-colors"
+        className="text-text-muted hover:text-ink inline-flex items-center gap-1 text-xs transition-colors"
       >
         ← Acuerdos
       </Link>
 
-      {/* Header */}
-      <header className="space-y-2">
-        <p className="text-text-muted text-xs font-semibold tracking-widest uppercase">
+      {/* Header — Observatory display typography */}
+      <header className="space-y-3">
+        <p className="text-accent-blue text-xs font-semibold tracking-widest uppercase">
           {INSTRUMENT_LABELS[a.instrumentType]} · {shortEdition(a.editionId, a.edition.name)}
         </p>
-        <h1 className="text-text flex flex-wrap items-center gap-2 text-2xl font-semibold tracking-tight">
+        <h1 className="text-ink flex flex-wrap items-center gap-x-3 gap-y-1 text-3xl font-bold tracking-tight leading-[1.05] md:text-[2.125rem]">
           {a.partyA.name}
-          <span className="text-text-subtle text-base" aria-hidden>↔</span>
+          <span className="text-text-subtle text-2xl font-normal" aria-hidden>↔</span>
           {a.partyB.name}
         </h1>
         {a.subject ? (
@@ -73,8 +73,8 @@ export default async function AgreementDetailPage({ params }: { params: Params }
         ) : null}
       </header>
 
-      {/* KPI strip */}
-      <section className="border-border bg-surface grid grid-cols-2 gap-y-4 gap-x-6 rounded-xl border p-6 md:grid-cols-4">
+      {/* KPI strip — premium card */}
+      <section className="border-surface-border bg-white shadow-card grid grid-cols-2 gap-y-5 gap-x-6 rounded-2xl border p-6 md:grid-cols-4 md:p-8">
         <Field label="Código" mono>
           {a.code}
         </Field>
@@ -117,9 +117,9 @@ export default async function AgreementDetailPage({ params }: { params: Params }
       </section>
 
       {/* Body: vertical phase stepper (left) + parties / history (right) */}
-      <section className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr]">
-        <aside className="border-border bg-surface rounded-xl border p-6">
-          <h2 className="text-text-muted mb-5 text-[10px] font-semibold tracking-widest uppercase">
+      <section className="grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr]">
+        <aside className="border-surface-border bg-white shadow-card rounded-2xl border p-6 md:p-7">
+          <h2 className="text-accent-blue mb-5 text-[10px] font-semibold tracking-widest uppercase">
             Recorrido
           </h2>
           <PhaseTimeline
@@ -152,8 +152,8 @@ export default async function AgreementDetailPage({ params }: { params: Params }
           </div>
 
           {a.resultSummary ? (
-            <div className="border-border bg-surface rounded-xl border p-6">
-              <h2 className="text-text mb-3 text-sm font-semibold tracking-tight">
+            <div className="border-surface-border bg-white shadow-card rounded-2xl border p-6 md:p-7">
+              <h2 className="text-ink mb-3 text-base font-semibold tracking-tight">
                 Resumen del resultado
               </h2>
               <p className="text-text-muted text-sm leading-relaxed whitespace-pre-wrap">
@@ -162,8 +162,8 @@ export default async function AgreementDetailPage({ params }: { params: Params }
             </div>
           ) : null}
 
-          <div className="border-border bg-surface rounded-xl border p-6">
-            <h2 className="text-text mb-4 text-sm font-semibold tracking-tight">
+          <div className="border-surface-border bg-white shadow-card rounded-2xl border p-6 md:p-7">
+            <h2 className="text-ink mb-4 text-base font-semibold tracking-tight">
               Historial de cambios
             </h2>
             {a.statusChanges.length === 0 ? (
@@ -241,20 +241,20 @@ function PartyCard({
   signer: string | null;
 }) {
   return (
-    <div className="border-border bg-surface rounded-xl border p-5">
-      <p className="text-text-subtle text-[10px] font-semibold tracking-widest uppercase">
+    <div className="border-surface-border bg-white shadow-card rounded-2xl border p-6">
+      <p className="text-accent-blue text-[10px] font-semibold tracking-widest uppercase">
         {label}
       </p>
-      <p className="text-text mt-2 flex items-center gap-2 text-base font-semibold tracking-tight">
-        <CountryFlag code={countryCode} title={countryLabel ?? undefined} className="text-base" />
+      <p className="text-ink mt-3 flex items-center gap-2 text-lg font-semibold tracking-tight leading-tight">
+        <CountryFlag code={countryCode} title={countryLabel ?? undefined} className="text-xl shrink-0" />
         <span>{name}</span>
       </p>
       {signer ? (
-        <p className="text-text-muted mt-2 text-xs">
-          Firmante: <span className="text-text">{signer}</span>
+        <p className="text-text-muted mt-3 text-xs">
+          Firmante: <span className="text-ink font-medium">{signer}</span>
         </p>
       ) : (
-        <p className="text-text-subtle mt-2 text-xs">Sin firmante vinculado.</p>
+        <p className="text-text-subtle mt-3 text-xs">Sin firmante vinculado.</p>
       )}
     </div>
   );
