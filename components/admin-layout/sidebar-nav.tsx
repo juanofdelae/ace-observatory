@@ -45,7 +45,7 @@ export function SidebarNav({ onNavigate, counters }: SidebarNavProps) {
             onClick={onNavigate}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "group relative flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] transition-colors",
+              "group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors",
               active
                 ? "bg-sidebar-hover text-sidebar-active font-semibold"
                 : "text-sidebar-idle hover:bg-sidebar-hover hover:text-sidebar-active",
@@ -54,12 +54,12 @@ export function SidebarNav({ onNavigate, counters }: SidebarNavProps) {
             {active ? (
               <span
                 aria-hidden
-                className="bg-sidebar-accent absolute left-0 top-2 bottom-2 w-0.5 rounded-r-full"
+                className="bg-sidebar-accent absolute left-0 top-2.5 bottom-2.5 w-0.5 rounded-r-full"
               />
             ) : null}
             <Icon
               className={cn(
-                "h-4 w-4 shrink-0 transition-colors",
+                "h-[18px] w-[18px] shrink-0 transition-colors",
                 active
                   ? "text-sidebar-accent"
                   : "text-sidebar-idle group-hover:text-sidebar-active",
@@ -71,7 +71,7 @@ export function SidebarNav({ onNavigate, counters }: SidebarNavProps) {
             {count !== null ? (
               <span
                 className={cn(
-                  "ml-auto inline-flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10px] font-semibold tabular-nums",
+                  "ml-auto inline-flex h-5 min-w-[22px] items-center justify-center rounded-full px-1.5 text-[11px] font-semibold tabular-nums",
                   item.href === "/admin/agreements"
                     ? "bg-sidebar-accent text-white"
                     : "bg-sidebar-hover text-sidebar-active border-sidebar-border border",

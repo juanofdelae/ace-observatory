@@ -100,18 +100,18 @@ export default async function AgreementsPage({
 
       <div className="border-surface-border bg-white shadow-card overflow-hidden rounded-2xl border">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-surface-canvas text-text-subtle border-border border-b text-left text-[11px] font-medium tracking-widest uppercase">
+          <table className="w-full text-[15px]">
+            <thead className="bg-surface-canvas text-text-subtle border-border border-b text-left text-xs font-semibold tracking-widest uppercase">
               <tr>
-                <th className="px-3 py-3 font-medium">Código</th>
-                <th className="px-3 py-3 font-medium">Partes</th>
-                <th className="px-3 py-3 font-medium">Edición</th>
-                <th className="px-3 py-3 font-medium">Fase</th>
-                <th className="px-3 py-3 font-medium">Alerta</th>
-                <th className="px-3 py-3 font-medium">Actualizado</th>
-                <th className="px-3 py-3 font-medium">Próxima acción</th>
-                <th className="px-3 py-3 font-medium">Doc</th>
-                <th className="px-3 py-3 font-medium" aria-label="Acciones" />
+                <th className="px-4 py-3.5 font-semibold">Código</th>
+                <th className="px-4 py-3.5 font-semibold">Partes</th>
+                <th className="px-4 py-3.5 font-semibold">Edición</th>
+                <th className="px-4 py-3.5 font-semibold">Fase</th>
+                <th className="px-4 py-3.5 font-semibold">Alerta</th>
+                <th className="px-4 py-3.5 font-semibold">Actualizado</th>
+                <th className="px-4 py-3.5 font-semibold">Próxima acción</th>
+                <th className="px-4 py-3.5 font-semibold">Doc</th>
+                <th className="px-4 py-3.5 font-semibold" aria-label="Acciones" />
               </tr>
             </thead>
             <tbody>
@@ -129,7 +129,7 @@ export default async function AgreementsPage({
                     key={row.id}
                     className="border-border hover:bg-surface-canvas border-b last:border-0 transition-colors"
                   >
-                    <td className="px-3 py-2.5 font-mono text-xs whitespace-nowrap">
+                    <td className="px-4 py-3 font-mono text-[13px] whitespace-nowrap">
                       <Link
                         href={`/admin/agreements/${row.id}`}
                         className="text-secondary hover:underline"
@@ -138,33 +138,33 @@ export default async function AgreementsPage({
                         {shortenCode(row.code)}
                       </Link>
                     </td>
-                    <td className="px-3 py-2.5">
+                    <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         <ArrowUpDown
-                          className="text-text-subtle size-3.5 shrink-0"
+                          className="text-text-subtle size-4 shrink-0"
                           strokeWidth={1.5}
                           aria-label="Relación entre las dos partes"
                         />
                         <div className="min-w-0 flex-1">
                           <div
-                            className="text-text flex max-w-[30ch] items-center gap-1.5 text-[13px]"
+                            className="text-ink flex max-w-[32ch] items-center gap-2 text-sm"
                             title={`${row.partyAName}${row.partyACountry ? ` — ${row.partyACountry}` : ""}`}
                           >
                             <CountryFlag
                               code={row.partyACountryCode}
                               title={row.partyACountry ?? undefined}
-                              className="shrink-0 text-sm"
+                              className="shrink-0 text-base"
                             />
                             <span className="truncate">{row.partyAName}</span>
                           </div>
                           <div
-                            className="text-text mt-0.5 flex max-w-[30ch] items-center gap-1.5 text-[13px]"
+                            className="text-ink mt-1 flex max-w-[32ch] items-center gap-2 text-sm"
                             title={`${row.partyBName}${row.partyBCountry ? ` — ${row.partyBCountry}` : ""}`}
                           >
                             <CountryFlag
                               code={row.partyBCountryCode}
                               title={row.partyBCountry ?? undefined}
-                              className="shrink-0 text-sm"
+                              className="shrink-0 text-base"
                             />
                             <span className="truncate">{row.partyBName}</span>
                           </div>
@@ -172,27 +172,27 @@ export default async function AgreementsPage({
                       </div>
                     </td>
                     <td
-                      className="text-text-muted px-3 py-2.5 text-xs whitespace-nowrap"
+                      className="text-text-muted px-4 py-3 text-sm whitespace-nowrap"
                       title={row.editionName}
                     >
                       {shortEdition(row.editionId, row.editionName)}
                     </td>
-                    <td className="px-3 py-2.5">
+                    <td className="px-4 py-3">
                       <PipelineCell phase={row.phase} closed={closed} />
                     </td>
-                    <td className="px-3 py-2.5">
+                    <td className="px-4 py-3">
                       <AlertPill status={row.alertStatus} />
                     </td>
-                    <td className="text-text-muted px-3 py-2.5 text-xs tabular-nums">
+                    <td className="text-text-muted px-4 py-3 text-sm tabular-nums">
                       {relativeUpdate(row.updatedAt)}
                     </td>
-                    <td className="px-3 py-2.5">
+                    <td className="px-4 py-3">
                       <NextActionPill tone={action.tone} label={action.label} />
                     </td>
-                    <td className="px-3 py-2.5">
+                    <td className="px-4 py-3">
                       <DocumentPill url={row.documentUrl} />
                     </td>
-                    <td className="px-3 py-2.5 text-right">
+                    <td className="px-4 py-3 text-right">
                       <RowActions agreementId={row.id} />
                     </td>
                   </tr>

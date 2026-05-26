@@ -11,20 +11,20 @@ export function DocumentPill({ url }: { url: string | null }) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="border-state-active/30 bg-state-active/10 text-state-active hover:bg-state-active/15 inline-flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-[11px] font-medium transition-colors"
+        className="border-state-active/30 bg-state-active/10 text-state-active hover:bg-state-active/15 inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs font-semibold transition-colors"
         title="Abrir PDF en una pestaña nueva"
       >
-        <FileText className="size-3" aria-hidden />
+        <FileText className="size-3.5" aria-hidden />
         PDF
       </a>
     );
   }
   return (
     <span
-      className="border-state-warning/30 bg-state-warning/10 text-state-warning inline-flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-[11px] font-medium"
+      className="border-state-warning/30 bg-state-warning/10 text-state-warning inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs font-semibold"
       title="No hay documento adjunto — acción operativa pendiente"
     >
-      <AlertTriangle className="size-3" aria-hidden />
+      <AlertTriangle className="size-3.5" aria-hidden />
       Falta PDF
     </span>
   );
