@@ -94,7 +94,7 @@ export function PhaseTimeline({
         return (
           <li
             key={step.phase}
-            className="relative grid grid-cols-[28px_1fr] gap-x-3 pb-6 last:pb-0"
+            className="relative grid grid-cols-[32px_1fr] gap-x-4 pb-7 last:pb-0"
           >
             {/* Vertical connector — drawn from this dot's center toward the
                 next dot. Color: phase color if this step is done, otherwise
@@ -103,7 +103,7 @@ export function PhaseTimeline({
               <span
                 aria-hidden
                 className={cn(
-                  "absolute left-[13px] top-7 bottom-0 w-0.5",
+                  "absolute left-[15px] top-8 bottom-0 w-0.5",
                   muted || !isDone ? "bg-border" : cls.line,
                 )}
               />
@@ -112,34 +112,33 @@ export function PhaseTimeline({
             {/* Dot */}
             <span
               className={cn(
-                "z-10 inline-flex h-7 w-7 items-center justify-center rounded-full border-2 transition-colors",
+                "z-10 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 transition-colors",
                 muted && "border-border bg-surface-canvas text-text-subtle",
                 !muted && isDone && cls.done,
                 !muted && isCurrent && cls.current,
                 !muted && !isDone && !isCurrent && cls.future,
               )}
             >
-              <Icon className="size-3" strokeWidth={2.5} aria-hidden />
+              <Icon className="size-3.5" strokeWidth={2.5} aria-hidden />
             </span>
 
             {/* Label + factual detail */}
-            <div className="min-w-0 pt-0.5">
+            <div className="min-w-0 pt-1">
               <p
                 className={cn(
-                  "text-[13px]",
-                  isCurrent ? "text-text font-semibold" : "text-text-muted",
+                  isCurrent ? "text-ink text-base font-semibold" : "text-text-muted text-sm font-medium",
                   muted && "text-text-subtle",
                 )}
               >
                 {step.label}
                 {isCurrent ? (
-                  <span className="ml-2 text-[10px] font-medium uppercase tracking-widest text-text-subtle">
+                  <span className="ml-2 text-[11px] font-semibold uppercase tracking-widest text-text-subtle">
                     actual
                   </span>
                 ) : null}
               </p>
               {detail ? (
-                <div className="text-text-muted mt-1 space-y-0.5 text-[11px] leading-relaxed">
+                <div className="text-text-muted mt-1.5 space-y-0.5 text-[13px] leading-relaxed">
                   {detail}
                 </div>
               ) : null}

@@ -106,7 +106,7 @@ export default async function AgreementDetailPage({ params }: { params: Params }
               {a.tags.map((t) => (
                 <span
                   key={t}
-                  className="border-border text-text-muted inline-flex items-center rounded-full border px-2 py-0.5 text-[11px]"
+                  className="border-border text-text-muted inline-flex items-center rounded-full border px-2.5 py-1 text-xs"
                 >
                   {t}
                 </span>
@@ -119,7 +119,7 @@ export default async function AgreementDetailPage({ params }: { params: Params }
       {/* Body: vertical phase stepper (left) + parties / history (right) */}
       <section className="grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr]">
         <aside className="border-surface-border bg-white shadow-card rounded-2xl border p-6 md:p-7">
-          <h2 className="text-accent-blue mb-5 text-[10px] font-semibold tracking-widest uppercase">
+          <h2 className="text-accent-blue mb-6 text-xs font-semibold tracking-widest uppercase">
             Recorrido
           </h2>
           <PhaseTimeline
@@ -153,21 +153,21 @@ export default async function AgreementDetailPage({ params }: { params: Params }
 
           {a.resultSummary ? (
             <div className="border-surface-border bg-white shadow-card rounded-2xl border p-6 md:p-7">
-              <h2 className="text-ink mb-3 text-base font-semibold tracking-tight">
+              <h2 className="text-ink mb-3 text-lg font-semibold tracking-tight">
                 Resumen del resultado
               </h2>
-              <p className="text-text-muted text-sm leading-relaxed whitespace-pre-wrap">
+              <p className="text-text-muted text-base leading-relaxed whitespace-pre-wrap">
                 {a.resultSummary}
               </p>
             </div>
           ) : null}
 
           <div className="border-surface-border bg-white shadow-card rounded-2xl border p-6 md:p-7">
-            <h2 className="text-ink mb-4 text-base font-semibold tracking-tight">
+            <h2 className="text-ink mb-4 text-lg font-semibold tracking-tight">
               Historial de cambios
             </h2>
             {a.statusChanges.length === 0 ? (
-              <p className="text-text-subtle text-sm">Sin transiciones registradas todavía.</p>
+              <p className="text-text-muted text-base">Sin transiciones registradas todavía.</p>
             ) : (
               <ol className="border-border space-y-3 border-l-2 pl-5">
                 {a.statusChanges.map((change) => (
@@ -219,10 +219,10 @@ function Field({
 }) {
   return (
     <div>
-      <p className="text-text-subtle text-[10px] font-semibold tracking-widest uppercase">
+      <p className="text-text-subtle text-xs font-semibold tracking-widest uppercase">
         {label}
       </p>
-      <div className={cn("text-text mt-1.5 text-sm", mono && "font-mono text-xs")}>{children}</div>
+      <div className={cn("text-ink mt-2 text-base", mono && "font-mono text-sm")}>{children}</div>
     </div>
   );
 }
@@ -242,19 +242,19 @@ function PartyCard({
 }) {
   return (
     <div className="border-surface-border bg-white shadow-card rounded-2xl border p-6">
-      <p className="text-accent-blue text-[10px] font-semibold tracking-widest uppercase">
+      <p className="text-accent-blue text-xs font-semibold tracking-widest uppercase">
         {label}
       </p>
-      <p className="text-ink mt-3 flex items-center gap-2 text-lg font-semibold tracking-tight leading-tight">
-        <CountryFlag code={countryCode} title={countryLabel ?? undefined} className="text-xl shrink-0" />
+      <p className="text-ink mt-3 flex items-center gap-2.5 text-xl font-semibold tracking-tight leading-tight">
+        <CountryFlag code={countryCode} title={countryLabel ?? undefined} className="text-2xl shrink-0" />
         <span>{name}</span>
       </p>
       {signer ? (
-        <p className="text-text-muted mt-3 text-xs">
+        <p className="text-text-muted mt-3 text-sm">
           Firmante: <span className="text-ink font-medium">{signer}</span>
         </p>
       ) : (
-        <p className="text-text-subtle mt-3 text-xs">Sin firmante vinculado.</p>
+        <p className="text-text-subtle mt-3 text-sm">Sin firmante vinculado.</p>
       )}
     </div>
   );
@@ -262,8 +262,8 @@ function PartyCard({
 
 function Pill({ children, dot }: { children: React.ReactNode; dot: string }) {
   return (
-    <span className="border-border text-text inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium">
-      <span className={cn("size-1.5 rounded-full", dot)} aria-hidden />
+    <span className="border-border text-ink inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold">
+      <span className={cn("size-2 rounded-full", dot)} aria-hidden />
       {children}
     </span>
   );
