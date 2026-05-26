@@ -16,9 +16,9 @@ type UserMenuProps = {
   role: string;
 };
 
-// Auth is disabled in this build — the menu is a static identity badge with
-// no sign-out action. Restore the "Cerrar sesión" item + signOutAction wiring
-// if you re-enable real sessions.
+// Identity badge for the dark sidebar. Auth is disabled; the menu shows
+// who's pretending to be logged in + a note explaining there's no real
+// session to clear. Restyle here if you re-enable real sessions.
 export function UserMenu({ email, name, role }: UserMenuProps) {
   const display = name?.trim() || email;
   const initials = display
@@ -29,19 +29,23 @@ export function UserMenu({ email, name, role }: UserMenuProps) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="hover:bg-sidebar-accent flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)]">
-        <span className="bg-primary text-primary-foreground inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold">
+      <DropdownMenuTrigger className="hover:bg-sidebar-hover flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20">
+        <span className="bg-sidebar-accent text-white inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold">
           {initials || <UserCircle className="h-4 w-4" aria-hidden />}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="text-text block truncate text-sm font-medium">{display}</span>
-          <span className="text-text-muted block truncate text-xs">{role.toLowerCase()}</span>
+          <span className="text-sidebar-active block truncate text-sm font-medium">
+            {display}
+          </span>
+          <span className="text-sidebar-idle block truncate text-xs">
+            {role.toLowerCase()}
+          </span>
         </span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" side="top" className="w-56">
+      <DropdownMenuContent align="end" side="top" className="w-60">
         <DropdownMenuLabel className="flex flex-col">
           <span className="text-text-muted text-xs font-normal">Usuario (sin sesión)</span>
-          <span className="text-text truncate text-sm font-medium">{email}</span>
+          <span className="text-ink truncate text-sm font-medium">{email}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuLabel className="text-text-muted text-[11px] font-normal leading-snug">

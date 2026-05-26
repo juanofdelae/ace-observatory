@@ -11,28 +11,33 @@ type SidebarProps = {
   className?: string;
 };
 
+// Dark navy admin sidebar — matches the public Observatory's signature
+// "premium tablet" treatment. Inherits the public site's sidebar-* tokens
+// (bg #0b1f3a, idle #9db0cb, hover #162e4a, accent #f97316).
 export function Sidebar({ user, counters, className }: SidebarProps) {
   return (
     <aside
       className={cn(
-        "bg-muted/50 border-sidebar-border flex h-full w-full flex-col border-r",
+        "bg-sidebar-bg flex h-full w-full flex-col text-white shadow-sidebar",
         className,
       )}
     >
-      <div className="flex h-16 items-center px-6">
-        <Link href="/admin/dashboard" className="flex items-center gap-2.5">
-          <span className="bg-primary text-primary-foreground inline-flex h-7 w-7 items-center justify-center rounded-md text-[11px] font-bold tracking-tight">
+      <div className="border-sidebar-border flex h-16 items-center border-b px-6">
+        <Link href="/admin/agreements" className="flex items-center gap-2.5">
+          <span className="bg-sidebar-accent text-white inline-flex h-7 w-7 items-center justify-center rounded-md text-[11px] font-bold tracking-tight">
             AB
           </span>
-          <span className="text-text text-[15px] font-semibold tracking-tight">ACE Bridge</span>
+          <span className="text-sidebar-active text-[15px] font-semibold tracking-tight">
+            ACE Bridge
+          </span>
         </Link>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-3 pt-2 pb-4">
+      <div className="flex-1 overflow-y-auto px-3 pt-4 pb-4">
         <SidebarNav counters={counters} />
       </div>
 
-      <div className="px-3 pb-3">
+      <div className="border-sidebar-border border-t px-3 py-3">
         <UserMenu email={user.email} name={user.name} role={user.role} />
       </div>
     </aside>

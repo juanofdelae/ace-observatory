@@ -26,11 +26,14 @@ function counterFor(href: string, counters?: SidebarCounters): number | null {
   return null;
 }
 
+// Dark-theme nav rows. Idle items are muted blue-gray, hover surfaces a
+// subtle navy panel, active item gets a left-orange-rail + white text
+// (mirroring the public Observatory sidebar's "current page" treatment).
 export function SidebarNav({ onNavigate, counters }: SidebarNavProps) {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Navegación principal" className="flex flex-col gap-px">
+    <nav aria-label="Navegación principal" className="flex flex-col gap-1">
       {NAV_ITEMS.map((item) => {
         const Icon = item.icon;
         const active = isActive(pathname, item.href);
@@ -42,16 +45,24 @@ export function SidebarNav({ onNavigate, counters }: SidebarNavProps) {
             onClick={onNavigate}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "group flex items-center gap-2.5 rounded-md px-3 py-2 text-[13px] transition-colors",
+              "group relative flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] transition-colors",
               active
-                ? "bg-surface text-text border-border border font-medium"
-                : "text-text-muted hover:text-text hover:bg-surface",
+                ? "bg-sidebar-hover text-sidebar-active font-semibold"
+                : "text-sidebar-idle hover:bg-sidebar-hover hover:text-sidebar-active",
             )}
           >
+            {active ? (
+              <span
+                aria-hidden
+                className="bg-sidebar-accent absolute left-0 top-2 bottom-2 w-0.5 rounded-r-full"
+              />
+            ) : null}
             <Icon
               className={cn(
                 "h-4 w-4 shrink-0 transition-colors",
-                active ? "text-primary" : "text-text-subtle group-hover:text-text-muted",
+                active
+                  ? "text-sidebar-accent"
+                  : "text-sidebar-idle group-hover:text-sidebar-active",
               )}
               aria-hidden
               strokeWidth={1.75}
@@ -62,8 +73,8 @@ export function SidebarNav({ onNavigate, counters }: SidebarNavProps) {
                 className={cn(
                   "ml-auto inline-flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10px] font-semibold tabular-nums",
                   item.href === "/admin/agreements"
-                    ? "bg-state-warning/15 text-state-warning"
-                    : "bg-surface-canvas text-text-muted",
+                    ? "bg-sidebar-accent text-white"
+                    : "bg-sidebar-hover text-sidebar-active border-sidebar-border border",
                 )}
                 aria-label={`${count} pendientes`}
               >
