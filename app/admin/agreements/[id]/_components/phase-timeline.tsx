@@ -94,7 +94,7 @@ export function PhaseTimeline({
         return (
           <li
             key={step.phase}
-            className="relative grid grid-cols-[32px_1fr] gap-x-4 pb-7 last:pb-0"
+            className="relative grid grid-cols-[32px_1fr] gap-x-4 pb-14 last:pb-0"
           >
             {/* Vertical connector — drawn from this dot's center toward the
                 next dot. Color: phase color if this step is done, otherwise
