@@ -3,6 +3,14 @@ import { FileText, LifeBuoy, MailCheck, Users } from "lucide-react";
 import { loadDashboardSnapshot } from "@/lib/admin/queries/dashboard";
 import { cn } from "@/lib/utils";
 
+import {
+  EditionsBar,
+  PhaseDonut,
+  PhaseLegend,
+  SectorBar,
+  SignedPerMonthLine,
+} from "./_components/charts";
+
 export const metadata = { title: "Dashboard" };
 
 export default async function DashboardPage() {
@@ -59,27 +67,49 @@ export default async function DashboardPage() {
         />
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-2">
+      <section className="grid gap-6 lg:grid-cols-3">
         <Card title="Distribución por fase">
-          <PhaseList rows={data.agreementsByPhase} />
-        </Card>
-        <Card title="Acuerdos por edición">
-          {data.agreementsByEdition.length > 0 ? (
-            <EditionList rows={data.agreementsByEdition} />
+          {data.agreementsByPhase.length > 0 ? (
+            <>
+              <PhaseDonut data={data.agreementsByPhase} />
+              <PhaseLegend data={data.agreementsByPhase} />
+            </>
           ) : (
-            <Empty message="Aún no hay acuerdos vinculados a una edición." />
+            <Empty message="Sin acuerdos aún." />
+          )}
+        </Card>
+        <div className="lg:col-span-2">
+          <Card title="Acuerdos por edición">
+            {data.agreementsByEdition.length > 0 ? (
+              <EditionsBar data={data.agreementsByEdition} />
+            ) : (
+              <Empty message="Aún no hay acuerdos vinculados a una edición." />
+            )}
+          </Card>
+        </div>
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <Card title="Firmas por mes" subtitle="Últimos 12 meses">
+            {data.agreementsByMonth.length > 0 ? (
+              <SignedPerMonthLine data={data.agreementsByMonth} />
+            ) : (
+              <Empty message="Sin datos de firma todavía." />
+            )}
+          </Card>
+        </div>
+        <Card title="Sectores principales">
+          {data.agreementsBySector.length > 0 ? (
+            <SectorBar data={data.agreementsBySector} />
+          ) : (
+            <Empty message="Sin datos de sector aún." />
           )}
         </Card>
       </section>
 
       <section className="grid gap-6 lg:grid-cols-2">
-        <Card title="Sectores principales">
-          {data.agreementsBySector.length > 0 ? (
-            <SectorList rows={data.agreementsBySector} />
-          ) : (
-            <Empty message="Sin datos de sector aún." />
-          )}
-        </Card>
+        <div className="hidden" />
         <Card title="Salud de encuestas" subtitle="Cobertura del seguimiento automático">
           <div className="grid grid-cols-3 gap-3 pt-2">
             <MiniStat label="Pendientes" value={data.surveyHealth.pending} tone="muted" />
@@ -160,58 +190,6 @@ function Empty({ message }: { message: string }) {
     <div className="text-text-subtle flex h-[200px] items-center justify-center text-sm">
       {message}
     </div>
-  );
-}
-
-function PhaseList({ rows }: { rows: Array<{ phase: string; count: number }> }) {
-  const labels: Record<string, string> = {
-    SIGNED: "Firmado",
-    CONTACTED: "Contactado",
-    ACTIVE: "Activo",
-    RESULT: "Con resultado",
-  };
-  return (
-    <ul className="space-y-2">
-      {rows.map((row) => (
-        <li key={row.phase} className="flex items-center justify-between text-sm">
-          <span className="text-text-muted">{labels[row.phase] ?? row.phase}</span>
-          <span className="text-text font-medium tabular-nums">{row.count}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function EditionList({
-  rows,
-}: {
-  rows: Array<{ editionLabel: string; year: number; count: number }>;
-}) {
-  return (
-    <ul className="space-y-2">
-      {rows.map((row) => (
-        <li key={`${row.editionLabel}-${row.year}`} className="flex items-center justify-between text-sm">
-          <span className="text-text-muted truncate">
-            {row.editionLabel}
-            {row.year ? ` · ${row.year}` : ""}
-          </span>
-          <span className="text-text font-medium tabular-nums">{row.count}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function SectorList({ rows }: { rows: Array<{ sector: string; count: number }> }) {
-  return (
-    <ul className="space-y-2">
-      {rows.slice(0, 8).map((row) => (
-        <li key={row.sector} className="flex items-center justify-between text-sm">
-          <span className="text-text-muted">{row.sector.replace(/_/g, " ")}</span>
-          <span className="text-text font-medium tabular-nums">{row.count}</span>
-        </li>
-      ))}
-    </ul>
   );
 }
 
