@@ -190,7 +190,7 @@ export default function OverviewPage() {
           <div className="mt-9 grid grid-cols-2 md:grid-cols-4 gap-3">
             <HeroKPI value={totalEditions} label="Editions" />
             <HeroKPI value={countriesRepresented} label="Countries" />
-            <HeroKPI value={totalDelegates} label="Verified delegates" />
+            <HeroKPI value={1040} label="Verified delegates" />
             <HeroKPI value={totalSites} label="Institutions visited" />
           </div>
 
